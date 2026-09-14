@@ -1,6 +1,6 @@
 # Kristal docs (v5)
 
-> **Release status:** `5.0.0-rc.1` — stabilization release candidate. See [`VERSION`](VERSION), [`kristal-release.json`](kristal-release.json), and the [specification status](docs/Technical-Reference/kristal-docs-v5/00-overview/specification-status.md).
+> **Release status:** `5.0.0-rc.1` — stabilization release candidate. See [`VERSION`](VERSION), [`kristal-release.json`](kristal-release.json), the [release status report](docs/status/2026-09-14-v5.0.0-rc.1.md), and the [specification status](docs/Technical-Reference/kristal-docs-v5/00-overview/specification-status.md).
 
 This repository contains the **Kristal v5 specification, normative contract set, conformance vectors, and release metadata** for a deterministic, portable epistemic artifact system.
 
@@ -15,6 +15,23 @@ Kristal v5 defines how **Structured Epistemic States** are compiled into immutab
 * **distribution** from **runtime activation**
 
 Kristal is designed for portable, verifiable, offline-capable knowledge operation across toolchains, authority channels, reader policies, and runtime environments.
+
+---
+
+## Release identity
+
+The current release candidate is `v5.0.0-rc.1`. The release identity is deliberately small:
+
+```text
+version: 5.0.0-rc.1
+git tag: v5.0.0-rc.1
+git commit: resolved from the tag after the release commit exists
+canonicalization: kristal.v5:jcs-rfc8785
+```
+
+Git tag + commit SHA pin the exact repository content. [`contract-set.manifest.json`](contract-set.manifest.json) only identifies the public contract surfaces; it is not an exhaustive file inventory and does not duplicate Git with per-file release hashes.
+
+Kristal still uses JCS/SHA-256 where it is part of the **Kristal artifact identity protocol**. That domain-level hashing is separate from framework release versioning. See the [release status report](docs/status/2026-09-14-v5.0.0-rc.1.md) and [`RELEASE.md`](RELEASE.md).
 
 ---
 

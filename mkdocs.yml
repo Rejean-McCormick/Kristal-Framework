@@ -46,6 +46,8 @@ plugins:
 
 nav:
   - Home: index.md
+  - Status:
+      - v5.0.0-rc.1 release status: status/2026-09-14-v5.0.0-rc.1.md
   - Overview:
       - Specification status: Technical-Reference/kristal-docs-v5/00-overview/specification-status.md
       - What is Kristal v5: Technical-Reference/kristal-docs-v5/00-overview/what-is-kristal-v5.md

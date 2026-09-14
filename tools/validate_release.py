@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Kristal Framework release-candidate validation gate."""
 from __future__ import annotations
-import hashlib
 import json
 import re
 import subprocess
@@ -43,8 +42,8 @@ def fail(msg: str) -> None:
 
 def check_required_files() -> None:
     required = [
-        "VERSION", "CHANGELOG.md", "RELEASE.md", "kristal-release.json",
-        "contract-set.manifest.json", "schema-set.manifest.json",
+        "VERSION", "CHANGELOG.md", "RELEASE.md", ".gitattributes", "kristal-release.json",
+        "contract-set.manifest.json",
         "docs/Technical-Reference/kristal-docs-v5/00-overview/specification-status.md",
     ]
     for rel in required:
@@ -87,13 +86,37 @@ def check_schema_ids() -> None:
         seen.add(sid)
 
 
-def check_manifests() -> None:
-    rc=subprocess.run([sys.executable, str(ROOT/'tools/build_manifests.py'), '--check'], cwd=ROOT)
-    if rc.returncode: fail("generated manifests are out of date")
-    release=json.loads((ROOT/'kristal-release.json').read_text(encoding='utf-8'))
-    version=(ROOT/'VERSION').read_text(encoding='utf-8').strip()
-    if release.get('version') != version: fail('VERSION != kristal-release.json version')
-    if release.get('git',{}).get('commit') is not None: fail('release manifest must not self-embed a Git commit')
+def check_release_metadata() -> None:
+    release = json.loads((ROOT / "kristal-release.json").read_text(encoding="utf-8"))
+    version = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
+    if release.get("version") != version:
+        fail("VERSION != kristal-release.json version")
+    if release.get("git", {}).get("tag") != f"v{version}":
+        fail("release tag does not match VERSION")
+    if release.get("git", {}).get("commit") is not None:
+        fail("release manifest must not self-embed a Git commit")
+
+    surfaces = json.loads((ROOT / "contract-set.manifest.json").read_text(encoding="utf-8"))
+    if surfaces.get("release") != version:
+        fail("contract-set.manifest.json release does not match VERSION")
+
+    seen = set()
+    for section in ("normative_surfaces", "profile_surfaces", "conformance_surfaces", "informative_surfaces"):
+        values = surfaces.get(section)
+        if not isinstance(values, list):
+            fail(f"contract-set.manifest.json missing list: {section}")
+        for entry in values:
+            path = entry.get("path") if isinstance(entry, dict) else None
+            name = entry.get("name") if isinstance(entry, dict) else None
+            if not isinstance(path, str) or not path:
+                fail(f"invalid contract surface path in {section}")
+            if not isinstance(name, str) or not name:
+                fail(f"invalid contract surface name in {section}")
+            if path in seen:
+                fail(f"duplicate contract surface path: {path}")
+            seen.add(path)
+            if not (ROOT / path).exists():
+                fail(f"contract surface does not exist: {path}")
 
 
 def check_alignment() -> None:
@@ -115,7 +138,7 @@ def main() -> int:
         ("JCS golden hashes", check_jcs_vectors),
         ("version alignment", check_alignment),
         ("documentation navigation and links", check_docs),
-        ("generated manifests", check_manifests),
+        ("release metadata and contract surfaces", check_release_metadata),
     ]
     for name, fn in checks:
         fn(); print(f"PASS: {name}")

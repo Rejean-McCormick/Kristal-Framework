@@ -1,379 +1,62 @@
 {
-  "contract_set_digest": "sha256:3cac653f423395ee859f815681a293a80e26808d8f39a686655cd40f17042599",
-  "digest_algorithm": "sha256",
-  "entries": [
+  "format": "kristal.contract-surfaces/v1",
+  "release": "5.0.0-rc.1",
+  "core_schema_line": "5.0",
+  "purpose": "Human- and machine-readable index of the public Kristal v5 contract surfaces. Git tag + commit pin the exact repository contents.",
+  "normative_surfaces": [
     {
-      "path": "docs/Technical-Reference/kristal-docs-v5/00-overview/conformance-and-alignment.md",
-      "role": "informative",
-      "sha256": "ddbcc717e469cb81299889ff12e5791a414671a716295c582bef7f4bc01311f5"
+      "name": "core-spec",
+      "path": "docs/Technical-Reference/kristal-docs-v5/01-core-spec/"
     },
     {
-      "path": "docs/Technical-Reference/kristal-docs-v5/00-overview/ecosystem-integration.md",
-      "role": "informative",
-      "sha256": "7782aa24db9f8d11775c85449ae4e9bca889f94fe48c107fc6eb8a4c091c09af"
+      "name": "json-schemas",
+      "path": "docs/Technical-Reference/kristal-docs-v5/02-schemas/"
     },
     {
-      "path": "docs/Technical-Reference/kristal-docs-v5/00-overview/plural-validation-and-federated-authority.md",
-      "role": "informative",
-      "sha256": "c691f083334bdf2a745c594e545879bc7ca9cd6398281065267faa8103377306"
+      "name": "reproducibility",
+      "path": "docs/Technical-Reference/kristal-docs-v5/03-reproducibility/"
     },
     {
-      "path": "docs/Technical-Reference/kristal-docs-v5/00-overview/sharding-and-federation.md",
-      "role": "informative",
-      "sha256": "b63813f8626ee38e9025c9e894376e247582823061fd45b4df6b327ca43b726c"
+      "name": "query-contract",
+      "path": "docs/Technical-Reference/kristal-docs-v5/04-query/query-contract.md"
     },
     {
-      "path": "docs/Technical-Reference/kristal-docs-v5/00-overview/specification-status.md",
-      "role": "informative",
-      "sha256": "85bed300defb70634ce5317592712d574e6f681b621f0dddcb3cd7f55795d32b"
+      "name": "integration-contracts",
+      "path": "docs/Technical-Reference/kristal-docs-v5/06-integration/"
     },
     {
-      "path": "docs/Technical-Reference/kristal-docs-v5/00-overview/validation-certainty-and-authority.md",
-      "role": "informative",
-      "sha256": "6d9bd2db11e48e7dbfee0e6282d23e9a283b8f364925f75f795fe1b5acf7bc07"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/00-overview/vision-and-scope.md",
-      "role": "informative",
-      "sha256": "2bfc18bcf5679ad342d2d53870c23573c16b80f655b26e1b720ae95618d98cb5"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/00-overview/what-is-kristal-v5.md",
-      "role": "informative",
-      "sha256": "5fb3bfee7b3be88bf83e626dbb13fa13b308d7c6875c710f6358790b13a31c97"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/01-core-spec/assertion-status-and-certainty.md",
-      "role": "core-normative",
-      "sha256": "cd705595ce004b461f699ccccaa5eea3800e6796ee258015ff9636c69951cb19"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/01-core-spec/authority-recognition.md",
-      "role": "core-normative",
-      "sha256": "5d4de1b7fab84216233334979017307c2c526f14aa86b0163deb77421bb715ba"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/01-core-spec/ids-canonicalization-hashing.md",
-      "role": "core-normative",
-      "sha256": "cddc0da5bd5cc46cf92b6797de7e2f501d45cbf2d8189c1768a5a1a5ad45c836"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/01-core-spec/kristal-v5-core-spec.md",
-      "role": "core-normative",
-      "sha256": "ba476cdfecdf156d46194d4f23537449a26c6b1d08585d66254bf75e3ce1e14a"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/01-core-spec/signatures-trust.md",
-      "role": "core-normative",
-      "sha256": "6168433c0b2b43213d906d441ee64172dff8f8d912619387cd4a9834163f537b"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/01-core-spec/structured-epistemic-state.md",
-      "role": "core-normative",
-      "sha256": "62c16326c1565cf479210cf1a11fa154ac215024285b81cf82c85c01dd4510a2"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/02-schemas/assertion-status.schema.json",
-      "role": "schema-normative",
-      "sha256": "e3ad87a5e46b25611d54528aebcca0420061d6592f523234be7cf39f630b87d5"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/02-schemas/authority-recognition.schema.json",
-      "role": "schema-normative",
-      "sha256": "2636b501cb339bc05915235c0dd013912a22230a991e23b4382cb406c1a4be2f"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/02-schemas/authority-registry.schema.json",
-      "role": "schema-normative",
-      "sha256": "79363421672067848095715c3944277fec4043873ed95a2dd58982c2c6683c62"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/02-schemas/claim-ir.schema.json",
-      "role": "schema-normative",
-      "sha256": "9be124bf42472ac7c900d4b0ac4ed14ae964bd89af6842e8da7f2f61df7d7678"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/02-schemas/exchange-federation-manifest.schema.json",
-      "role": "schema-normative",
-      "sha256": "9313fa3562a2b8db725794e8352fe3f0159d082f55b3a592c49ff893ca0500bd"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/02-schemas/exchange-manifest.schema.json",
-      "role": "schema-normative",
-      "sha256": "282a797c62638c28d0af25b981854c681dab47a93d14fda1737f7a291e6adc94"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/02-schemas/exchange-shard-manifest.schema.json",
-      "role": "schema-normative",
-      "sha256": "59991724b65575e00fb503f71a8fedcdfd58d65d251a95e6f0d6366a530135b1"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/02-schemas/reader-policy.schema.json",
-      "role": "schema-normative",
-      "sha256": "a2b6339e38f12d8704e1c76154b0bc4cc232c1236e4062e25bf3740c18e3fd6c"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/02-schemas/resolved-claim-ir.schema.json",
-      "role": "schema-normative",
-      "sha256": "7ebe9479fe1bb26fcca4aa8d53cec137fd2b620c5505d2493cd1c0e02c5d99e6"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/02-schemas/revocations.schema.json",
-      "role": "schema-normative",
-      "sha256": "0ae15b2da957716744ac2e3c87785ed7434cc729635829d780b6290760be483e"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/02-schemas/runtime-pack-manifest.schema.json",
-      "role": "schema-normative",
-      "sha256": "c86cab2402515cd4094749f24e2a0510254f0f3a98cbdb89630029aebaefb3d2"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/02-schemas/structured-epistemic-state.schema.json",
-      "role": "schema-normative",
-      "sha256": "268aa21717ced0a0d0208fda34f39c6f88f81fefc817e9ea049f4c30c810bdda"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/02-schemas/validation-report.schema.json",
-      "role": "schema-normative",
-      "sha256": "c9177639f0b11d1e33617a0f90ad1fbd8564e7bd6c831a23757021723dc57649"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/03-reproducibility/allowed-runtime-pack-policies.md",
-      "role": "reproducibility-normative",
-      "sha256": "0e93e2b26675e61fd0ccbc0fbe6f1f04fb15788cbaa5ac240106633ca844cf5d"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/03-reproducibility/deterministic-build-rules.md",
-      "role": "reproducibility-normative",
-      "sha256": "b2990c3b3e2f1fda6639900205f355c36669841c81d5b2130f33b765e149c4d8"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/03-reproducibility/reproducibility-acceptance-tests.md",
-      "role": "reproducibility-normative",
-      "sha256": "be98c07d457f26e3e3158970d4b07afbfa24890248174924c0f1b528319e968a"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/03-reproducibility/subset-recipes.md",
-      "role": "reproducibility-normative",
-      "sha256": "f0b67aa305c18dd741a14c15c00731af4985dc301929d67242065d9b8b87e03d"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/04-query/query-contract.md",
-      "role": "query-normative",
-      "sha256": "e866b70de954c87190f231139963c3e84745ec49c84a4367fec496f4df32d2c7"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/04-query/reader-policy-profiles.md",
-      "role": "profile-normative",
-      "sha256": "55512854ecb84f064db72370d7bb2bad62d84e8e1383ea88518cac8c39905117"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/05-profiles/profile-jsonld-export.md",
-      "role": "profile-normative",
-      "sha256": "62d53f453e7d1420253e7163fecd2d9d01e56d54dba10010a5b4dcbd1cfdf5d5"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/05-profiles/profile-provenance-nanopub-provo.md",
-      "role": "profile-normative",
-      "sha256": "bf86fb284d60c5d3a7205b5635c5faf26dd421d51081a503339ad7ce7b03dfe7"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/05-profiles/profile-query-tpf-pagination.md",
-      "role": "profile-normative",
-      "sha256": "201574167fb63609a8b634501eca8c21fe88e8afbe9a1f5db12603216566e7fe"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/05-profiles/profile-rdf-integrity-rdfc.md",
-      "role": "profile-normative",
-      "sha256": "2b883ea6d2192e45c098ff9d3df8a6ee17e255f49ca19afc38e6754e01cc0b02"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/05-profiles/profile-rdf-wdqs-export.md",
-      "role": "profile-normative",
-      "sha256": "7dc3cdd39b9d8c901160a7206c12c6a84ffd3629e4a77490c054de13a2a04726"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/05-profiles/profile-transparency-log.md",
-      "role": "profile-normative",
-      "sha256": "48ba0e1968a2dbbb79578d92f4377d31e71295ed3dfafb0f48931458eed4f30f"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/05-profiles/profile-validation-shacl.md",
-      "role": "profile-normative",
-      "sha256": "c919906a74e3a9ba6fb46f332b28ebe47633d913fa923af6aafd46d874bcdb39"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/05-profiles/profile-validation-shex.md",
-      "role": "profile-normative",
-      "sha256": "93e7281ec55205320eb5b1ed7b81726c5ae0448c2a95ae52321b266c1f41d26d"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/06-integration/architect-rendering-contract.md",
-      "role": "integration-normative",
-      "sha256": "635ab52f2f7dc4c54e793a602143213ffccd2435ec7997b1df3d90507e2346a5"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/06-integration/konnaxion-distribution-contract.md",
-      "role": "integration-normative",
-      "sha256": "53aeb59a2b9faf0f8eb99c0c95fe21ced6f77689f943ce01cff09c87fe03b496"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/06-integration/orgo-workflow-contract.md",
-      "role": "integration-normative",
-      "sha256": "ecc5abea3f7672562bad97e3d1064ba4499ae43e15e2f59f991972c77531f813"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/06-integration/sentient-resolution-contract.md",
-      "role": "integration-normative",
-      "sha256": "f8f3295c1339643927e598b8fb079ebdb460fe447c5da4df5bcc6ab3a3d1729f"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/07-security/downgrade-rollback-policy.md",
-      "role": "security-normative",
-      "sha256": "ca5dafb00a59d827d135461abe12ce4fe4e791ff04f7d4f2f1805099021584d9"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/07-security/key-management-and-trust-roots.md",
-      "role": "security-normative",
-      "sha256": "6aac257a121cc02f0636b29148357e7668a19a9aefa4db9baa2c6f0263f6ed2b"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/07-security/multi-tenancy-boundaries.md",
-      "role": "security-normative",
-      "sha256": "fd6d617d2abdfbe0dc6e08cd19ce392ad9494ef04d9c7c4ae8eeb949a1f9b2c6"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/08-ops/failure-paths-and-resilience.md",
-      "role": "informative",
-      "sha256": "33bad09ca1ff0b8d455624287d37e412d18f46e589696f644c0fd9f7da0488a8"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/08-ops/logging-and-correlation-ids.md",
-      "role": "informative",
-      "sha256": "1a6ece1de6bb93385521f34384f462c21b66482340a02b96d5a3d0d3f42dbce9"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/08-ops/operational-guidance-template.md",
-      "role": "informative",
-      "sha256": "7e781642b2af072c3573f7db9c74b629badac8dda5e129b5fa1ee987aa32f516"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/08-ops/release-strategies.md",
-      "role": "informative",
-      "sha256": "12ee92f9887cde6620eb8f507c250d863c8ee39a67b21421a95bbfe1a89020ae"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/09-test-vectors/jcs/README.md",
-      "role": "test-vector-normative",
-      "sha256": "a38ae97adf64f7ffe10fc559af5495985332e238f222c29db9608754a8b27c23"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/09-test-vectors/jcs/expected-hashes.txt",
-      "role": "test-vector-normative",
-      "sha256": "880bf0c233b7ff2a4635d385a4069e998b75928295393addea95a34ec64aa858"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/09-test-vectors/jcs/vectors.json",
-      "role": "test-vector-normative",
-      "sha256": "65a3ba92c64b69c8858692b941aa8ac2c92ec3509120378f8cf689e0eb4c5623"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/09-test-vectors/rdfc/README.md",
-      "role": "test-vector-normative",
-      "sha256": "b1973c8e46239e04403b74556a7328684525b73c7f7595cfcf3a8f6b9affb780"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/authority-registry.example.json",
-      "role": "informative",
-      "sha256": "4a5236c052d69e55e39ba2c61a3451e68f4321cca892258d7a943bad4d427a61"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/claim-ir.example.json",
-      "role": "informative",
-      "sha256": "9cd41fd87415a3741919eed1f929433de9e043b0131ebac3be398113aa4e20b0"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/divergent-fork.example.json",
-      "role": "informative",
-      "sha256": "2509ba1341b4c619617d0e7aa6b7abe9362e38b32c2d1eb10e23e61b334be1f9"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/exchange-federation-manifest.example.json",
-      "role": "informative",
-      "sha256": "b8620fb7846931ab9eb42acea558423d2a58600cb5419259a500da58d5ec9f1d"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/exchange-shard-manifest.example.json",
-      "role": "informative",
-      "sha256": "4253105975f116c297d1e2417e97d5f4cf9bc586f808a5adf22f5a39f3d1d021"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/exchange.example.json",
-      "role": "informative",
-      "sha256": "e2a7a75e6a3981ed2101039334b7b08c12f7786b6fbd9448f68d64c67a39fd05"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/independent-research-evidence-bundle.example.json",
-      "role": "informative",
-      "sha256": "43fb0cea2091cfc81a955e71c71f66fc4789954fd158e69da3d2794ddfe2f4be"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/medical-authority-recognition.example.json",
-      "role": "informative",
-      "sha256": "c8af00fe15ad0582b0d66ba61466a4afed57cb6e65928afefa2e84a9af2a7241"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/mythology-corpus-kristal.example.json",
-      "role": "informative",
-      "sha256": "8c874e5366bb1cbf281a69b9b2875e94ae65fbc171957afb6f8a2d37f2c5532c"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/plural-authority-federation.example.json",
-      "role": "informative",
-      "sha256": "fe01d76b00b3177f7f3c91604a37c86b800af03d97c1a56b8c80c2de9ab4bbe2"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/publisher-declared-system-kristal.example.json",
-      "role": "informative",
-      "sha256": "bf2f055ff74b08d1100f0b4ff7c314fe3530c7a7051e7faecce5a00f284a94d3"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/reader-policy-validated-only.example.json",
-      "role": "informative",
-      "sha256": "7886e231ec1805e6ae95547f0781a082e8253e8722c95ea19020fe95608af548"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/resolved-claim-ir.example.json",
-      "role": "informative",
-      "sha256": "73cf75bcbcd008a8e2ad5e325d74a151724f7b09b9dd4ff84f4684b9fd66cebe"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/revocations.example.json",
-      "role": "informative",
-      "sha256": "527d24de01e4ddf230931428b81652a7f6c688f424be2dd44f0c5b9fb12174f3"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/runtime-pack-manifest.example.json",
-      "role": "informative",
-      "sha256": "a3a90f4071a75d777a344d23937adbe4bcb5cb298b71a17c1f8256675f67332d"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/structured-epistemic-state.example.json",
-      "role": "informative",
-      "sha256": "3b483f237d69674a7f1855e6df5824d9b6a26b24744dfdafca1bbfc6c1dc6052"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/validation-report.example.json",
-      "role": "informative",
-      "sha256": "1822f7e8e6eeebf17eaeff4510596dd5b15dcdaf2d464d67a0a55b6b43ef7377"
-    },
-    {
-      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/wikidata-seed-kristal.example.json",
-      "role": "informative",
-      "sha256": "452ca6eefc8c5723e848050d9fa146220864ca73f105f4d351926d537c97ce6f"
+      "name": "security-contracts",
+      "path": "docs/Technical-Reference/kristal-docs-v5/07-security/"
     }
   ],
-  "format": "kristal.contract-set-manifest/v1",
-  "release": "5.0.0-rc.1",
-  "set_digest_algorithm": "sha256(path + NUL + sha256 + LF, sorted by path)"
+  "profile_surfaces": [
+    {
+      "name": "reader-policy-profiles",
+      "path": "docs/Technical-Reference/kristal-docs-v5/04-query/reader-policy-profiles.md"
+    },
+    {
+      "name": "interoperability-profiles",
+      "path": "docs/Technical-Reference/kristal-docs-v5/05-profiles/"
+    }
+  ],
+  "conformance_surfaces": [
+    {
+      "name": "jcs-vectors",
+      "path": "docs/Technical-Reference/kristal-docs-v5/09-test-vectors/jcs/"
+    }
+  ],
+  "informative_surfaces": [
+    {
+      "name": "overview",
+      "path": "docs/Technical-Reference/kristal-docs-v5/00-overview/"
+    },
+    {
+      "name": "operations",
+      "path": "docs/Technical-Reference/kristal-docs-v5/08-ops/"
+    },
+    {
+      "name": "examples",
+      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/"
+    }
+  ]
 }

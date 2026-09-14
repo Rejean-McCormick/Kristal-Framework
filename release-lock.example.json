@@ -2,9 +2,6 @@
   "format": "kristal.consumer-lock/v1",
   "version": "5.0.0-rc.1",
   "git_tag": "v5.0.0-rc.1",
-  "git_commit": "<resolve signed tag to full immutable commit SHA>",
-  "contract_set_digest": "<copy from kristal-release.json>",
-  "schema_set_digest": "<copy from kristal-release.json>",
-  "canonicalization_profile": "kristal.v5:jcs-rfc8785",
-  "canonicalization_version": "1"
+  "git_commit": "<resolve tag to full immutable commit SHA>",
+  "canonicalization_profile": "kristal.v5:jcs-rfc8785"
 }

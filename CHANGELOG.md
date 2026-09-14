@@ -7,11 +7,18 @@ All notable changes to the Kristal Framework contract set are recorded here.
 ### Added
 
 - machine-readable release identity (`kristal-release.json`);
-- deterministic contract-set and schema-set manifests with SHA-256 digests;
+- curated contract-surface index (`contract-set.manifest.json`);
 - explicit normativity classification;
 - release validation tooling and CI gates;
 - MkDocs navigation aligned to the actual v5 documentation tree;
 - release and pinning guidance for downstream consumers.
+
+### Simplified
+
+- Git tag + commit SHA are the authoritative immutable release identity;
+- removed generated per-file release hashes and exhaustive schema/file manifests;
+- release validation checks contract surfaces and conformance, not a byte-for-byte repository inventory;
+- annotated Git tags are the default release mechanism; signed tags remain optional.
 
 ### Fixed
 
@@ -21,4 +28,4 @@ All notable changes to the Kristal Framework contract set are recorded here.
 
 ### Compatibility
 
-This stabilization release does not intentionally change the Kristal v5 epistemic model. It formalizes the existing v5 contract set for reproducible release and downstream pinning.
+This stabilization release does not intentionally change the Kristal v5 epistemic model. It formalizes the existing v5 contract surfaces for release and downstream pinning.

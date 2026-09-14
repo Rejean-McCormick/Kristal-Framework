@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-"""Build a deterministic source release ZIP and SHA-256 sidecar."""
+"""Build a deterministic source release ZIP."""
 from __future__ import annotations
-import hashlib
 from pathlib import Path
 import zipfile
 
@@ -9,8 +8,9 @@ ROOT = Path(__file__).resolve().parents[1]
 VERSION = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
 DIST = ROOT / "dist"
 ARCHIVE = DIST / f"kristal-framework-v{VERSION}.zip"
-SIDECAR = DIST / f"kristal-framework-v{VERSION}.zip.sha256"
 EXCLUDED_PARTS = {".git", ".venv", "__pycache__", "site", "dist"}
+TEXT_SUFFIXES = {".md", ".json", ".txt", ".yml", ".yaml", ".py", ".mjs", ".toml"}
+TEXT_NAMES = {"VERSION", ".gitattributes", ".gitignore"}
 
 
 def included(path: Path) -> bool:
@@ -22,6 +22,14 @@ def included(path: Path) -> bool:
     return path.is_file()
 
 
+def archive_bytes(path: Path) -> bytes:
+    data = path.read_bytes()
+    if path.suffix.lower() in TEXT_SUFFIXES or path.name in TEXT_NAMES:
+        text = data.decode("utf-8").replace("\r\n", "\n").replace("\r", "\n")
+        return text.encode("utf-8")
+    return data
+
+
 def main() -> int:
     DIST.mkdir(exist_ok=True)
     files = sorted((p for p in ROOT.rglob("*") if included(p)), key=lambda p: p.relative_to(ROOT).as_posix())
@@ -31,12 +39,10 @@ def main() -> int:
             info = zipfile.ZipInfo(rel, date_time=(1980, 1, 1, 0, 0, 0))
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = (0o100644 & 0xFFFF) << 16
-            zf.writestr(info, path.read_bytes(), compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
-    digest = hashlib.sha256(ARCHIVE.read_bytes()).hexdigest()
-    SIDECAR.write_text(f"{digest}  {ARCHIVE.name}\n", encoding="utf-8")
+            zf.writestr(info, archive_bytes(path), compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
     print(ARCHIVE)
-    print(f"sha256:{digest}")
     return 0
+
 
 if __name__ == "__main__":
     raise SystemExit(main())
