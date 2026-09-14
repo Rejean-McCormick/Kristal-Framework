@@ -1,6 +1,8 @@
 # Kristal docs (v5)
 
-This repository contains the documentation set for **Kristal v5**, a deterministic, portable epistemic artifact system.
+> **Release status:** `5.0.0-rc.1` — stabilization release candidate. See [`VERSION`](VERSION), [`kristal-release.json`](kristal-release.json), and the [specification status](docs/Technical-Reference/kristal-docs-v5/00-overview/specification-status.md).
+
+This repository contains the **Kristal v5 specification, normative contract set, conformance vectors, and release metadata** for a deterministic, portable epistemic artifact system.
 
 Kristal v5 defines how **Structured Epistemic States** are compiled into immutable, portable, queryable, and verifiable artifacts while separating:
 
@@ -18,31 +20,31 @@ Kristal is designed for portable, verifiable, offline-capable knowledge operatio
 
 ## Start here
 
-1. `00-overview/what-is-kristal-v5.md`
-2. `00-overview/vision-and-scope.md`
-3. `00-overview/validation-certainty-and-authority.md`
-4. `00-overview/plural-validation-and-federated-authority.md`
-5. `00-overview/conformance-and-alignment.md`
-6. `01-core-spec/kristal-v5-core-spec.md`
+1. `docs/Technical-Reference/kristal-docs-v5/00-overview/what-is-kristal-v5.md`
+2. `docs/Technical-Reference/kristal-docs-v5/00-overview/vision-and-scope.md`
+3. `docs/Technical-Reference/kristal-docs-v5/00-overview/validation-certainty-and-authority.md`
+4. `docs/Technical-Reference/kristal-docs-v5/00-overview/plural-validation-and-federated-authority.md`
+5. `docs/Technical-Reference/kristal-docs-v5/00-overview/conformance-and-alignment.md`
+6. `docs/Technical-Reference/kristal-docs-v5/01-core-spec/kristal-v5-core-spec.md`
 
 If you are implementing specific surfaces:
 
-* Core model, artifact lifecycle, and validation boundaries → `01-core-spec/kristal-v5-core-spec.md`
-* Structured Epistemic State → `01-core-spec/structured-epistemic-state.md`
-* Assertion status and certainty → `01-core-spec/assertion-status-and-certainty.md`
-* Authority recognition → `01-core-spec/authority-recognition.md`
-* IDs, technical canonicalization, and hashing → `01-core-spec/ids-canonicalization-hashing.md`
-* Signatures and trust roots → `01-core-spec/signatures-trust.md`
-* Normative JSON Schemas → `02-schemas/`
-* Reproducibility and build surfaces → `03-reproducibility/`
-* Offline query surface → `04-query/query-contract.md`
-* Reader policy profiles → `04-query/reader-policy-profiles.md`
-* Optional interoperability profiles → `05-profiles/`
-* Ecosystem contracts: Orgo, SenTient, Architect, Konnaxion → `06-integration/`
-* Security, trust roots, downgrade policy, rollback policy, and multi-tenancy → `07-security/`
-* Operational guidance → `08-ops/`
-* Golden vectors and fixtures → `09-test-vectors/`
-* Worked examples → `10-examples/`
+* Core model, artifact lifecycle, and validation boundaries → `docs/Technical-Reference/kristal-docs-v5/01-core-spec/kristal-v5-core-spec.md`
+* Structured Epistemic State → `docs/Technical-Reference/kristal-docs-v5/01-core-spec/structured-epistemic-state.md`
+* Assertion status and certainty → `docs/Technical-Reference/kristal-docs-v5/01-core-spec/assertion-status-and-certainty.md`
+* Authority recognition → `docs/Technical-Reference/kristal-docs-v5/01-core-spec/authority-recognition.md`
+* IDs, technical canonicalization, and hashing → `docs/Technical-Reference/kristal-docs-v5/01-core-spec/ids-canonicalization-hashing.md`
+* Signatures and trust roots → `docs/Technical-Reference/kristal-docs-v5/01-core-spec/signatures-trust.md`
+* Normative JSON Schemas → `docs/Technical-Reference/kristal-docs-v5/02-schemas/`
+* Reproducibility and build surfaces → `docs/Technical-Reference/kristal-docs-v5/03-reproducibility/`
+* Offline query surface → `docs/Technical-Reference/kristal-docs-v5/04-query/query-contract.md`
+* Reader policy profiles → `docs/Technical-Reference/kristal-docs-v5/04-query/reader-policy-profiles.md`
+* Optional interoperability profiles → `docs/Technical-Reference/kristal-docs-v5/05-profiles/`
+* Ecosystem contracts: Orgo, SenTient, Architect, Konnaxion → `docs/Technical-Reference/kristal-docs-v5/06-integration/`
+* Security, trust roots, downgrade policy, rollback policy, and multi-tenancy → `docs/Technical-Reference/kristal-docs-v5/07-security/`
+* Operational guidance → `docs/Technical-Reference/kristal-docs-v5/08-ops/`
+* Golden vectors and fixtures → `docs/Technical-Reference/kristal-docs-v5/09-test-vectors/`
+* Worked examples → `docs/Technical-Reference/kristal-docs-v5/10-examples/`
 
 ---
 
@@ -289,11 +291,11 @@ Implementations claiming **Kristal v5 Core** conformance must, at minimum:
 * preserve validation labels, certainty labels, authority labels, scope labels, and lineage
 * produce manifests recording build-affecting configuration, policy, source identity, and compiler identity
 * enforce required verification where hashes, signatures, trust roots, revocation checks, or runtime activation rules are declared as mandatory
-* pass the core test vectors in `09-test-vectors/`
+* pass the core test vectors in `docs/Technical-Reference/kristal-docs-v5/09-test-vectors/`
 
 ### Profiles
 
-Advanced capabilities are expressed as explicit profiles in `05-profiles/`.
+Advanced capabilities are expressed as explicit profiles in `docs/Technical-Reference/kristal-docs-v5/05-profiles/`.
 
 Implementations may claim profile conformance individually, including profiles such as:
 
@@ -318,17 +320,17 @@ Profiles must:
 
 ## Repository structure
 
-* `00-overview/` — scope, concepts, conformance, federation, authority, and ecosystem placement
-* `01-core-spec/` — normative core specification, artifact model, status model, authority model, signatures, IDs, and hashing
-* `02-schemas/` — normative JSON Schemas for v5 artifacts
-* `03-reproducibility/` — deterministic compilation rules, identity surfaces, runtime pack policies, and acceptance tests
-* `04-query/` — offline query contract and reader policy profiles
-* `05-profiles/` — optional standardized profiles
-* `06-integration/` — inter-system contracts for Orgo, SenTient, Architect, and Konnaxion
-* `07-security/` — trust roots, key management, downgrade and rollback policy, and multi-tenancy boundaries
-* `08-ops/` — operational guidance and release patterns
-* `09-test-vectors/` — golden vectors for canonicalization, hashing, manifests, and identity-bearing surfaces
-* `10-examples/` — worked examples for implementers
+* `docs/Technical-Reference/kristal-docs-v5/00-overview/` — scope, concepts, conformance, federation, authority, and ecosystem placement
+* `docs/Technical-Reference/kristal-docs-v5/01-core-spec/` — normative core specification, artifact model, status model, authority model, signatures, IDs, and hashing
+* `docs/Technical-Reference/kristal-docs-v5/02-schemas/` — normative JSON Schemas for v5 artifacts
+* `docs/Technical-Reference/kristal-docs-v5/03-reproducibility/` — deterministic compilation rules, identity surfaces, runtime pack policies, and acceptance tests
+* `docs/Technical-Reference/kristal-docs-v5/04-query/` — offline query contract and reader policy profiles
+* `docs/Technical-Reference/kristal-docs-v5/05-profiles/` — optional standardized profiles
+* `docs/Technical-Reference/kristal-docs-v5/06-integration/` — inter-system contracts for Orgo, SenTient, Architect, and Konnaxion
+* `docs/Technical-Reference/kristal-docs-v5/07-security/` — trust roots, key management, downgrade and rollback policy, and multi-tenancy boundaries
+* `docs/Technical-Reference/kristal-docs-v5/08-ops/` — operational guidance and release patterns
+* `docs/Technical-Reference/kristal-docs-v5/09-test-vectors/` — golden vectors for canonicalization, hashing, manifests, and identity-bearing surfaces
+* `docs/Technical-Reference/kristal-docs-v5/10-examples/` — worked examples for implementers
 
 ---
 
@@ -354,7 +356,7 @@ Profiles must:
 
 Any change that affects hashes, IDs, deterministic outputs, schema semantics, validation semantics, authority recognition, reader policy behavior, runtime activation, or trust-surface behavior requires:
 
-* updated test vectors in `09-test-vectors/`
+* updated test vectors in `docs/Technical-Reference/kristal-docs-v5/09-test-vectors/`
 * an explicit version bump in the relevant schema, profile, policy, or artifact identifier
 * compatibility guidance where applicable
 * clear notes explaining the affected conformance surface

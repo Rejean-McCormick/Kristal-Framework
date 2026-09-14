@@ -4,24 +4,35 @@
   "canonicalization_profile": "kristal.v5:jcs-rfc8785",
   "canonicalization_version": "1",
   "hash_alg": "sha256",
-  "generated_at": "2026-06-12T16:22:19Z",
+  "status": "normative-release-candidate",
   "notes": [
-    "These vectors avoid floating-point numbers to prevent implementation-dependent number formatting.",
-    "Canonical strings are UTF-8 JSON strings with object keys sorted lexicographically and no insignificant whitespace.",
-    "For hash-target vectors, excluded_json_pointers are removed before canonicalization and hashing."
+    "expected_canonical is the exact UTF-8 text expected from RFC 8785 JCS after declared exclusions.",
+    "expected_sha256_hex is SHA-256 over expected_canonical UTF-8 bytes.",
+    "Vectors jcs-008 and jcs-009 are derived from the RFC 8785 serialization and property-ordering examples."
   ],
   "vectors": [
     {
+      "id": "jcs-001",
       "name": "empty_object",
       "description": "Canonicalization of an empty object.",
+      "profile": "kristal.v5:jcs-rfc8785",
+      "artifact_type": "jcs_test_vectors",
+      "content_boundary": {
+        "exclude_json_pointers": []
+      },
       "input": {},
-      "excluded_json_pointers": [],
-      "canonical": "{}",
-      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      "expected_canonical": "{}",
+      "expected_sha256_hex": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
     },
     {
+      "id": "jcs-002",
       "name": "sorted_keys_nested",
       "description": "Object keys are sorted lexicographically at every object level; array order is preserved.",
+      "profile": "kristal.v5:jcs-rfc8785",
+      "artifact_type": "jcs_test_vectors",
+      "content_boundary": {
+        "exclude_json_pointers": []
+      },
       "input": {
         "z": "last",
         "a": {
@@ -37,26 +48,36 @@
           "text"
         ]
       },
-      "excluded_json_pointers": [],
-      "canonical": "{\"a\":{\"a\":1,\"b\":2},\"m\":[{\"x\":false,\"y\":true},null,\"text\"],\"z\":\"last\"}",
-      "sha256": "f45ed16183caf10d3a60b77fe6b2db8cae797c847bd81391b43887abd68fe7c2"
+      "expected_canonical": "{\"a\":{\"a\":1,\"b\":2},\"m\":[{\"x\":false,\"y\":true},null,\"text\"],\"z\":\"last\"}",
+      "expected_sha256_hex": "f45ed16183caf10d3a60b77fe6b2db8cae797c847bd81391b43887abd68fe7c2"
     },
     {
+      "id": "jcs-003",
       "name": "unicode_and_escaping",
       "description": "Unicode is preserved as UTF-8; control characters are escaped by JSON serialization.",
+      "profile": "kristal.v5:jcs-rfc8785",
+      "artifact_type": "jcs_test_vectors",
+      "content_boundary": {
+        "exclude_json_pointers": []
+      },
       "input": {
         "fr": "école",
         "emoji": "🜂",
         "quote": "Kristal \"v5\"",
         "newline": "line one\nline two"
       },
-      "excluded_json_pointers": [],
-      "canonical": "{\"emoji\":\"🜂\",\"fr\":\"école\",\"newline\":\"line one\\nline two\",\"quote\":\"Kristal \\\"v5\\\"\"}",
-      "sha256": "68defeb9da2ff00fb2f129615c50f62cc7a4f6dc7255e9b3958e0df41c785673"
+      "expected_canonical": "{\"emoji\":\"🜂\",\"fr\":\"école\",\"newline\":\"line one\\nline two\",\"quote\":\"Kristal \\\"v5\\\"\"}",
+      "expected_sha256_hex": "68defeb9da2ff00fb2f129615c50f62cc7a4f6dc7255e9b3958e0df41c785673"
     },
     {
+      "id": "jcs-004",
       "name": "hash_ref_shape",
       "description": "Hash references use alg/value, not algo/hash.",
+      "profile": "kristal.v5:jcs-rfc8785",
+      "artifact_type": "jcs_test_vectors",
+      "content_boundary": {
+        "exclude_json_pointers": []
+      },
       "input": {
         "content_hash": {
           "alg": "sha256",
@@ -64,13 +85,22 @@
         },
         "schema_version": "5.0"
       },
-      "excluded_json_pointers": [],
-      "canonical": "{\"content_hash\":{\"alg\":\"sha256\",\"value\":\"0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef\"},\"schema_version\":\"5.0\"}",
-      "sha256": "ee7ebf24d933706ec2abdef203464c9bcc2bc0d149e72336668d65eb04ab536f"
+      "expected_canonical": "{\"content_hash\":{\"alg\":\"sha256\",\"value\":\"0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef\"},\"schema_version\":\"5.0\"}",
+      "expected_sha256_hex": "ee7ebf24d933706ec2abdef203464c9bcc2bc0d149e72336668d65eb04ab536f"
     },
     {
+      "id": "jcs-005",
       "name": "structured_epistemic_state_hash_target",
       "description": "Structured Epistemic State content hash target excludes state_id, content_hash, and signatures.",
+      "profile": "kristal.v5:jcs-rfc8785",
+      "artifact_type": "jcs_test_vectors",
+      "content_boundary": {
+        "exclude_json_pointers": [
+          "/state_id",
+          "/content_hash",
+          "/signatures"
+        ]
+      },
       "input": {
         "schema_version": "5.0",
         "artifact_type": "structured_epistemic_state",
@@ -106,17 +136,22 @@
           }
         ]
       },
-      "excluded_json_pointers": [
-        "/state_id",
-        "/content_hash",
-        "/signatures"
-      ],
-      "canonical": "{\"artifact_type\":\"structured_epistemic_state\",\"assertions\":[{\"assertion_id\":\"sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc\",\"assertion_status\":\"hypothesis\",\"certainty_level\":\"speculative\",\"validated_as\":\"hypothesis\"}],\"created_at\":\"2026-06-12T16:00:00Z\",\"schema_version\":\"5.0\",\"scope\":{\"domain\":\"science\",\"environment\":\"test\",\"jurisdiction\":null,\"language\":\"en\",\"subdomain\":\"example\",\"tenant_id\":null,\"time_window\":null}}",
-      "sha256": "561287ce34bd41afdf847454fe2d74ba86e803ecc7494494bfdb6c8f93da1012"
+      "expected_canonical": "{\"artifact_type\":\"structured_epistemic_state\",\"assertions\":[{\"assertion_id\":\"sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc\",\"assertion_status\":\"hypothesis\",\"certainty_level\":\"speculative\",\"validated_as\":\"hypothesis\"}],\"created_at\":\"2026-06-12T16:00:00Z\",\"schema_version\":\"5.0\",\"scope\":{\"domain\":\"science\",\"environment\":\"test\",\"jurisdiction\":null,\"language\":\"en\",\"subdomain\":\"example\",\"tenant_id\":null,\"time_window\":null}}",
+      "expected_sha256_hex": "561287ce34bd41afdf847454fe2d74ba86e803ecc7494494bfdb6c8f93da1012"
     },
     {
+      "id": "jcs-006",
       "name": "revocations_hash_target",
       "description": "Revocations content hash target excludes revocations_id, content_hash, and signatures.",
+      "profile": "kristal.v5:jcs-rfc8785",
+      "artifact_type": "jcs_test_vectors",
+      "content_boundary": {
+        "exclude_json_pointers": [
+          "/revocations_id",
+          "/content_hash",
+          "/signatures"
+        ]
+      },
       "input": {
         "schema_version": "5.0",
         "artifact_type": "revocations",
@@ -159,17 +194,18 @@
           }
         ]
       },
-      "excluded_json_pointers": [
-        "/revocations_id",
-        "/content_hash",
-        "/signatures"
-      ],
-      "canonical": "{\"artifact_type\":\"revocations\",\"created_at\":\"2026-06-12T16:05:00Z\",\"entries\":[{\"effective_at\":\"2026-06-12T16:05:00Z\",\"entry_id\":\"rev-0001\",\"kind\":\"key_id\",\"reason\":\"Key rotation\",\"reason_code\":\"planned_key_rotation\",\"revocation_status\":\"revoked\",\"revoked_at\":\"2026-06-12T16:04:00Z\",\"target\":{\"key_id\":\"tenant_123_root_ed25519_v1\"},\"target_level\":\"key\"}],\"schema_version\":\"5.0\",\"scope\":{\"domain\":\"operations\",\"environment\":\"test\",\"jurisdiction\":null,\"language\":\"en\",\"subdomain\":\"trust-roots\",\"tenant_id\":\"tenant_123\",\"time_window\":null}}",
-      "sha256": "3c732cc156f035153e129992aed5c0e7f8097bc90d5b5e9fc574208f2c5ee32d"
+      "expected_canonical": "{\"artifact_type\":\"revocations\",\"created_at\":\"2026-06-12T16:05:00Z\",\"entries\":[{\"effective_at\":\"2026-06-12T16:05:00Z\",\"entry_id\":\"rev-0001\",\"kind\":\"key_id\",\"reason\":\"Key rotation\",\"reason_code\":\"planned_key_rotation\",\"revocation_status\":\"revoked\",\"revoked_at\":\"2026-06-12T16:04:00Z\",\"target\":{\"key_id\":\"tenant_123_root_ed25519_v1\"},\"target_level\":\"key\"}],\"schema_version\":\"5.0\",\"scope\":{\"domain\":\"operations\",\"environment\":\"test\",\"jurisdiction\":null,\"language\":\"en\",\"subdomain\":\"trust-roots\",\"tenant_id\":\"tenant_123\",\"time_window\":null}}",
+      "expected_sha256_hex": "3c732cc156f035153e129992aed5c0e7f8097bc90d5b5e9fc574208f2c5ee32d"
     },
     {
+      "id": "jcs-007",
       "name": "array_order_preserved",
       "description": "Arrays are not sorted; their declared order is part of the canonical bytes.",
+      "profile": "kristal.v5:jcs-rfc8785",
+      "artifact_type": "jcs_test_vectors",
+      "content_boundary": {
+        "exclude_json_pointers": []
+      },
       "input": {
         "items": [
           {
@@ -182,9 +218,58 @@
           }
         ]
       },
-      "excluded_json_pointers": [],
-      "canonical": "{\"items\":[{\"id\":\"b\",\"value\":2},{\"id\":\"a\",\"value\":1}]}",
-      "sha256": "83cb4e99d3c052bd4f2e4c3a909f1435b8b8a9014be158b8ab2478a99d133891"
+      "expected_canonical": "{\"items\":[{\"id\":\"b\",\"value\":2},{\"id\":\"a\",\"value\":1}]}",
+      "expected_sha256_hex": "83cb4e99d3c052bd4f2e4c3a909f1435b8b8a9014be158b8ab2478a99d133891"
+    },
+    {
+      "id": "jcs-008",
+      "name": "rfc8785_primitives_and_numbers",
+      "description": "RFC 8785 primitive serialization and number-formatting example.",
+      "profile": "kristal.v5:jcs-rfc8785",
+      "artifact_type": "generic_json",
+      "reference": "RFC 8785 sections 3.2.2 and 3.2.3",
+      "content_boundary": {
+        "exclude_json_pointers": []
+      },
+      "input": {
+        "numbers": [
+          333333333.3333333,
+          1e+30,
+          4.5,
+          0.002,
+          1e-27
+        ],
+        "string": "€$\u000f\nA'B\"\\\\\"/",
+        "literals": [
+          null,
+          true,
+          false
+        ]
+      },
+      "expected_canonical": "{\"literals\":[null,true,false],\"numbers\":[333333333.3333333,1e+30,4.5,0.002,1e-27],\"string\":\"€$\\u000f\\nA'B\\\"\\\\\\\\\\\"/\"}",
+      "expected_sha256_hex": "2d5e01a318d0f0879ab568c4be289c8b1f64ef8921a53c6277d5e069978baacb"
+    },
+    {
+      "id": "jcs-009",
+      "name": "rfc8785_utf16_property_sort",
+      "description": "RFC 8785 UTF-16 code-unit property ordering example.",
+      "profile": "kristal.v5:jcs-rfc8785",
+      "artifact_type": "generic_json",
+      "reference": "RFC 8785 section 3.2.3",
+      "content_boundary": {
+        "exclude_json_pointers": []
+      },
+      "input": {
+        "€": "Euro Sign",
+        "\r": "Carriage Return",
+        "דּ": "Hebrew Letter Dalet With Dagesh",
+        "1": "One",
+        "😀": "Emoji: Grinning Face",
+        "": "Control",
+        "ö": "Latin Small Letter O With Diaeresis"
+      },
+      "expected_canonical": "{\"\\r\":\"Carriage Return\",\"1\":\"One\",\"\":\"Control\",\"ö\":\"Latin Small Letter O With Diaeresis\",\"€\":\"Euro Sign\",\"😀\":\"Emoji: Grinning Face\",\"דּ\":\"Hebrew Letter Dalet With Dagesh\"}",
+      "expected_sha256_hex": "5e321556d22018a9656991a9e94f77ec175fa193e52a2429d312f8419ec8b08c"
     }
   ]
 }

@@ -43,7 +43,7 @@ Each entry in `vectors.json` SHOULD use the following shape:
   "profile": "kristal.v5:jcs-rfc8785",
   "artifact_type": "generic_json",
   "content_boundary": {
-    "exclude_fields": []
+    "exclude_json_pointers": []
   },
   "input": {
     "...": "original JSON object"
@@ -58,12 +58,12 @@ Notes:
 * `profile` SHOULD be `kristal.v5:jcs-rfc8785`.
 * `expected_canonical` MUST be the exact UTF-8 string output of JCS.
 * `expected_sha256_hex` MUST be the SHA-256 digest of `expected_canonical` bytes, represented as lower-case hexadecimal.
-* `content_boundary.exclude_fields` SHOULD declare any excluded fields, such as signatures or tenant-local control metadata.
-* Implementations MAY split `expected_sha256_hex` into `expected-hashes.txt` instead of embedding it in JSON, but the correspondence MUST be unambiguous.
+* `content_boundary.exclude_json_pointers` SHOULD declare excluded JSON Pointers, such as signatures or tenant-local control metadata.
+* Vectors MUST embed `expected_sha256_hex` and `expected-hashes.txt` MUST repeat the same digest keyed by stable vector `id`.
 
 ## Required coverage
 
-The vector set MUST include cases covering the following areas.
+The normative release vector set MUST include cases covering the following areas. The release validator checks the committed vectors with the ECMAScript reference serialization used by RFC 8785.
 
 ### 1. Object key ordering
 

@@ -1,9 +1,20 @@
-site_name: Kristals Documentation
-site_description: Technical documentation for Kristals (enhanced Wikidata/Orgo-aligned knowledge artifacts)
+site_name: Kristal Framework v5
+site_description: Deterministic, portable epistemic artifact framework and normative contract set
 site_author: Réjean McCormick
-repo_name: kristal-framework
-repo_url: https://example.com/kristal-framework
-edit_uri: ""
+
+docs_dir: docs
+
+validation:
+  links:
+    absolute_links: relative_to_docs
+    unrecognized_links: warn
+    anchors: warn
+
+not_in_nav: |
+  Technical-Reference/kristal-docs-v5/02-schemas/*.json
+  Technical-Reference/kristal-docs-v5/09-test-vectors/**/*.json
+  Technical-Reference/kristal-docs-v5/09-test-vectors/**/*.txt
+  Technical-Reference/kristal-docs-v5/10-examples/*.json
 
 theme:
   name: material
@@ -34,31 +45,54 @@ plugins:
   - search
 
 nav:
-  - Home: README.md
-
-  - Introduction:
-      - docs/en/introduction.md
-
-  - Specification:
-      - Format (Kristal): docs/en/specification/format_kristal.md
-      - SPARQL & Queries: docs/en/specification/sparql_queries.md
-      - Ontology & Contexts: docs/en/specification/ontology_contexts.md
-
-  - Architecture:
-      - Components: docs/en/architecture/components.md
-      - Sentient Pipeline: docs/en/architecture/sentient_pipeline.md
-
-  - Tutorials:
-      - Download a Kristal: docs/en/tutorials/download_kristal.md
-      - Edit a Kristal: docs/en/tutorials/edit_kristal.md
-      - Reload a Kristal: docs/en/tutorials/reload_kristal.md
-
-  - Contributors:
-      - Propose a Change: docs/en/contributors/propose_change.md
-      - Test a Kristal: docs/en/contributors/test_kristal.md
-      - Validate a Version: docs/en/contributors/validate_version.md
-
-  - Use Cases:
-      - Botanist: docs/en/use_cases/botanist.md
-      - Historian: docs/en/use_cases/historian.md
-      - Offline Researcher: docs/en/use_cases/offline_researcher.md
+  - Home: index.md
+  - Overview:
+      - Specification status: Technical-Reference/kristal-docs-v5/00-overview/specification-status.md
+      - What is Kristal v5: Technical-Reference/kristal-docs-v5/00-overview/what-is-kristal-v5.md
+      - Vision and scope: Technical-Reference/kristal-docs-v5/00-overview/vision-and-scope.md
+      - Validation, certainty and authority: Technical-Reference/kristal-docs-v5/00-overview/validation-certainty-and-authority.md
+      - Plural validation and federated authority: Technical-Reference/kristal-docs-v5/00-overview/plural-validation-and-federated-authority.md
+      - Sharding and federation: Technical-Reference/kristal-docs-v5/00-overview/sharding-and-federation.md
+      - Ecosystem integration: Technical-Reference/kristal-docs-v5/00-overview/ecosystem-integration.md
+      - Conformance and alignment: Technical-Reference/kristal-docs-v5/00-overview/conformance-and-alignment.md
+  - Core specification:
+      - Core spec: Technical-Reference/kristal-docs-v5/01-core-spec/kristal-v5-core-spec.md
+      - Structured Epistemic State: Technical-Reference/kristal-docs-v5/01-core-spec/structured-epistemic-state.md
+      - Assertion status and certainty: Technical-Reference/kristal-docs-v5/01-core-spec/assertion-status-and-certainty.md
+      - Authority recognition: Technical-Reference/kristal-docs-v5/01-core-spec/authority-recognition.md
+      - IDs, canonicalization and hashing: Technical-Reference/kristal-docs-v5/01-core-spec/ids-canonicalization-hashing.md
+      - Signatures and trust: Technical-Reference/kristal-docs-v5/01-core-spec/signatures-trust.md
+  - Reproducibility:
+      - Deterministic build rules: Technical-Reference/kristal-docs-v5/03-reproducibility/deterministic-build-rules.md
+      - Runtime pack policies: Technical-Reference/kristal-docs-v5/03-reproducibility/allowed-runtime-pack-policies.md
+      - Acceptance tests: Technical-Reference/kristal-docs-v5/03-reproducibility/reproducibility-acceptance-tests.md
+      - Subset recipes: Technical-Reference/kristal-docs-v5/03-reproducibility/subset-recipes.md
+  - Query:
+      - Query contract: Technical-Reference/kristal-docs-v5/04-query/query-contract.md
+      - Reader policy profiles: Technical-Reference/kristal-docs-v5/04-query/reader-policy-profiles.md
+  - Profiles:
+      - JSON-LD export: Technical-Reference/kristal-docs-v5/05-profiles/profile-jsonld-export.md
+      - Provenance Nanopub / PROV-O: Technical-Reference/kristal-docs-v5/05-profiles/profile-provenance-nanopub-provo.md
+      - TPF pagination: Technical-Reference/kristal-docs-v5/05-profiles/profile-query-tpf-pagination.md
+      - RDF integrity: Technical-Reference/kristal-docs-v5/05-profiles/profile-rdf-integrity-rdfc.md
+      - RDF / WDQS export: Technical-Reference/kristal-docs-v5/05-profiles/profile-rdf-wdqs-export.md
+      - Transparency log: Technical-Reference/kristal-docs-v5/05-profiles/profile-transparency-log.md
+      - SHACL validation: Technical-Reference/kristal-docs-v5/05-profiles/profile-validation-shacl.md
+      - ShEx validation: Technical-Reference/kristal-docs-v5/05-profiles/profile-validation-shex.md
+  - Integration:
+      - Orgo workflow: Technical-Reference/kristal-docs-v5/06-integration/orgo-workflow-contract.md
+      - Konnaxion distribution: Technical-Reference/kristal-docs-v5/06-integration/konnaxion-distribution-contract.md
+      - SenTient resolution: Technical-Reference/kristal-docs-v5/06-integration/sentient-resolution-contract.md
+      - Architect rendering: Technical-Reference/kristal-docs-v5/06-integration/architect-rendering-contract.md
+  - Security:
+      - Keys and trust roots: Technical-Reference/kristal-docs-v5/07-security/key-management-and-trust-roots.md
+      - Downgrade and rollback: Technical-Reference/kristal-docs-v5/07-security/downgrade-rollback-policy.md
+      - Multi-tenancy boundaries: Technical-Reference/kristal-docs-v5/07-security/multi-tenancy-boundaries.md
+  - Operations:
+      - Failure paths and resilience: Technical-Reference/kristal-docs-v5/08-ops/failure-paths-and-resilience.md
+      - Logging and correlation IDs: Technical-Reference/kristal-docs-v5/08-ops/logging-and-correlation-ids.md
+      - Operational guidance: Technical-Reference/kristal-docs-v5/08-ops/operational-guidance-template.md
+      - Release strategies: Technical-Reference/kristal-docs-v5/08-ops/release-strategies.md
+  - Test vectors:
+      - JCS: Technical-Reference/kristal-docs-v5/09-test-vectors/jcs/README.md
+      - RDFC: Technical-Reference/kristal-docs-v5/09-test-vectors/rdfc/README.md

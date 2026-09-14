@@ -1,0 +1,19 @@
+{
+  "canonicalization": {
+    "hash_algorithm": "sha256",
+    "profile": "kristal.v5:jcs-rfc8785",
+    "version": "1"
+  },
+  "contract_set_digest": "sha256:3cac653f423395ee859f815681a293a80e26808d8f39a686655cd40f17042599",
+  "core_version": "5.0",
+  "format": "kristal.release/v1",
+  "framework": "kristal",
+  "git": {
+    "commit": null,
+    "commit_resolution": "Resolve the signed Git tag to its full immutable commit SHA; consumers record that SHA in their own lock file.",
+    "tag": "v5.0.0-rc.1"
+  },
+  "schema_set_digest": "sha256:7a94a1e8a91d5c5267b73b7f1e98977faa548324bc937bb491cd08d49fdc8c92",
+  "status": "release-candidate",
+  "version": "5.0.0-rc.1"
+}

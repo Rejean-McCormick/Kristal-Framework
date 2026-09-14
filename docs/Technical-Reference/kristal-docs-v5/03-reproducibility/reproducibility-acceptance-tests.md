@@ -1,10 +1,10 @@
-# Reproducibility Acceptance Tests (Kristal v4)
+# Reproducibility Acceptance Tests (Kristal v5)
 
 ## Status
 Draft (normative acceptance criteria)
 
 ## Purpose
-Define the **acceptance tests** that determine whether a Kristal v4 implementation produces **reproducible** artifacts.
+Define the **acceptance tests** that determine whether a Kristal v5 implementation produces **reproducible** artifacts.
 
 In v3, reproducibility is a first-class requirement:
 - Exchange rebuilds MUST produce identical `kristal_id` given the same inputs and rules.
@@ -254,7 +254,7 @@ See `09-test-vectors/` and `10-examples/`.
 
 # 7. Definition of done (reproducibility)
 
-A Kristal v4 implementation passes reproducibility if:
+A Kristal v5 implementation passes reproducibility if:
 - All Exchange tests EX-1 through EX-4 pass (mandatory).
 - All Runtime Pack tests RP-1 through RP-6 pass (mandatory).
 - Cross-platform test XP-1 is run for at least one release candidate (recommended).

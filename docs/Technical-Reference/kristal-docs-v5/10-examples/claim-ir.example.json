@@ -1,324 +1,322 @@
 {
-"schema_version": "5.0",
-"artifact_type": "claim_ir",
-"profile_role": "extractor_proposal_profile",
-"canonicalization_profile": "kristal.v5:jcs-rfc8785",
-"document": {
-"doc_id": "doc:example-great-library-alexandria",
-"title": "Example source note on the Great Library of Alexandria",
-"lang": "en",
-"source_id": "source:example-great-library-note",
-"source_url": "https://example.org/sources/great-library-alexandria",
-"retrieved_at": "2026-06-12T16:22:19Z",
-"published_at": "2026-06-01T00:00:00Z",
-"license": "example-only",
-"publisher": "Example Historical Notes",
-"content_hash": {
-"alg": "sha256",
-"value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-}
-},
-"extraction": {
-"run_id": "extract:20260612T162219Z:claim-ir-example",
-"created_at": "2026-06-12T16:22:19Z",
-"producer": {
-"kind": "hybrid",
-"name": "Kristal Example Extractor",
-"version": "5.0.0"
-},
-"model": {
-"provider": "example",
-"name": "example-extractor-model",
-"version": "2026-06-12"
-},
-"prompt_ref": {
-"prompt_id": "prompt:claim-ir-extraction-example",
-"version": "1",
-"content_hash": {
-"alg": "sha256",
-"value": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
-}
-},
-"method": "hybrid_llm_rules_with_human_review_hint",
-"confidence": 0.86
-},
-"scope": {
-"domain": "heritage",
-"subdomain": "historical-knowledge",
-"jurisdiction": null,
-"time_window": null,
-"tenant_id": "tenant_demo",
-"environment": "example",
-"language": "en"
-},
-"subject": {
-"surface": "Great Library of Alexandria",
-"lang": "en",
-"candidates": [
-{
-"id": "Q435",
-"score": 0.94,
-"label": "Library of Alexandria",
-"source": "wikidata"
-},
-{
-"id": "Q88",
-"score": 0.32,
-"label": "Alexandria",
-"source": "wikidata"
-}
-],
-"source_ref": {
-"ref": "source:example-great-library-note",
-"kind": "source",
-"content_hash": {
-"alg": "sha256",
-"value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-}
-}
-},
-"claims": [
-{
-"claim_id": "claim:great-library-location-0001",
-"predicate": {
-"surface": "located in",
-"lang": "en",
-"candidates": [
-{
-"id": "P131",
-"score": 0.81,
-"label": "located in the administrative territorial entity",
-"source": "wikidata"
-},
-{
-"id": "P276",
-"score": 0.64,
-"label": "location",
-"source": "wikidata"
-}
-]
-},
-"object": {
-"kind": "item",
-"value": {
-"surface": "Alexandria",
-"lang": "en",
-"candidates": [
-{
-"id": "Q88",
-"score": 0.96,
-"label": "Alexandria",
-"source": "wikidata"
-}
-]
-}
-},
-"proposed_assertion_status": "sourced",
-"proposed_certainty_level": "high",
-"proposed_validated_as": "sourced_claim",
-"scope": {
-"domain": "heritage",
-"subdomain": "historical-knowledge",
-"jurisdiction": null,
-"time_window": null,
-"tenant_id": "tenant_demo",
-"environment": "example",
-"language": "en"
-},
-"evidence": [
-{
-"source": {
-"source_id": "source:example-great-library-note",
-"source_url": "https://example.org/sources/great-library-alexandria",
-"title": "Example source note on the Great Library of Alexandria",
-"retrieved_at": "2026-06-12T16:22:19Z",
-"content_hash": {
-"alg": "sha256",
-"value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-}
-},
-"evidence_type": "quote",
-"quote": "The Great Library of Alexandria was located in Alexandria, Egypt.",
-"selector": {
-"kind": "text_quote",
-"value": "located in Alexandria, Egypt"
-},
-"strength": "strong"
-}
-],
-"authority_channel_refs": [
-{
-"ref": "authority:example-heritage-review",
-"kind": "authority_channel"
-}
-],
-"confidence": 0.91,
-"uncertainty": {
-"confidence": 0.91,
-"certainty_level": "high",
-"method": "extractor-confidence-plus-source-match",
-"notes": "The claim is extracted as sourced, not validated or authority-recognized."
-},
-"notes": "This Claim-IR claim proposes a structured assertion for later resolution and possible projection into Structured Epistemic State."
-},
-{
-"claim_id": "claim:great-library-destruction-0002",
-"predicate": {
-"surface": "was destroyed",
-"lang": "en",
-"candidates": [
-{
-"id": "P793",
-"score": 0.72,
-"label": "significant event",
-"source": "wikidata"
-}
-]
-},
-"object": {
-"kind": "string",
-"value": "destroyed or declined through multiple historical events"
-},
-"proposed_assertion_status": "hypothesis",
-"proposed_certainty_level": "medium",
-"proposed_validated_as": "hypothesis",
-"scope": {
-"domain": "heritage",
-"subdomain": "historical-knowledge",
-"jurisdiction": null,
-"time_window": null,
-"tenant_id": "tenant_demo",
-"environment": "example",
-"language": "en"
-},
-"qualifiers": [
-{
-"predicate": {
-"surface": "epistemic mode",
-"lang": "en"
-},
-"object": {
-"kind": "string",
-"value": "historical uncertainty"
-}
-}
-],
-"evidence": [
-{
-"source": {
-"source_id": "source:example-great-library-note",
-"source_url": "https://example.org/sources/great-library-alexandria",
-"title": "Example source note on the Great Library of Alexandria",
-"retrieved_at": "2026-06-12T16:22:19Z",
-"content_hash": {
-"alg": "sha256",
-"value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-}
-},
-"evidence_type": "quote",
-"quote": "The fate of the Great Library is disputed, and some accounts describe a gradual decline rather than one single destruction event.",
-"selector": {
-"kind": "text_quote",
-"value": "disputed ... gradual decline"
-},
-"strength": "medium"
-}
-],
-"authority_channel_refs": [
-{
-"ref": "authority:example-heritage-review",
-"kind": "authority_channel"
-}
-],
-"confidence": 0.68,
-"uncertainty": {
-"confidence": 0.68,
-"certainty_level": "medium",
-"confidence_interval": {
-"low": 0.52,
-"high": 0.78
-},
-"method": "extractor-confidence-with-ambiguity-flag",
-"notes": "The extraction preserves historical ambiguity and proposes hypothesis status."
-},
-"alternatives": [
-{
-"claim_id": "claim:great-library-destruction-alt-0002a",
-"predicate": {
-"surface": "was destroyed by a single event",
-"lang": "en"
-},
-"object": {
-"kind": "boolean",
-"value": false
-},
-"proposed_assertion_status": "claimed",
-"proposed_certainty_level": "low",
-"proposed_validated_as": "claim",
-"scope": {
-"domain": "heritage",
-"subdomain": "historical-knowledge",
-"jurisdiction": null,
-"time_window": null,
-"tenant_id": "tenant_demo",
-"environment": "example",
-"language": "en"
-},
-"confidence": 0.41,
-"uncertainty": {
-"confidence": 0.41,
-"certainty_level": "low",
-"method": "alternative-extraction",
-"notes": "Alternative retained for downstream review; not selected as a resolved fact."
-},
-"notes": "This alternative is included to preserve ambiguity for SenTient and review workflows."
-}
-],
-"notes": "This claim intentionally remains a hypothesis. It should not be rendered as a settled factual assertion."
-}
-],
-"provenance_refs": [
-{
-"ref": "source:example-great-library-note",
-"kind": "source",
-"content_hash": {
-"alg": "sha256",
-"value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-}
-},
-{
-"ref": "extract:20260612T162219Z:claim-ir-example",
-"kind": "extraction_run",
-"content_hash": {
-"alg": "sha256",
-"value": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
-}
-}
-],
-"target_state": {
-"target_schema": "https://kristal.org/schemas/v5/structured-epistemic-state.schema.json",
-"projection_mode": "requires_resolution",
-"expected_artifact_type": "structured_epistemic_state",
-"conversion_policy_ref": {
-"ref": "policy:kristal.v5:claim-ir-to-structured-epistemic-state@1",
-"kind": "policy"
-},
-"notes": "This Claim-IR batch may be projected into a Structured Epistemic State after resolution and review. Claim-IR itself does not imply validation or authority recognition."
-},
-"warnings": [
-{
-"code": "AMBIGUOUS_PREDICATE",
-"message": "The location predicate has multiple plausible Wikidata property candidates.",
-"path": "/claims/0/predicate"
-},
-{
-"code": "LOW_CONFIDENCE_EXTRACTION",
-"message": "The destruction-history claim is preserved as a hypothesis because the source material is historically ambiguous.",
-"path": "/claims/1"
-}
-],
-"errors": [],
-"extensions": {
-"example_purpose": "Demonstrates Claim-IR v5 as an extractor proposal profile that preserves uncertainty, evidence, candidate resolution hints, and proposed epistemic status without implying validation."
-}
+  "schema_version": "5.0",
+  "artifact_type": "claim_ir",
+  "profile_role": "extractor_proposal_profile",
+  "canonicalization_profile": "kristal.v5:jcs-rfc8785",
+  "document": {
+    "doc_id": "doc:example-great-library-alexandria",
+    "title": "Example source note on the Great Library of Alexandria",
+    "lang": "en",
+    "source_id": "source:example-great-library-note",
+    "source_url": "https://example.org/sources/great-library-alexandria",
+    "retrieved_at": "2026-06-12T16:22:19Z",
+    "published_at": "2026-06-01T00:00:00Z",
+    "license": "example-only",
+    "publisher": "Example Historical Notes",
+    "content_hash": {
+      "alg": "sha256",
+      "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  },
+  "extraction": {
+    "run_id": "extract:20260612T162219Z:claim-ir-example",
+    "created_at": "2026-06-12T16:22:19Z",
+    "producer": {
+      "kind": "hybrid",
+      "name": "Kristal Example Extractor",
+      "version": "5.0.0"
+    },
+    "model": {
+      "provider": "example",
+      "name": "example-extractor-model",
+      "version": "2026-06-12"
+    },
+    "prompt_ref": {
+      "prompt_id": "prompt:claim-ir-extraction-example",
+      "version": "1",
+      "content_hash": {
+        "alg": "sha256",
+        "value": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      }
+    },
+    "method": "hybrid_llm_rules_with_human_review_hint",
+    "confidence": 0.86
+  },
+  "scope": {
+    "domain": "heritage",
+    "subdomain": "historical-knowledge",
+    "jurisdiction": null,
+    "time_window": null,
+    "tenant_id": "tenant_demo",
+    "environment": "example",
+    "language": "en"
+  },
+  "subject": {
+    "surface": "Great Library of Alexandria",
+    "lang": "en",
+    "candidates": [
+      {
+        "id": "Q435",
+        "score": 0.94,
+        "label": "Library of Alexandria",
+        "source": "wikidata"
+      },
+      {
+        "id": "Q88",
+        "score": 0.32,
+        "label": "Alexandria",
+        "source": "wikidata"
+      }
+    ],
+    "source_ref": {
+      "ref": "source:example-great-library-note",
+      "kind": "source",
+      "content_hash": {
+        "alg": "sha256",
+        "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "claim:great-library-location-0001",
+      "predicate": {
+        "surface": "located in",
+        "lang": "en",
+        "candidates": [
+          {
+            "id": "P131",
+            "score": 0.81,
+            "label": "located in the administrative territorial entity",
+            "source": "wikidata"
+          },
+          {
+            "id": "P276",
+            "score": 0.64,
+            "label": "location",
+            "source": "wikidata"
+          }
+        ]
+      },
+      "object": {
+        "kind": "item",
+        "value": {
+          "surface": "Alexandria",
+          "lang": "en",
+          "candidates": [
+            {
+              "id": "Q88",
+              "score": 0.96,
+              "label": "Alexandria",
+              "source": "wikidata"
+            }
+          ]
+        }
+      },
+      "proposed_assertion_status": "sourced",
+      "proposed_certainty_level": "high",
+      "proposed_validated_as": "sourced_claim",
+      "scope": {
+        "domain": "heritage",
+        "subdomain": "historical-knowledge",
+        "jurisdiction": null,
+        "time_window": null,
+        "tenant_id": "tenant_demo",
+        "environment": "example",
+        "language": "en"
+      },
+      "evidence": [
+        {
+          "source": {
+            "source_id": "source:example-great-library-note",
+            "source_url": "https://example.org/sources/great-library-alexandria",
+            "title": "Example source note on the Great Library of Alexandria",
+            "retrieved_at": "2026-06-12T16:22:19Z",
+            "content_hash": {
+              "alg": "sha256",
+              "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          },
+          "evidence_type": "quote",
+          "quote": "The Great Library of Alexandria was located in Alexandria, Egypt.",
+          "selector": {
+            "kind": "text_quote",
+            "value": "located in Alexandria, Egypt"
+          },
+          "strength": "strong"
+        }
+      ],
+      "authority_channel_refs": [
+        {
+          "ref": "authority:example-heritage-review",
+          "kind": "authority_channel"
+        }
+      ],
+      "confidence": 0.91,
+      "uncertainty": {
+        "confidence": 0.91,
+        "certainty_level": "high",
+        "method": "extractor-confidence-plus-source-match",
+        "notes": "The claim is extracted as sourced, not validated or authority-recognized."
+      },
+      "notes": "This Claim-IR claim proposes a structured assertion for later resolution and possible projection into Structured Epistemic State."
+    },
+    {
+      "claim_id": "claim:great-library-destruction-0002",
+      "predicate": {
+        "surface": "was destroyed",
+        "lang": "en",
+        "candidates": [
+          {
+            "id": "P793",
+            "score": 0.72,
+            "label": "significant event",
+            "source": "wikidata"
+          }
+        ]
+      },
+      "object": {
+        "kind": "string",
+        "value": "destroyed or declined through multiple historical events"
+      },
+      "proposed_assertion_status": "hypothesis",
+      "proposed_certainty_level": "medium",
+      "proposed_validated_as": "hypothesis",
+      "scope": {
+        "domain": "heritage",
+        "subdomain": "historical-knowledge",
+        "jurisdiction": null,
+        "time_window": null,
+        "tenant_id": "tenant_demo",
+        "environment": "example",
+        "language": "en"
+      },
+      "qualifiers": [
+        {
+          "predicate": {
+            "surface": "epistemic mode",
+            "lang": "en"
+          },
+          "object": {
+            "kind": "string",
+            "value": "historical uncertainty"
+          }
+        }
+      ],
+      "evidence": [
+        {
+          "source": {
+            "source_id": "source:example-great-library-note",
+            "source_url": "https://example.org/sources/great-library-alexandria",
+            "title": "Example source note on the Great Library of Alexandria",
+            "retrieved_at": "2026-06-12T16:22:19Z",
+            "content_hash": {
+              "alg": "sha256",
+              "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          },
+          "evidence_type": "quote",
+          "quote": "The fate of the Great Library is disputed, and some accounts describe a gradual decline rather than one single destruction event.",
+          "selector": {
+            "kind": "text_quote",
+            "value": "disputed ... gradual decline"
+          },
+          "strength": "medium"
+        }
+      ],
+      "authority_channel_refs": [
+        {
+          "ref": "authority:example-heritage-review",
+          "kind": "authority_channel"
+        }
+      ],
+      "confidence": 0.68,
+      "uncertainty": {
+        "confidence": 0.68,
+        "certainty_level": "medium",
+        "confidence_interval": {
+          "low": 0.52,
+          "high": 0.78
+        },
+        "method": "extractor-confidence-with-ambiguity-flag",
+        "notes": "The extraction preserves historical ambiguity and proposes hypothesis status."
+      },
+      "alternatives": [
+        {
+          "claim_id": "claim:great-library-destruction-alt-0002a",
+          "predicate": {
+            "surface": "was destroyed by a single event",
+            "lang": "en"
+          },
+          "object": {
+            "kind": "boolean",
+            "value": false
+          },
+          "proposed_assertion_status": "claimed",
+          "proposed_certainty_level": "low",
+          "proposed_validated_as": "claim",
+          "scope": {
+            "domain": "heritage",
+            "subdomain": "historical-knowledge",
+            "jurisdiction": null,
+            "time_window": null,
+            "tenant_id": "tenant_demo",
+            "environment": "example",
+            "language": "en"
+          },
+          "confidence": 0.41,
+          "uncertainty": {
+            "confidence": 0.41,
+            "certainty_level": "low",
+            "method": "alternative-extraction",
+            "notes": "Alternative retained for downstream review; not selected as a resolved fact."
+          },
+          "notes": "This alternative is included to preserve ambiguity for SenTient and review workflows."
+        }
+      ],
+      "notes": "This claim intentionally remains a hypothesis. It should not be rendered as a settled factual assertion."
+    }
+  ],
+  "provenance_refs": [
+    {
+      "ref": "source:example-great-library-note",
+      "kind": "source",
+      "content_hash": {
+        "alg": "sha256",
+        "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    },
+    {
+      "ref": "extract:20260612T162219Z:claim-ir-example",
+      "kind": "other",
+      "content_hash": {
+        "alg": "sha256",
+        "value": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      }
+    }
+  ],
+  "target_state": {
+    "artifact_type": "structured_epistemic_state",
+    "conversion_policy_ref": {
+      "ref": "policy:kristal.v5:claim-ir-to-structured-epistemic-state@1",
+      "kind": "policy"
+    },
+    "notes": "Requires resolution before projection to the Kristal v5 Structured Epistemic State schema. Claim-IR itself does not imply validation or authority recognition."
+  },
+  "warnings": [
+    {
+      "code": "AMBIGUOUS_PREDICATE",
+      "message": "The location predicate has multiple plausible Wikidata property candidates.",
+      "path": "/claims/0/predicate"
+    },
+    {
+      "code": "LOW_CONFIDENCE_EXTRACTION",
+      "message": "The destruction-history claim is preserved as a hypothesis because the source material is historically ambiguous.",
+      "path": "/claims/1"
+    }
+  ],
+  "errors": [],
+  "extensions": {
+    "example_purpose": "Demonstrates Claim-IR v5 as an extractor proposal profile that preserves uncertainty, evidence, candidate resolution hints, and proposed epistemic status without implying validation."
+  }
 }

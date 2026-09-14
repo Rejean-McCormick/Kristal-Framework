@@ -1,1 +1,6 @@
-GitSink.bat
+GitSink.bat
+site/
+.venv/
+__pycache__/
+*.pyc
+dist/
