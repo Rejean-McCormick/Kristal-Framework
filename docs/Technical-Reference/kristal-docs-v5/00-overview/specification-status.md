@@ -1,6 +1,8 @@
 # Kristal v5 specification status
 
 **Release candidate:** `5.0.0-rc.1`  
+**RC Git tag:** `v5.0.0-rc.1`  
+**RC resolved commit:** `af703bf02ee04a69a5f2ad6694fa8b8e56ae2b19`  
 **Core schema line:** `5.0`  
 **Canonicalization profile:** `kristal.v5:jcs-rfc8785` / version `1`
 
@@ -24,17 +26,29 @@ This file defines the release and normativity boundary for the Kristal v5 framew
 
 The machine-readable classification is published in `contract-set.manifest.json`.
 
-## Stable release identity
+## Release identity
 
-A stable Kristal release is identified by all of the following:
+A published Kristal framework release is identified by all of the following:
 
 1. semantic release version;
-2. signed Git tag resolving to one immutable commit;
-3. `contract_set_digest` from `contract-set.manifest.json`;
-4. `schema_set_digest` from `schema-set.manifest.json`;
-5. the canonicalization profile and version declared in `kristal-release.json`.
+2. Git tag naming the release;
+3. full immutable Git commit SHA resolved from that tag;
+4. canonicalization profile and version declared by the release metadata.
 
-The Git commit is intentionally **not embedded** into a file inside the same commit. Consumers resolve the signed tag to the commit and record that commit in their own lock file.
+An annotated or signed tag MAY be required by repository/release policy, but tag signing is not a separate Kristal protocol identity field.
+
+The repository does **not** define `contract_set_digest` or `schema_set_digest` as additional release-identity requirements. `contract-set.manifest.json` classifies the public contract surface; it is not a second repository-wide checksum identity system.
+
+The Git commit is intentionally **not embedded** into a file inside the same commit. Consumers resolve the release tag to the commit and record that commit in their own lock file.
+
+### Current RC identity
+
+```text
+version: 5.0.0-rc.1
+tag: v5.0.0-rc.1
+commit: af703bf02ee04a69a5f2ad6694fa8b8e56ae2b19
+canonicalization: kristal.v5:jcs-rfc8785 / 1
+```
 
 ## Immutability rule
 
@@ -42,17 +56,21 @@ After a stable release is tagged, files classified as normative for that release
 
 ## Release candidate rule
 
-`5.0.0-rc.1` is a stabilization release candidate. It may receive corrections before `5.0.0`. The stable `5.0.0` tag MUST be cut only after all release validation gates pass and the contract set is intentionally frozen.
+`5.0.0-rc.1` is a stabilization release candidate. The tag exists and resolves to commit `af703bf02ee04a69a5f2ad6694fa8b8e56ae2b19`.
+
+An RC remains immutable once used as a pinned interoperability baseline. Corrections required after an RC is published SHOULD produce a new release-candidate version rather than moving the existing tag.
+
+The stable `5.0.0` tag MUST be cut only after all release validation and required downstream integration gates pass and the contract set is intentionally frozen.
 
 ## Consumer pinning
 
 Da'at, kOA, Konnaxion, Orgo, and other consumers SHOULD pin:
 
 - `version`;
-- signed Git tag;
+- Git tag;
 - resolved full Git commit SHA;
-- `contract_set_digest`;
-- `schema_set_digest`;
 - canonicalization profile/version.
 
 Consumers MUST NOT use floating references such as `main`, `latest`, or `5.x` for high-assurance interoperability.
+
+Kristal artifact/content hashes governed by JCS/SHA-256 remain separate protocol-level identities and MUST NOT be confused with framework release identity.
