@@ -1,0 +1,158 @@
+{
+  "format": "kristal.runtime-pack-vectors/v1",
+  "id_profile": {
+    "id": "kristal.v5:runtime-pack-id-core@1",
+    "canonicalization_profile": "kristal.v5:jcs-rfc8785",
+    "canonicalization_version": "1",
+    "exclude_json_pointers": [
+      "/runtime_pack_id",
+      "/created_at",
+      "/build/build_id",
+      "/compiler/build_platform",
+      "/integrity/pack_hash",
+      "/integrity/manifest_hash"
+    ]
+  },
+  "vectors": [
+    {
+      "id": "RP-001",
+      "name": "minimal deterministic Runtime Pack manifest and payload inventory",
+      "input": {
+        "schema_version": "5.0",
+        "artifact_type": "runtime_pack_manifest",
+        "runtime_pack_id": "sha256:bf8c50082ab96f6cd77eb280009ab5b6cdc8fe28c9aa95d0d0670c98e59a7f5b",
+        "runtime_pack_version": "5.0.0",
+        "created_at": "2026-09-16T00:00:00Z",
+        "source_exchange_ref": {
+          "exchange_id": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+          "artifact_type": "working_exchange",
+          "exchange_manifest_hash": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+          "exchange_version": "5.0"
+        },
+        "source_artifact_status": "working",
+        "compiler": {
+          "name": "kristal-tck-fixture-compiler",
+          "version": "1.0.0",
+          "git_commit": "abcdef0",
+          "build_platform": "linux-x86_64"
+        },
+        "build": {
+          "build_id": "build:tck:0001",
+          "deterministic": true,
+          "canonicalization_profile": "kristal.v5:jcs-rfc8785",
+          "canonicalization_version": "1",
+          "config_hash": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+          "compile_status": "succeeded"
+        },
+        "policies": {
+          "data_ordering": {
+            "policy": "qid_pid_statement_id_asc"
+          },
+          "row_grouping": {
+            "policy": "fixed_rows_100k"
+          },
+          "membership_filter": {
+            "kind": "none"
+          },
+          "bitmap": {
+            "format": "roaring",
+            "run_optimize": false
+          }
+        },
+        "reader_policy_refs": [],
+        "query_contract_ref": {
+          "contract_id": "kristal.v5:query-contract:tck",
+          "contract_version": "1"
+        },
+        "files": [
+          {
+            "path": "data/records.jsonl",
+            "role": "parquet_data",
+            "sha256": "2eb22329ec543db29d208bc70042dfca093eaa50b3494c0597eaf8dad9b2c0ec",
+            "size_bytes": 36
+          }
+        ],
+        "integrity": {
+          "hash_alg": "sha256"
+        }
+      },
+      "payloads": {
+        "data/records.jsonl": "eyJyZWNvcmRzIjpbeyJpZCI6ImEifSx7ImlkIjoiYiJ9XX0K"
+      },
+      "expect_payload_integrity": "pass",
+      "expected_canonical": "{\"artifact_type\":\"runtime_pack_manifest\",\"build\":{\"canonicalization_profile\":\"kristal.v5:jcs-rfc8785\",\"canonicalization_version\":\"1\",\"compile_status\":\"succeeded\",\"config_hash\":\"sha256:3333333333333333333333333333333333333333333333333333333333333333\",\"deterministic\":true},\"compiler\":{\"git_commit\":\"abcdef0\",\"name\":\"kristal-tck-fixture-compiler\",\"version\":\"1.0.0\"},\"files\":[{\"path\":\"data/records.jsonl\",\"role\":\"parquet_data\",\"sha256\":\"2eb22329ec543db29d208bc70042dfca093eaa50b3494c0597eaf8dad9b2c0ec\",\"size_bytes\":36}],\"integrity\":{\"hash_alg\":\"sha256\"},\"policies\":{\"bitmap\":{\"format\":\"roaring\",\"run_optimize\":false},\"data_ordering\":{\"policy\":\"qid_pid_statement_id_asc\"},\"membership_filter\":{\"kind\":\"none\"},\"row_grouping\":{\"policy\":\"fixed_rows_100k\"}},\"query_contract_ref\":{\"contract_id\":\"kristal.v5:query-contract:tck\",\"contract_version\":\"1\"},\"reader_policy_refs\":[],\"runtime_pack_version\":\"5.0.0\",\"schema_version\":\"5.0\",\"source_artifact_status\":\"working\",\"source_exchange_ref\":{\"artifact_type\":\"working_exchange\",\"exchange_id\":\"sha256:1111111111111111111111111111111111111111111111111111111111111111\",\"exchange_manifest_hash\":\"sha256:2222222222222222222222222222222222222222222222222222222222222222\",\"exchange_version\":\"5.0\"}}",
+      "expected_sha256_hex": "bf8c50082ab96f6cd77eb280009ab5b6cdc8fe28c9aa95d0d0670c98e59a7f5b",
+      "expected_runtime_pack_id": "sha256:bf8c50082ab96f6cd77eb280009ab5b6cdc8fe28c9aa95d0d0670c98e59a7f5b"
+    },
+    {
+      "id": "RP-006",
+      "name": "tampered Runtime Pack payload is rejected",
+      "input": {
+        "schema_version": "5.0",
+        "artifact_type": "runtime_pack_manifest",
+        "runtime_pack_id": "sha256:bf8c50082ab96f6cd77eb280009ab5b6cdc8fe28c9aa95d0d0670c98e59a7f5b",
+        "runtime_pack_version": "5.0.0",
+        "created_at": "2026-09-16T00:00:00Z",
+        "source_exchange_ref": {
+          "exchange_id": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+          "artifact_type": "working_exchange",
+          "exchange_manifest_hash": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+          "exchange_version": "5.0"
+        },
+        "source_artifact_status": "working",
+        "compiler": {
+          "name": "kristal-tck-fixture-compiler",
+          "version": "1.0.0",
+          "git_commit": "abcdef0",
+          "build_platform": "linux-x86_64"
+        },
+        "build": {
+          "build_id": "build:tck:0001",
+          "deterministic": true,
+          "canonicalization_profile": "kristal.v5:jcs-rfc8785",
+          "canonicalization_version": "1",
+          "config_hash": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+          "compile_status": "succeeded"
+        },
+        "policies": {
+          "data_ordering": {
+            "policy": "qid_pid_statement_id_asc"
+          },
+          "row_grouping": {
+            "policy": "fixed_rows_100k"
+          },
+          "membership_filter": {
+            "kind": "none"
+          },
+          "bitmap": {
+            "format": "roaring",
+            "run_optimize": false
+          }
+        },
+        "reader_policy_refs": [],
+        "query_contract_ref": {
+          "contract_id": "kristal.v5:query-contract:tck",
+          "contract_version": "1"
+        },
+        "files": [
+          {
+            "path": "data/records.jsonl",
+            "role": "parquet_data",
+            "sha256": "2eb22329ec543db29d208bc70042dfca093eaa50b3494c0597eaf8dad9b2c0ec",
+            "size_bytes": 36
+          }
+        ],
+        "integrity": {
+          "hash_alg": "sha256"
+        }
+      },
+      "payloads": {
+        "data/records.jsonl": "eyJyZWNvcmRzIjpbeyJpZCI6ImEifSx7ImlkIjoiYiJ9XX0KWA=="
+      },
+      "expect_payload_integrity": "fail",
+      "expected_canonical": "{\"artifact_type\":\"runtime_pack_manifest\",\"build\":{\"canonicalization_profile\":\"kristal.v5:jcs-rfc8785\",\"canonicalization_version\":\"1\",\"compile_status\":\"succeeded\",\"config_hash\":\"sha256:3333333333333333333333333333333333333333333333333333333333333333\",\"deterministic\":true},\"compiler\":{\"git_commit\":\"abcdef0\",\"name\":\"kristal-tck-fixture-compiler\",\"version\":\"1.0.0\"},\"files\":[{\"path\":\"data/records.jsonl\",\"role\":\"parquet_data\",\"sha256\":\"2eb22329ec543db29d208bc70042dfca093eaa50b3494c0597eaf8dad9b2c0ec\",\"size_bytes\":36}],\"integrity\":{\"hash_alg\":\"sha256\"},\"policies\":{\"bitmap\":{\"format\":\"roaring\",\"run_optimize\":false},\"data_ordering\":{\"policy\":\"qid_pid_statement_id_asc\"},\"membership_filter\":{\"kind\":\"none\"},\"row_grouping\":{\"policy\":\"fixed_rows_100k\"}},\"query_contract_ref\":{\"contract_id\":\"kristal.v5:query-contract:tck\",\"contract_version\":\"1\"},\"reader_policy_refs\":[],\"runtime_pack_version\":\"5.0.0\",\"schema_version\":\"5.0\",\"source_artifact_status\":\"working\",\"source_exchange_ref\":{\"artifact_type\":\"working_exchange\",\"exchange_id\":\"sha256:1111111111111111111111111111111111111111111111111111111111111111\",\"exchange_manifest_hash\":\"sha256:2222222222222222222222222222222222222222222222222222222222222222\",\"exchange_version\":\"5.0\"}}",
+      "expected_sha256_hex": "bf8c50082ab96f6cd77eb280009ab5b6cdc8fe28c9aa95d0d0670c98e59a7f5b",
+      "expected_runtime_pack_id": "sha256:bf8c50082ab96f6cd77eb280009ab5b6cdc8fe28c9aa95d0d0670c98e59a7f5b"
+    }
+  ]
+}

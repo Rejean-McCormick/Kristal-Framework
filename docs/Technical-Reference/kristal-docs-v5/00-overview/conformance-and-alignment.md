@@ -77,7 +77,7 @@ Runtime Packs SHOULD use:
 
 ```json
 {
-  "runtime_pack_version": "5.0"
+  "runtime_pack_version": "5.0.0"
 }
 ```
 
@@ -621,8 +621,9 @@ reference_exchange
 
 Rules:
 
-* A `working_exchange` exists before or without reference recognition.
-* A `reference_exchange` is recognized under one or more authority channels and reader policies.
+* A `working_exchange` exists before or without reference issuance. It MAY carry `artifact_status = "recognized"` when scoped authority recognition exists but explicit reference promotion has not occurred.
+* A `reference_exchange` is an explicitly issued reference artifact under one or more authority channels and reader policies. On issuance it uses `artifact_status = "reference"`; a previously issued reference artifact MAY later become `deprecated`, `superseded`, or `revoked`.
+* A `reference_exchange` MUST carry at least one `authority_recognition_ref`; validation evidence alone is not sufficient to establish reference status.
 * An Exchange MUST preserve provenance, source references, validation references, recognition references, and scope.
 * An Exchange MUST NOT be described as a truth object.
 * An Exchange MUST NOT be described as universally canonical.
@@ -673,7 +674,7 @@ Recommended fields:
   "schema_version": "5.0",
   "artifact_type": "runtime_pack_manifest",
   "runtime_pack_id": "sha256:<hex>",
-  "runtime_pack_version": "5.0",
+  "runtime_pack_version": "5.0.0",
   "source_exchange_ref": {},
   "source_artifact_status": "working",
   "reader_policy_refs": [],
@@ -1141,6 +1142,8 @@ Public-facing descriptions SHOULD NOT imply that Kristal guarantees:
 # 30. Conformance classes
 
 Kristal v5 implementations MAY claim conformance at different levels.
+
+A repository-level framework/release validation PASS is not an implementation-conformance claim. An implementation claiming one of the classes below MUST provide executable evidence for the mandatory schemas, vectors, reproducibility tests, integrity checks, and profile/integration tests applicable to that class. Documentation that describes an acceptance test is not evidence that the test has passed.
 
 ## 30.1 Schema conformant
 

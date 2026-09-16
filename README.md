@@ -1,6 +1,6 @@
 # Kristal docs (v5)
 
-> **Release status:** `5.0.0-rc.1` — stabilization release candidate. See [`VERSION`](VERSION), [`kristal-release.json`](kristal-release.json), the [release status report](docs/status/2026-09-14-v5.0.0-rc.1.md), and the [specification status](docs/Technical-Reference/kristal-docs-v5/00-overview/specification-status.md).
+> **Release status:** `5.0.0-rc.2` — candidate under validation. The `v5.0.0-rc.2` tag and resolved commit do not exist until the corrected tree passes the release gate and is committed/tagged. See [`VERSION`](VERSION), [`kristal-release.json`](kristal-release.json), the [rc.2 candidate status](docs/status/2026-09-16-v5.0.0-rc.2-candidate.md), and the [specification status](docs/Technical-Reference/kristal-docs-v5/00-overview/specification-status.md).
 
 This repository contains the **Kristal v5 specification, normative contract set, conformance vectors, and release metadata** for a deterministic, portable epistemic artifact system.
 
@@ -22,18 +22,18 @@ Kristal is **not** a shared mutable application database. Product-owned operatio
 
 ## Release identity
 
-The current release candidate is `v5.0.0-rc.1`. The release identity is deliberately small:
+The current candidate version is `5.0.0-rc.2`. It becomes a published release candidate only after an immutable `v5.0.0-rc.2` tag is created. The release identity is deliberately small:
 
 ```text
-version: 5.0.0-rc.1
-git tag: v5.0.0-rc.1
+version: 5.0.0-rc.2
+git tag: v5.0.0-rc.2 (pending until release)
 git commit: resolved from the tag after the release commit exists
-canonicalization: kristal.v5:jcs-rfc8785
+canonicalization: kristal.v5:jcs-rfc8785 / 1
 ```
 
 Git tag + commit SHA pin the exact repository content. [`contract-set.manifest.json`](contract-set.manifest.json) only identifies the public contract surfaces; it is not an exhaustive file inventory and does not duplicate Git with per-file release hashes.
 
-Kristal still uses JCS/SHA-256 where it is part of the **Kristal artifact identity protocol**. That domain-level hashing is separate from framework release versioning. See the [release status report](docs/status/2026-09-14-v5.0.0-rc.1.md) and [`RELEASE.md`](RELEASE.md).
+Kristal still uses JCS/SHA-256 where it is part of the **Kristal artifact identity protocol**. That domain-level hashing is separate from framework release versioning. See the [rc.2 candidate status](docs/status/2026-09-16-v5.0.0-rc.2-candidate.md) and [`RELEASE.md`](RELEASE.md).
 
 ---
 
@@ -394,3 +394,14 @@ Major-version changes are required for changes that alter:
 ## One-sentence definition
 
 > Kristal v5 is a deterministic, portable epistemic artifact system that compiles Structured Epistemic States into verifiable artifacts while keeping validation scoped, authority plural, certainty explicit, reader policy selectable, and disagreement preserved.
+
+
+## Validation suite
+
+Run the complete framework validation suite with:
+
+```bash
+python tools/validate_all.py
+```
+
+This validates release integrity, executable TCK vectors, and `mkdocs build --strict`. A framework-suite PASS is not a claim that an external Kristal compiler/verifier is conformant; implementation conformance requires running the TCK against that implementation. See `docs/status/2026-09-16-v5-conformance-suite.md`.

@@ -13,6 +13,11 @@ PATTERNS = [
     re.compile(r"https://example\.com/kristal-framework"),
 ]
 
+STRICT_V5_TOKEN_TARGETS = {
+    ROOT / "docs" / "Technical-Reference" / "kristal-docs-v5" / "03-reproducibility" / "reproducibility-acceptance-tests.md",
+}
+STRICT_LEGACY_TOKEN = re.compile(r"\bv[1-4]\b", re.I)
+
 def main() -> int:
     findings=[]
     for target in TARGETS:
@@ -26,6 +31,8 @@ def main() -> int:
                 for pattern in PATTERNS:
                     if pattern.search(line):
                         findings.append(f"{p.relative_to(ROOT)}:{n}: {line.strip()}")
+                if p in STRICT_V5_TOKEN_TARGETS and STRICT_LEGACY_TOKEN.search(line):
+                    findings.append(f"{p.relative_to(ROOT)}:{n}: stale legacy release token: {line.strip()}")
     if findings:
         print("Version/alignment violations:")
         print("\n".join(findings))

@@ -1,14 +1,15 @@
 {
   "format": "kristal.release/v1",
   "framework": "kristal",
-  "version": "5.0.0-rc.1",
+  "version": "5.0.0-rc.2",
   "status": "release-candidate",
   "core_version": "5.0",
   "contract_surfaces": "contract-set.manifest.json",
   "canonicalization_profile": "kristal.v5:jcs-rfc8785",
   "git": {
-    "tag": "v5.0.0-rc.1",
+    "tag": "v5.0.0-rc.2",
     "commit": null,
-    "commit_resolution": "Resolve the release tag to its full immutable commit SHA in the authoritative Git repository."
-  }
+    "commit_resolution": "Resolve the release tag to its full immutable commit SHA in the authoritative Git repository after the rc.2 release commit is created."
+  },
+  "canonicalization_version": "1"
 }

@@ -1,8 +1,8 @@
 # Kristal v5 specification status
 
-**Release candidate:** `5.0.0-rc.1`  
-**RC Git tag:** `v5.0.0-rc.1`  
-**RC resolved commit:** `af703bf02ee04a69a5f2ad6694fa8b8e56ae2b19`  
+**Candidate version:** `5.0.0-rc.2`  
+**Candidate Git tag:** `v5.0.0-rc.2` — pending until release  
+**Candidate resolved commit:** pending until the release tag exists  
 **Core schema line:** `5.0`  
 **Canonicalization profile:** `kristal.v5:jcs-rfc8785` / version `1`
 
@@ -41,12 +41,14 @@ The repository does **not** define `contract_set_digest` or `schema_set_digest` 
 
 The Git commit is intentionally **not embedded** into a file inside the same commit. Consumers resolve the release tag to the commit and record that commit in their own lock file.
 
+Generated per-file release manifests are not part of the v5 release identity. In particular, `schema-set.manifest.json` and the legacy `tools/build_manifests.py` generator are retired. Schema and normative-document bytes are frozen by the Git commit referenced by the release tag.
+
 ### Current RC identity
 
 ```text
-version: 5.0.0-rc.1
-tag: v5.0.0-rc.1
-commit: af703bf02ee04a69a5f2ad6694fa8b8e56ae2b19
+version: 5.0.0-rc.2
+tag: v5.0.0-rc.2 (pending)
+commit: resolve from the immutable tag after release
 canonicalization: kristal.v5:jcs-rfc8785 / 1
 ```
 
@@ -56,9 +58,9 @@ After a stable release is tagged, files classified as normative for that release
 
 ## Release candidate rule
 
-`5.0.0-rc.1` is a stabilization release candidate. The tag exists and resolves to commit `af703bf02ee04a69a5f2ad6694fa8b8e56ae2b19`.
+`5.0.0-rc.2` is the current candidate version under validation. It is not a published release identity until the corrected tree is committed and the immutable `v5.0.0-rc.2` tag is created.
 
-An RC remains immutable once used as a pinned interoperability baseline. Corrections required after an RC is published SHOULD produce a new release-candidate version rather than moving the existing tag.
+The published `v5.0.0-rc.1` baseline remains immutable. An RC remains immutable once used as a pinned interoperability baseline. Corrections required after an RC is published MUST produce a new release-candidate version rather than moving the existing tag.
 
 The stable `5.0.0` tag MUST be cut only after all release validation and required downstream integration gates pass and the contract set is intentionally frozen.
 

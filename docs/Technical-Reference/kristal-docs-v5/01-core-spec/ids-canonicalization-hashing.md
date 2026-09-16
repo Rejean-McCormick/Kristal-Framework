@@ -249,6 +249,31 @@ This means that a Working Exchange and a Reference Exchange MAY have different `
 
 That difference is intentional when recognition, validation, or status metadata is part of the artifact’s stable identity.
 
+### 5.5 Core Exchange identity boundary
+
+The v5 core Exchange identity profile is:
+
+```text
+kristal.v5:exchange-id-core@1
+```
+
+`kristal_id` identifies the **stable Exchange payload**. It does not identify the compiler process or the Exchange Manifest as a whole.
+
+An `exchange-manifest.schema.json` object may record `created_at`, `manifest_id`, `build`, `inputs`, human-facing references, signatures, and other reproducibility or package metadata around the Exchange. Those manifest/build fields MUST NOT be added to the Exchange payload hash target merely because they coexist in the same package or implementation envelope.
+
+In particular, the following are build/provenance metadata rather than Exchange payload identity material unless a future explicit identity profile says otherwise:
+
+* compiler name, version, source revision, or host platform;
+* build correlation IDs;
+* wall-clock timestamps;
+* `build.config_hash`;
+* CI/job/host telemetry;
+* manifest-only integrity or publication metadata.
+
+A compiler MUST record build-affecting metadata needed for reproducibility in the Exchange Manifest/build record, while keeping `kristal_id` a content identity for the stable Exchange payload. Therefore two independent conforming compilers that emit the same stable Exchange payload MUST compute the same `kristal_id` even when compiler identities or build-run metadata differ.
+
+The framework TCK Exchange vectors are **payload/hash-target fixtures**, not complete `exchange-manifest.schema.json` instances. Full compiler/verifier conformance remains a separate claim until a concrete implementation adapter is exercised.
+
 ---
 
 ## 6. `state_id` computation

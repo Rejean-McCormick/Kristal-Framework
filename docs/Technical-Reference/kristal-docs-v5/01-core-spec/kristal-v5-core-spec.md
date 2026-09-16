@@ -451,6 +451,8 @@ reference_exchange
 
 A Working Exchange is compiled, structured, queryable, and reproducible, but not necessarily recognized as reference material.
 
+A Working Exchange MAY have `artifact_status = "recognized"` when one or more authority channels recognize the artifact but it has not been issued as a Reference Exchange. Recognition alone does not change `artifact_type`; promotion to a Reference Exchange is an explicit lifecycle action.
+
 A Reference Exchange is a Working Exchange or equivalent compiled artifact that has been recognized by one or more authority channels under declared validation policies and scopes.
 
 A minimal Exchange SHOULD include:
@@ -483,7 +485,7 @@ An Exchange MAY be a structured reference, a working artifact, a research artifa
 A Reference Exchange MUST declare:
 
 * `artifact_type = "reference_exchange"`;
-* `artifact_status = "reference"`;
+* `artifact_status = "reference"` when issued as a current reference artifact; a previously issued Reference Exchange MAY later carry `deprecated`, `superseded`, or `revoked` lifecycle status without ceasing to be identifiable as a `reference_exchange`;
 * at least one `authority_recognition_ref`;
 * the scope of recognition;
 * the validation or recognition policy used;
@@ -515,7 +517,7 @@ A minimal Runtime Pack manifest SHOULD include:
   "schema_version": "5.0",
   "artifact_type": "runtime_pack_manifest",
   "runtime_pack_id": "sha256:<hex>",
-  "runtime_pack_version": "5.0",
+  "runtime_pack_version": "5.0.0",
   "source_exchange_ref": {},
   "source_artifact_status": "working",
   "reader_policy_refs": [],

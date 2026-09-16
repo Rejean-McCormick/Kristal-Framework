@@ -485,11 +485,13 @@ revoked
 * equivalent attestation overlays;
 * non-identity timestamps unless explicitly included by a profile.
 
-16.3 Working Exchange hashed material MUST include the declared source state references, scope, compilation policy, compiler identity, config hash, and compiled payload.
+16.3 Working Exchange `kristal_id` MUST identify the stable Exchange payload, not the build run that produced it. Stable epistemic payload fields, including declared scope, source-state lineage when carried as payload content, validation/recognition references when carried as payload content, reader-policy references when carried as payload content, and compiled payload content, are identity-bearing under the Exchange ID profile. Compiler identity, host/platform identity, wall-clock build metadata, build correlation IDs, and `build.config_hash` belong to reproducibility/build records and MUST NOT be injected into the Exchange payload solely to change `kristal_id`.
 
-16.4 Reference Exchange hashed material MUST include the recognition and validation references that are part of its reference status.
+16.4 A conforming compiler MUST still record compiler identity, configuration hash, source snapshot identity, and other build-affecting inputs in the Exchange manifest/build record so the production process can be reproduced and audited. Two independent conforming compilers that produce the same stable Exchange payload MUST converge on the same `kristal_id` even when their compiler identities differ.
 
-16.5 A Reference Exchange with different authority recognition records MUST have a different content-addressed identity unless the recognition records are deliberately stored outside the hashed material by a declared profile.
+16.5 Reference Exchange hashed material MUST include the recognition and validation references that are part of its stable reference payload status.
+
+16.6 A Reference Exchange with different authority recognition records MUST have a different content-addressed identity unless the recognition records are deliberately stored outside the hashed material by a declared profile.
 
 ### 17) Time, randomness, and environment constraints
 

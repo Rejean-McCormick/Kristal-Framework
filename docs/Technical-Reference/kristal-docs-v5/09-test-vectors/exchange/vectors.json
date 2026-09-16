@@ -1,0 +1,192 @@
+{
+  "format": "kristal.exchange-id-vectors/v1",
+  "canonicalization_profile": "kristal.v5:jcs-rfc8785",
+  "canonicalization_version": "1",
+  "vectors": [
+    {
+      "id": "EX-001",
+      "name": "minimal working Exchange payload",
+      "input": {
+        "schema_version": "5.0",
+        "artifact_type": "working_exchange",
+        "exchange_version": "5.0",
+        "kristal_id": "sha256:1ce86e631151c4770a52d724cd926ab1a172e6ba650c44ca41d9819b088c58a1",
+        "content_hash": {
+          "alg": "sha256",
+          "value": "1ce86e631151c4770a52d724cd926ab1a172e6ba650c44ca41d9819b088c58a1"
+        },
+        "artifact_status": "working",
+        "canonicalization_profile": "kristal.v5:jcs-rfc8785",
+        "canonicalization_version": "1",
+        "scope": {
+          "domain": "conformance",
+          "environment": "test"
+        },
+        "assertions": [
+          {
+            "assertion_id": "claim:alpha",
+            "subject": "entity:alpha",
+            "predicate": "relation:knows",
+            "object": "entity:beta",
+            "assertion_status": "sourced",
+            "certainty_level": "high"
+          }
+        ],
+        "validation_refs": [],
+        "authority_recognition_refs": [],
+        "reader_policy_refs": [
+          "reader-policy:test"
+        ]
+      },
+      "expected_canonical": "{\"artifact_status\":\"working\",\"artifact_type\":\"working_exchange\",\"assertions\":[{\"assertion_id\":\"claim:alpha\",\"assertion_status\":\"sourced\",\"certainty_level\":\"high\",\"object\":\"entity:beta\",\"predicate\":\"relation:knows\",\"subject\":\"entity:alpha\"}],\"authority_recognition_refs\":[],\"canonicalization_profile\":\"kristal.v5:jcs-rfc8785\",\"canonicalization_version\":\"1\",\"exchange_version\":\"5.0\",\"reader_policy_refs\":[\"reader-policy:test\"],\"schema_version\":\"5.0\",\"scope\":{\"domain\":\"conformance\",\"environment\":\"test\"},\"validation_refs\":[]}",
+      "expected_sha256_hex": "1ce86e631151c4770a52d724cd926ab1a172e6ba650c44ca41d9819b088c58a1",
+      "expected_kristal_id": "sha256:1ce86e631151c4770a52d724cd926ab1a172e6ba650c44ca41d9819b088c58a1",
+      "expect_declared_hash_integrity": "pass"
+    },
+    {
+      "id": "EX-003",
+      "name": "same Exchange with signature envelope",
+      "input": {
+        "schema_version": "5.0",
+        "artifact_type": "working_exchange",
+        "exchange_version": "5.0",
+        "kristal_id": "sha256:1ce86e631151c4770a52d724cd926ab1a172e6ba650c44ca41d9819b088c58a1",
+        "content_hash": {
+          "alg": "sha256",
+          "value": "1ce86e631151c4770a52d724cd926ab1a172e6ba650c44ca41d9819b088c58a1"
+        },
+        "artifact_status": "working",
+        "canonicalization_profile": "kristal.v5:jcs-rfc8785",
+        "canonicalization_version": "1",
+        "scope": {
+          "domain": "conformance",
+          "environment": "test"
+        },
+        "assertions": [
+          {
+            "assertion_id": "claim:alpha",
+            "subject": "entity:alpha",
+            "predicate": "relation:knows",
+            "object": "entity:beta",
+            "assertion_status": "sourced",
+            "certainty_level": "high"
+          }
+        ],
+        "validation_refs": [],
+        "authority_recognition_refs": [],
+        "reader_policy_refs": [
+          "reader-policy:test"
+        ],
+        "signatures": [
+          {
+            "key_id": "test-key",
+            "alg": "ed25519",
+            "signature": "AA==",
+            "created_at": "2026-09-16T00:00:00Z"
+          }
+        ]
+      },
+      "expected_canonical": "{\"artifact_status\":\"working\",\"artifact_type\":\"working_exchange\",\"assertions\":[{\"assertion_id\":\"claim:alpha\",\"assertion_status\":\"sourced\",\"certainty_level\":\"high\",\"object\":\"entity:beta\",\"predicate\":\"relation:knows\",\"subject\":\"entity:alpha\"}],\"authority_recognition_refs\":[],\"canonicalization_profile\":\"kristal.v5:jcs-rfc8785\",\"canonicalization_version\":\"1\",\"exchange_version\":\"5.0\",\"reader_policy_refs\":[\"reader-policy:test\"],\"schema_version\":\"5.0\",\"scope\":{\"domain\":\"conformance\",\"environment\":\"test\"},\"validation_refs\":[]}",
+      "expected_sha256_hex": "1ce86e631151c4770a52d724cd926ab1a172e6ba650c44ca41d9819b088c58a1",
+      "expected_kristal_id": "sha256:1ce86e631151c4770a52d724cd926ab1a172e6ba650c44ca41d9819b088c58a1",
+      "expect_declared_hash_integrity": "pass"
+    },
+    {
+      "id": "EX-STATUS-001",
+      "name": "status-bearing content changes identity",
+      "input": {
+        "schema_version": "5.0",
+        "artifact_type": "reference_exchange",
+        "exchange_version": "5.0",
+        "kristal_id": "sha256:0883a5cc10a68f28c01b2fa83ceb3d140659a755954ac92576848cc725a8b8ef",
+        "content_hash": {
+          "alg": "sha256",
+          "value": "0883a5cc10a68f28c01b2fa83ceb3d140659a755954ac92576848cc725a8b8ef"
+        },
+        "artifact_status": "reference",
+        "canonicalization_profile": "kristal.v5:jcs-rfc8785",
+        "canonicalization_version": "1",
+        "scope": {
+          "domain": "conformance",
+          "environment": "test"
+        },
+        "assertions": [
+          {
+            "assertion_id": "claim:alpha",
+            "subject": "entity:alpha",
+            "predicate": "relation:knows",
+            "object": "entity:beta",
+            "assertion_status": "sourced",
+            "certainty_level": "high"
+          }
+        ],
+        "validation_refs": [],
+        "authority_recognition_refs": [
+          "recognition:test"
+        ],
+        "reader_policy_refs": [
+          "reader-policy:test"
+        ]
+      },
+      "expected_canonical": "{\"artifact_status\":\"reference\",\"artifact_type\":\"reference_exchange\",\"assertions\":[{\"assertion_id\":\"claim:alpha\",\"assertion_status\":\"sourced\",\"certainty_level\":\"high\",\"object\":\"entity:beta\",\"predicate\":\"relation:knows\",\"subject\":\"entity:alpha\"}],\"authority_recognition_refs\":[\"recognition:test\"],\"canonicalization_profile\":\"kristal.v5:jcs-rfc8785\",\"canonicalization_version\":\"1\",\"exchange_version\":\"5.0\",\"reader_policy_refs\":[\"reader-policy:test\"],\"schema_version\":\"5.0\",\"scope\":{\"domain\":\"conformance\",\"environment\":\"test\"},\"validation_refs\":[]}",
+      "expected_sha256_hex": "0883a5cc10a68f28c01b2fa83ceb3d140659a755954ac92576848cc725a8b8ef",
+      "expected_kristal_id": "sha256:0883a5cc10a68f28c01b2fa83ceb3d140659a755954ac92576848cc725a8b8ef",
+      "expect_declared_hash_integrity": "pass"
+    },
+    {
+      "id": "EX-004",
+      "name": "tampered Exchange payload must fail declared hash verification",
+      "input": {
+        "schema_version": "5.0",
+        "artifact_type": "working_exchange",
+        "exchange_version": "5.0",
+        "kristal_id": "sha256:1ce86e631151c4770a52d724cd926ab1a172e6ba650c44ca41d9819b088c58a1",
+        "content_hash": {
+          "alg": "sha256",
+          "value": "1ce86e631151c4770a52d724cd926ab1a172e6ba650c44ca41d9819b088c58a1"
+        },
+        "artifact_status": "working",
+        "canonicalization_profile": "kristal.v5:jcs-rfc8785",
+        "canonicalization_version": "1",
+        "scope": {
+          "domain": "conformance",
+          "environment": "test"
+        },
+        "assertions": [
+          {
+            "assertion_id": "claim:alpha",
+            "subject": "entity:alpha",
+            "predicate": "relation:knows",
+            "object": "entity:tampered",
+            "assertion_status": "sourced",
+            "certainty_level": "high"
+          }
+        ],
+        "validation_refs": [],
+        "authority_recognition_refs": [],
+        "reader_policy_refs": [
+          "reader-policy:test"
+        ]
+      },
+      "expect_declared_hash_integrity": "fail",
+      "expected_canonical": "{\"artifact_status\":\"working\",\"artifact_type\":\"working_exchange\",\"assertions\":[{\"assertion_id\":\"claim:alpha\",\"assertion_status\":\"sourced\",\"certainty_level\":\"high\",\"object\":\"entity:tampered\",\"predicate\":\"relation:knows\",\"subject\":\"entity:alpha\"}],\"authority_recognition_refs\":[],\"canonicalization_profile\":\"kristal.v5:jcs-rfc8785\",\"canonicalization_version\":\"1\",\"exchange_version\":\"5.0\",\"reader_policy_refs\":[\"reader-policy:test\"],\"schema_version\":\"5.0\",\"scope\":{\"domain\":\"conformance\",\"environment\":\"test\"},\"validation_refs\":[]}",
+      "expected_sha256_hex": "a9607b304e2626435c5e3a06847a2db39000e3e0fe87d533c56c81a6466c832a",
+      "expected_kristal_id": "sha256:a9607b304e2626435c5e3a06847a2db39000e3e0fe87d533c56c81a6466c832a"
+    }
+  ],
+  "relations": [
+    {
+      "id": "EX-003-REL",
+      "left": "EX-001",
+      "right": "EX-003",
+      "expect": "same_id"
+    },
+    {
+      "id": "EX-STATUS-REL",
+      "left": "EX-001",
+      "right": "EX-STATUS-001",
+      "expect": "different_id"
+    }
+  ],
+  "id_profile": "kristal.v5:exchange-id-core@1"
+}

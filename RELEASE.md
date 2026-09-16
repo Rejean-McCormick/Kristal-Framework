@@ -8,11 +8,12 @@ From a clean checkout:
 
 ```bash
 python -m pip install -r requirements-dev.txt
-python tools/validate_release.py
-mkdocs build --strict
+python tools/validate_all.py
 ```
 
-All commands MUST pass before tagging a stable release.
+The complete validation command MUST pass before tagging any release candidate or stable release.
+
+This command validates **framework/release integrity**, executable framework-vector conformance, and the strict documentation build. They do not, by themselves, establish that an Exchange compiler, Runtime Pack builder/verifier, Da’at implementation, or ecosystem integration is implementation-conformant. Any implementation conformance claimed for a release MUST also satisfy the applicable executable acceptance tests and the current status report under `docs/status/`.
 
 ## Release metadata
 
@@ -21,10 +22,18 @@ When changing the release version, update together:
 - `VERSION`
 - `kristal-release.json`
 - `contract-set.manifest.json` (`release` field only when the version changes)
+- `release-lock.example.json`
 - `CHANGELOG.md`
 - the corresponding status report under `docs/status/`
 
 `contract-set.manifest.json` lists contract **surfaces** (directories/files), not every file in the repository.
+
+Deprecated generated manifest artifacts MUST be absent before release:
+
+- `schema-set.manifest.json`;
+- `tools/build_manifests.py`.
+
+They belong to the retired per-file-hash release model and MUST NOT be regenerated. Schema bytes are pinned by the Git tag + commit SHA, while `contract-set.manifest.json` remains a curated surface index.
 
 ## Tagging
 
@@ -43,9 +52,9 @@ if (-not (Test-Path .git)) {
     throw "Run this from the root of the Kristal Git repository."
 }
 
-python ./tools/validate_release.py
+python ./tools/validate_all.py
 if ($LASTEXITCODE -ne 0) {
-    throw "Kristal release validation failed."
+    throw "Kristal complete validation suite failed."
 }
 
 $Dirty = git status --porcelain
@@ -106,11 +115,18 @@ Consumers SHOULD record the small release identity:
 
 ```json
 {
-  "version": "5.0.0-rc.1",
-  "git_tag": "v5.0.0-rc.1",
+  "version": "5.0.0-rc.2",
+  "git_tag": "v5.0.0-rc.2",
   "git_commit": "<full SHA resolved from tag>",
-  "canonicalization_profile": "kristal.v5:jcs-rfc8785"
+  "canonicalization_profile": "kristal.v5:jcs-rfc8785",
+  "canonicalization_version": "1"
 }
 ```
 
 Floating dependencies (`main`, `latest`, `5.x`) are not valid release locks.
+
+## Source archive hygiene
+
+`tools/build_release_archive.py` builds release archives from **Git-tracked files only**. Untracked diagnostics, local notes, `.levelupdiag/`, virtual environments, build output, and other workstation state MUST NOT affect release bytes. `CODE_SNAPSHOT_MANIFEST.md` is a local/export snapshot aid and is intentionally excluded from framework release archives.
+
+The archive builder MUST refuse to run outside a Git work tree. For a release build, the working tree SHOULD be clean and the release tag MUST ultimately resolve to the committed bytes being archived.

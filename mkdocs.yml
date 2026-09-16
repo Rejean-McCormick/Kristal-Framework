@@ -47,7 +47,10 @@ plugins:
 nav:
   - Home: index.md
   - Status:
-      - v5.0.0-rc.1 release status: status/2026-09-14-v5.0.0-rc.1.md
+      - v5.0.0-rc.2 candidate status: status/2026-09-16-v5.0.0-rc.2-candidate.md
+      - Current validation status: status/2026-09-16-v5-validation-status.md
+      - v5 conformance suite status: status/2026-09-16-v5-conformance-suite.md
+      - Historical v5.0.0-rc.1 release status: status/2026-09-14-v5.0.0-rc.1.md
   - Overview:
       - Specification status: Technical-Reference/kristal-docs-v5/00-overview/specification-status.md
       - What is Kristal v5: Technical-Reference/kristal-docs-v5/00-overview/what-is-kristal-v5.md
@@ -96,5 +99,8 @@ nav:
       - Operational guidance: Technical-Reference/kristal-docs-v5/08-ops/operational-guidance-template.md
       - Release strategies: Technical-Reference/kristal-docs-v5/08-ops/release-strategies.md
   - Test vectors:
+      - TCK overview: Technical-Reference/kristal-docs-v5/09-test-vectors/TCK.md
       - JCS: Technical-Reference/kristal-docs-v5/09-test-vectors/jcs/README.md
+      - Exchange identity: Technical-Reference/kristal-docs-v5/09-test-vectors/exchange/README.md
+      - Runtime Pack identity: Technical-Reference/kristal-docs-v5/09-test-vectors/runtime-pack/README.md
       - RDFC: Technical-Reference/kristal-docs-v5/09-test-vectors/rdfc/README.md

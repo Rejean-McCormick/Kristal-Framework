@@ -526,7 +526,7 @@ For Kristal v5:
 
 ```text
 schema_version = 5.0
-runtime_pack_version = 5.0
+runtime_pack_version = 5.0.0
 ```
 
 Any change to enumerations or semantics MUST bump the relevant schema or profile version.

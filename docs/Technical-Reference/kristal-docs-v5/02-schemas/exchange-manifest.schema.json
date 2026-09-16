@@ -196,35 +196,18 @@
         "properties": {
           "artifact_status": {
             "enum": [
-              "recognized",
               "reference",
               "deprecated",
               "superseded",
               "revoked"
             ]
+          },
+          "authority_recognition_refs": {
+            "minItems": 1
           }
         },
-        "anyOf": [
-          {
-            "required": [
-              "authority_recognition_refs"
-            ],
-            "properties": {
-              "authority_recognition_refs": {
-                "minItems": 1
-              }
-            }
-          },
-          {
-            "required": [
-              "validation_refs"
-            ],
-            "properties": {
-              "validation_refs": {
-                "minItems": 1
-              }
-            }
-          }
+        "required": [
+          "authority_recognition_refs"
         ]
       }
     },
@@ -246,6 +229,7 @@
               "draft",
               "working",
               "under_review",
+              "recognized",
               "deprecated",
               "superseded",
               "revoked"

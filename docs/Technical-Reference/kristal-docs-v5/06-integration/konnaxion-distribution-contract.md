@@ -95,7 +95,7 @@ runtime-pack-manifest.json
 Each Runtime Pack bundle intended for distribution MUST be uniquely and unambiguously identified by the following metadata, carried either in the Runtime Pack Manifest, channel index, or both:
 
 * `schema_version = "5.0"`;
-* `artifact_type = "runtime_pack"`;
+* `artifact_type = "runtime_pack_manifest"`;
 * `runtime_pack_id`;
 * `runtime_pack_version`;
 * `release_id`;

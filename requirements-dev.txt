@@ -1,4 +1,4 @@
-jsonschema>=4.22,<5
+jsonschema[format-nongpl]>=4.22,<5
 PyYAML>=6,<7
 mkdocs>=1.6,<2
 mkdocs-material>=9.5,<10

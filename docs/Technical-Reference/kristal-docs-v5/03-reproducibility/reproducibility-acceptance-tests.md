@@ -6,9 +6,9 @@ Draft (normative acceptance criteria)
 ## Purpose
 Define the **acceptance tests** that determine whether a Kristal v5 implementation produces **reproducible** artifacts.
 
-In v3, reproducibility is a first-class requirement:
+In v5, reproducibility is a first-class requirement:
 - Exchange rebuilds MUST produce identical `kristal_id` given the same inputs and rules.
-- Runtime Pack rebuilds MUST produce identical `pack_id` (or equivalent) and identical declared payload hashes given the same inputs, compiler, configuration, and policy selections.
+- Runtime Pack rebuilds MUST produce identical `runtime_pack_id` (legacy alias: `pack_id`) and identical declared payload hashes given the same inputs, compiler, configuration, and policy selections.
 
 These tests are designed to prevent “works on my machine” builds and to ensure artifacts are comparable across toolchains.
 
@@ -23,15 +23,17 @@ The key words **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, and **MAY** ar
 An **Input Snapshot** is a content-addressed reference to the exact source inputs used for a build (datasets, Claim-IR sets, resolved Claim-IR sets, configuration files, etc.).
 
 ## 1.2 Build determinism surface
-The determinism surface for a build is defined by:
+The determinism surface for reproducing a **build process** is defined by:
 - the declared input snapshots,
 - the compiler identity and version,
 - the full build configuration (identified by `config_hash`),
 - and the recorded `policy_selections` (see `03-reproducibility/allowed-runtime-pack-policies.md`).
 
+This build-process surface is broader than Exchange content identity. Under `kristal.v5:exchange-id-core@1`, compiler/build-run identity is recorded for reproducibility but does not become part of `kristal_id` merely because a particular compiler produced the payload.
+
 ## 1.3 Artifact hashes
-- `kristal_id`: content hash of Exchange (signatures excluded).
-- `pack_id`: content hash of Runtime Pack (as defined by Runtime Pack contract).
+- `kristal_id`: content hash of the stable Exchange payload under `kristal.v5:exchange-id-core@1` (signatures excluded).
+- `runtime_pack_id`: content hash of Runtime Pack identity material under the applicable Runtime Pack identity profile (`pack_id` MAY be accepted only as a compatibility alias).
 - `payload_hashes`: hashes of pack payload components (Parquet files, index files, etc.), as declared in the pack manifest.
 
 ---
@@ -60,11 +62,13 @@ The determinism surface for a build is defined by:
 **Goal:** Independent implementations converge on the same ID.
 
 **Given**
-- a published Exchange fixture + expected `kristal_id`
+- a published stable Exchange payload fixture + expected `kristal_id`
+- the `kristal.v5:exchange-id-core@1` identity boundary
 - canonicalization defined as RFC 8785 (JCS)
 
 **Then**
-- any v3 core conformant implementation MUST compute the expected `kristal_id`.
+- any v5 core conformant implementation MUST compute the expected `kristal_id`;
+- two independent conforming implementations MUST converge on that ID even when their compiler names, versions, build IDs, host platforms, or CI metadata differ, provided they emit the same stable Exchange payload.
 
 **Failure**
 - mismatch → FAIL (interop-breaking).
@@ -118,7 +122,7 @@ The determinism surface for a build is defined by:
 
 **Then**
 - rebuilt Runtime Pack MUST produce identical:
-  - `pack_id`
+  - `runtime_pack_id`
   - `payload_hashes` (for each payload component)
   - `policy_selections` recorded in manifest
 
@@ -219,7 +223,7 @@ The determinism surface for a build is defined by:
 
 **Then**
 - Exchange `kristal_id` MUST match.
-- Runtime Pack `pack_id` and payload hashes SHOULD match.
+- Runtime Pack `runtime_pack_id` and payload hashes SHOULD match.
 
 **Note**
 If exact Runtime Pack bit identity is not feasible cross-OS due to dependency formats, the implementation MUST:
@@ -244,7 +248,7 @@ If recorded, these MUST NOT affect core identity unless explicitly included in t
 
 Implementations MUST provide:
 - Exchange fixtures + expected `kristal_id`
-- Runtime Pack fixtures + expected `pack_id` + expected payload hashes
+- Runtime Pack fixtures + expected `runtime_pack_id` + expected payload hashes
 - JCS canonicalization vectors + expected hashes
 - Query fixtures for stable paging (cursor/offset), join caps, and error modes
 
@@ -259,4 +263,15 @@ A Kristal v5 implementation passes reproducibility if:
 - All Runtime Pack tests RP-1 through RP-6 pass (mandatory).
 - Cross-platform test XP-1 is run for at least one release candidate (recommended).
 
-Failure of any mandatory test blocks release of v3 artifacts.
+Failure of any mandatory test blocks release of v5 artifacts.
+
+
+## Executable TCK mapping
+
+The executable framework-vector surface is `09-test-vectors/TCK.md` and is run by:
+
+```bash
+python tools/validate_conformance.py
+```
+
+A framework-vector PASS proves that the published vectors, hash-target rules, and fail-closed fixture expectations are internally executable. It does **not** by itself prove conformance of a production compiler or verifier. Tests that require a concrete implementation remain `NOT TESTED` until an implementation adapter is connected to the TCK.

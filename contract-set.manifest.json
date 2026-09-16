@@ -1,6 +1,6 @@
 {
   "format": "kristal.contract-surfaces/v1",
-  "release": "5.0.0-rc.1",
+  "release": "5.0.0-rc.2",
   "core_schema_line": "5.0",
   "purpose": "Human- and machine-readable index of the public Kristal v5 contract surfaces. Git tag + commit pin the exact repository contents.",
   "normative_surfaces": [
@@ -43,6 +43,18 @@
     {
       "name": "jcs-vectors",
       "path": "docs/Technical-Reference/kristal-docs-v5/09-test-vectors/jcs/"
+    },
+    {
+      "name": "tck-overview",
+      "path": "docs/Technical-Reference/kristal-docs-v5/09-test-vectors/TCK.md"
+    },
+    {
+      "name": "exchange-id-vectors",
+      "path": "docs/Technical-Reference/kristal-docs-v5/09-test-vectors/exchange/"
+    },
+    {
+      "name": "runtime-pack-vectors",
+      "path": "docs/Technical-Reference/kristal-docs-v5/09-test-vectors/runtime-pack/"
     }
   ],
   "informative_surfaces": [

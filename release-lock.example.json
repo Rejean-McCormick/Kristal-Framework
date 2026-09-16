@@ -1,7 +1,8 @@
 {
   "format": "kristal.consumer-lock/v1",
-  "version": "5.0.0-rc.1",
-  "git_tag": "v5.0.0-rc.1",
+  "version": "5.0.0-rc.2",
+  "git_tag": "v5.0.0-rc.2",
   "git_commit": "<resolve tag to full immutable commit SHA>",
-  "canonicalization_profile": "kristal.v5:jcs-rfc8785"
+  "canonicalization_profile": "kristal.v5:jcs-rfc8785",
+  "canonicalization_version": "1"
 }
