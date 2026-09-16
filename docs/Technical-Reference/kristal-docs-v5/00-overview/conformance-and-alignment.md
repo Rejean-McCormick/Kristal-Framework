@@ -659,6 +659,9 @@ Rules:
 * Runtime Packs MUST declare their source artifact status.
 * Runtime Packs MUST preserve validation, certainty, authority, scope, provenance, and lineage labels required by their query contract or reader policy.
 * Runtime Packs MAY materialize full source data or filtered reader-policy views.
+* Runtime Pack tables, indexes, columnar files, and profile-defined database-like query stores are derived materializations and MUST NOT become independent writable authorities.
+* Materializations that affect query results MUST be bound to the declared source/build identity and reproducibility surface, and MUST be rebuildable from declared inputs.
+* Core v5 does not define a general-purpose writable SQLite/application-database profile; any database-like representation requires an explicit profile and remains read-only/derived unless a future normative contract states otherwise.
 * Filtered Runtime Packs MUST NOT present themselves as containing the full source artifact.
 * Runtime Pack signatures prove package integrity, not universal truth.
 * Runtime Pack activation is governed by activation policy, trust roots, signatures, revocation, downgrade policy, compatibility, and reader-policy requirements.

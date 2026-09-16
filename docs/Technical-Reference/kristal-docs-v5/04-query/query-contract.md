@@ -719,6 +719,8 @@ Test fixtures SHOULD include at least:
 
 ## 17. Non-normative implementation notes
 
+* Query engines may use Parquet, deterministic indexes, or a profile-defined read-only database-like materialization internally, provided observable query semantics remain conformant.
+* Treat all Runtime Pack query stores as derived from the declared source artifact; do not accept local write-back as a mutation of Kristal knowledge.
 * Prefer cursor paging over offset for large packs.
 * Enforce resource limits early to protect offline devices.
 * Keep query wrappers small and deterministic.

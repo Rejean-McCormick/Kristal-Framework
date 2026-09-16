@@ -25,7 +25,9 @@ Integrity protects artifacts.
 
 A **Kristal** is a portable, verifiable, offline-executable unit of structured epistemic knowledge.
 
-A Kristal is **not** a document, article, database dump, free-text file, or model output. It is a compiled artifact with deterministic identity, explicit provenance, queryable structure, and machine-readable epistemic metadata.
+A Kristal is **not** a document, article, mutable application database, raw database dump, free-text file, or model output. It is a compiled artifact with deterministic identity, explicit provenance, queryable structure, and machine-readable epistemic metadata.
+
+Operational records remain authoritative in the system that owns their lifecycle. A source system may publish an immutable snapshot/export or stable artifact reference for Kristal compilation; the resulting Kristal artifact is a distinct knowledge artifact with provenance back to that source, not a transfer of ownership of the live record.
 
 A Kristal can contain:
 
@@ -113,6 +115,8 @@ Kristal v5 is not:
 
 * a universal truth authority;
 * a single global fact database;
+* a shared mutable transactional database for Orgo, Konnaxion, or other applications;
+* a bidirectional synchronization mechanism between product databases and Kristal artifacts;
 * a replacement for scientific, legal, cultural, or institutional review;
 * a claim that all included assertions are true;
 * a guarantee that all authorities agree;
@@ -425,6 +429,10 @@ A Runtime Pack declares:
 
 A Runtime Pack derived from a Working Exchange is not equivalent to one derived from a Reference Exchange.
 
+Runtime Pack payloads are **derived query materializations**. They MAY use tables, indexes, dictionaries, columnar files, or other profile-defined read-oriented structures. Such materializations MUST NOT become a second writable authority for the source knowledge. For a declared build identity they are immutable and reproducible from the declared source artifact and build inputs.
+
+Kristal v5 core does not standardize a writable SQLite or general-purpose application-database representation. A database-like file MAY be introduced by an explicit Runtime Pack profile only when it is bound to the source artifact/build identity, treated as read-only derived state, and does not alter the authoritative epistemic state.
+
 ### 9.5 Shard
 
 A scoped Exchange artifact representing part of a corpus.
@@ -635,6 +643,8 @@ Kristal Runtime Packs are designed for offline and low-bandwidth environments.
 
 Runtime Packs:
 
+* are derived from declared Kristal source artifacts and do not replace those source artifacts;
+* do not become writable operational stores for consuming applications;
 * do not require live SPARQL endpoints;
 * do not require network access for normal local queries;
 * do not require LLMs for execution;

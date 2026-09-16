@@ -54,6 +54,21 @@ The Kristal stack turns inputs into structured artifacts:
 
 Compilation and validation are distinct. A system may compile a working artifact before final recognition. Reader policies then decide which artifacts or assertions are visible in a given context.
 
+### Operational-state boundary
+
+Kristal does not replace the operational databases of ecosystem products. Mutable product state remains owned by the product responsible for that domain. Knowledge compilation consumes immutable source-owned exports/snapshots or stable artifact references carrying revision/digest and provenance.
+
+The authority direction is one-way:
+
+```text
+product operational state
+  -> immutable source artifact / snapshot
+  -> Kristal epistemic artifact
+  -> deterministic Runtime Pack materialization
+```
+
+The layers are linked by references and lineage, not by bidirectional database synchronization or distributed dual writes. In the **kOA deployment profile**, Da’at is the mapping boundary that translates source-owned artifacts into Kristal-native epistemic structures; Interaction Kernel may transport requests, ArtifactRefs, receipts, and completion events, but owns neither product state nor Kristal artifact storage.
+
 ### C. Consumers in the ecosystem
 
 * **Konnaxion** consumes Kristals to power discovery, search, navigation, knowledge delivery, education, civic workflows, collective curation, and offline-oriented user experiences.
@@ -88,6 +103,8 @@ Kristal owns:
 * Kristal is not a workflow engine.
 * Kristal is not a voting system.
 * Kristal is not a user interface.
+* Kristal is not a shared mutable application database or operational system of record.
+* Kristal is not a bidirectional database synchronization layer between products.
 * Kristal is not a monopoly over truth.
 * Kristal Runtime Packs do not need full SPARQL semantics; they intentionally constrain query execution to remain offline, predictable, and portable.
 
@@ -157,7 +174,7 @@ Orgo handles:
 * feedback loops;
 * sync conflicts.
 
-Orgo does not own the Kristal knowledge payload. It orchestrates the work around that payload.
+Orgo does not own the Kristal knowledge payload. It orchestrates the work around that payload. Conversely, Kristal does not own Orgo Cases, Tasks, Workflow state, outbox/retry state, or other mutable Orgo operational records. Orgo contributes knowledge through immutable snapshots/artifact references rather than dual-writing live records into Kristal.
 
 ## 4) The place of Kristals inside each product
 

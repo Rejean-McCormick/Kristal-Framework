@@ -18,6 +18,8 @@ Konnaxion’s responsibilities in the ecosystem are to:
 
 Konnaxion distributes and activates Runtime Packs. It does not decide universal truth. It enforces declared distribution policy, artifact integrity, compatibility, reader-policy behavior, and channel-specific authority requirements.
 
+Konnaxion's own mutable operational/domain state remains Konnaxion-owned and is not stored in Kristal merely because a Runtime Pack is present. Consultations, participants, votes, DecisionRecords, session state, delivery jobs, and other application records remain outside the Runtime Pack unless represented as immutable source evidence or derived epistemic knowledge under an explicit contract.
+
 Normative keywords: MUST, MUST NOT, SHOULD, SHOULD NOT, MAY.
 
 ---
@@ -49,7 +51,8 @@ This contract does not define:
 * how facts, claims, myths, hypotheses, or disputed positions are debated;
 * full device management or MDM integration;
 * user interface design;
-* Runtime Pack internal query semantics, except where query-contract compatibility affects activation.
+* Runtime Pack internal query semantics, except where query-contract compatibility affects activation;
+* Konnaxion's transactional/domain database schema or write model.
 
 Build workflows are owned by Orgo and the Kristal compiler. Validation and recognition are represented by Kristal validation decisions and authority recognition records. Konnaxion consumes those records according to distribution policy and reader policy.
 
@@ -72,6 +75,8 @@ A distributable Runtime Pack bundle MUST include:
 * optional validation decision records;
 * optional authority recognition records;
 * optional transparency log entries.
+
+Pack payload files are derived, read-oriented materializations. A Runtime Pack MAY contain a profile-defined database-like query file only when the applicable profile declares it and the file is bound to the pack/source identity. Konnaxion MUST treat such a file as immutable/read-only for that pack build and MUST NOT use it as its authoritative mutable application database or write back local mutations as Kristal knowledge.
 
 The Runtime Pack Manifest MUST conform to:
 

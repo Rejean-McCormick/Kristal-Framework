@@ -16,6 +16,8 @@ Kristal v5 defines how **Structured Epistemic States** are compiled into immutab
 
 Kristal is designed for portable, verifiable, offline-capable knowledge operation across toolchains, authority channels, reader policies, and runtime environments.
 
+Kristal is **not** a shared mutable application database. Product-owned operational state remains authoritative in the owning product and enters Kristal through immutable source artifacts/snapshots with provenance. Runtime Packs are derived query/execution materializations; they may use profile-defined read-oriented storage structures, but those structures remain non-authoritative and rebuildable from declared Kristal inputs.
+
 ---
 
 ## Release identity

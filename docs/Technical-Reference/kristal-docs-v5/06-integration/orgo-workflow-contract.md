@@ -87,6 +87,7 @@ Kristal owns:
 
 Orgo owns:
 
+* its mutable operational database/state and transactional lifecycle;
 * workflow lifecycle;
 * operational cases and tasks;
 * review routing;
@@ -100,6 +101,10 @@ Orgo owns:
 * tenant-scoped audit logs;
 * feedback handling;
 * operational remediation.
+
+Orgo MUST NOT make a live domain record simultaneously authoritative in both its operational store and Kristal. When Orgo-originated state contributes to Kristal compilation, Orgo SHOULD provide an immutable source snapshot/export or stable source artifact reference with revision/digest and provenance. The resulting Kristal artifact is a separate knowledge artifact and MUST preserve lineage to that source.
+
+In the kOA deployment profile, Da’at MAY perform the mapping from the Orgo-owned source artifact into Kristal-native Structured Epistemic State or another supported Kristal input. Transport through Interaction Kernel does not transfer state ownership to Interaction Kernel.
 
 ---
 
@@ -797,6 +802,8 @@ Orgo MUST represent feedback as:
 * new Claim-IR proposals where extraction is involved.
 
 Orgo MUST NOT edit Exchange artifacts in place due to votes, curation, user edits, operator comments, or feedback signals.
+
+Orgo MUST also NOT write those changes into a Runtime Pack query/materialization store as a substitute for producing a new source/epistemic artifact and derived build. Runtime Pack state is read-oriented derived state, not Orgo's transactional write model.
 
 ## 9.2 Feedback-to-build linkage
 

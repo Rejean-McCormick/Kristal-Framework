@@ -10,6 +10,8 @@ Kristal v5 keeps the **determinism surface area small** while enabling high-perf
 
 A Runtime Pack is a deployable offline package derived from a Kristal Exchange or shard set. It may support strict reference use, validated-only use, research use, creative use, or custom reader policies. The pack must make its construction policies explicit so another implementation can compare, reproduce, or reject it under the same declared constraints.
 
+Runtime Pack storage structures are query/execution materializations. They are not a second source of epistemic truth and are not mutable application databases. A profile MAY define additional read-oriented physical representations (for example a database-like file) only when the manifest/schema/profile can declare them, bind them to the build/source identity, and preserve deterministic rebuildability. Core v5 does not currently define a writable SQLite profile.
+
 A Kristal v5 Runtime Pack MUST:
 
 1. Select policy values from the allowed sets below.
@@ -21,6 +23,8 @@ Anything outside these policies is either:
 
 * a **non-normative implementation detail**, or
 * an **optional profile extension** that MUST be explicitly declared and MUST NOT change core IDs unless included in the declared reproducibility surface.
+
+A physical storage representation that can influence query bytes/results, integrity verification, or portability is not merely an invisible implementation detail: the applicable profile and reproducibility surface MUST make the relevant representation/version/configuration constraints explicit.
 
 ## Normative language
 
@@ -354,6 +358,8 @@ If the source is filtered during pack construction, the Runtime Pack manifest MU
 * profile IDs, if `custom_profile` is used.
 
 A filtered Runtime Pack MUST NOT present itself as containing the full source artifact.
+
+Regardless of source materialization policy, the materialized store is non-authoritative relative to its declared source artifact. Consumers MUST NOT treat local mutations to Runtime Pack storage as edits to the Exchange. A changed knowledge state requires a new source/epistemic input and a new derived build.
 
 ---
 

@@ -318,6 +318,16 @@ revoked
 
 9.5 A Runtime Pack MUST NOT present unrecognized or unvalidated assertions as recognized reference material unless the active reader policy explicitly allows that interpretation.
 
+9.6 Runtime Pack tables, indexes, dictionaries, columnar files, search structures, and profile-defined database-like files are derived materializations, not independent authorities.
+
+9.7 For a declared Runtime Pack build identity, every materialization that affects query results MUST be immutable and bound to the declared source artifact, compiler/configuration identity, and applicable materialization policies.
+
+9.8 A conforming materialization MUST be deterministically rebuildable from the declared Kristal source artifact and build inputs. Deleting and rebuilding the materialization MUST NOT change the authoritative epistemic state.
+
+9.9 Runtime Pack payloads MUST NOT be used as writable operational databases whose mutations are expected to flow back into the source Exchange or a product database. Changes originate as new source artifacts/epistemic inputs and produce new artifact/build identities.
+
+9.10 Core v5 does not define a general-purpose writable SQLite profile. A database-like representation is an optional profile extension and MUST remain read-only/derived unless a future normative Kristal contract explicitly defines otherwise.
+
 ### 10) Reader policy determinism
 
 10.1 If a Runtime Pack or query surface applies a reader policy during compilation, the reader policy MUST be included in the input snapshot.
