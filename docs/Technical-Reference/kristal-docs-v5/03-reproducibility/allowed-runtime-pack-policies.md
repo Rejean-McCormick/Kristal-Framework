@@ -105,6 +105,11 @@ A Runtime Pack MUST NOT remove the fact that an assertion is hypothetical, dispu
 
 ---
 
+
+## 1.5 Portable byte-level conformance profile
+
+The allowed policy names in this document define semantic choices. For RP-2 through RP-5, exact portable fixture bytes are additionally fixed by `05-profiles/profile-runtime-pack-portable-conformance.md` (`kristal.v5:runtime-pack-portable-conformance@1`). Implementations claiming that profile MUST follow its comparison, row-boundary, Bloom serialization, and Roaring container-selection rules exactly.
+
 # 2. Data ordering policies
 
 Ordering is treated as an index. Runtime Pack builders MUST pick from the following ordering policies for the primary assertion or triples store.

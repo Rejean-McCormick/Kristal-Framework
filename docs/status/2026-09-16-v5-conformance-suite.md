@@ -40,6 +40,10 @@ The skip flag is a local convenience only. Authoritative CI requires `mkdocs bui
 | Status-bearing Exchange identity change | PASS-capable | `EX-STATUS-001` |
 | Runtime Pack identity profile vector | PASS-capable | `09-test-vectors/runtime-pack/` |
 | Runtime Pack payload hash/size verification | PASS-capable | `RP-001`, `RP-006` |
+| Runtime Pack ordering bytes | PASS-capable | `RP-002` |
+| Runtime Pack row-group boundaries | PASS-capable | `RP-003` |
+| Runtime Pack Bloom bytes + pruning | PASS-capable | `RP-004` |
+| Runtime Pack Roaring portable bytes | PASS-capable | `RP-005`, `RP-005-NORUN` |
 | Strict docs build | CI gate | `.github/workflows/conformance.yml` |
 
 ## What this does not prove
@@ -52,10 +56,7 @@ The following still require a concrete compiler/verifier or a byte-format-specif
 - EX-2 convergence of two independent implementations;
 - EX-4 cryptographic signature failure handling against a real verifier;
 - RP-1 full Runtime Pack compiler rebuild determinism;
-- RP-2 stable record ordering in emitted data files;
-- RP-3 deterministic row-group boundaries;
-- RP-4 deterministic membership-filter bytes;
-- RP-5 deterministic Roaring/bitmap bytes;
+- RP-2 through RP-5 against arbitrary production storage profiles that do not claim `kristal.v5:runtime-pack-portable-conformance@1`;
 - RP-6 loader rejection against a production Runtime Pack loader;
 - cross-platform XP-1.
 
@@ -87,3 +88,7 @@ The remaining stable manifest material is identity-bearing for this TCK profile.
 Before claiming **reference implementation conformance**, connect a compiler/verifier adapter to the TCK and make EX-1..EX-4 and RP-1..RP-6 executable against that implementation.
 
 Before claiming **ecosystem integration validated**, additionally run the Da'at + Interaction Kernel lifecycle end-to-end and verify ArtifactRef return/consumption without shared-database writes.
+
+## Portable Runtime Pack materialization profile
+
+The framework now publishes `kristal.v5:runtime-pack-portable-conformance@1`. Under that profile, RP-2 through RP-5 have exact golden bytes and are executable framework-vector surfaces. External implementations must independently reproduce the vectors before claiming implementation conformance to the profile.

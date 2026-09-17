@@ -22,3 +22,8 @@ This closes the test-vector gap required by deterministic-build rule 15.5 withou
 The payload-integrity vectors also verify that every declared file hash and size is checked fail-closed.
 
 This TCK does **not** yet claim byte-level conformance for Roaring encoding, membership-filter construction, Parquet row-group bytes, or a complete Runtime Pack compiler. Those require implementation adapters and/or more narrowly pinned byte-format profiles.
+
+
+## Portable materialization vectors
+
+`portable-vectors.json` makes RP-2 through RP-5 executable under `kristal.v5:runtime-pack-portable-conformance@1`. It covers exact ordered JSONL bytes, fixed-row group boundary bytes, deterministic KBF1 Bloom-filter bytes including false-positive pruning, and canonical 32-bit Roaring portable bytes with deterministic run-container selection.

@@ -1,0 +1,225 @@
+{
+  "format": "kristal.runtime-pack-portable-vectors/v1",
+  "profile": "kristal.v5:runtime-pack-portable-conformance@1",
+  "vectors": [
+    {
+      "id": "RP-002",
+      "name": "stable qid/pid/statement ordering emits byte-identical JSONL",
+      "case": "ordering",
+      "input": {
+        "policy": "qid_pid_statement_id_asc",
+        "rows": [
+          {
+            "subject": "Q2",
+            "predicate": "P31",
+            "object": "Q5",
+            "statement_id": "S2"
+          },
+          {
+            "subject": "Q1",
+            "predicate": "P279",
+            "object": "Q0",
+            "statement_id": "S9"
+          },
+          {
+            "subject": "Q1",
+            "predicate": "P31",
+            "object": "Q7",
+            "statement_id": "S2"
+          },
+          {
+            "subject": "Q1",
+            "predicate": "P31",
+            "object": "Q6",
+            "statement_id": "S1"
+          },
+          {
+            "subject": "Q10",
+            "predicate": "P1",
+            "object": "Q8",
+            "statement_id": "S1"
+          }
+        ]
+      },
+      "expected_payload_base64": "eyJvYmplY3QiOiJRMCIsInByZWRpY2F0ZSI6IlAyNzkiLCJzdGF0ZW1lbnRfaWQiOiJTOSIsInN1YmplY3QiOiJRMSJ9Cnsib2JqZWN0IjoiUTYiLCJwcmVkaWNhdGUiOiJQMzEiLCJzdGF0ZW1lbnRfaWQiOiJTMSIsInN1YmplY3QiOiJRMSJ9Cnsib2JqZWN0IjoiUTciLCJwcmVkaWNhdGUiOiJQMzEiLCJzdGF0ZW1lbnRfaWQiOiJTMiIsInN1YmplY3QiOiJRMSJ9Cnsib2JqZWN0IjoiUTgiLCJwcmVkaWNhdGUiOiJQMSIsInN0YXRlbWVudF9pZCI6IlMxIiwic3ViamVjdCI6IlExMCJ9Cnsib2JqZWN0IjoiUTUiLCJwcmVkaWNhdGUiOiJQMzEiLCJzdGF0ZW1lbnRfaWQiOiJTMiIsInN1YmplY3QiOiJRMiJ9Cg==",
+      "expected_sha256_hex": "770ba5143869eea314684d6d13fe855920dd3e2fb9e07b550f29d74f82254893",
+      "expected_semantic": {
+        "ordered_statement_ids": [
+          "S9",
+          "S1",
+          "S2",
+          "S1",
+          "S2"
+        ]
+      }
+    },
+    {
+      "id": "RP-003",
+      "name": "fixed_rows_100k row-group boundaries are deterministic",
+      "case": "row_grouping",
+      "input": {
+        "policy": "fixed_rows_100k",
+        "row_count": 200005
+      },
+      "expected_payload_base64": "eyJncm91cHMiOlt7ImluZGV4IjowLCJyb3dfY291bnQiOjEwMDAwMCwic3RhcnRfcm93IjowfSx7ImluZGV4IjoxLCJyb3dfY291bnQiOjEwMDAwMCwic3RhcnRfcm93IjoxMDAwMDB9LHsiaW5kZXgiOjIsInJvd19jb3VudCI6NSwic3RhcnRfcm93IjoyMDAwMDB9XSwicG9saWN5IjoiZml4ZWRfcm93c18xMDBrIiwicm93X2NvdW50IjoyMDAwMDV9Cg==",
+      "expected_sha256_hex": "71949dc1d826309cc50f746f4553352d7619bf0a466d6971f96f41472253b27a",
+      "expected_semantic": {
+        "policy": "fixed_rows_100k",
+        "row_count": 200005,
+        "groups": [
+          {
+            "index": 0,
+            "start_row": 0,
+            "row_count": 100000
+          },
+          {
+            "index": 1,
+            "start_row": 100000,
+            "row_count": 100000
+          },
+          {
+            "index": 2,
+            "start_row": 200000,
+            "row_count": 5
+          }
+        ]
+      }
+    },
+    {
+      "id": "RP-004",
+      "name": "KBF1 Bloom bytes are deterministic and false positives are pruned",
+      "case": "membership_filter",
+      "input": {
+        "kind": "bloom",
+        "seed": 12345,
+        "bits_per_key": 2,
+        "hash_functions": 3,
+        "keys": [
+          "alpha",
+          "beta",
+          "gamma",
+          "delta"
+        ]
+      },
+      "queries": [
+        {
+          "key": "alpha"
+        },
+        {
+          "key": "definitely-not-present"
+        },
+        {
+          "key": "absent-2"
+        }
+      ],
+      "expected_payload_base64": "S0JGMQEBAAA5MAAACAAAAAMAAAAEAAAA1Q==",
+      "expected_sha256_hex": "e25cf520081d3de8f5932d7d00f3364d216552e3d84045258ac7c521abfa7735",
+      "expected_semantic": {
+        "bit_count": 8,
+        "key_count": 4,
+        "queries": [
+          {
+            "key": "alpha",
+            "filter_maybe": true,
+            "authoritative": true,
+            "result": true
+          },
+          {
+            "key": "definitely-not-present",
+            "filter_maybe": false,
+            "authoritative": false,
+            "result": false
+          },
+          {
+            "key": "absent-2",
+            "filter_maybe": true,
+            "authoritative": false,
+            "result": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "RP-005",
+      "name": "run-optimized Roaring portable bytes are deterministic",
+      "case": "bitmap",
+      "input": {
+        "format": "roaring_run_optimized",
+        "run_optimize": true,
+        "values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          10,
+          20,
+          21,
+          22,
+          65543,
+          65544,
+          65545
+        ]
+      },
+      "expected_payload_base64": "OzABAAEAAAgAAQACAAMAAQAEAAoAAAAUAAIABwAIAAkA",
+      "expected_sha256_hex": "0b39c6e136ffbc47c953159cb9ce02bb7ea510422e14db56343d9ee5f9d0ae21",
+      "expected_semantic": {
+        "containers": [
+          {
+            "key": 0,
+            "cardinality": 9,
+            "type": "run",
+            "size_bytes": 14
+          },
+          {
+            "key": 1,
+            "cardinality": 3,
+            "type": "array",
+            "size_bytes": 6
+          }
+        ]
+      }
+    },
+    {
+      "id": "RP-005-NORUN",
+      "name": "non-run Roaring portable bytes are deterministic",
+      "case": "bitmap",
+      "input": {
+        "format": "roaring",
+        "run_optimize": false,
+        "values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          10,
+          20,
+          21,
+          22,
+          65543,
+          65544,
+          65545
+        ]
+      },
+      "expected_payload_base64": "OjAAAAIAAAAAAAgAAQACABgAAAAqAAAAAQACAAMABAAFAAoAFAAVABYABwAIAAkA",
+      "expected_sha256_hex": "209565ef7b7f6fdf94245b56b262c558affea0601d7a4815528d978b35561f25",
+      "expected_semantic": {
+        "containers": [
+          {
+            "key": 0,
+            "cardinality": 9,
+            "type": "array",
+            "size_bytes": 18
+          },
+          {
+            "key": 1,
+            "cardinality": 3,
+            "type": "array",
+            "size_bytes": 6
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -104,6 +104,56 @@ def validate_runtime_pack_profile() -> None:
         fail(f"Runtime Pack TCK identity exclusions drifted: {sorted(actual)}")
 
 
+
+def validate_runtime_pack_portable_vectors() -> None:
+    p = VECTORS / "runtime-pack" / "portable-vectors.json"
+    doc = json.loads(p.read_text(encoding="utf-8"))
+    if doc.get("format") != "kristal.runtime-pack-portable-vectors/v1":
+        fail("unexpected Runtime Pack portable vector format")
+    if doc.get("profile") != "kristal.v5:runtime-pack-portable-conformance@1":
+        fail("unexpected Runtime Pack portable conformance profile")
+    expected_ids = {"RP-002", "RP-003", "RP-004", "RP-005", "RP-005-NORUN"}
+    vectors = doc.get("vectors")
+    if not isinstance(vectors, list):
+        fail("Runtime Pack portable vectors must be a list")
+    ids = {v.get("id") for v in vectors if isinstance(v, dict)}
+    if ids != expected_ids:
+        fail(f"Runtime Pack portable vector IDs drifted: {sorted(x for x in ids if x)}")
+    for vector in vectors:
+        vid = vector.get("id", "<missing>")
+        if vector.get("case") not in {"ordering", "row_grouping", "membership_filter", "bitmap"}:
+            fail(f"{vid}: unsupported portable vector case")
+        if not re.fullmatch(r"[A-Za-z0-9+/]+={0,2}", vector.get("expected_payload_base64", "")):
+            fail(f"{vid}: malformed expected_payload_base64")
+        if not re.fullmatch(r"[0-9a-f]{64}", vector.get("expected_sha256_hex", "")):
+            fail(f"{vid}: malformed expected_sha256_hex")
+
+
+def validate_runtime_pack_policy_schema_alignment() -> None:
+    schema = json.loads((BASE / "02-schemas" / "runtime-pack-manifest.schema.json").read_text(encoding="utf-8"))
+    policies = schema["properties"]["policies"]["properties"]
+    expected_ordering = {
+        "qid_pid_statement_id_asc",
+        "subject_predicate_object_statement_id_asc",
+        "lexicographic_sop_asc",
+        "lexicographic_spo_asc",
+        "none",
+    }
+    actual_ordering = set(policies["data_ordering"]["properties"]["policy"]["enum"])
+    if actual_ordering != expected_ordering:
+        fail(f"Runtime Pack ordering policy schema drifted: {sorted(actual_ordering)}")
+    expected_grouping = {"fixed_rows_100k", "fixed_rows_1m", "fixed_bytes_128mb", "fixed_bytes_512mb"}
+    actual_grouping = set(policies["row_grouping"]["properties"]["policy"]["enum"])
+    if actual_grouping != expected_grouping:
+        fail(f"Runtime Pack row-group policy schema drifted: {sorted(actual_grouping)}")
+    variants = policies["membership_filter"]["oneOf"]
+    bloom = next((v for v in variants if v.get("properties", {}).get("kind", {}).get("const") == "bloom"), None)
+    if not bloom or "hash_functions" not in bloom.get("required", []):
+        fail("Bloom membership filter must require hash_functions")
+    xor = next((v for v in variants if set(v.get("properties", {}).get("kind", {}).get("enum", [])) == {"xor8", "xor16"}), None)
+    if not xor or "bits_per_key" not in xor.get("required", []) or "bits" in xor.get("properties", {}):
+        fail("xor8/xor16 membership filter schema must use bits_per_key")
+
 def validate_acceptance_doc_version() -> None:
     p = BASE / "03-reproducibility" / "reproducibility-acceptance-tests.md"
     text = p.read_text(encoding="utf-8")
@@ -116,6 +166,8 @@ def main() -> int:
         ("Exchange vector declarations", validate_exchange_vectors),
         ("Runtime Pack vector schema + format conformance", validate_runtime_pack_vectors),
         ("Runtime Pack identity profile lock", validate_runtime_pack_profile),
+        ("Runtime Pack portable RP-2..RP-5 vector declarations", validate_runtime_pack_portable_vectors),
+        ("Runtime Pack policy/schema alignment", validate_runtime_pack_policy_schema_alignment),
         ("v5 acceptance-test version alignment", validate_acceptance_doc_version),
         ("executable TCK golden vectors", run_node_tck),
     ]

@@ -196,6 +196,13 @@ This build-process surface is broader than Exchange content identity. Under `kri
 
 ---
 
+
+## RP-2 through RP-5 portable byte profile
+
+Kristal v5 publishes the normative profile `kristal.v5:runtime-pack-portable-conformance@1` in `05-profiles/profile-runtime-pack-portable-conformance.md`. The profile fixes the byte-level semantics needed to execute RP-2, RP-3, RP-4, and RP-5 without relying on host-specific sort behavior, row-group heuristics, probabilistic-filter library defaults, or implementation-specific Roaring run optimization.
+
+The corresponding golden fixtures are `09-test-vectors/runtime-pack/portable-vectors.json` and are mandatory framework-vector coverage for this profile.
+
 ## RP-6: Fail-closed verification (Runtime Pack)
 **Goal:** declared integrity cannot be ignored.
 

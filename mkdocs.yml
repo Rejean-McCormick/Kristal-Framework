@@ -76,6 +76,7 @@ nav:
       - Query contract: Technical-Reference/kristal-docs-v5/04-query/query-contract.md
       - Reader policy profiles: Technical-Reference/kristal-docs-v5/04-query/reader-policy-profiles.md
   - Profiles:
+      - Runtime Pack portable conformance: Technical-Reference/kristal-docs-v5/05-profiles/profile-runtime-pack-portable-conformance.md
       - JSON-LD export: Technical-Reference/kristal-docs-v5/05-profiles/profile-jsonld-export.md
       - Provenance Nanopub / PROV-O: Technical-Reference/kristal-docs-v5/05-profiles/profile-provenance-nanopub-provo.md
       - TPF pagination: Technical-Reference/kristal-docs-v5/05-profiles/profile-query-tpf-pagination.md

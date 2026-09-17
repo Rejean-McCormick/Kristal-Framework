@@ -14,7 +14,10 @@ All notable changes to the Kristal Framework contract set are recorded here.
 - clarified that Exchange content identity is independent of compiler/build-run identity while build provenance remains recorded separately;
 - aligned Reference Exchange lifecycle rules with authority-recognition requirements;
 - aligned Runtime Pack format version examples on `5.0.0` and distribution artifact type on `runtime_pack_manifest`;
-- expanded CI to validate on Linux and Windows.
+- expanded CI to validate on Linux and Windows;
+- aligned Runtime Pack policy enums/required parameters between the normative policy document and JSON Schema;
+- added `kristal.v5:runtime-pack-portable-conformance@1` with exact RP-2 ordering, RP-3 row-group, RP-4 KBF1 Bloom, and RP-5 canonical Roaring portable bytes;
+- added executable golden vectors for RP-2 through RP-5.
 
 ### Qualification
 

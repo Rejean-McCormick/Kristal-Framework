@@ -238,6 +238,24 @@ def check_cross_document_invariants() -> None:
     if "recognized" not in working_statuses or "reference" in working_statuses:
         fail("working_exchange lifecycle statuses are not aligned")
 
+    runtime_schema = json.loads((SCHEMAS / "runtime-pack-manifest.schema.json").read_text(encoding="utf-8"))
+    policies = runtime_schema["properties"]["policies"]["properties"]
+    ordering = set(policies["data_ordering"]["properties"]["policy"]["enum"])
+    expected_ordering = {"qid_pid_statement_id_asc", "subject_predicate_object_statement_id_asc", "lexicographic_sop_asc", "lexicographic_spo_asc", "none"}
+    if ordering != expected_ordering:
+        fail("Runtime Pack data-ordering schema is not aligned with allowed-runtime-pack-policies.md")
+    grouping = set(policies["row_grouping"]["properties"]["policy"]["enum"])
+    expected_grouping = {"fixed_rows_100k", "fixed_rows_1m", "fixed_bytes_128mb", "fixed_bytes_512mb"}
+    if grouping != expected_grouping:
+        fail("Runtime Pack row-group schema is not aligned with allowed-runtime-pack-policies.md")
+    variants = policies["membership_filter"]["oneOf"]
+    bloom = next((v for v in variants if v.get("properties", {}).get("kind", {}).get("const") == "bloom"), None)
+    if not bloom or "hash_functions" not in bloom.get("required", []):
+        fail("Runtime Pack Bloom policy must require hash_functions")
+    xor = next((v for v in variants if set(v.get("properties", {}).get("kind", {}).get("enum", [])) == {"xor8", "xor16"}), None)
+    if not xor or "bits_per_key" not in xor.get("required", []) or "bits" in xor.get("properties", {}):
+        fail("Runtime Pack xor8/xor16 policy must use bits_per_key")
+
 
 def check_alignment() -> None:
     rc = subprocess.run([sys.executable, str(ROOT / "tools/check_version_alignment.py")], cwd=ROOT)

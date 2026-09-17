@@ -50,3 +50,8 @@ A later TCK revision SHOULD add a process adapter for a concrete compiler/verifi
 - `verify_runtime_pack`
 
 That adapter will allow the same fixture corpus to score EX-1..EX-4 and RP-1..RP-6 against real implementations without embedding implementation logic in the framework repo.
+
+### Runtime Pack portable materialization profile
+
+RP-2 through RP-5 use `kristal.v5:runtime-pack-portable-conformance@1` and `runtime-pack/portable-vectors.json`. The TCK compares exact output bytes, not only semantic values. This closes the framework-vector gap for ordering, row-group boundaries, Bloom-filter construction/pruning, and canonical Roaring portable serialization.
+

@@ -246,8 +246,9 @@
               "description": "Portable ordering policy for deterministic output.",
               "enum": [
                 "qid_pid_statement_id_asc",
+                "subject_predicate_object_statement_id_asc",
                 "lexicographic_sop_asc",
-                "source_order_preserved",
+                "lexicographic_spo_asc",
                 "none"
               ]
             },
@@ -269,7 +270,8 @@
               "enum": [
                 "fixed_rows_100k",
                 "fixed_rows_1m",
-                "fixed_bytes_128mb"
+                "fixed_bytes_128mb",
+                "fixed_bytes_512mb"
               ]
             },
             "notes": {
@@ -299,7 +301,8 @@
               "required": [
                 "kind",
                 "seed",
-                "bits_per_key"
+                "bits_per_key",
+                "hash_functions"
               ],
               "properties": {
                 "kind": {
@@ -361,7 +364,7 @@
               "required": [
                 "kind",
                 "seed",
-                "bits"
+                "bits_per_key"
               ],
               "properties": {
                 "kind": {
@@ -375,15 +378,12 @@
                   "type": "integer",
                   "minimum": 0
                 },
-                "bits": {
-                  "type": "integer",
-                  "enum": [
-                    8,
-                    16
-                  ]
-                },
                 "notes": {
                   "type": "string"
+                },
+                "bits_per_key": {
+                  "type": "integer",
+                  "minimum": 1
                 }
               }
             }
@@ -452,7 +452,7 @@
                 },
                 "fpp": {
                   "type": "number",
-                  "minimum": 0.0000001,
+                  "minimum": 1e-07,
                   "maximum": 0.5,
                   "description": "False positive probability target."
                 },

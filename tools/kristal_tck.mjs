@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import crypto from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { verifyPortableVector } from './runtime_pack_portable_tck.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
@@ -129,7 +130,21 @@ function runRuntimePackVectors() {
   }
 }
 
+
+function runRuntimePackPortableVectors() {
+  const doc = readJson('runtime-pack/portable-vectors.json');
+  if (doc.profile !== 'kristal.v5:runtime-pack-portable-conformance@1') {
+    fail('RP-PROFILE', `unexpected portable profile ${doc.profile}`);
+    return;
+  }
+  for (const v of doc.vectors ?? []) {
+    const result = verifyPortableVector(v);
+    result.ok ? pass(v.id, v.name) : fail(v.id, result.issues.join('; '));
+  }
+}
+
 runExchangeVectors();
 runRuntimePackVectors();
+runRuntimePackPortableVectors();
 if (failed) process.exit(1);
 console.log('Kristal TCK framework vectors: PASS');
