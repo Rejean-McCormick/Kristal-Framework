@@ -1256,3 +1256,7 @@ Readers choose policy.
 Federation preserves disagreement.
 
 Integrity protects artifacts.
+
+## Informative example: doctrinal classification
+
+Dogma can be represented as a corpus concept in an ordinary classification assertion. See [Dogma and doctrinal classifications](../00-overview/dogma-and-doctrinal-classification.md); this adds no core fields or enum values.

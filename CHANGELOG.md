@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased — 2026-09-24
+
+- Document dogma as a source-backed, scoped content classification using existing assertions and qualifiers.
+- Add a synthetic schema-valid example and positive/negative release validation coverage.
+- Keep all core schemas, enums and release identifiers unchanged; this archive is a modified working snapshot, not a newly published official release.
+
+
 All notable changes to the Kristal Framework contract set are recorded here.
 
 ## 5.0.0-rc.2 — release-integrity and identity-boundary corrections

@@ -405,3 +405,7 @@ python tools/validate_all.py
 ```
 
 This validates release integrity, executable TCK vectors, and `mkdocs build --strict`. A framework-suite PASS is not a claim that an external Kristal compiler/verifier is conformant; implementation conformance requires running the TCK against that implementation. See `docs/status/2026-09-16-v5-conformance-suite.md`.
+
+## Dogma and doctrinal classifications
+
+See the [modeling guidance](docs/Technical-Reference/kristal-docs-v5/00-overview/dogma-and-doctrinal-classification.md) for representing dogmas with existing assertions, qualifiers, provenance and scoped authority. No core schema change is required.

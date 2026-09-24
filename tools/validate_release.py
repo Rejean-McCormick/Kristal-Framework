@@ -17,6 +17,7 @@ EXAMPLES = BASE / "10-examples"
 JCS = BASE / "09-test-vectors" / "jcs"
 
 EXAMPLE_SCHEMA = {
+    "dogma-classification.example.json": "structured-epistemic-state.schema.json",
     "authority-registry.example.json": "authority-registry.schema.json",
     "claim-ir.example.json": "claim-ir.schema.json",
     "exchange-federation-manifest.example.json": "exchange-federation-manifest.schema.json",
@@ -124,6 +125,23 @@ def check_examples() -> None:
             fail(f"{ex_name} !~ {schema_name}: {e.message} @ /{'/'.join(map(str, e.path))}")
         if str(data.get("schema_version")) != "5.0":
             fail(f"{ex_name}: schema_version must be 5.0")
+
+
+def check_dogma_modeling() -> None:
+    """Domain classifications must not leak into closed core vocabularies."""
+    import copy
+    schema = json.loads((SCHEMAS / "structured-epistemic-state.schema.json").read_text())
+    data = json.loads((EXAMPLES / "dogma-classification.example.json").read_text())
+    validator = Draft202012Validator(schema, format_checker=FormatChecker())
+    for field in ("certainty_level", "validated_as", "assertion_status"):
+        invalid = copy.deepcopy(data)
+        invalid["assertions"][0][field] = "dogma"
+        if validator.is_valid(invalid):
+            fail(f"dogma must not be accepted as core {field}")
+    invalid = copy.deepcopy(data)
+    invalid["assertions"][0]["doctrinal_status"] = "dogma"
+    if validator.is_valid(invalid):
+        fail("doctrinal_status must remain content, not a new assertion field")
 
 
 def check_jcs_vectors() -> None:
@@ -277,6 +295,7 @@ def main() -> int:
         ("schema IDs", check_schema_ids),
         ("JSON Schema format checker enforcement", check_format_checker_enforcement),
         ("examples against schemas + formats", check_examples),
+        ("dogma modeling compatibility", check_dogma_modeling),
         ("JCS golden hashes", check_jcs_vectors),
         ("version alignment", check_alignment),
         ("documentation navigation and links", check_docs),

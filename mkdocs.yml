@@ -52,6 +52,7 @@ nav:
       - v5 conformance suite status: status/2026-09-16-v5-conformance-suite.md
       - Historical v5.0.0-rc.1 release status: status/2026-09-14-v5.0.0-rc.1.md
   - Overview:
+      - Dogma and doctrinal classifications: Technical-Reference/kristal-docs-v5/00-overview/dogma-and-doctrinal-classification.md
       - Specification status: Technical-Reference/kristal-docs-v5/00-overview/specification-status.md
       - What is Kristal v5: Technical-Reference/kristal-docs-v5/00-overview/what-is-kristal-v5.md
       - Vision and scope: Technical-Reference/kristal-docs-v5/00-overview/vision-and-scope.md

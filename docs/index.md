@@ -14,3 +14,7 @@ Start with:
 8. [Conformance and alignment](Technical-Reference/kristal-docs-v5/00-overview/conformance-and-alignment.md)
 
 Release metadata is published at the repository root in `kristal-release.json` and `contract-set.manifest.json`. Git tag + resolved commit SHA pin the exact release bytes; no generated per-file schema manifest is part of the release identity.
+
+## Dogma and doctrinal classifications
+
+See the [modeling guidance](Technical-Reference/kristal-docs-v5/00-overview/dogma-and-doctrinal-classification.md) for representing dogmas with existing assertions, qualifiers, provenance and scoped authority. No core schema change is required.

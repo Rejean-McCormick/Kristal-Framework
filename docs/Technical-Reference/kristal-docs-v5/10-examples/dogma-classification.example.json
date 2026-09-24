@@ -1,0 +1,108 @@
+{
+  "schema_version": "5.0",
+  "artifact_type": "structured_epistemic_state",
+  "state_id": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "artifact_status": "working",
+  "created_at": "2026-09-24T00:00:00Z",
+  "created_by": {
+    "agent_id": "example:editor",
+    "agent_type": "individual",
+    "name": "Example corpus editor"
+  },
+  "scope": {
+    "domain": "culture",
+    "subdomain": "religion/doctrinal-classification-example",
+    "language": "en"
+  },
+  "source_refs": [
+    {
+      "source_id": "example:dogma-source",
+      "source_type": "human_submission",
+      "title": "Synthetic source: Example Tradition classifies Proposition X as dogma",
+      "publisher": "Example corpus editor"
+    }
+  ],
+  "assertions": [
+    {
+      "assertion_id": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+      "statement": {
+        "subject": {
+          "external_id": "example:proposition-x",
+          "label": "Proposition X (synthetic)"
+        },
+        "predicate": {
+          "external_id": "doctrine:has_doctrinal_status",
+          "label": "has doctrinal status"
+        },
+        "object": {
+          "kind": "item",
+          "value": {
+            "external_id": "doctrine:dogma",
+            "label": "Dogma"
+          }
+        },
+        "qualifiers": [
+          {
+            "predicate": {
+              "external_id": "doctrine:within_tradition",
+              "label": "within tradition"
+            },
+            "object": {
+              "kind": "item",
+              "value": {
+                "external_id": "example:tradition",
+                "label": "Example Tradition (synthetic)"
+              }
+            }
+          },
+          {
+            "predicate": {
+              "external_id": "doctrine:classification_source",
+              "label": "classification source"
+            },
+            "object": {
+              "kind": "item",
+              "value": {
+                "external_id": "example:dogma-source",
+                "label": "Synthetic source: Example Tradition classifies Proposition X as dogma"
+              }
+            }
+          }
+        ]
+      },
+      "natural_language_statement": {
+        "text": "The synthetic Example Tradition classifies Proposition X as dogma.",
+        "lang": "en"
+      },
+      "assertion_status": "sourced",
+      "certainty_level": "unknown",
+      "validated_as": "sourced_claim",
+      "scope": {
+        "domain": "culture",
+        "subdomain": "religion/doctrinal-classification-example",
+        "language": "en"
+      },
+      "provenance_refs": [
+        {
+          "artifact_id": "example:provenance-dogma"
+        }
+      ],
+      "authority_recognition_refs": [],
+      "notes": "Synthetic modeling fixture only. No actual doctrinal classification, validation or institutional endorsement is asserted."
+    }
+  ],
+  "provenance": [
+    {
+      "provenance_id": "example:provenance-dogma",
+      "event_type": "created",
+      "created_at": "2026-09-24T00:00:00Z",
+      "source_ref": {
+        "source_id": "example:dogma-source",
+        "source_type": "human_submission",
+        "title": "Synthetic source: Example Tradition classifies Proposition X as dogma",
+        "publisher": "Example corpus editor"
+      },
+      "notes": "Synthetic source text: Example Tradition classifies Proposition X as dogma. Created solely to demonstrate existing fields; no external religious source is claimed."
+    }
+  ]
+}

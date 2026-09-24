@@ -1,0 +1,65 @@
+PASS jcs-001 (empty_object)
+PASS jcs-002 (sorted_keys_nested)
+PASS jcs-003 (unicode_and_escaping)
+PASS jcs-004 (hash_ref_shape)
+PASS jcs-005 (structured_epistemic_state_hash_target)
+PASS jcs-006 (revocations_hash_target)
+PASS jcs-007 (array_order_preserved)
+PASS jcs-008 (rfc8785_primitives_and_numbers)
+PASS jcs-009 (rfc8785_utf16_property_sort)
+JCS vectors: PASS
+version alignment: PASS
+documentation navigation and local links: PASS
+PASS: required release files
+PASS: retired release artifacts absent
+PASS: JSON parsing and schema metaschema
+PASS: schema IDs
+PASS: JSON Schema format checker enforcement
+PASS: examples against schemas + formats
+PASS: dogma modeling compatibility
+PASS: JCS golden hashes
+PASS: version alignment
+PASS: documentation navigation and links
+PASS: release metadata and contract surfaces
+PASS: cross-document contract invariants
+Kristal framework/release integrity validation: PASS
+PASS EX-001 — minimal working Exchange payload
+PASS EX-003 — same Exchange with signature envelope
+PASS EX-STATUS-001 — status-bearing content changes identity
+PASS EX-004 — tampered Exchange payload must fail declared hash verification
+PASS EX-003-REL — same_id
+PASS EX-STATUS-REL — different_id
+PASS RP-001 — minimal deterministic Runtime Pack manifest and payload inventory
+PASS RP-006 — tampered Runtime Pack payload is rejected
+PASS RP-002 — stable qid/pid/statement ordering emits byte-identical JSONL
+PASS RP-003 — fixed_rows_100k row-group boundaries are deterministic
+PASS RP-004 — KBF1 Bloom bytes are deterministic and false positives are pruned
+PASS RP-005 — run-optimized Roaring portable bytes are deterministic
+PASS RP-005-NORUN — non-run Roaring portable bytes are deterministic
+Kristal TCK framework vectors: PASS
+PASS: Exchange vector declarations
+PASS: Runtime Pack vector schema + format conformance
+PASS: Runtime Pack identity profile lock
+PASS: Runtime Pack portable RP-2..RP-5 vector declarations
+PASS: Runtime Pack policy/schema alignment
+PASS: v5 acceptance-test version alignment
+PASS: executable TCK golden vectors
+Kristal framework-vector conformance: PASS
+Kristal implementation conformance: NOT TESTED (no compiler/verifier adapter supplied)
+INFO    -  Cleaning site directory
+INFO    -  Building documentation to directory: /workspace/scratch/84aff2060f85/kristal/site
+INFO    -  The following pages exist in the docs directory, but are not included in the "nav" configuration:
+  - status/2026-09-16-v5-runtime-pack-portable-conformance.md
+  - status/2026-09-16-v5.0.0-rc.2-validation-status.md
+  - status/2026-09-17-kristal-ecosystem-e2e-qualification-plan-TODO.md
+  - status/2026-09-17-v5.0.0-rc.2-final-local-conformance.md
+INFO    -  Documentation built in 2.31 seconds
+
+== release integrity ==
+
+== framework-vector conformance ==
+
+== strict documentation build ==
+
+Kristal framework validation suite: PASS
+Implementation conformance remains a separate claim until a compiler/verifier adapter is tested.
