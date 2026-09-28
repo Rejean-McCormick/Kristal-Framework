@@ -37,6 +37,10 @@
     {
       "name": "interoperability-profiles",
       "path": "docs/Technical-Reference/kristal-docs-v5/05-profiles/"
+    },
+    {
+      "name": "konstellation-reader-json-v1",
+      "path": "docs/Technical-Reference/kristal-docs-v5/05-profiles/profile-konstellation-reader-json.md"
     }
   ],
   "conformance_surfaces": [

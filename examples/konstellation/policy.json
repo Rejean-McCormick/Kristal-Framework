@@ -1,0 +1,27 @@
+{
+  "schema_version": "5.0",
+  "artifact_type": "reader_policy",
+  "reader_policy_id": "reader_policy:konstellation:demo",
+  "name": "Recherche · labels conservés",
+  "mode": "research",
+  "created_at": "2026-09-26T00:00:00Z",
+  "policy": {
+    "include_disputed": true,
+    "include_speculative": true,
+    "include_unknown_certainty": true,
+    "authority_filter": {
+      "allow_unrecognized_authority_channels": true,
+      "allow_conditionally_recognized_authorities": true
+    }
+  },
+  "query": {
+    "allow_cross_scope_queries": true,
+    "allow_cross_authority_queries": true,
+    "default_ordering": "stable",
+    "conflict_behavior": "preserve_disagreement"
+  },
+  "offline": {
+    "require_local_integrity_check": false
+  },
+  "fallback_behavior": "error"
+}

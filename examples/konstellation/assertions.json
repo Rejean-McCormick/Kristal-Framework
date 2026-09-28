@@ -1,0 +1,76 @@
+[
+  {
+    "id": "demo:a00001",
+    "subject": "demo:p000",
+    "relation": "field_of_work",
+    "value": "demo:philosophy",
+    "status": "sourced",
+    "certainty": "medium",
+    "validationStatus": "not_evaluated",
+    "validatedAs": "sourced_claim",
+    "authority": "authority:demo",
+    "scope": {
+      "domain": "demonstration"
+    },
+    "sourceRefs": [
+      "demo:catalogue"
+    ],
+    "recognitionStatus": "under_review",
+    "artifactStatus": "working",
+    "upstreamContractRef": "kristal.v5:query-contract:offline-core",
+    "upstreamPayload": {
+      "id": "demo:a00001",
+      "subject": "demo:p000",
+      "relation": "field_of_work",
+      "value": "\"demo:philosophy\"",
+      "status": "sourced",
+      "certainty": "medium",
+      "validationStatus": "not_evaluated",
+      "validatedAs": "sourced_claim",
+      "authority": "authority:demo",
+      "scope": "{\"domain\":\"demonstration\"}",
+      "sourceRefs": "[\"demo:catalogue\"]",
+      "recognitionStatus": "under_review",
+      "ruleRef": null,
+      "derivedFrom": null,
+      "conflictsWith": null
+    }
+  },
+  {
+    "id": "demo:a00002",
+    "subject": "demo:p000",
+    "relation": "field_of_work",
+    "value": "demo:theology",
+    "status": "sourced",
+    "certainty": "medium",
+    "validationStatus": "not_evaluated",
+    "validatedAs": "sourced_claim",
+    "authority": "authority:demo",
+    "scope": {
+      "domain": "demonstration"
+    },
+    "sourceRefs": [
+      "demo:catalogue"
+    ],
+    "recognitionStatus": "under_review",
+    "artifactStatus": "working",
+    "upstreamContractRef": "kristal.v5:query-contract:offline-core",
+    "upstreamPayload": {
+      "id": "demo:a00002",
+      "subject": "demo:p000",
+      "relation": "field_of_work",
+      "value": "\"demo:theology\"",
+      "status": "sourced",
+      "certainty": "medium",
+      "validationStatus": "not_evaluated",
+      "validatedAs": "sourced_claim",
+      "authority": "authority:demo",
+      "scope": "{\"domain\":\"demonstration\"}",
+      "sourceRefs": "[\"demo:catalogue\"]",
+      "recognitionStatus": "under_review",
+      "ruleRef": null,
+      "derivedFrom": null,
+      "conflictsWith": null
+    }
+  }
+]

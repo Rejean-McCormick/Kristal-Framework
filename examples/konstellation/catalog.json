@@ -1,0 +1,1846 @@
+{
+  "schemaVersion": "0.3",
+  "title": "Konstellation · pack Parquet de démonstration",
+  "description": "Personnes, œuvres et relations · démonstration locale",
+  "synthetic": true,
+  "registry": {
+    "schemaVersion": "0.2",
+    "registryRef": "fixture:registry-v1",
+    "entityTypes": [
+      "human",
+      "work",
+      "place",
+      "concept"
+    ],
+    "relations": [
+      {
+        "id": "field_of_work",
+        "label": {
+          "fr": "Domaine",
+          "en": "field of work"
+        },
+        "domain": [
+          "human"
+        ],
+        "range": "concept",
+        "valueKind": "entity",
+        "operators": [
+          "exists",
+          "missing_in_view",
+          "in",
+          "none_of"
+        ]
+      },
+      {
+        "id": "movement",
+        "label": {
+          "fr": "Courant",
+          "en": "movement"
+        },
+        "domain": [
+          "human"
+        ],
+        "range": "concept",
+        "valueKind": "entity",
+        "operators": [
+          "exists",
+          "missing_in_view",
+          "in",
+          "none_of"
+        ]
+      },
+      {
+        "id": "birth_place",
+        "label": {
+          "fr": "Lieu de naissance",
+          "en": "birth place"
+        },
+        "domain": [
+          "human"
+        ],
+        "range": "place",
+        "valueKind": "entity",
+        "operators": [
+          "exists",
+          "missing_in_view",
+          "in",
+          "none_of"
+        ]
+      },
+      {
+        "id": "citizenship",
+        "label": {
+          "fr": "Citoyenneté",
+          "en": "citizenship"
+        },
+        "domain": [
+          "human"
+        ],
+        "range": "place",
+        "valueKind": "entity",
+        "operators": [
+          "exists",
+          "missing_in_view",
+          "in",
+          "none_of"
+        ]
+      },
+      {
+        "id": "religious_tradition",
+        "label": {
+          "fr": "Tradition religieuse",
+          "en": "religious tradition"
+        },
+        "domain": [
+          "human"
+        ],
+        "range": "concept",
+        "valueKind": "entity",
+        "operators": [
+          "exists",
+          "missing_in_view",
+          "in",
+          "none_of"
+        ]
+      },
+      {
+        "id": "author",
+        "label": {
+          "fr": "Auteur",
+          "en": "author"
+        },
+        "domain": [
+          "work"
+        ],
+        "range": "human",
+        "valueKind": "entity",
+        "operators": [
+          "exists",
+          "missing_in_view",
+          "in",
+          "none_of"
+        ],
+        "inverseOf": "authored_work"
+      },
+      {
+        "id": "authored_work",
+        "label": {
+          "fr": "Œuvres",
+          "en": "authored work"
+        },
+        "domain": [
+          "human"
+        ],
+        "range": "work",
+        "valueKind": "entity",
+        "operators": [
+          "exists",
+          "missing_in_view",
+          "in",
+          "none_of"
+        ],
+        "inverseOf": "author"
+      },
+      {
+        "id": "lifespan",
+        "label": {
+          "fr": "Période de vie",
+          "en": "lifespan"
+        },
+        "domain": [
+          "human"
+        ],
+        "range": "year_interval",
+        "valueKind": "interval",
+        "operators": [
+          "exists",
+          "missing_in_view",
+          "overlaps"
+        ],
+        "derivedRuleRef": "fixture:lifespan-rule-v1"
+      }
+    ]
+  },
+  "entities": [
+    {
+      "id": "demo:philosophy",
+      "type": "concept",
+      "label": "Philosophie",
+      "description": ""
+    },
+    {
+      "id": "demo:theology",
+      "type": "concept",
+      "label": "Théologie",
+      "description": ""
+    },
+    {
+      "id": "demo:science",
+      "type": "concept",
+      "label": "Sciences",
+      "description": ""
+    },
+    {
+      "id": "demo:literature",
+      "type": "concept",
+      "label": "Littérature",
+      "description": ""
+    },
+    {
+      "id": "demo:platonism",
+      "type": "concept",
+      "label": "Platonisme",
+      "description": ""
+    },
+    {
+      "id": "demo:scholastic",
+      "type": "concept",
+      "label": "Scolastique",
+      "description": ""
+    },
+    {
+      "id": "demo:stoic",
+      "type": "concept",
+      "label": "Stoïcisme",
+      "description": ""
+    },
+    {
+      "id": "demo:christian",
+      "type": "concept",
+      "label": "Tradition chrétienne",
+      "description": ""
+    },
+    {
+      "id": "demo:africa",
+      "type": "place",
+      "label": "Afrique du Nord",
+      "description": ""
+    },
+    {
+      "id": "demo:italy",
+      "type": "place",
+      "label": "Italie",
+      "description": ""
+    },
+    {
+      "id": "demo:greece",
+      "type": "place",
+      "label": "Grèce",
+      "description": ""
+    },
+    {
+      "id": "demo:france",
+      "type": "place",
+      "label": "France",
+      "description": ""
+    },
+    {
+      "id": "demo:egypt",
+      "type": "place",
+      "label": "Égypte",
+      "description": ""
+    },
+    {
+      "id": "demo:p000",
+      "type": "human",
+      "label": "Augustin d’Hippone",
+      "description": "Notice illustrative · assertions de démonstration"
+    },
+    {
+      "id": "demo:w000-0",
+      "type": "work",
+      "label": "Les Confessions",
+      "description": "Attribution illustrative pour tester le parcours"
+    },
+    {
+      "id": "demo:w000-1",
+      "type": "work",
+      "label": "La Cité de Dieu",
+      "description": "Attribution illustrative pour tester le parcours"
+    },
+    {
+      "id": "demo:p001",
+      "type": "human",
+      "label": "Hypatie d’Alexandrie",
+      "description": "Notice illustrative · assertions de démonstration"
+    },
+    {
+      "id": "demo:w001-0",
+      "type": "work",
+      "label": "Œuvre de démonstration 2",
+      "description": "Attribution illustrative pour tester le parcours"
+    },
+    {
+      "id": "demo:p002",
+      "type": "human",
+      "label": "Boèce",
+      "description": "Notice illustrative · assertions de démonstration"
+    },
+    {
+      "id": "demo:w002-0",
+      "type": "work",
+      "label": "Consolation de la philosophie",
+      "description": "Attribution illustrative pour tester le parcours"
+    },
+    {
+      "id": "demo:p003",
+      "type": "human",
+      "label": "Thomas d’Aquin",
+      "description": "Notice illustrative · assertions de démonstration"
+    },
+    {
+      "id": "demo:w003-0",
+      "type": "work",
+      "label": "Somme théologique",
+      "description": "Attribution illustrative pour tester le parcours"
+    },
+    {
+      "id": "demo:p004",
+      "type": "human",
+      "label": "Hildegarde de Bingen",
+      "description": "Notice illustrative · assertions de démonstration"
+    },
+    {
+      "id": "demo:w004-0",
+      "type": "work",
+      "label": "Œuvre de démonstration 5",
+      "description": "Attribution illustrative pour tester le parcours"
+    },
+    {
+      "id": "demo:p005",
+      "type": "human",
+      "label": "Avicenne",
+      "description": "Notice illustrative · assertions de démonstration"
+    },
+    {
+      "id": "demo:w005-0",
+      "type": "work",
+      "label": "Œuvre de démonstration 6",
+      "description": "Attribution illustrative pour tester le parcours"
+    },
+    {
+      "id": "demo:p006",
+      "type": "human",
+      "label": "Christine de Pizan",
+      "description": "Notice illustrative · assertions de démonstration"
+    },
+    {
+      "id": "demo:w006-0",
+      "type": "work",
+      "label": "Œuvre de démonstration 7",
+      "description": "Attribution illustrative pour tester le parcours"
+    },
+    {
+      "id": "demo:p007",
+      "type": "human",
+      "label": "Érasme",
+      "description": "Notice illustrative · assertions de démonstration"
+    },
+    {
+      "id": "demo:w007-0",
+      "type": "work",
+      "label": "Œuvre de démonstration 8",
+      "description": "Attribution illustrative pour tester le parcours"
+    },
+    {
+      "id": "demo:p008",
+      "type": "human",
+      "label": "Simone Weil",
+      "description": "Notice illustrative · assertions de démonstration"
+    },
+    {
+      "id": "demo:w008-0",
+      "type": "work",
+      "label": "Œuvre de démonstration 9",
+      "description": "Attribution illustrative pour tester le parcours"
+    },
+    {
+      "id": "demo:p009",
+      "type": "human",
+      "label": "Émilie du Châtelet",
+      "description": "Notice illustrative · assertions de démonstration"
+    },
+    {
+      "id": "demo:w009-0",
+      "type": "work",
+      "label": "Œuvre de démonstration 10",
+      "description": "Attribution illustrative pour tester le parcours"
+    },
+    {
+      "id": "demo:p010",
+      "type": "human",
+      "label": "Plotin",
+      "description": "Notice illustrative · assertions de démonstration"
+    },
+    {
+      "id": "demo:w010-0",
+      "type": "work",
+      "label": "Œuvre de démonstration 11",
+      "description": "Attribution illustrative pour tester le parcours"
+    },
+    {
+      "id": "demo:p011",
+      "type": "human",
+      "label": "Marc Aurèle",
+      "description": "Notice illustrative · assertions de démonstration"
+    },
+    {
+      "id": "demo:w011-0",
+      "type": "work",
+      "label": "Œuvre de démonstration 12",
+      "description": "Attribution illustrative pour tester le parcours"
+    },
+    {
+      "id": "demo:s000",
+      "type": "human",
+      "label": "Chercheur fictif 001",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw000",
+      "type": "work",
+      "label": "Étude synthétique 001",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s001",
+      "type": "human",
+      "label": "Chercheur fictif 002",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw001",
+      "type": "work",
+      "label": "Étude synthétique 002",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s002",
+      "type": "human",
+      "label": "Chercheur fictif 003",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw002",
+      "type": "work",
+      "label": "Étude synthétique 003",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s003",
+      "type": "human",
+      "label": "Chercheur fictif 004",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw003",
+      "type": "work",
+      "label": "Étude synthétique 004",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s004",
+      "type": "human",
+      "label": "Chercheur fictif 005",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw004",
+      "type": "work",
+      "label": "Étude synthétique 005",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s005",
+      "type": "human",
+      "label": "Chercheur fictif 006",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw005",
+      "type": "work",
+      "label": "Étude synthétique 006",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s006",
+      "type": "human",
+      "label": "Chercheur fictif 007",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw006",
+      "type": "work",
+      "label": "Étude synthétique 007",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s007",
+      "type": "human",
+      "label": "Chercheur fictif 008",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw007",
+      "type": "work",
+      "label": "Étude synthétique 008",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s008",
+      "type": "human",
+      "label": "Chercheur fictif 009",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw008",
+      "type": "work",
+      "label": "Étude synthétique 009",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s009",
+      "type": "human",
+      "label": "Chercheur fictif 010",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw009",
+      "type": "work",
+      "label": "Étude synthétique 010",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s010",
+      "type": "human",
+      "label": "Chercheur fictif 011",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw010",
+      "type": "work",
+      "label": "Étude synthétique 011",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s011",
+      "type": "human",
+      "label": "Chercheur fictif 012",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw011",
+      "type": "work",
+      "label": "Étude synthétique 012",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s012",
+      "type": "human",
+      "label": "Chercheur fictif 013",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw012",
+      "type": "work",
+      "label": "Étude synthétique 013",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s013",
+      "type": "human",
+      "label": "Chercheur fictif 014",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw013",
+      "type": "work",
+      "label": "Étude synthétique 014",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s014",
+      "type": "human",
+      "label": "Chercheur fictif 015",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw014",
+      "type": "work",
+      "label": "Étude synthétique 015",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s015",
+      "type": "human",
+      "label": "Chercheur fictif 016",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw015",
+      "type": "work",
+      "label": "Étude synthétique 016",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s016",
+      "type": "human",
+      "label": "Chercheur fictif 017",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw016",
+      "type": "work",
+      "label": "Étude synthétique 017",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s017",
+      "type": "human",
+      "label": "Chercheur fictif 018",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw017",
+      "type": "work",
+      "label": "Étude synthétique 018",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s018",
+      "type": "human",
+      "label": "Chercheur fictif 019",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw018",
+      "type": "work",
+      "label": "Étude synthétique 019",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s019",
+      "type": "human",
+      "label": "Chercheur fictif 020",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw019",
+      "type": "work",
+      "label": "Étude synthétique 020",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s020",
+      "type": "human",
+      "label": "Chercheur fictif 021",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw020",
+      "type": "work",
+      "label": "Étude synthétique 021",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s021",
+      "type": "human",
+      "label": "Chercheur fictif 022",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw021",
+      "type": "work",
+      "label": "Étude synthétique 022",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s022",
+      "type": "human",
+      "label": "Chercheur fictif 023",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw022",
+      "type": "work",
+      "label": "Étude synthétique 023",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s023",
+      "type": "human",
+      "label": "Chercheur fictif 024",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw023",
+      "type": "work",
+      "label": "Étude synthétique 024",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s024",
+      "type": "human",
+      "label": "Chercheur fictif 025",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw024",
+      "type": "work",
+      "label": "Étude synthétique 025",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s025",
+      "type": "human",
+      "label": "Chercheur fictif 026",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw025",
+      "type": "work",
+      "label": "Étude synthétique 026",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s026",
+      "type": "human",
+      "label": "Chercheur fictif 027",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw026",
+      "type": "work",
+      "label": "Étude synthétique 027",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s027",
+      "type": "human",
+      "label": "Chercheur fictif 028",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw027",
+      "type": "work",
+      "label": "Étude synthétique 028",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s028",
+      "type": "human",
+      "label": "Chercheur fictif 029",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw028",
+      "type": "work",
+      "label": "Étude synthétique 029",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s029",
+      "type": "human",
+      "label": "Chercheur fictif 030",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw029",
+      "type": "work",
+      "label": "Étude synthétique 030",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s030",
+      "type": "human",
+      "label": "Chercheur fictif 031",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw030",
+      "type": "work",
+      "label": "Étude synthétique 031",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s031",
+      "type": "human",
+      "label": "Chercheur fictif 032",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw031",
+      "type": "work",
+      "label": "Étude synthétique 032",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s032",
+      "type": "human",
+      "label": "Chercheur fictif 033",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw032",
+      "type": "work",
+      "label": "Étude synthétique 033",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s033",
+      "type": "human",
+      "label": "Chercheur fictif 034",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw033",
+      "type": "work",
+      "label": "Étude synthétique 034",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s034",
+      "type": "human",
+      "label": "Chercheur fictif 035",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw034",
+      "type": "work",
+      "label": "Étude synthétique 035",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s035",
+      "type": "human",
+      "label": "Chercheur fictif 036",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw035",
+      "type": "work",
+      "label": "Étude synthétique 036",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s036",
+      "type": "human",
+      "label": "Chercheur fictif 037",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw036",
+      "type": "work",
+      "label": "Étude synthétique 037",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s037",
+      "type": "human",
+      "label": "Chercheur fictif 038",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw037",
+      "type": "work",
+      "label": "Étude synthétique 038",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s038",
+      "type": "human",
+      "label": "Chercheur fictif 039",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw038",
+      "type": "work",
+      "label": "Étude synthétique 039",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s039",
+      "type": "human",
+      "label": "Chercheur fictif 040",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw039",
+      "type": "work",
+      "label": "Étude synthétique 040",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s040",
+      "type": "human",
+      "label": "Chercheur fictif 041",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw040",
+      "type": "work",
+      "label": "Étude synthétique 041",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s041",
+      "type": "human",
+      "label": "Chercheur fictif 042",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw041",
+      "type": "work",
+      "label": "Étude synthétique 042",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s042",
+      "type": "human",
+      "label": "Chercheur fictif 043",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw042",
+      "type": "work",
+      "label": "Étude synthétique 043",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s043",
+      "type": "human",
+      "label": "Chercheur fictif 044",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw043",
+      "type": "work",
+      "label": "Étude synthétique 044",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s044",
+      "type": "human",
+      "label": "Chercheur fictif 045",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw044",
+      "type": "work",
+      "label": "Étude synthétique 045",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s045",
+      "type": "human",
+      "label": "Chercheur fictif 046",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw045",
+      "type": "work",
+      "label": "Étude synthétique 046",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s046",
+      "type": "human",
+      "label": "Chercheur fictif 047",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw046",
+      "type": "work",
+      "label": "Étude synthétique 047",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s047",
+      "type": "human",
+      "label": "Chercheur fictif 048",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw047",
+      "type": "work",
+      "label": "Étude synthétique 048",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s048",
+      "type": "human",
+      "label": "Chercheur fictif 049",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw048",
+      "type": "work",
+      "label": "Étude synthétique 049",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s049",
+      "type": "human",
+      "label": "Chercheur fictif 050",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw049",
+      "type": "work",
+      "label": "Étude synthétique 050",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s050",
+      "type": "human",
+      "label": "Chercheur fictif 051",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw050",
+      "type": "work",
+      "label": "Étude synthétique 051",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s051",
+      "type": "human",
+      "label": "Chercheur fictif 052",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw051",
+      "type": "work",
+      "label": "Étude synthétique 052",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s052",
+      "type": "human",
+      "label": "Chercheur fictif 053",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw052",
+      "type": "work",
+      "label": "Étude synthétique 053",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s053",
+      "type": "human",
+      "label": "Chercheur fictif 054",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw053",
+      "type": "work",
+      "label": "Étude synthétique 054",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s054",
+      "type": "human",
+      "label": "Chercheur fictif 055",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw054",
+      "type": "work",
+      "label": "Étude synthétique 055",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s055",
+      "type": "human",
+      "label": "Chercheur fictif 056",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw055",
+      "type": "work",
+      "label": "Étude synthétique 056",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s056",
+      "type": "human",
+      "label": "Chercheur fictif 057",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw056",
+      "type": "work",
+      "label": "Étude synthétique 057",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s057",
+      "type": "human",
+      "label": "Chercheur fictif 058",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw057",
+      "type": "work",
+      "label": "Étude synthétique 058",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s058",
+      "type": "human",
+      "label": "Chercheur fictif 059",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw058",
+      "type": "work",
+      "label": "Étude synthétique 059",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s059",
+      "type": "human",
+      "label": "Chercheur fictif 060",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw059",
+      "type": "work",
+      "label": "Étude synthétique 060",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s060",
+      "type": "human",
+      "label": "Chercheur fictif 061",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw060",
+      "type": "work",
+      "label": "Étude synthétique 061",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s061",
+      "type": "human",
+      "label": "Chercheur fictif 062",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw061",
+      "type": "work",
+      "label": "Étude synthétique 062",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s062",
+      "type": "human",
+      "label": "Chercheur fictif 063",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw062",
+      "type": "work",
+      "label": "Étude synthétique 063",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s063",
+      "type": "human",
+      "label": "Chercheur fictif 064",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw063",
+      "type": "work",
+      "label": "Étude synthétique 064",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s064",
+      "type": "human",
+      "label": "Chercheur fictif 065",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw064",
+      "type": "work",
+      "label": "Étude synthétique 065",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s065",
+      "type": "human",
+      "label": "Chercheur fictif 066",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw065",
+      "type": "work",
+      "label": "Étude synthétique 066",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s066",
+      "type": "human",
+      "label": "Chercheur fictif 067",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw066",
+      "type": "work",
+      "label": "Étude synthétique 067",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s067",
+      "type": "human",
+      "label": "Chercheur fictif 068",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw067",
+      "type": "work",
+      "label": "Étude synthétique 068",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s068",
+      "type": "human",
+      "label": "Chercheur fictif 069",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw068",
+      "type": "work",
+      "label": "Étude synthétique 069",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s069",
+      "type": "human",
+      "label": "Chercheur fictif 070",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw069",
+      "type": "work",
+      "label": "Étude synthétique 070",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s070",
+      "type": "human",
+      "label": "Chercheur fictif 071",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw070",
+      "type": "work",
+      "label": "Étude synthétique 071",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s071",
+      "type": "human",
+      "label": "Chercheur fictif 072",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw071",
+      "type": "work",
+      "label": "Étude synthétique 072",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s072",
+      "type": "human",
+      "label": "Chercheur fictif 073",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw072",
+      "type": "work",
+      "label": "Étude synthétique 073",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s073",
+      "type": "human",
+      "label": "Chercheur fictif 074",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw073",
+      "type": "work",
+      "label": "Étude synthétique 074",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s074",
+      "type": "human",
+      "label": "Chercheur fictif 075",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw074",
+      "type": "work",
+      "label": "Étude synthétique 075",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s075",
+      "type": "human",
+      "label": "Chercheur fictif 076",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw075",
+      "type": "work",
+      "label": "Étude synthétique 076",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s076",
+      "type": "human",
+      "label": "Chercheur fictif 077",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw076",
+      "type": "work",
+      "label": "Étude synthétique 077",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s077",
+      "type": "human",
+      "label": "Chercheur fictif 078",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw077",
+      "type": "work",
+      "label": "Étude synthétique 078",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s078",
+      "type": "human",
+      "label": "Chercheur fictif 079",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw078",
+      "type": "work",
+      "label": "Étude synthétique 079",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s079",
+      "type": "human",
+      "label": "Chercheur fictif 080",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw079",
+      "type": "work",
+      "label": "Étude synthétique 080",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s080",
+      "type": "human",
+      "label": "Chercheur fictif 081",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw080",
+      "type": "work",
+      "label": "Étude synthétique 081",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s081",
+      "type": "human",
+      "label": "Chercheur fictif 082",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw081",
+      "type": "work",
+      "label": "Étude synthétique 082",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s082",
+      "type": "human",
+      "label": "Chercheur fictif 083",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw082",
+      "type": "work",
+      "label": "Étude synthétique 083",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s083",
+      "type": "human",
+      "label": "Chercheur fictif 084",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw083",
+      "type": "work",
+      "label": "Étude synthétique 084",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s084",
+      "type": "human",
+      "label": "Chercheur fictif 085",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw084",
+      "type": "work",
+      "label": "Étude synthétique 085",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s085",
+      "type": "human",
+      "label": "Chercheur fictif 086",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw085",
+      "type": "work",
+      "label": "Étude synthétique 086",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s086",
+      "type": "human",
+      "label": "Chercheur fictif 087",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw086",
+      "type": "work",
+      "label": "Étude synthétique 087",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s087",
+      "type": "human",
+      "label": "Chercheur fictif 088",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw087",
+      "type": "work",
+      "label": "Étude synthétique 088",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s088",
+      "type": "human",
+      "label": "Chercheur fictif 089",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw088",
+      "type": "work",
+      "label": "Étude synthétique 089",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s089",
+      "type": "human",
+      "label": "Chercheur fictif 090",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw089",
+      "type": "work",
+      "label": "Étude synthétique 090",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s090",
+      "type": "human",
+      "label": "Chercheur fictif 091",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw090",
+      "type": "work",
+      "label": "Étude synthétique 091",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s091",
+      "type": "human",
+      "label": "Chercheur fictif 092",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw091",
+      "type": "work",
+      "label": "Étude synthétique 092",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s092",
+      "type": "human",
+      "label": "Chercheur fictif 093",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw092",
+      "type": "work",
+      "label": "Étude synthétique 093",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s093",
+      "type": "human",
+      "label": "Chercheur fictif 094",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw093",
+      "type": "work",
+      "label": "Étude synthétique 094",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s094",
+      "type": "human",
+      "label": "Chercheur fictif 095",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw094",
+      "type": "work",
+      "label": "Étude synthétique 095",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s095",
+      "type": "human",
+      "label": "Chercheur fictif 096",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw095",
+      "type": "work",
+      "label": "Étude synthétique 096",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s096",
+      "type": "human",
+      "label": "Chercheur fictif 097",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw096",
+      "type": "work",
+      "label": "Étude synthétique 097",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s097",
+      "type": "human",
+      "label": "Chercheur fictif 098",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw097",
+      "type": "work",
+      "label": "Étude synthétique 098",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s098",
+      "type": "human",
+      "label": "Chercheur fictif 099",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw098",
+      "type": "work",
+      "label": "Étude synthétique 099",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s099",
+      "type": "human",
+      "label": "Chercheur fictif 100",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw099",
+      "type": "work",
+      "label": "Étude synthétique 100",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s100",
+      "type": "human",
+      "label": "Chercheur fictif 101",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw100",
+      "type": "work",
+      "label": "Étude synthétique 101",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s101",
+      "type": "human",
+      "label": "Chercheur fictif 102",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw101",
+      "type": "work",
+      "label": "Étude synthétique 102",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s102",
+      "type": "human",
+      "label": "Chercheur fictif 103",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw102",
+      "type": "work",
+      "label": "Étude synthétique 103",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s103",
+      "type": "human",
+      "label": "Chercheur fictif 104",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw103",
+      "type": "work",
+      "label": "Étude synthétique 104",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s104",
+      "type": "human",
+      "label": "Chercheur fictif 105",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw104",
+      "type": "work",
+      "label": "Étude synthétique 105",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s105",
+      "type": "human",
+      "label": "Chercheur fictif 106",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw105",
+      "type": "work",
+      "label": "Étude synthétique 106",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s106",
+      "type": "human",
+      "label": "Chercheur fictif 107",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw106",
+      "type": "work",
+      "label": "Étude synthétique 107",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s107",
+      "type": "human",
+      "label": "Chercheur fictif 108",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw107",
+      "type": "work",
+      "label": "Étude synthétique 108",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s108",
+      "type": "human",
+      "label": "Chercheur fictif 109",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw108",
+      "type": "work",
+      "label": "Étude synthétique 109",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s109",
+      "type": "human",
+      "label": "Chercheur fictif 110",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw109",
+      "type": "work",
+      "label": "Étude synthétique 110",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s110",
+      "type": "human",
+      "label": "Chercheur fictif 111",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw110",
+      "type": "work",
+      "label": "Étude synthétique 111",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s111",
+      "type": "human",
+      "label": "Chercheur fictif 112",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw111",
+      "type": "work",
+      "label": "Étude synthétique 112",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s112",
+      "type": "human",
+      "label": "Chercheur fictif 113",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw112",
+      "type": "work",
+      "label": "Étude synthétique 113",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s113",
+      "type": "human",
+      "label": "Chercheur fictif 114",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw113",
+      "type": "work",
+      "label": "Étude synthétique 114",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s114",
+      "type": "human",
+      "label": "Chercheur fictif 115",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw114",
+      "type": "work",
+      "label": "Étude synthétique 115",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s115",
+      "type": "human",
+      "label": "Chercheur fictif 116",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw115",
+      "type": "work",
+      "label": "Étude synthétique 116",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s116",
+      "type": "human",
+      "label": "Chercheur fictif 117",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw116",
+      "type": "work",
+      "label": "Étude synthétique 117",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s117",
+      "type": "human",
+      "label": "Chercheur fictif 118",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw117",
+      "type": "work",
+      "label": "Étude synthétique 118",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s118",
+      "type": "human",
+      "label": "Chercheur fictif 119",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw118",
+      "type": "work",
+      "label": "Étude synthétique 119",
+      "description": "Œuvre générée pour les tests de navigation"
+    },
+    {
+      "id": "demo:s119",
+      "type": "human",
+      "label": "Chercheur fictif 120",
+      "description": "Entité synthétique · test de sélection complète"
+    },
+    {
+      "id": "demo:sw119",
+      "type": "work",
+      "label": "Étude synthétique 120",
+      "description": "Œuvre générée pour les tests de navigation"
+    }
+  ],
+  "sources": [
+    {
+      "id": "demo:catalogue",
+      "title": "Catalogue de démonstration Konstellation",
+      "description": "Exemples illustratifs et relations synthétiques. Ce jeu ne constitue pas un corpus historique validé."
+    },
+    {
+      "id": "demo:research",
+      "title": "Carnet de recherche fictif",
+      "description": "Assertions hypothétiques et divergentes pour tester les politiques de lecture."
+    }
+  ]
+}
