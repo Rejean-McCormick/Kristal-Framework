@@ -4,3 +4,28 @@ site/
 __pycache__/
 *.pyc
 dist/
+/SmartSnap.pyw
+
+# Python/test caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local/transient
+.env
+.env.*
+!.env.example
+!*.example
+.cache/
+*.log
+*.tmp
+*.swp
+
+# Backup files
+*.bak
+*.bak_*
+*.bak-*
+*.backup
+*.backup-*

@@ -1,0 +1,7 @@
+# Kristal Framework snapshot-only exclusions.
+# These validation/history artifacts may remain versioned in Git.
+
+CODE_SNAPSHOT_MANIFEST.md
+DOGMA-VALIDATION.txt
+docs/status/
+SMARTDUMP_INDEX.txt
