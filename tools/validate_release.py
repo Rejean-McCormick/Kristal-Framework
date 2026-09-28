@@ -36,6 +36,7 @@ EXAMPLE_SCHEMA = {
     "mythology-corpus-kristal.example.json": "structured-epistemic-state.schema.json",
     "publisher-declared-system-kristal.example.json": "structured-epistemic-state.schema.json",
     "wikidata-seed-kristal.example.json": "structured-epistemic-state.schema.json",
+    "referent-registry.example.json": "referent-registry.schema.json",
 }
 
 RETIRED_RELEASE_ARTIFACTS = (

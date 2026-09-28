@@ -47,6 +47,7 @@ plugins:
 nav:
   - Home: index.md
   - Status:
+      - v5.0.0-rc.3 referent-contract status: status/2026-09-28-v5.0.0-rc.3-referent-contract.md
       - v5.0.0-rc.2 candidate status: status/2026-09-16-v5.0.0-rc.2-candidate.md
       - Current validation status: status/2026-09-16-v5-validation-status.md
       - v5 conformance suite status: status/2026-09-16-v5-conformance-suite.md
@@ -64,6 +65,7 @@ nav:
   - Core specification:
       - Core spec: Technical-Reference/kristal-docs-v5/01-core-spec/kristal-v5-core-spec.md
       - Structured Epistemic State: Technical-Reference/kristal-docs-v5/01-core-spec/structured-epistemic-state.md
+      - Referents and domain-neutral model: Technical-Reference/kristal-docs-v5/01-core-spec/referents-and-domain-neutral-model.md
       - Assertion status and certainty: Technical-Reference/kristal-docs-v5/01-core-spec/assertion-status-and-certainty.md
       - Authority recognition: Technical-Reference/kristal-docs-v5/01-core-spec/authority-recognition.md
       - IDs, canonicalization and hashing: Technical-Reference/kristal-docs-v5/01-core-spec/ids-canonicalization-hashing.md

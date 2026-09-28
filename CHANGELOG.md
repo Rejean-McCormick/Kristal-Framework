@@ -1,3 +1,10 @@
+## 5.0.0-rc.3 — 2026-09-28
+
+- Freeze Referent Registry 1.0.0.
+- Keep domain classification shallow and assertions/provenance in Structured Epistemic State.
+- Explicitly separate internal refs from external identifiers such as Wikidata.
+- Distinguish work, edition and manifestation for documentary projections.
+
 # Changelog
 
 ## Unreleased — 2026-09-24

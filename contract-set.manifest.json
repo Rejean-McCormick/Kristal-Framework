@@ -1,6 +1,6 @@
 {
   "format": "kristal.contract-surfaces/v1",
-  "release": "5.0.0-rc.2",
+  "release": "5.0.0-rc.3",
   "core_schema_line": "5.0",
   "purpose": "Human- and machine-readable index of the public Kristal v5 contract surfaces. Git tag + commit pin the exact repository contents.",
   "normative_surfaces": [
@@ -27,6 +27,14 @@
     {
       "name": "security-contracts",
       "path": "docs/Technical-Reference/kristal-docs-v5/07-security/"
+    },
+    {
+      "name": "referent-model",
+      "path": "docs/Technical-Reference/kristal-docs-v5/01-core-spec/referents-and-domain-neutral-model.md"
+    },
+    {
+      "name": "knowledge-model-contract-bundle",
+      "path": "knowledge-model-contract.v1.json"
     }
   ],
   "profile_surfaces": [

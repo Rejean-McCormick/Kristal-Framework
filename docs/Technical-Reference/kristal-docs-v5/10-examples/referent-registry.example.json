@@ -1,0 +1,80 @@
+{
+  "schema_version": "5.0",
+  "artifact_type": "referent_registry",
+  "profile_version": "1.0.0",
+  "registry_id": "sha256:16ba16e5fb850e7692ffb927b4f7b738116272ac5d091bd720708b4bbae7ecd7",
+  "scope": {
+    "domain": "example-universal"
+  },
+  "referents": [
+    {
+      "ref": "person:augustine",
+      "kind": "person",
+      "labels": [
+        {
+          "text": "Augustin",
+          "lang": "fr"
+        }
+      ],
+      "external_ids": [
+        {
+          "system": "wikidata",
+          "id": "Q8018",
+          "url": "https://www.wikidata.org/wiki/Q8018"
+        }
+      ]
+    },
+    {
+      "ref": "work:confessions",
+      "kind": "work",
+      "labels": [
+        {
+          "text": "Confessions",
+          "lang": "fr"
+        }
+      ]
+    },
+    {
+      "ref": "concept:grace",
+      "kind": "concept",
+      "labels": [
+        {
+          "text": "grâce",
+          "lang": "fr"
+        }
+      ]
+    },
+    {
+      "ref": "collective:quality-team-a",
+      "kind": "collective",
+      "labels": [
+        {
+          "text": "Équipe qualité A",
+          "lang": "fr"
+        }
+      ]
+    },
+    {
+      "ref": "installation:factory-a",
+      "kind": "installation",
+      "labels": [
+        {
+          "text": "Usine A",
+          "lang": "fr"
+        }
+      ]
+    },
+    {
+      "ref": "process:final-inspection",
+      "kind": "process",
+      "labels": [
+        {
+          "text": "Contrôle final",
+          "lang": "fr"
+        }
+      ]
+    }
+  ],
+  "external_sources": [],
+  "extensions": {}
+}

@@ -1,7 +1,7 @@
 # Kristal v5 specification status
 
-**Candidate version:** `5.0.0-rc.2`  
-**Candidate Git tag:** `v5.0.0-rc.2` — pending until release  
+**Candidate version:** `5.0.0-rc.3`  
+**Candidate Git tag:** `v5.0.0-rc.3` — pending until release  
 **Candidate resolved commit:** pending until the release tag exists  
 **Core schema line:** `5.0`  
 **Canonicalization profile:** `kristal.v5:jcs-rfc8785` / version `1`
@@ -46,8 +46,8 @@ Generated per-file release manifests are not part of the v5 release identity. In
 ### Current RC identity
 
 ```text
-version: 5.0.0-rc.2
-tag: v5.0.0-rc.2 (pending)
+version: 5.0.0-rc.3
+tag: v5.0.0-rc.3 (pending)
 commit: resolve from the immutable tag after release
 canonicalization: kristal.v5:jcs-rfc8785 / 1
 ```
@@ -58,7 +58,7 @@ After a stable release is tagged, files classified as normative for that release
 
 ## Release candidate rule
 
-`5.0.0-rc.2` is the current candidate version under validation. It is not a published release identity until the corrected tree is committed and the immutable `v5.0.0-rc.2` tag is created.
+`5.0.0-rc.3` is the current candidate version under validation. It is not a published release identity until the corrected tree is committed and the immutable `v5.0.0-rc.3` tag is created. The rc.3 semantic change is the frozen Referent Registry 1.0.0 and its domain-neutral modeling boundary; rc.2 remains historical.
 
 The published `v5.0.0-rc.1` baseline remains immutable. An RC remains immutable once used as a pinned interoperability baseline. Corrections required after an RC is published MUST produce a new release-candidate version rather than moving the existing tag.
 

@@ -271,3 +271,10 @@ Operational patterns such as circuit breakers, DLQs, CQRS framing, canary/blue-g
 * Operational guidance: `08-ops/`
 * Test vectors: `09-test-vectors/`
 * Examples: `10-examples/`
+
+
+## Domain-neutral referents (rc.3)
+
+Kristal may identify the things assertions are about through Referent Registry `1.0.0`. The registry is deliberately shallow: it distinguishes stable referent kinds such as person, collective, work, concept, place, installation and process without imposing a universal domain ontology.
+
+Assertions, provenance, evidence, certainty, validation and authority remain in Structured Epistemic State. A consumer's primary navigation lens is a projection choice rather than a Kristal semantic priority. External IDs such as Wikidata QIDs remain external anchors.

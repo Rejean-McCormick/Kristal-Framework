@@ -115,8 +115,8 @@ Consumers SHOULD record the small release identity:
 
 ```json
 {
-  "version": "5.0.0-rc.2",
-  "git_tag": "v5.0.0-rc.2",
+  "version": "5.0.0-rc.3",
+  "git_tag": "v5.0.0-rc.3",
   "git_commit": "<full SHA resolved from tag>",
   "canonicalization_profile": "kristal.v5:jcs-rfc8785",
   "canonicalization_version": "1"
@@ -124,6 +124,8 @@ Consumers SHOULD record the small release identity:
 ```
 
 Floating dependencies (`main`, `latest`, `5.x`) are not valid release locks.
+
+For knowledge-model consumers that adopt Referent Registry `1.0.0`, rc.3 also publishes `knowledge-model-contract.v1.json`. Its content-addressed bundle ID may be recorded in downstream integration contracts in addition to the Git release pin; it does not replace the Git release identity.
 
 ## Source archive hygiene
 

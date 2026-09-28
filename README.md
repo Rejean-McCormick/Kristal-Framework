@@ -1,6 +1,6 @@
 # Kristal docs (v5)
 
-> **Release status:** `5.0.0-rc.2` — candidate under validation. The `v5.0.0-rc.2` tag and resolved commit do not exist until the corrected tree passes the release gate and is committed/tagged. See [`VERSION`](VERSION), [`kristal-release.json`](kristal-release.json), the [rc.2 candidate status](docs/status/2026-09-16-v5.0.0-rc.2-candidate.md), and the [specification status](docs/Technical-Reference/kristal-docs-v5/00-overview/specification-status.md).
+> **Release status:** `5.0.0-rc.3` — candidate under validation. The `v5.0.0-rc.3` tag and resolved commit do not exist until the corrected tree passes the release gate and is committed/tagged. See [`VERSION`](VERSION), [`kristal-release.json`](kristal-release.json), the [rc.3 referent-contract status](docs/status/2026-09-28-v5.0.0-rc.3-referent-contract.md), and the [specification status](docs/Technical-Reference/kristal-docs-v5/00-overview/specification-status.md).
 
 This repository contains the **Kristal v5 specification, normative contract set, conformance vectors, and release metadata** for a deterministic, portable epistemic artifact system.
 
@@ -20,20 +20,26 @@ Kristal is **not** a shared mutable application database. Product-owned operatio
 
 ---
 
+## Domain-neutral referents
+
+Kristal v5.0.0-rc.3 adds the normative **Referent Registry 1.0.0**: stable internal refs, deliberately shallow kinds, multilingual labels and external identifiers. Referents identify the things assertions are about; they do not replace the Structured Epistemic State or turn any domain-specific navigation lens into Kristal ontology.
+
+The frozen knowledge-model bundle is published at [`knowledge-model-contract.v1.json`](knowledge-model-contract.v1.json).
+
 ## Release identity
 
-The current candidate version is `5.0.0-rc.2`. It becomes a published release candidate only after an immutable `v5.0.0-rc.2` tag is created. The release identity is deliberately small:
+The current candidate version is `5.0.0-rc.3`. It becomes a published release candidate only after an immutable `v5.0.0-rc.3` tag is created. The release identity is deliberately small:
 
 ```text
-version: 5.0.0-rc.2
-git tag: v5.0.0-rc.2 (pending until release)
+version: 5.0.0-rc.3
+git tag: v5.0.0-rc.3 (pending until release)
 git commit: resolved from the tag after the release commit exists
 canonicalization: kristal.v5:jcs-rfc8785 / 1
 ```
 
 Git tag + commit SHA pin the exact repository content. [`contract-set.manifest.json`](contract-set.manifest.json) only identifies the public contract surfaces; it is not an exhaustive file inventory and does not duplicate Git with per-file release hashes.
 
-Kristal still uses JCS/SHA-256 where it is part of the **Kristal artifact identity protocol**. That domain-level hashing is separate from framework release versioning. See the [rc.2 candidate status](docs/status/2026-09-16-v5.0.0-rc.2-candidate.md) and [`RELEASE.md`](RELEASE.md).
+Kristal still uses JCS/SHA-256 where it is part of the **Kristal artifact identity protocol**. That domain-level hashing is separate from framework release versioning. See the [rc.3 referent-contract status](docs/status/2026-09-28-v5.0.0-rc.3-referent-contract.md) and [`RELEASE.md`](RELEASE.md).
 
 ---
 

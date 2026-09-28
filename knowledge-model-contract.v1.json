@@ -1,0 +1,29 @@
+{
+  "format": "kristal.knowledge-model-contract/v1",
+  "release": "5.0.0-rc.3",
+  "referent_profile": "kristal.referent-registry/1.0.0",
+  "structured_epistemic_state": "5.0",
+  "files": [
+    {
+      "path": "docs/Technical-Reference/kristal-docs-v5/01-core-spec/referents-and-domain-neutral-model.md",
+      "sha256": "sha256:e6cafbb2e47305f978e975f4ea0c6f4c5ac11589944b925d6f927ab40e4b5447",
+      "bytes": 2856
+    },
+    {
+      "path": "docs/Technical-Reference/kristal-docs-v5/02-schemas/referent-registry.schema.json",
+      "sha256": "sha256:fe56cb6dc0bca3deeb81488c120d1c60bc800703a575f5d1b6250977df258d5d",
+      "bytes": 4030
+    },
+    {
+      "path": "docs/Technical-Reference/kristal-docs-v5/02-schemas/structured-epistemic-state.schema.json",
+      "sha256": "sha256:23de5d84986c1f09235f619f41af0e6ef87f9c25aa240c00b5632bc84a5a8598",
+      "bytes": 37503
+    },
+    {
+      "path": "contract-set.manifest.json",
+      "sha256": "sha256:b29573d9241900096188880e066e5c5fbe1decd34ff56260d6e4eb0def7baf3c",
+      "bytes": 2628
+    }
+  ],
+  "bundle_sha256": "sha256:07fe0527ab29a4b40870efdd0c9e0c67c91de919e5428047245b2a2c04f8ea98"
+}
