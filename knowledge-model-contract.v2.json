@@ -1,0 +1,38 @@
+{
+  "format": "kristal.knowledge-model-contract/v2",
+  "release": "6.0.0",
+  "canonical_artifact": "kristal_state",
+  "kristal_state": "6.0",
+  "referent_profile": "kristal.referent-registry/1.0.0",
+  "canonicalization_profile": "kristal.v6:jcs-rfc8785",
+  "canonicalization_version": "1",
+  "legacy_structured_epistemic_state": "5.0",
+  "files": [
+    {
+      "path": "docs/Technical-Reference/kristal-docs-v6/01-core-spec/kristal-v6-core-spec.md",
+      "sha256": "sha256:2dd34986942ae1de3814bb82d7aa8138e32cbe0578ba3959c74ede7c31ed7a01",
+      "bytes": 5826
+    },
+    {
+      "path": "schemas/kristal-state.schema.json",
+      "sha256": "sha256:8f3df9a93d6a7c0ca8d7143946ed6f2009ae6d6b5105b8e7d7e873b5288e807c",
+      "bytes": 8389
+    },
+    {
+      "path": "docs/Technical-Reference/kristal-docs-v6/Migration-v5-to-v6.md",
+      "sha256": "sha256:8ffe466364f181803672f4b59cd477d6f077175e88996264379c8910be8b7ce8",
+      "bytes": 1651
+    },
+    {
+      "path": "docs/Technical-Reference/kristal-docs-v5/02-schemas/referent-registry.schema.json",
+      "sha256": "sha256:fe56cb6dc0bca3deeb81488c120d1c60bc800703a575f5d1b6250977df258d5d",
+      "bytes": 4030
+    },
+    {
+      "path": "contract-set.manifest.json",
+      "sha256": "sha256:eeed1ea8ed03da6418976e2a18cf5b1d3aa47eaf36877c58ca016a2ac97551d3",
+      "bytes": 2390
+    }
+  ],
+  "bundle_sha256": "sha256:6a376e4fc804a7822ded8320be4120935f86adaf82aedd3e758e3f0d6e189e57"
+}

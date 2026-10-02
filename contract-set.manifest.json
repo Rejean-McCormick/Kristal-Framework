@@ -1,86 +1,75 @@
 {
   "format": "kristal.contract-surfaces/v1",
-  "release": "5.0.0-rc.3",
-  "core_schema_line": "5.0",
-  "purpose": "Human- and machine-readable index of the public Kristal v5 contract surfaces. Git tag + commit pin the exact repository contents.",
+  "release": "6.0.0",
+  "core_schema_line": "6.0",
+  "canonical_artifact": "kristal_state",
+  "purpose": "Human- and machine-readable index of the public Kristal v6 contract surfaces. Git tag + commit pin the exact repository contents. v5 surfaces are retained as compatibility contracts.",
   "normative_surfaces": [
     {
-      "name": "core-spec",
-      "path": "docs/Technical-Reference/kristal-docs-v5/01-core-spec/"
+      "name": "v6-core-spec",
+      "path": "docs/Technical-Reference/kristal-docs-v6/01-core-spec/kristal-v6-core-spec.md"
     },
     {
-      "name": "json-schemas",
-      "path": "docs/Technical-Reference/kristal-docs-v5/02-schemas/"
+      "name": "v6-kristal-state-schema",
+      "path": "schemas/kristal-state.schema.json"
     },
     {
-      "name": "reproducibility",
-      "path": "docs/Technical-Reference/kristal-docs-v5/03-reproducibility/"
+      "name": "v6-compatibility-contract",
+      "path": "docs/Technical-Reference/kristal-docs-v6/01-core-spec/compatibility-contract.md"
     },
     {
-      "name": "query-contract",
-      "path": "docs/Technical-Reference/kristal-docs-v5/04-query/query-contract.md"
-    },
-    {
-      "name": "integration-contracts",
-      "path": "docs/Technical-Reference/kristal-docs-v5/06-integration/"
-    },
-    {
-      "name": "security-contracts",
-      "path": "docs/Technical-Reference/kristal-docs-v5/07-security/"
-    },
-    {
-      "name": "referent-model",
-      "path": "docs/Technical-Reference/kristal-docs-v5/01-core-spec/referents-and-domain-neutral-model.md"
-    },
-    {
-      "name": "knowledge-model-contract-bundle",
-      "path": "knowledge-model-contract.v1.json"
+      "name": "v6-knowledge-model-contract-bundle",
+      "path": "knowledge-model-contract.v2.json"
     }
   ],
   "profile_surfaces": [
     {
-      "name": "reader-policy-profiles",
-      "path": "docs/Technical-Reference/kristal-docs-v5/04-query/reader-policy-profiles.md"
+      "name": "v6-valuations",
+      "path": "docs/Technical-Reference/kristal-docs-v6/Valuations-and-Value-Semantics.md"
     },
     {
-      "name": "interoperability-profiles",
-      "path": "docs/Technical-Reference/kristal-docs-v5/05-profiles/"
+      "name": "v6-record-roles",
+      "path": "docs/Technical-Reference/kristal-docs-v6/Record-Roles.md"
     },
     {
-      "name": "konstellation-reader-json-v1",
-      "path": "docs/Technical-Reference/kristal-docs-v5/05-profiles/profile-konstellation-reader-json.md"
+      "name": "v6-actionability",
+      "path": "docs/Technical-Reference/kristal-docs-v6/Actionability-and-Human-Boundaries.md"
+    },
+    {
+      "name": "v6-coordinates-applicability",
+      "path": "docs/Technical-Reference/kristal-docs-v6/Coordinates-and-Applicability.md"
     }
   ],
   "conformance_surfaces": [
     {
-      "name": "jcs-vectors",
-      "path": "docs/Technical-Reference/kristal-docs-v5/09-test-vectors/jcs/"
+      "name": "v6-kristal-state-vector",
+      "path": "docs/Technical-Reference/kristal-docs-v6/09-test-vectors/kristal-state/"
     },
     {
-      "name": "tck-overview",
-      "path": "docs/Technical-Reference/kristal-docs-v5/09-test-vectors/TCK.md"
-    },
-    {
-      "name": "exchange-id-vectors",
-      "path": "docs/Technical-Reference/kristal-docs-v5/09-test-vectors/exchange/"
-    },
-    {
-      "name": "runtime-pack-vectors",
-      "path": "docs/Technical-Reference/kristal-docs-v5/09-test-vectors/runtime-pack/"
+      "name": "legacy-v5-tck",
+      "path": "docs/Technical-Reference/kristal-docs-v5/09-test-vectors/"
     }
   ],
   "informative_surfaces": [
     {
-      "name": "overview",
-      "path": "docs/Technical-Reference/kristal-docs-v5/00-overview/"
+      "name": "v6-overview",
+      "path": "docs/Technical-Reference/kristal-docs-v6/What-is-Kristal.md"
     },
     {
-      "name": "operations",
-      "path": "docs/Technical-Reference/kristal-docs-v5/08-ops/"
+      "name": "v6-migration",
+      "path": "docs/Technical-Reference/kristal-docs-v6/Migration-v5-to-v6.md"
     },
     {
-      "name": "examples",
-      "path": "docs/Technical-Reference/kristal-docs-v5/10-examples/"
+      "name": "v6-organizational-memory",
+      "path": "docs/Technical-Reference/kristal-docs-v6/Automation-and-Organizational-Memory.md"
+    },
+    {
+      "name": "legacy-v5-specification",
+      "path": "docs/Technical-Reference/kristal-docs-v5/"
+    },
+    {
+      "name": "legacy-v5-knowledge-model-contract",
+      "path": "knowledge-model-contract.v1.json"
     }
   ]
 }

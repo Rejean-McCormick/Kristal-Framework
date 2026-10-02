@@ -1,0 +1,90 @@
+{
+  "schema_version": "6.0",
+  "artifact_type": "kristal_state",
+  "artifact_status": "working",
+  "created_at": "2026-10-01T12:00:00Z",
+  "applicability": {
+    "domain": "operations",
+    "subdomain": "diagnostic",
+    "language": "fr"
+  },
+  "assertions": [
+    {
+      "statement": {
+        "subject": {
+          "kind": "item",
+          "id": "urn:asset:pump-17"
+        },
+        "predicate": "maintenance.indicates_inspection",
+        "object": {
+          "kind": "item",
+          "id": "urn:inspection:bearing"
+        }
+      },
+      "assertion_status": "sourced",
+      "record_role": "derived_state",
+      "coordinates": [
+        {
+          "axis": "operating_condition",
+          "value": "high_vibration"
+        }
+      ],
+      "valuations": [
+        {
+          "dimension": "intervention_necessity",
+          "value_semantics": "ordinal",
+          "value_state": "known",
+          "value": "high"
+        },
+        {
+          "dimension": "risk_score",
+          "value_semantics": "scalar",
+          "value_state": "known",
+          "value": 0.37,
+          "unit": "ratio"
+        }
+      ],
+      "actionability": {
+        "mode": "human_review",
+        "requires_human_validation": true,
+        "reason_codes": [
+          "condition_requires_expert_review"
+        ]
+      },
+      "evidence_refs": [
+        "urn:sensor:vibration:event-834"
+      ]
+    },
+    {
+      "statement": {
+        "subject": {
+          "kind": "item",
+          "id": "urn:asset:pump-17"
+        },
+        "predicate": "asset.has_alias",
+        "object": {
+          "kind": "string",
+          "value": "Primary pump"
+        }
+      },
+      "assertion_status": "claimed",
+      "record_role": "structural_record",
+      "valuations": [
+        {
+          "dimension": "diagnostic_support",
+          "value_semantics": "ordinal",
+          "value_state": "not_applicable"
+        }
+      ],
+      "actionability": {
+        "mode": "not_applicable"
+      }
+    }
+  ],
+  "provenance": [],
+  "state_id": "sha256:534d57141a4d1c982e2ddb25abfda19be7d63234667542dd3eea6acc5cf6b759",
+  "content_hash": {
+    "alg": "sha256",
+    "value": "534d57141a4d1c982e2ddb25abfda19be7d63234667542dd3eea6acc5cf6b759"
+  }
+}

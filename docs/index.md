@@ -1,27 +1,19 @@
-# Kristal Framework v5
+# Kristal Framework v6
 
-Kristal v5 is a deterministic, portable epistemic artifact framework.
+**Active baseline: Kristal Standard 6.0.0.**
+
+Kristal v6 is a deterministic, portable structured-memory and actionability standard. The canonical artifact is `kristal_state`.
 
 Start with:
 
-1. [v5.0.0-rc.3 referent-contract status — 2026-09-28](status/2026-09-28-v5.0.0-rc.3-referent-contract.md)
-2. [v5.0.0-rc.2 candidate status — 2026-09-16](status/2026-09-16-v5.0.0-rc.2-candidate.md)
-3. [Current validation status — 2026-09-16](status/2026-09-16-v5-validation-status.md)
-4. [Historical v5.0.0-rc.1 release status](status/2026-09-14-v5.0.0-rc.1.md)
-5. [Specification status](Technical-Reference/kristal-docs-v5/00-overview/specification-status.md)
-6. [What is Kristal v5?](Technical-Reference/kristal-docs-v5/00-overview/what-is-kristal-v5.md)
-7. [Core specification](Technical-Reference/kristal-docs-v5/01-core-spec/kristal-v5-core-spec.md)
-8. [Canonicalization and hashing](Technical-Reference/kristal-docs-v5/01-core-spec/ids-canonicalization-hashing.md)
-9. [Conformance and alignment](Technical-Reference/kristal-docs-v5/00-overview/conformance-and-alignment.md)
+1. [What is Kristal?](Technical-Reference/kristal-docs-v6/What-is-Kristal.md)
+2. [Concepts and mental model](Technical-Reference/kristal-docs-v6/Concepts-and-Mental-Model.md)
+3. [Core specification](Technical-Reference/kristal-docs-v6/01-core-spec/kristal-v6-core-spec.md)
+4. [Kristal State](Technical-Reference/kristal-docs-v6/Kristal-State.md)
+5. [Valuations and value semantics](Technical-Reference/kristal-docs-v6/Valuations-and-Value-Semantics.md)
+6. [Record roles](Technical-Reference/kristal-docs-v6/Record-Roles.md)
+7. [Actionability and human boundaries](Technical-Reference/kristal-docs-v6/Actionability-and-Human-Boundaries.md)
+8. [Migration v5 → v6](Technical-Reference/kristal-docs-v6/Migration-v5-to-v6.md)
+9. [v6 specification status](Technical-Reference/kristal-docs-v6/00-overview/specification-status.md)
 
-Release metadata is published at the repository root in `kristal-release.json` and `contract-set.manifest.json`. Git tag + resolved commit SHA pin the exact release bytes; no generated per-file schema manifest is part of the release identity.
-
-## Dogma and doctrinal classifications
-
-See the [modeling guidance](Technical-Reference/kristal-docs-v5/00-overview/dogma-and-doctrinal-classification.md) for representing dogmas with existing assertions, qualifiers, provenance and scoped authority. No core schema change is required.
-
-## Referents
-
-- [Referents and domain-neutral model](Technical-Reference/kristal-docs-v5/01-core-spec/referents-and-domain-neutral-model.md)
-- [Referent Registry schema](Technical-Reference/kristal-docs-v5/02-schemas/referent-registry.schema.json)
-- [Frozen knowledge-model bundle](../knowledge-model-contract.v1.json)
+The complete v5 reference remains in `Technical-Reference/kristal-docs-v5/` for compatibility and migration.

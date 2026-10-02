@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kristal.org/schemas/v6/kristal-state.schema.json",
+  "title": "Kristal State 6.0",
+  "description": "Canonical Kristal v6 state artifact. Domain-neutral assertions with typed valuations, coordinates, applicability, roles, actionability and traceability.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema_version", "artifact_type", "artifact_status", "created_at", "assertions", "provenance"],
+  "properties": {
+    "schema_version": {"const": "6.0"},
+    "artifact_type": {"const": "kristal_state"},
+    "artifact_status": {"$ref": "#/$defs/artifact_status"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "created_by": {"type": "object"},
+    "canonicalization_profile": {"const": "kristal.v6:jcs-rfc8785"},
+    "canonicalization_version": {"const": "1"},
+    "applicability": {"$ref": "#/$defs/applicability"},
+    "source_refs": {"type": "array", "items": {"type": ["string", "object"]}},
+    "assertions": {"type": "array", "items": {"$ref": "#/$defs/assertion"}},
+    "provenance": {"type": "array", "items": {"type": "object"}},
+    "validation_refs": {"type": "array", "items": {"type": "string"}},
+    "authority_recognition_refs": {"type": "array", "items": {"type": "string"}},
+    "reader_policy_refs": {"type": "array", "items": {"type": "string"}},
+    "lineage": {"type": "object"},
+    "build": {"type": "object"},
+    "warnings": {"type": "array", "items": {"type": ["string", "object"]}},
+    "extensions": {"type": "object", "additionalProperties": true},
+    "state_id": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "content_hash": {"$ref": "#/$defs/content_hash"},
+    "signatures": {"type": "array", "items": {"type": "object"}}
+  },
+  "$defs": {
+    "artifact_status": {
+      "type": "string",
+      "enum": ["draft", "working", "under_review", "recognized", "reference", "deprecated", "superseded", "revoked"]
+    },
+    "assertion_status": {
+      "type": "string",
+      "enum": ["hypothesis", "claimed", "sourced", "disputed", "reviewed", "validated", "rejected", "retracted", "superseded"]
+    },
+    "record_role": {
+      "type": "string",
+      "enum": ["authoritative_constraint", "observed_state", "organizational_rule", "reference_knowledge", "derived_state", "decision", "action", "structural_record"]
+    },
+    "actionability_mode": {
+      "type": "string",
+      "enum": ["automatic", "human_review", "human_decision", "manual", "prohibited", "insufficient_information", "not_applicable"]
+    },
+    "value_semantics": {
+      "type": "string",
+      "enum": ["boolean", "categorical", "set", "ordinal", "scalar", "interval", "probability", "distribution", "vector", "partial_order", "state", "temporal"]
+    },
+    "value_state": {
+      "type": "string",
+      "enum": ["known", "unknown", "not_applicable", "indeterminate", "not_measured"]
+    },
+    "applicability": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "domain": {"type": "string"},
+        "subdomain": {"type": "string"},
+        "jurisdiction": {"type": "string"},
+        "time_window": {"type": ["string", "object"]},
+        "environment": {"type": ["string", "object"]},
+        "language": {"type": "string"},
+        "tenant_id": {"type": "string"}
+      }
+    },
+    "statement_value": {
+      "type": "object",
+      "required": ["kind"],
+      "additionalProperties": true,
+      "properties": {
+        "kind": {"type": "string"},
+        "id": {"type": "string"},
+        "value": {},
+        "language": {"type": "string"}
+      },
+      "anyOf": [
+        {"required": ["id"]},
+        {"required": ["value"]}
+      ]
+    },
+    "statement": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["subject", "predicate", "object"],
+      "properties": {
+        "subject": {"$ref": "#/$defs/statement_value"},
+        "predicate": {"type": ["string", "object"]},
+        "object": {"$ref": "#/$defs/statement_value"}
+      }
+    },
+    "coordinate": {
+      "type": "object",
+      "required": ["axis", "value"],
+      "additionalProperties": true,
+      "properties": {
+        "axis": {"type": "string", "minLength": 1},
+        "value": {},
+        "unit": {"type": "string"}
+      }
+    },
+    "valuation": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["dimension", "value_semantics", "value_state"],
+      "properties": {
+        "dimension": {"type": "string", "minLength": 1},
+        "value_semantics": {"$ref": "#/$defs/value_semantics"},
+        "value_state": {"$ref": "#/$defs/value_state"},
+        "value": {},
+        "unit": {"type": "string"},
+        "method": {"type": ["string", "object"]},
+        "scale": {"type": ["string", "object"]},
+        "notes": {"type": "string"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"value_state": {"const": "known"}}, "required": ["value_state"]},
+          "then": {"required": ["value"]},
+          "else": {"not": {"required": ["value"]}}
+        },
+        {
+          "if": {"properties": {"value_semantics": {"const": "boolean"}, "value_state": {"const": "known"}}, "required": ["value_semantics", "value_state"]},
+          "then": {"properties": {"value": {"type": "boolean"}}}
+        },
+        {
+          "if": {"properties": {"value_semantics": {"const": "scalar"}, "value_state": {"const": "known"}}, "required": ["value_semantics", "value_state"]},
+          "then": {"properties": {"value": {"type": "number"}}}
+        },
+        {
+          "if": {"properties": {"value_semantics": {"const": "probability"}, "value_state": {"const": "known"}}, "required": ["value_semantics", "value_state"]},
+          "then": {"properties": {"value": {"type": "number", "minimum": 0, "maximum": 1}}}
+        },
+        {
+          "if": {"properties": {"value_semantics": {"const": "set"}, "value_state": {"const": "known"}}, "required": ["value_semantics", "value_state"]},
+          "then": {"properties": {"value": {"type": "array"}}}
+        },
+        {
+          "if": {"properties": {"value_semantics": {"const": "state"}, "value_state": {"const": "known"}}, "required": ["value_semantics", "value_state"]},
+          "then": {"properties": {"value": {"type": "string"}}}
+        }
+      ]
+    },
+    "actionability": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["mode"],
+      "properties": {
+        "mode": {"$ref": "#/$defs/actionability_mode"},
+        "requires_human_validation": {"type": "boolean"},
+        "reason_codes": {"type": "array", "items": {"type": "string"}},
+        "policy_refs": {"type": "array", "items": {"type": "string"}},
+        "notes": {"type": "string"}
+      }
+    },
+    "assertion": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["statement"],
+      "properties": {
+        "assertion_id": {"type": "string"},
+        "statement": {"$ref": "#/$defs/statement"},
+        "assertion_status": {"$ref": "#/$defs/assertion_status"},
+        "record_role": {"$ref": "#/$defs/record_role"},
+        "coordinates": {
+          "oneOf": [
+            {"type": "array", "items": {"$ref": "#/$defs/coordinate"}},
+            {"type": "object"}
+          ]
+        },
+        "applicability": {"$ref": "#/$defs/applicability"},
+        "valuations": {"type": "array", "items": {"$ref": "#/$defs/valuation"}},
+        "actionability": {"$ref": "#/$defs/actionability"},
+        "evidence_refs": {"type": "array", "items": {"type": "string"}},
+        "provenance_refs": {"type": "array", "items": {"type": "string"}},
+        "validation_refs": {"type": "array", "items": {"type": "string"}},
+        "authority_recognition_refs": {"type": "array", "items": {"type": "string"}},
+        "conflicts_with": {"type": "array", "items": {"type": "string"}},
+        "supersedes": {"type": "array", "items": {"type": "string"}},
+        "lineage": {"type": "object"},
+        "notes": {"type": "string"}
+      }
+    },
+    "content_hash": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["alg", "value"],
+      "properties": {
+        "alg": {"const": "sha256"},
+        "value": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    }
+  }
+}

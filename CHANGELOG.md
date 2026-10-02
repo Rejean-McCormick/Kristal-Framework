@@ -1,3 +1,18 @@
+# Changelog
+
+## 6.0.0 — 2026-10-01
+
+- Makes `kristal_state` (`schema_version: 6.0`) the canonical v6 artifact.
+- Replaces the single universal certainty assumption with typed `valuations[]`.
+- Adds explicit `coordinates`, `applicability`, `record_role` and `actionability` semantics.
+- Defines value semantics for boolean, categorical, set, ordinal, scalar, interval, probability, distribution, vector, partial order, state and temporal values.
+- Separates non-known value states (`unknown`, `not_applicable`, `indeterminate`, `not_measured`) from actual values.
+- Formalizes preservation of human/AI work as cumulative structured memory.
+- Formalizes automation boundaries without treating actionability as execution authority.
+- Adds the v6 core specification, JSON Schema and conformance fixture.
+- Retains the complete v5 specification and contract surfaces as legacy compatibility material.
+- Keeps `knowledge-model-contract.v1.json` frozen for v5 and introduces `knowledge-model-contract.v2.json` for v6.
+
 ## 5.0.0-rc.3 — 2026-09-28
 
 - Freeze Referent Registry 1.0.0.

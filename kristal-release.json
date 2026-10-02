@@ -1,15 +1,20 @@
 {
   "format": "kristal.release/v1",
   "framework": "kristal",
-  "version": "5.0.0-rc.3",
-  "status": "release-candidate",
-  "core_version": "5.0",
+  "version": "6.0.0",
+  "status": "release",
+  "core_version": "6.0",
+  "canonical_artifact": "kristal_state",
   "contract_surfaces": "contract-set.manifest.json",
-  "canonicalization_profile": "kristal.v5:jcs-rfc8785",
-  "git": {
-    "tag": "v5.0.0-rc.3",
-    "commit": null,
-    "commit_resolution": "Resolve the release tag to its full immutable commit SHA in the authoritative Git repository after the rc.3 release commit is created."
+  "canonicalization_profile": "kristal.v6:jcs-rfc8785",
+  "canonicalization_version": "1",
+  "legacy_compatibility": {
+    "v5_contracts_retained": true,
+    "path": "docs/Technical-Reference/kristal-docs-v5/"
   },
-  "canonicalization_version": "1"
+  "git": {
+    "tag": "v6.0.0",
+    "commit": null,
+    "commit_resolution": "Resolve the release tag to its full immutable commit SHA in the authoritative Git repository after the release commit is created."
+  }
 }
