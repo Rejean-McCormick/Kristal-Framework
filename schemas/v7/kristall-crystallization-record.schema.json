@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Crystallization record",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "record_id",
+    "created_at",
+    "inputs",
+    "stages",
+    "proposals",
+    "accepted_changes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.0"
+    },
+    "artifact_type": {
+      "const": "kristall_crystallization_record"
+    },
+    "record_id": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "inputs": {
+      "type": "array"
+    },
+    "stages": {
+      "type": "array"
+    },
+    "proposals": {
+      "type": "array"
+    },
+    "accepted_changes": {
+      "type": "array"
+    }
+  }
+}

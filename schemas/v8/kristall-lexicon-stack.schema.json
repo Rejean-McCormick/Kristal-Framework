@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kristall lexicon stack",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "stack_id",
+    "requested_locale",
+    "resolution_policy",
+    "layers"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "8.0"
+    },
+    "artifact_type": {
+      "const": "kristall_lexicon_stack"
+    },
+    "stack_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requested_locale": {
+      "type": "string",
+      "pattern": "^[A-Za-z]{2,8}(?:-[A-Za-z0-9]{1,8})*$"
+    },
+    "resolution_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "precedence",
+        "on_missing",
+        "on_conflict"
+      ],
+      "properties": {
+        "precedence": {
+          "const": "highest_numeric_wins"
+        },
+        "on_missing": {
+          "enum": [
+            "preserve_semantic_id",
+            "error"
+          ]
+        },
+        "on_conflict": {
+          "enum": [
+            "return_conflict",
+            "error"
+          ]
+        },
+        "locale_fallback": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z]{2,8}(?:-[A-Za-z0-9]{1,8})*$"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "layers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "lexicon_ref",
+          "precedence"
+        ],
+        "properties": {
+          "lexicon_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "precedence": {
+            "type": "integer"
+          },
+          "optional": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    }
+  }
+}

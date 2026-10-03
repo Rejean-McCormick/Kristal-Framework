@@ -1,0 +1,177 @@
+{
+  "format": "kristal.compatibility-lock/v1",
+  "release": "8.0.0",
+  "purpose": "Freeze inherited v6/v7 machine contracts and TCK surfaces while v8 adds language/query capabilities",
+  "files": [
+    {
+      "path": "schemas/v6/kristal-state.schema.json",
+      "sha256": "sha256:8f3df9a93d6a7c0ca8d7143946ed6f2009ae6d6b5105b8e7d7e873b5288e807c",
+      "bytes": 8389
+    },
+    {
+      "path": "schemas/v7/kristal-v7-extension.schema.json",
+      "sha256": "sha256:fb8f008e9319d922edee4bc7fb93280f46880dd5619f6684810dc8da58cc4987",
+      "bytes": 998
+    },
+    {
+      "path": "schemas/v7/kristall-assertion-family-registry.schema.json",
+      "sha256": "sha256:5394ba95828447890ad186290dbe05360f11a26a92b2ff86ae6a80b383cf59b9",
+      "bytes": 1594
+    },
+    {
+      "path": "schemas/v7/kristall-assertion-registry.schema.json",
+      "sha256": "sha256:d8c560b5ea1f18149fdcc710693a52a0d65a2d49c419764f2d21892475bd50c6",
+      "bytes": 1355
+    },
+    {
+      "path": "schemas/v7/kristall-axis-registry.schema.json",
+      "sha256": "sha256:77726362c125bef7799e0ff74ec6219e4cb2c08897b426bf0ce0a16dfb9760db",
+      "bytes": 1718
+    },
+    {
+      "path": "schemas/v7/kristall-axis-type-registry.schema.json",
+      "sha256": "sha256:7ee29b36d816fdc1e771ac6ca065eea8ff6537b54d7bd4cf4cd2e3452e8eab52",
+      "bytes": 1784
+    },
+    {
+      "path": "schemas/v7/kristall-crystallization-record.schema.json",
+      "sha256": "sha256:b8a554fd034f1d15fe0e9f61b73725791c606c4c688f9b3f3eb414010793fdb1",
+      "bytes": 794
+    },
+    {
+      "path": "schemas/v7/kristall-entity-registry.schema.json",
+      "sha256": "sha256:b497203ffcd584d33c0fe3a63ed16a18c5c6811138278b91353e2e523429e2fe",
+      "bytes": 2126
+    },
+    {
+      "path": "schemas/v7/kristall-kos-registry.schema.json",
+      "sha256": "sha256:7b722e86ee24c174a5183abbf5464f7cb82bf54479867355d5a83ff67223de60",
+      "bytes": 2494
+    },
+    {
+      "path": "schemas/v7/kristall-manifest.schema.json",
+      "sha256": "sha256:53c5e87d82436c2f5b97522d9ede5f5cfc0898ed82f74b7af498fcc6864822fa",
+      "bytes": 2118
+    },
+    {
+      "path": "schemas/v7/kristall-mesh.schema.json",
+      "sha256": "sha256:f834cc6952f1933b5a8de912411059771a8b97f9d6af5bc53ebf4b5ba708a300",
+      "bytes": 1744
+    },
+    {
+      "path": "schemas/v7/kristall-projection-recipe.schema.json",
+      "sha256": "sha256:9ddaf302398c8d30e6c5487b624446c44ec7e97bfb800f660471cbbc7eb179a6",
+      "bytes": 1248
+    },
+    {
+      "path": "schemas/v7/kristall-property-registry.schema.json",
+      "sha256": "sha256:0de972ad8645764aaa56fd6152c41631f30775fdab835cdcc3604dd56de178d0",
+      "bytes": 1201
+    },
+    {
+      "path": "schemas/v7/kristall-source-registry.schema.json",
+      "sha256": "sha256:dc0d09a7797a533c01b75b451ad45d045b6f27da2f7a94896c2733227165d18a",
+      "bytes": 1096
+    },
+    {
+      "path": "schemas/v7/kristall-toc-registry.schema.json",
+      "sha256": "sha256:b52412f7c3268569c5c5e34eccb149c645336db435a6ab36603b13c109577f76",
+      "bytes": 4495
+    },
+    {
+      "path": "schemas/v7/semantic-resonance.schema.json",
+      "sha256": "sha256:e41154ba6561f276043d5e94cd4569d7339fb6b52c160d94c346e8362c18c617",
+      "bytes": 1702
+    },
+    {
+      "path": "tck/v7/vectors/100-kristals-seed-provenance.json",
+      "sha256": "sha256:d053375e2643ecfc0f0ab9c14cf52d640cb7251788cb57e885da2d1b186ee495",
+      "bytes": 320
+    },
+    {
+      "path": "tck/v7/vectors/README.md",
+      "sha256": "sha256:028a4ae9d443d79ca6cde9f428a75409badfb1dfb99872d8e8ec48f47f748420",
+      "bytes": 698
+    },
+    {
+      "path": "tck/v7/vectors/assertion-family-registry.example.json",
+      "sha256": "sha256:d5856ddca0c2787f950b88ef53d9e431c2dc011b9e2089448e4717aeaaf1e2a1",
+      "bytes": 515
+    },
+    {
+      "path": "tck/v7/vectors/assertion-registry.example.json",
+      "sha256": "sha256:2dd53396ead123ba5f73570c86922209e42b83d95d54c9cf93f5e14b6ddc6e2c",
+      "bytes": 397
+    },
+    {
+      "path": "tck/v7/vectors/axis-registry.example.json",
+      "sha256": "sha256:e3f6aebe051b0001509dc3eb20b1fdabeddc982de785709b932a509af0bfea7d",
+      "bytes": 909
+    },
+    {
+      "path": "tck/v7/vectors/axis-type-registry.example.json",
+      "sha256": "sha256:24759ef41e7e0699ee9d33954e5fb5d0e9b8d35617c2258ea991d4b0a03d5e57",
+      "bytes": 6479
+    },
+    {
+      "path": "tck/v7/vectors/crystallization-record.example.json",
+      "sha256": "sha256:d7459c30cd9fc2f3e96ef34b8564fe611acbb5ca883eb2527dce3cfefa6c8319",
+      "bytes": 224
+    },
+    {
+      "path": "tck/v7/vectors/entity-registry.example.json",
+      "sha256": "sha256:a3e118efc4f3c0c9fd22db0b379d5fd262187dc08e9491c1e2b33804e66ade67",
+      "bytes": 885
+    },
+    {
+      "path": "tck/v7/vectors/kos-registry.example.json",
+      "sha256": "sha256:a86c3fe8d431aafffc9056411cb7eb86a5dfd874c5911d80006c0a935f796e22",
+      "bytes": 785
+    },
+    {
+      "path": "tck/v7/vectors/kristall-manifest.example.json",
+      "sha256": "sha256:66e07544b2025acd5019b1e4700f8a5fcb19341f6b390e5586182a14b6bd1802",
+      "bytes": 1293
+    },
+    {
+      "path": "tck/v7/vectors/mesh.example.json",
+      "sha256": "sha256:9dae6d1731136692f5e062385fd326b0f326500b0f285081ce16393b0b791ccf",
+      "bytes": 463
+    },
+    {
+      "path": "tck/v7/vectors/projection-recipe.example.json",
+      "sha256": "sha256:27b00da098b48285341fc4895610dd1a32fb0a8e4e46920759defc242a1d6c25",
+      "bytes": 330
+    },
+    {
+      "path": "tck/v7/vectors/property-registry.example.json",
+      "sha256": "sha256:2bb08f7cbbd8c694672419ce2e831313266b2d126b1e3b59d35bc05a80012ab9",
+      "bytes": 437
+    },
+    {
+      "path": "tck/v7/vectors/resonance.example.json",
+      "sha256": "sha256:a8d67d9454749539e4b1f50530153808a195675ba2a94ede8d057f17b53b6636",
+      "bytes": 788
+    },
+    {
+      "path": "tck/v7/vectors/source-registry.example.json",
+      "sha256": "sha256:f4d4a896b750e21fb22a62fec2aff8076f6967a045993407107d005db160162a",
+      "bytes": 265
+    },
+    {
+      "path": "tck/v7/vectors/toc-registry-100-seed.example.json",
+      "sha256": "sha256:93929770f59c268ff3b1cf748af13ee5e6c45c4b4face59bbe5081bc38ee9c4c",
+      "bytes": 98204
+    },
+    {
+      "path": "tck/v7/vectors/toc-seed-100-analysis.json",
+      "sha256": "sha256:d35648f91f37fc43786e4ff7dc144dedd741d95165669b6119f6cd179fb326cc",
+      "bytes": 4404
+    },
+    {
+      "path": "tck/v7/vectors/v6-compatible-projection.example.json",
+      "sha256": "sha256:3cce44a20adbbef722da63bc86eea14d6f93d4aef52f2e6e41e7c64b900966dd",
+      "bytes": 2666
+    }
+  ]
+}

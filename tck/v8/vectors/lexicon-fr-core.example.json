@@ -1,0 +1,36 @@
+{
+  "schema_version": "8.0",
+  "artifact_type": "kristall_lexicon",
+  "lexicon_id": "KL-fr-core",
+  "language": "fr",
+  "scope": {
+    "kind": "core"
+  },
+  "dependencies": [],
+  "entries": [
+    {
+      "semantic_ref": {
+        "identity_space": "kristall",
+        "id": "KQ1001"
+      },
+      "lexical_status": "resolved",
+      "preferred_term": "ministre",
+      "part_of_speech": "noun"
+    },
+    {
+      "semantic_ref": {
+        "identity_space": "kristall",
+        "id": "KP31"
+      },
+      "lexical_status": "resolved",
+      "preferred_term": "est une instance de"
+    },
+    {
+      "semantic_ref": {
+        "identity_space": "kristall",
+        "id": "KQ9999"
+      },
+      "lexical_status": "missing"
+    }
+  ]
+}

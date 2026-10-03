@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kristal.example/schema/v7/kristall-axis-type-registry.schema.json",
+  "title": "Kristall Axis Type Registry",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "namespace_id",
+    "registry_id",
+    "axis_types"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.0"
+    },
+    "artifact_type": {
+      "const": "kristall_axis_type_registry"
+    },
+    "namespace_id": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "axis_types": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "axis_type_id",
+          "label",
+          "definition",
+          "status",
+          "organizing_questions"
+        ],
+        "properties": {
+          "axis_type_id": {
+            "type": "string",
+            "pattern": "^KQ[1-9][0-9]*$"
+          },
+          "label": {
+            "type": "string"
+          },
+          "definition": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "candidate",
+              "active",
+              "deprecated"
+            ]
+          },
+          "organizing_questions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "common_relations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "examples": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

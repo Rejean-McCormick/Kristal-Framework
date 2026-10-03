@@ -1,0 +1,211 @@
+{
+  "format": "kristal.knowledge-model-contract/v4",
+  "release": "8.0.0",
+  "portable_kristal_state": "6.0",
+  "semantic_baseline": "7.0",
+  "language_protocol": "kristal-language/1.0",
+  "query_protocol": "kristal-query/1.0",
+  "files": [
+    {
+      "path": "spec/v8/01-core-spec/kristal-v8-core-spec.md",
+      "sha256": "sha256:2a889d69d580221634860cb34ecff436b207eaaeaeaffa28dac52705104430f4",
+      "bytes": 4542
+    },
+    {
+      "path": "spec/v8/01-core-spec/compatibility-contract.md",
+      "sha256": "sha256:442db141dea135b3c19b8dbfc2a493de690579188ef95e34fc4dc4ec4295c7fb",
+      "bytes": 1980
+    },
+    {
+      "path": "spec/v8/Core-Invariants.md",
+      "sha256": "sha256:93d86138961646230574411d88a180e0bc32bcd229f0617f27e2cb367793b332",
+      "bytes": 1159
+    },
+    {
+      "path": "spec/v8/Architecture.md",
+      "sha256": "sha256:bfd2e110ce5f5de5c8c074f6bf4f04d9fd41342a855feb933afdf0ed71390cb5",
+      "bytes": 2832
+    },
+    {
+      "path": "spec/v8/Language-Layer.md",
+      "sha256": "sha256:0bf7a9403140decc56c56649fe115df727d1242fc6bdd6087af95d0bf1cd7100",
+      "bytes": 2011
+    },
+    {
+      "path": "spec/v8/Semantic-Universe-and-Lexical-Kristals.md",
+      "sha256": "sha256:8ee55af0e5f1ef5ba3d1a9562b4e8633a6b5717c823175c1414ab1d3c38dd30d",
+      "bytes": 2275
+    },
+    {
+      "path": "spec/v8/Lexical-Resolution.md",
+      "sha256": "sha256:79352f9867b96399e862b01b9c983de44dcb1affd2908975266cb5447446368b",
+      "bytes": 1560
+    },
+    {
+      "path": "spec/v8/AI-Query-Layer.md",
+      "sha256": "sha256:3e5359fa05c7b2a782e2178180c99ad314fa0e2af3145c59f10fb3f826fc0397",
+      "bytes": 1792
+    },
+    {
+      "path": "spec/v8/Query-Protocol.md",
+      "sha256": "sha256:c759b9d707226d0b80a97847c3b0dd35209dad1eaa3462741b81b2f27d8d22d0",
+      "bytes": 2004
+    },
+    {
+      "path": "spec/v8/Query-Algebra-and-Planning.md",
+      "sha256": "sha256:f3928717b2af061f5662b8aecc85855aa57a638e68d77f3501a4a875372ea62c",
+      "bytes": 1700
+    },
+    {
+      "path": "spec/v8/Federation-Pagination-and-Continuations.md",
+      "sha256": "sha256:d6ff2a8b4f0e13676dfbcb2855717ec77d074e68844cadca170f6598d7e15fbe",
+      "bytes": 1416
+    },
+    {
+      "path": "spec/v8/AI-Context-Compiler.md",
+      "sha256": "sha256:7048d32016787e0e7871faf87d26fe807fa812d98e041c1b06c700043833e598",
+      "bytes": 2204
+    },
+    {
+      "path": "spec/v8/AI-Compact-Encoding.md",
+      "sha256": "sha256:45d2d2c4bb697cd312356ea6503268ddd536e5c3d033c6917f1a676876ab6149",
+      "bytes": 1225
+    },
+    {
+      "path": "spec/v8/Semantic-Fingerprints-and-Integrity.md",
+      "sha256": "sha256:5220812a833e578938482ac41473b733ef47f25da14c27676c85cd66fcd707b3",
+      "bytes": 1756
+    },
+    {
+      "path": "spec/v8/Security-and-Trust-Boundaries.md",
+      "sha256": "sha256:b341d6bbb8709cef1c47ef42c561f553b0c8e4de40bade64beeb5e8ed0ba1fa7",
+      "bytes": 1928
+    },
+    {
+      "path": "spec/v8/Conformance.md",
+      "sha256": "sha256:ca5b500309d62539a67eb1416c2a00d573e748244084acd5a12b39e06b3d195b",
+      "bytes": 1800
+    },
+    {
+      "path": "schemas/v6/kristal-state.schema.json",
+      "sha256": "sha256:8f3df9a93d6a7c0ca8d7143946ed6f2009ae6d6b5105b8e7d7e873b5288e807c",
+      "bytes": 8389
+    },
+    {
+      "path": "schemas/v7/kristal-v7-extension.schema.json",
+      "sha256": "sha256:fb8f008e9319d922edee4bc7fb93280f46880dd5619f6684810dc8da58cc4987",
+      "bytes": 998
+    },
+    {
+      "path": "schemas/v7/kristall-assertion-family-registry.schema.json",
+      "sha256": "sha256:5394ba95828447890ad186290dbe05360f11a26a92b2ff86ae6a80b383cf59b9",
+      "bytes": 1594
+    },
+    {
+      "path": "schemas/v7/kristall-assertion-registry.schema.json",
+      "sha256": "sha256:d8c560b5ea1f18149fdcc710693a52a0d65a2d49c419764f2d21892475bd50c6",
+      "bytes": 1355
+    },
+    {
+      "path": "schemas/v7/kristall-axis-registry.schema.json",
+      "sha256": "sha256:77726362c125bef7799e0ff74ec6219e4cb2c08897b426bf0ce0a16dfb9760db",
+      "bytes": 1718
+    },
+    {
+      "path": "schemas/v7/kristall-axis-type-registry.schema.json",
+      "sha256": "sha256:7ee29b36d816fdc1e771ac6ca065eea8ff6537b54d7bd4cf4cd2e3452e8eab52",
+      "bytes": 1784
+    },
+    {
+      "path": "schemas/v7/kristall-crystallization-record.schema.json",
+      "sha256": "sha256:b8a554fd034f1d15fe0e9f61b73725791c606c4c688f9b3f3eb414010793fdb1",
+      "bytes": 794
+    },
+    {
+      "path": "schemas/v7/kristall-entity-registry.schema.json",
+      "sha256": "sha256:b497203ffcd584d33c0fe3a63ed16a18c5c6811138278b91353e2e523429e2fe",
+      "bytes": 2126
+    },
+    {
+      "path": "schemas/v7/kristall-kos-registry.schema.json",
+      "sha256": "sha256:7b722e86ee24c174a5183abbf5464f7cb82bf54479867355d5a83ff67223de60",
+      "bytes": 2494
+    },
+    {
+      "path": "schemas/v7/kristall-manifest.schema.json",
+      "sha256": "sha256:53c5e87d82436c2f5b97522d9ede5f5cfc0898ed82f74b7af498fcc6864822fa",
+      "bytes": 2118
+    },
+    {
+      "path": "schemas/v7/kristall-mesh.schema.json",
+      "sha256": "sha256:f834cc6952f1933b5a8de912411059771a8b97f9d6af5bc53ebf4b5ba708a300",
+      "bytes": 1744
+    },
+    {
+      "path": "schemas/v7/kristall-projection-recipe.schema.json",
+      "sha256": "sha256:9ddaf302398c8d30e6c5487b624446c44ec7e97bfb800f660471cbbc7eb179a6",
+      "bytes": 1248
+    },
+    {
+      "path": "schemas/v7/kristall-property-registry.schema.json",
+      "sha256": "sha256:0de972ad8645764aaa56fd6152c41631f30775fdab835cdcc3604dd56de178d0",
+      "bytes": 1201
+    },
+    {
+      "path": "schemas/v7/kristall-source-registry.schema.json",
+      "sha256": "sha256:dc0d09a7797a533c01b75b451ad45d045b6f27da2f7a94896c2733227165d18a",
+      "bytes": 1096
+    },
+    {
+      "path": "schemas/v7/kristall-toc-registry.schema.json",
+      "sha256": "sha256:b52412f7c3268569c5c5e34eccb149c645336db435a6ab36603b13c109577f76",
+      "bytes": 4495
+    },
+    {
+      "path": "schemas/v7/semantic-resonance.schema.json",
+      "sha256": "sha256:e41154ba6561f276043d5e94cd4569d7339fb6b52c160d94c346e8362c18c617",
+      "bytes": 1702
+    },
+    {
+      "path": "schemas/v8/kristall-ai-context-bundle.schema.json",
+      "sha256": "sha256:4fbe1bb28bfeaba538e4d4f36e4db122e3afb54fe89208a0d684053ac09287b9",
+      "bytes": 8394
+    },
+    {
+      "path": "schemas/v8/kristall-lexicon-stack.schema.json",
+      "sha256": "sha256:fa1e8ab60ed1d24a96671df8ada71faa9c1c747a92b1db93dcffc3b63f78d771",
+      "bytes": 1920
+    },
+    {
+      "path": "schemas/v8/kristall-lexicon.schema.json",
+      "sha256": "sha256:c34321540dd3d366538d50509eadd010f014aa403fbf24699c5caa5c885f6ba0",
+      "bytes": 6738
+    },
+    {
+      "path": "schemas/v8/kristall-query-index.schema.json",
+      "sha256": "sha256:447218acd234036621524579c68e7974c93bec6b369618cd265f813abf383560",
+      "bytes": 2646
+    },
+    {
+      "path": "schemas/v8/kristall-query-request.schema.json",
+      "sha256": "sha256:a8788b19444e3769e395b361039e6a9f4aa4fc54fe5ff8e41be618a8f548cd78",
+      "bytes": 7235
+    },
+    {
+      "path": "schemas/v8/kristall-query-result.schema.json",
+      "sha256": "sha256:202414d6e63243663ec7bcce7f101c60c025c32d76e0d55a3226baff9e761692",
+      "bytes": 6513
+    },
+    {
+      "path": "schemas/v8/kristall-v8-capabilities.schema.json",
+      "sha256": "sha256:e10664794c4f7c429691b63309cf6914dd7e5345c33dd6b48fdedc8de7b829ea",
+      "bytes": 2572
+    },
+    {
+      "path": "contracts/v8-compatibility-lock.json",
+      "sha256": "sha256:b32d60e8cc64f1ed54360a43f9c03a31711b29a397990f31e26927dd5d4096ea",
+      "bytes": 6529
+    }
+  ],
+  "bundle_sha256": "sha256:5149fc6bb678076bbf4f25262a43e0b8919c82da71ecc80da88385b5291e933e"
+}

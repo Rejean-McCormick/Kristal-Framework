@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Entity registry",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "namespace_id",
+    "registry_id",
+    "entities",
+    "resolution_candidates"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.0"
+    },
+    "artifact_type": {
+      "const": "kristall_entity_registry"
+    },
+    "namespace_id": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "entity_id",
+          "entity_kind",
+          "preferred_label",
+          "source_referents"
+        ],
+        "properties": {
+          "entity_id": {
+            "type": "string",
+            "pattern": "^KQ[1-9][0-9]*$"
+          },
+          "entity_kind": {
+            "type": "string"
+          },
+          "preferred_label": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "provisional",
+              "stable",
+              "deprecated"
+            ]
+          },
+          "source_referents": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "source_id",
+                "referent_id"
+              ],
+              "properties": {
+                "source_id": {
+                  "type": "string"
+                },
+                "referent_id": {
+                  "type": "string"
+                },
+                "global_source_id": {
+                  "type": "string"
+                },
+                "mapping_record_id": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "external_ids": {
+            "type": "array"
+          }
+        }
+      }
+    },
+    "resolution_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

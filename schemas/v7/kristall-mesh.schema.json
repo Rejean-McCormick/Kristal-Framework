@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Mesh",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "namespace_id",
+    "mesh_id",
+    "edges"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.0"
+    },
+    "artifact_type": {
+      "const": "kristall_mesh"
+    },
+    "namespace_id": {
+      "type": "string"
+    },
+    "mesh_id": {
+      "type": "string"
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "edge_id",
+          "from",
+          "relation",
+          "to",
+          "edge_semantics",
+          "status"
+        ],
+        "properties": {
+          "edge_id": {
+            "type": "string"
+          },
+          "from": {
+            "type": "object"
+          },
+          "relation": {
+            "type": "string",
+            "pattern": "^KP[1-9][0-9]*$"
+          },
+          "to": {
+            "type": "object"
+          },
+          "edge_semantics": {
+            "enum": [
+              "factual",
+              "structural",
+              "identity_resolution",
+              "similarity",
+              "orientation_affinity",
+              "derivation",
+              "membership",
+              "conflict",
+              "lineage"
+            ]
+          },
+          "status": {
+            "enum": [
+              "source_backed",
+              "derived",
+              "candidate",
+              "accepted",
+              "rejected",
+              "superseded"
+            ]
+          },
+          "resonance_refs": {
+            "type": "array"
+          }
+        }
+      }
+    }
+  }
+}

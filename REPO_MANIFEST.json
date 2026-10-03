@@ -1,0 +1,1826 @@
+{
+  "format": "kristal.repo-manifest/v1",
+  "version": "8.0.0",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "02c34a7ec4497e86471365f2646bc4c9e03bee9b573fa771747966d209a44fb2",
+      "bytes": 223
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "ac7882c01687dbbb58251c459e263abea50c6356c0b9ce098296c9781d87001d",
+      "bytes": 391
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "b143467429badea8722ec751b94b38916e4fdcfa8457bf1d9476f16313ec2bb2",
+      "bytes": 287
+    },
+    {
+      "path": ".smartignore",
+      "sha256": "9803cd7bba9122c1b3300aa5a9688d129f516c94dde7877db368072c1fe7a938",
+      "bytes": 193
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "f5484d893fe46ba7fa8743dbba603cfc29dfde4f8678cb9aa14d0b22a9edda4b",
+      "bytes": 9844
+    },
+    {
+      "path": "GOVERNANCE.md",
+      "sha256": "68bf26817301c670245ac9146cbd92e0de8dbfe86f3cb0593a908b9a3c09ab1b",
+      "bytes": 980
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "4227febb102c09ad0b57e121b6262bb591b9375d7567ac2db5b75cba26a5dc5e",
+      "bytes": 694
+    },
+    {
+      "path": "MIGRATION-SOURCES.json",
+      "sha256": "cc437b87b9df8ade8591aff8661f1152c5e06ae1a3bfda9fc7b50177b4398a6e",
+      "bytes": 707
+    },
+    {
+      "path": "MIGRATION.md",
+      "sha256": "b55b078b415dc7598cfdad3984934e8e0b291a2207d60ed027fd1276b9b1d626",
+      "bytes": 456
+    },
+    {
+      "path": "README.md",
+      "sha256": "982fd3d8a612d87b539f724219dcc29f50e42cfc27fffcd7fa7a89fb51ee49a4",
+      "bytes": 3234
+    },
+    {
+      "path": "SNAPSHOT_INDEX.txt",
+      "sha256": "0f9da87260fec61dfb73bb05e996b8a0b504bc27d47f1248fc6a4f0dfbef5a6d",
+      "bytes": 14213
+    },
+    {
+      "path": "VERSION",
+      "sha256": "462c9aaa608fb2014cd9649af1c5c009485c60b9c8b15b89401fdc10cf6161c6",
+      "bytes": 6
+    },
+    {
+      "path": "compat/framework-v5/README.md",
+      "sha256": "463614140050f72ea1985f24a232745dfcfc18966b0d68808c691078eb0eb4f8",
+      "bytes": 570
+    },
+    {
+      "path": "contracts/contract-set.json",
+      "sha256": "9baa272554304d8a1339eb08efbb26ab6641f8582a88a8f753f87cdacd8e0e0c",
+      "bytes": 2540
+    },
+    {
+      "path": "contracts/knowledge-model-contract.v3.json",
+      "sha256": "b7c0cbe6b8b94394880a10aff310469c9612826c073b4b3de655e35854427531",
+      "bytes": 3607
+    },
+    {
+      "path": "contracts/knowledge-model-contract.v4.json",
+      "sha256": "65c5c23ef85552bc8b74d3dfa0127f0c82ba10a9479ab3684be38a2069c67294",
+      "bytes": 7645
+    },
+    {
+      "path": "contracts/legacy/knowledge-model-contract.v1.json",
+      "sha256": "a1efd65644106b83b05e9ce3718f50db31cb9953118edc573d84f9606e39a6ce",
+      "bytes": 1145
+    },
+    {
+      "path": "contracts/legacy/knowledge-model-contract.v2.json",
+      "sha256": "bce2de294828f94cc2a45b2b5b5fa7134ef2ed0560a52e2a4d18f33629f3eff0",
+      "bytes": 1437
+    },
+    {
+      "path": "contracts/release.json",
+      "sha256": "b4fdccba7858edb13cc9f182c8d2db8f7059ed09a7bbaac83e06ab46a9e354da",
+      "bytes": 930
+    },
+    {
+      "path": "contracts/v8-compatibility-lock.json",
+      "sha256": "b32d60e8cc64f1ed54360a43f9c03a31711b29a397990f31e26927dd5d4096ea",
+      "bytes": 6529
+    },
+    {
+      "path": "examples/legacy/konstellation/assertions.json",
+      "sha256": "64a09c99731fa83f7ab1bcd9b5f5aa55c239ff6ed032ae86ef1d232285a3d4f7",
+      "bytes": 2172
+    },
+    {
+      "path": "examples/legacy/konstellation/catalog.json",
+      "sha256": "3ee6c6068d31fdabf42058670f181eaf702e0d7cd5a6af69971599ebcce5af70",
+      "bytes": 51620
+    },
+    {
+      "path": "examples/legacy/konstellation/policy.json",
+      "sha256": "80207ce115d1368f28a2006e2cd53e8bb45d5f0d25ba6249a19498fe4f43677a",
+      "bytes": 770
+    },
+    {
+      "path": "examples/v6/kristal-state.example.json",
+      "sha256": "29d5f8193cd5751e03e40f5e3ff3bd6d66dd533307cb1543a94b7ab145f6c69f",
+      "bytes": 2234
+    },
+    {
+      "path": "examples/v7/100-kristals-seed-provenance.json",
+      "sha256": "d053375e2643ecfc0f0ab9c14cf52d640cb7251788cb57e885da2d1b186ee495",
+      "bytes": 320
+    },
+    {
+      "path": "examples/v7/assertion-family-registry.example.json",
+      "sha256": "d5856ddca0c2787f950b88ef53d9e431c2dc011b9e2089448e4717aeaaf1e2a1",
+      "bytes": 515
+    },
+    {
+      "path": "examples/v7/assertion-registry.example.json",
+      "sha256": "2dd53396ead123ba5f73570c86922209e42b83d95d54c9cf93f5e14b6ddc6e2c",
+      "bytes": 397
+    },
+    {
+      "path": "examples/v7/axis-registry.example.json",
+      "sha256": "e3f6aebe051b0001509dc3eb20b1fdabeddc982de785709b932a509af0bfea7d",
+      "bytes": 909
+    },
+    {
+      "path": "examples/v7/axis-type-registry.example.json",
+      "sha256": "24759ef41e7e0699ee9d33954e5fb5d0e9b8d35617c2258ea991d4b0a03d5e57",
+      "bytes": 6479
+    },
+    {
+      "path": "examples/v7/crystallization-record.example.json",
+      "sha256": "d7459c30cd9fc2f3e96ef34b8564fe611acbb5ca883eb2527dce3cfefa6c8319",
+      "bytes": 224
+    },
+    {
+      "path": "examples/v7/entity-registry.example.json",
+      "sha256": "a3e118efc4f3c0c9fd22db0b379d5fd262187dc08e9491c1e2b33804e66ade67",
+      "bytes": 885
+    },
+    {
+      "path": "examples/v7/kos-registry.example.json",
+      "sha256": "a86c3fe8d431aafffc9056411cb7eb86a5dfd874c5911d80006c0a935f796e22",
+      "bytes": 785
+    },
+    {
+      "path": "examples/v7/kristall-manifest.example.json",
+      "sha256": "66e07544b2025acd5019b1e4700f8a5fcb19341f6b390e5586182a14b6bd1802",
+      "bytes": 1293
+    },
+    {
+      "path": "examples/v7/mesh.example.json",
+      "sha256": "9dae6d1731136692f5e062385fd326b0f326500b0f285081ce16393b0b791ccf",
+      "bytes": 463
+    },
+    {
+      "path": "examples/v7/projection-recipe.example.json",
+      "sha256": "27b00da098b48285341fc4895610dd1a32fb0a8e4e46920759defc242a1d6c25",
+      "bytes": 330
+    },
+    {
+      "path": "examples/v7/property-registry.example.json",
+      "sha256": "2bb08f7cbbd8c694672419ce2e831313266b2d126b1e3b59d35bc05a80012ab9",
+      "bytes": 437
+    },
+    {
+      "path": "examples/v7/resonance.example.json",
+      "sha256": "a8d67d9454749539e4b1f50530153808a195675ba2a94ede8d057f17b53b6636",
+      "bytes": 788
+    },
+    {
+      "path": "examples/v7/source-registry.example.json",
+      "sha256": "f4d4a896b750e21fb22a62fec2aff8076f6967a045993407107d005db160162a",
+      "bytes": 265
+    },
+    {
+      "path": "examples/v7/toc-registry-100-seed.example.json",
+      "sha256": "93929770f59c268ff3b1cf748af13ee5e6c45c4b4face59bbe5081bc38ee9c4c",
+      "bytes": 98204
+    },
+    {
+      "path": "examples/v7/toc-seed-100-analysis.json",
+      "sha256": "d35648f91f37fc43786e4ff7dc144dedd741d95165669b6119f6cd179fb326cc",
+      "bytes": 4404
+    },
+    {
+      "path": "examples/v7/v6-compatible-projection.example.json",
+      "sha256": "3cce44a20adbbef722da63bc86eea14d6f93d4aef52f2e6e41e7c64b900966dd",
+      "bytes": 2666
+    },
+    {
+      "path": "examples/v8/ai-context-bundle.example.json",
+      "sha256": "2119f26f2ad563bcb45169be8e35d94a6d94e8ee5d699f2ef848e283c9b42b81",
+      "bytes": 2329
+    },
+    {
+      "path": "examples/v8/lexicon-fr-chemistry.example.json",
+      "sha256": "daa92ca4a0ef03362278dd66ad7b22a91a7bdc5fbaaae0bbe1c6bbafdc48092d",
+      "bytes": 608
+    },
+    {
+      "path": "examples/v8/lexicon-fr-core.example.json",
+      "sha256": "e57358517a5d2b91e5ba9ca0ac0f007c8f6337a43c67d2cd7adedb7f997472b3",
+      "bytes": 735
+    },
+    {
+      "path": "examples/v8/lexicon-stack.example.json",
+      "sha256": "ab99b57cc0fd227d0861dc21a5d431c0c7b406a9cfa6e2fe990e4d81a46ea4aa",
+      "bytes": 509
+    },
+    {
+      "path": "examples/v8/query-index.example.json",
+      "sha256": "88e9d8eda76d5b900737c11263ab330f065fd270ee996ab647aa0d2689f3006b",
+      "bytes": 656
+    },
+    {
+      "path": "examples/v8/query-request.example.json",
+      "sha256": "e59e17f2e966bd4d847269fa11ade59f4f6bff9b44554855ffa6491ce5df2c99",
+      "bytes": 1180
+    },
+    {
+      "path": "examples/v8/query-result.example.json",
+      "sha256": "eb7f386d1dbe8af9cb85c0aacdfbde6576e93c56ac922265825b65e48278edd5",
+      "bytes": 1424
+    },
+    {
+      "path": "examples/v8/v8-capabilities.example.json",
+      "sha256": "ad9cc2f9cda9bfe20cb94d2d19c21f220305da92d5621ac799a4fbf60a59afce",
+      "bytes": 812
+    },
+    {
+      "path": "history/status/2026-09-14-v5.0.0-rc.1.md",
+      "sha256": "bee4500c1e639282dae5e21fc394bb114fedf54aa9d25dd840d51f2bfad4c7b1",
+      "bytes": 5553
+    },
+    {
+      "path": "history/status/2026-09-16-v5-conformance-suite.md",
+      "sha256": "beeb04836d3ae0d6134c1b3b12b657f13d04913f09e3d82c6dc15d3818b23528",
+      "bytes": 4262
+    },
+    {
+      "path": "history/status/2026-09-16-v5-runtime-pack-portable-conformance.md",
+      "sha256": "714d5374f444d8ca47286ef9b22784917c560bbe3a41bf3ec34801f19603c87b",
+      "bytes": 1674
+    },
+    {
+      "path": "history/status/2026-09-16-v5-validation-status.md",
+      "sha256": "bb391bc7f1dde86743cce91e9bd8fbf5a180112e9c86de813222dd9e0c830a8a",
+      "bytes": 8480
+    },
+    {
+      "path": "history/status/2026-09-16-v5.0.0-rc.2-candidate.md",
+      "sha256": "593476a563f17af6c850967c817bd4857e98d5082fd0f8d453c37a0cc9f356b1",
+      "bytes": 3274
+    },
+    {
+      "path": "history/status/2026-09-16-v5.0.0-rc.2-validation-status.md",
+      "sha256": "7c902cb3a4c7c185b6b6b6888e90e954e49caba8ef5eabaeb1b6f04da6595435",
+      "bytes": 11800
+    },
+    {
+      "path": "history/status/2026-09-17-kristal-ecosystem-e2e-qualification-plan-TODO.md",
+      "sha256": "3f39f31e969068e55e7305797567580dcc4e0d05614d00c10233f9d10096da4d",
+      "bytes": 9307
+    },
+    {
+      "path": "history/status/2026-09-17-v5.0.0-rc.2-final-local-conformance.md",
+      "sha256": "87aac007a8e372dfb2eb698d25b0fb3d56905bfe0bda2aba7073f9209d45db12",
+      "bytes": 11773
+    },
+    {
+      "path": "history/status/2026-09-28-v5.0.0-rc.3-referent-contract.md",
+      "sha256": "d4502911d23656b8dedec52cef529815b4fc05d278b00917952baefaa696424f",
+      "bytes": 2017
+    },
+    {
+      "path": "history/status/2026-10-01-v6.0.0.md",
+      "sha256": "62f6f1bca7f774c6b71eca6b0f041c44247c11617989d50601225903374a4900",
+      "bytes": 1069
+    },
+    {
+      "path": "history/status/2026-10-02-v7-draft2-semantic-resonance.md",
+      "sha256": "d4d67512af68ad9602642690518857797c4b4326dd0db637957e84feda61f22e",
+      "bytes": 737
+    },
+    {
+      "path": "history/status/2026-10-02-v7-draft3-unesco-toc.md",
+      "sha256": "06702df8f9a339b5b5ec5a6c60d2e0638993f6b91100afc4532cba5cd3abcdda",
+      "bytes": 763
+    },
+    {
+      "path": "history/status/2026-10-02-v7-draft3.1-unesco-baseline.md",
+      "sha256": "048e85f0be0e44de3da96d47cfbf3c69db44c646b2324fc3ec7dc4661d49ed60",
+      "bytes": 472
+    },
+    {
+      "path": "history/status/2026-10-02-v7.0.0-draft.1.md",
+      "sha256": "bc386ff8c3702ec52d6fc2a80a46508ab5fca7848b011acf9536fe3e14250cbf",
+      "bytes": 1041
+    },
+    {
+      "path": "history/status/2026-10-03-v7-draft3.2-daat-boundary.md",
+      "sha256": "a82334f42d8eadd32f4f03ed2849a7ca6c9c2e49b1d435ceb5479cc58cb36cfc",
+      "bytes": 863
+    },
+    {
+      "path": "history/status/2026-10-03-v8-draft1-language-ai-query.md",
+      "sha256": "c225fdfc351dd8bb6de9eb4da970c38d02557ab6563bc2f3b8c79541605a967e",
+      "bytes": 381
+    },
+    {
+      "path": "history/status/2026-10-03-v8.0.0-final.md",
+      "sha256": "32fd3337c8c0fcf7841cfd139e1befe7455fccf2d8ee13a1dbaf24ae7220ea56",
+      "bytes": 499
+    },
+    {
+      "path": "migration/retired-repos/Kristal-Standard-README.md",
+      "sha256": "2e41d1d802b8ef617cbc3418e2e63a6875c202dae43da746a917a12c73237db1",
+      "bytes": 297
+    },
+    {
+      "path": "migration/retired-repos/kristal-framework-README.md",
+      "sha256": "b81ab7ba4c2d358ac300a02d8c1aa93ace991a9604270bc5ec5524ca14939307",
+      "bytes": 345
+    },
+    {
+      "path": "migration/retired-repos/kristal-reference-README.md",
+      "sha256": "b5ba05b416871bb5125d55407fb22dd32259c7862c62f33fb357160c9cd81ba4",
+      "bytes": 236
+    },
+    {
+      "path": "mkdocs.yml",
+      "sha256": "c29b91ce74343c9fc4b00acb6c8d7862a5428cfb51316c7e475bfaad77bfbadc",
+      "bytes": 1526
+    },
+    {
+      "path": "reference/README.md",
+      "sha256": "ab537e2c64639494bf8511f2077730a2704730a4fb38c3e414dbe8972e116f35",
+      "bytes": 457
+    },
+    {
+      "path": "reference/js/.gitignore",
+      "sha256": "4bfd0122058d041004755b1b752d9343a6c3b9df03a005cd525c49a8e9905954",
+      "bytes": 275
+    },
+    {
+      "path": "reference/js/.smartignore",
+      "sha256": "f95bb63dd6d3281e00449e078897a56033df6a843b0cc54012a5ec0ef63ee4f9",
+      "bytes": 128
+    },
+    {
+      "path": "reference/js/CONTENTS.md",
+      "sha256": "673b42db0fc8374febfb20961fafef98bd978463c819c002c2677027a6ddb5de",
+      "bytes": 1114
+    },
+    {
+      "path": "reference/js/README.md",
+      "sha256": "f1e3ff0ce585052a628e5868f8193944c545a06d13a0930d639508691feec4a4",
+      "bytes": 5501
+    },
+    {
+      "path": "reference/js/VERSION",
+      "sha256": "462c9aaa608fb2014cd9649af1c5c009485c60b9c8b15b89401fdc10cf6161c6",
+      "bytes": 6
+    },
+    {
+      "path": "reference/js/bin/kristal-ref.mjs",
+      "sha256": "5becbba655e9b6cfa9af5f2a1a25f72fb44b725195a31bf3320677a3f403c483",
+      "bytes": 172
+    },
+    {
+      "path": "reference/js/docs/ADAPTER_CONTRACT.md",
+      "sha256": "db935a2a46710491f9e1badb3907024985a3ea5852fa0947a7b3fb6a9d09e0f6",
+      "bytes": 1246
+    },
+    {
+      "path": "reference/js/docs/status/2026-10-03-kristal-v8-reference.md",
+      "sha256": "1bada4db7ca0eed8e91d5ad3608e1f40a07430928185438b337ea162c7384721",
+      "bytes": 786
+    },
+    {
+      "path": "reference/js/package.json",
+      "sha256": "74f7a56311b01e7d5c526465be0297b87e73eae0780484c144039ccc1f0bc043",
+      "bytes": 637
+    },
+    {
+      "path": "reference/js/src/cli.mjs",
+      "sha256": "bb826194a9b07fa0e6c1846c4634c57dadf59573169927044c41ed03b30d65ba",
+      "bytes": 10028
+    },
+    {
+      "path": "reference/js/src/exchange.mjs",
+      "sha256": "808d2b04396f0ce921ee45b0553ae5e441af9c5c581cca742fbfeaf1fb2c4bf8",
+      "bytes": 1330
+    },
+    {
+      "path": "reference/js/src/hash.mjs",
+      "sha256": "9e7b29f4eec9bfdb35d1c222fac2b57f82299afaefec70e5520071f39b6fc50e",
+      "bytes": 214
+    },
+    {
+      "path": "reference/js/src/io.mjs",
+      "sha256": "5e75bb14f71c96be65e2a3deb34398dbc795cd7f6366f5b50e2f49a64ab0fc0e",
+      "bytes": 370
+    },
+    {
+      "path": "reference/js/src/jcs.mjs",
+      "sha256": "34d37d9219a00e143bcd7a9a4eed6f7b792599a8b1937090929242f94b24ad52",
+      "bytes": 1957
+    },
+    {
+      "path": "reference/js/src/knowledge_model_contract.mjs",
+      "sha256": "689228ce698447ca5470ab475780f1ddef318c4eb1709f7e33b72faabe595144",
+      "bytes": 2367
+    },
+    {
+      "path": "reference/js/src/kristal_state.mjs",
+      "sha256": "87a1838397cd0cf1520c810d40e64f12696bd1a12720125c5e363b151ecfd3c9",
+      "bytes": 8060
+    },
+    {
+      "path": "reference/js/src/referent_registry.mjs",
+      "sha256": "ecded38eeffdfd6e3b757bbe656f345ef3202a2c54e47e549b30e25a746c7501",
+      "bytes": 6078
+    },
+    {
+      "path": "reference/js/src/runtime_pack.mjs",
+      "sha256": "e228fe58c3ab3b0d476bbbb94a51e9c16f3c14cff78a2616cd5ff7599ee017d7",
+      "bytes": 3169
+    },
+    {
+      "path": "reference/js/src/runtime_pack_portable.mjs",
+      "sha256": "75c3bebdbfcea5c8ab068fef3922a5dd91ed0b6d638f3054daa432dfc38d66a3",
+      "bytes": 11457
+    },
+    {
+      "path": "reference/js/src/security.mjs",
+      "sha256": "3a229ba60eff8303ce6ac5923f55cfbfd74a3202e2d7e32a7e3eacbf221f56c5",
+      "bytes": 2091
+    },
+    {
+      "path": "reference/js/src/v8/ai_context.mjs",
+      "sha256": "c7693bb896fedca85edfc2db299679d5c0526cb57c6c8c23e97a0d099f220e3d",
+      "bytes": 6453
+    },
+    {
+      "path": "reference/js/src/v8/capabilities.mjs",
+      "sha256": "26d8db5f7139d807b660ca82369823f61ad11220ec1ae56ba5725c538db56c66",
+      "bytes": 629
+    },
+    {
+      "path": "reference/js/src/v8/common.mjs",
+      "sha256": "060c307b9d6dc4c629cada87e2d5e61c6360d3683afc5f95fbf1e244889fb04c",
+      "bytes": 7998
+    },
+    {
+      "path": "reference/js/src/v8/lexicon.mjs",
+      "sha256": "f5640b1217160bc155c2032a63be1c865996a43326abd5f66c42e712e2be6390",
+      "bytes": 8194
+    },
+    {
+      "path": "reference/js/src/v8/query.mjs",
+      "sha256": "6764e55471eb6fefcb793ba88cbed11ffb37fa7b3a31c94a10a796d7d8b49f07",
+      "bytes": 17138
+    },
+    {
+      "path": "reference/js/src/v8/query_index.mjs",
+      "sha256": "c078d6b5cd6e6365abf5504df0f33c9269c4a8a0e3c7ecc5807f74caf5a0ac5d",
+      "bytes": 5251
+    },
+    {
+      "path": "reference/js/src/v8/reader.mjs",
+      "sha256": "e34d8c77920944200cb375afbdd80d7048cdea666b3203f23fa981cee457e4c2",
+      "bytes": 4547
+    },
+    {
+      "path": "reference/js/tests/run_tests.mjs",
+      "sha256": "d89d8fc8ebe650aa940ca775a1ca812f169be5a051df1871da736ef1eede9f3a",
+      "bytes": 8035
+    },
+    {
+      "path": "reference/js/tests/run_v6_tests.mjs",
+      "sha256": "e19ed96b381995f80fd3a6f202fd0968ce16cb73441b9836815de2f128dc69bd",
+      "bytes": 2452
+    },
+    {
+      "path": "reference/js/tests/run_v8_tests.mjs",
+      "sha256": "b39a202a03232d51b5680f183d5492cca37327a0ad936b4ee3549320bab2ab80",
+      "bytes": 7147
+    },
+    {
+      "path": "requirements-dev.txt",
+      "sha256": "852774496e5f76444d459fc2ae8db9aa53ca6558e8ba775d1281991eb09ae94e",
+      "bytes": 73
+    },
+    {
+      "path": "schemas/README.md",
+      "sha256": "cfcc7991ef56da41ee40ecab1309ae05880bcdb9d324ddccd246a7298c02c3f5",
+      "bytes": 438
+    },
+    {
+      "path": "schemas/v6/kristal-state.schema.json",
+      "sha256": "8f3df9a93d6a7c0ca8d7143946ed6f2009ae6d6b5105b8e7d7e873b5288e807c",
+      "bytes": 8389
+    },
+    {
+      "path": "schemas/v7/kristal-v7-extension.schema.json",
+      "sha256": "fb8f008e9319d922edee4bc7fb93280f46880dd5619f6684810dc8da58cc4987",
+      "bytes": 998
+    },
+    {
+      "path": "schemas/v7/kristall-assertion-family-registry.schema.json",
+      "sha256": "5394ba95828447890ad186290dbe05360f11a26a92b2ff86ae6a80b383cf59b9",
+      "bytes": 1594
+    },
+    {
+      "path": "schemas/v7/kristall-assertion-registry.schema.json",
+      "sha256": "d8c560b5ea1f18149fdcc710693a52a0d65a2d49c419764f2d21892475bd50c6",
+      "bytes": 1355
+    },
+    {
+      "path": "schemas/v7/kristall-axis-registry.schema.json",
+      "sha256": "77726362c125bef7799e0ff74ec6219e4cb2c08897b426bf0ce0a16dfb9760db",
+      "bytes": 1718
+    },
+    {
+      "path": "schemas/v7/kristall-axis-type-registry.schema.json",
+      "sha256": "7ee29b36d816fdc1e771ac6ca065eea8ff6537b54d7bd4cf4cd2e3452e8eab52",
+      "bytes": 1784
+    },
+    {
+      "path": "schemas/v7/kristall-crystallization-record.schema.json",
+      "sha256": "b8a554fd034f1d15fe0e9f61b73725791c606c4c688f9b3f3eb414010793fdb1",
+      "bytes": 794
+    },
+    {
+      "path": "schemas/v7/kristall-entity-registry.schema.json",
+      "sha256": "b497203ffcd584d33c0fe3a63ed16a18c5c6811138278b91353e2e523429e2fe",
+      "bytes": 2126
+    },
+    {
+      "path": "schemas/v7/kristall-kos-registry.schema.json",
+      "sha256": "7b722e86ee24c174a5183abbf5464f7cb82bf54479867355d5a83ff67223de60",
+      "bytes": 2494
+    },
+    {
+      "path": "schemas/v7/kristall-manifest.schema.json",
+      "sha256": "53c5e87d82436c2f5b97522d9ede5f5cfc0898ed82f74b7af498fcc6864822fa",
+      "bytes": 2118
+    },
+    {
+      "path": "schemas/v7/kristall-mesh.schema.json",
+      "sha256": "f834cc6952f1933b5a8de912411059771a8b97f9d6af5bc53ebf4b5ba708a300",
+      "bytes": 1744
+    },
+    {
+      "path": "schemas/v7/kristall-projection-recipe.schema.json",
+      "sha256": "9ddaf302398c8d30e6c5487b624446c44ec7e97bfb800f660471cbbc7eb179a6",
+      "bytes": 1248
+    },
+    {
+      "path": "schemas/v7/kristall-property-registry.schema.json",
+      "sha256": "0de972ad8645764aaa56fd6152c41631f30775fdab835cdcc3604dd56de178d0",
+      "bytes": 1201
+    },
+    {
+      "path": "schemas/v7/kristall-source-registry.schema.json",
+      "sha256": "dc0d09a7797a533c01b75b451ad45d045b6f27da2f7a94896c2733227165d18a",
+      "bytes": 1096
+    },
+    {
+      "path": "schemas/v7/kristall-toc-registry.schema.json",
+      "sha256": "b52412f7c3268569c5c5e34eccb149c645336db435a6ab36603b13c109577f76",
+      "bytes": 4495
+    },
+    {
+      "path": "schemas/v7/semantic-resonance.schema.json",
+      "sha256": "e41154ba6561f276043d5e94cd4569d7339fb6b52c160d94c346e8362c18c617",
+      "bytes": 1702
+    },
+    {
+      "path": "schemas/v8/kristall-ai-context-bundle.schema.json",
+      "sha256": "4fbe1bb28bfeaba538e4d4f36e4db122e3afb54fe89208a0d684053ac09287b9",
+      "bytes": 8394
+    },
+    {
+      "path": "schemas/v8/kristall-lexicon-stack.schema.json",
+      "sha256": "fa1e8ab60ed1d24a96671df8ada71faa9c1c747a92b1db93dcffc3b63f78d771",
+      "bytes": 1920
+    },
+    {
+      "path": "schemas/v8/kristall-lexicon.schema.json",
+      "sha256": "c34321540dd3d366538d50509eadd010f014aa403fbf24699c5caa5c885f6ba0",
+      "bytes": 6738
+    },
+    {
+      "path": "schemas/v8/kristall-query-index.schema.json",
+      "sha256": "447218acd234036621524579c68e7974c93bec6b369618cd265f813abf383560",
+      "bytes": 2646
+    },
+    {
+      "path": "schemas/v8/kristall-query-request.schema.json",
+      "sha256": "a8788b19444e3769e395b361039e6a9f4aa4fc54fe5ff8e41be618a8f548cd78",
+      "bytes": 7235
+    },
+    {
+      "path": "schemas/v8/kristall-query-result.schema.json",
+      "sha256": "202414d6e63243663ec7bcce7f101c60c025c32d76e0d55a3226baff9e761692",
+      "bytes": 6513
+    },
+    {
+      "path": "schemas/v8/kristall-v8-capabilities.schema.json",
+      "sha256": "e10664794c4f7c429691b63309cf6914dd7e5345c33dd6b48fdedc8de7b829ea",
+      "bytes": 2572
+    },
+    {
+      "path": "spec/README.md",
+      "sha256": "c889fa1bc2601fc1f2536057b9a8e7047719f92a633578328019835c68421b9a",
+      "bytes": 368
+    },
+    {
+      "path": "spec/v5/00-overview/conformance-and-alignment.md",
+      "sha256": "b489fe68191615ce57b9363d655a47ea70a5fa84aa1960ecf0c35bd6fd563464",
+      "bytes": 32941
+    },
+    {
+      "path": "spec/v5/00-overview/dogma-and-doctrinal-classification.md",
+      "sha256": "71cdc264749eb159e64ce753864ee05dd8d47c8c5903a8e637fada613ad2781b",
+      "bytes": 6025
+    },
+    {
+      "path": "spec/v5/00-overview/ecosystem-integration.md",
+      "sha256": "7c7f5097e7a5c95fed0f577190200c27435ba2a894b3d462b16f5fa764c3e358",
+      "bytes": 22186
+    },
+    {
+      "path": "spec/v5/00-overview/plural-validation-and-federated-authority.md",
+      "sha256": "23abec00a9c0080b2cb06b4aa01d2b55721d528ae191a76e4c2e3e2737ac34fd",
+      "bytes": 23543
+    },
+    {
+      "path": "spec/v5/00-overview/sharding-and-federation.md",
+      "sha256": "a8a6448250795810e93102c3452cfd407a774ebe3636db195d186f6628c81285",
+      "bytes": 22714
+    },
+    {
+      "path": "spec/v5/00-overview/specification-status.md",
+      "sha256": "e193f3e56fccfabbe8a1810d74a8ac8a1d62aaa00d1cb2d60df14d0d76c0bb12",
+      "bytes": 4234
+    },
+    {
+      "path": "spec/v5/00-overview/validation-certainty-and-authority.md",
+      "sha256": "880b957e3131f873e310cf5ae6ee174f7388803317c8e615fb47ddc5d1778961",
+      "bytes": 31234
+    },
+    {
+      "path": "spec/v5/00-overview/vision-and-scope.md",
+      "sha256": "19c47421aee74d419fb8006f68ebdb909ac0d78d40922b3307513d0e0fa10101",
+      "bytes": 14946
+    },
+    {
+      "path": "spec/v5/00-overview/what-is-kristal-v5.md",
+      "sha256": "eeefbaf40819466428d328951150992fdeced4914632185e35999592d6f92b14",
+      "bytes": 21362
+    },
+    {
+      "path": "spec/v5/01-core-spec/assertion-status-and-certainty.md",
+      "sha256": "a1ba7150fb191072f180a466981814dfce0febc6bd18172f3559507b61f9ba3b",
+      "bytes": 23605
+    },
+    {
+      "path": "spec/v5/01-core-spec/authority-recognition.md",
+      "sha256": "8866a6734bfb8104e708b923e7bc304a96dcd86c876d505b293b1c64e21cc6c0",
+      "bytes": 31949
+    },
+    {
+      "path": "spec/v5/01-core-spec/ids-canonicalization-hashing.md",
+      "sha256": "6cebcb7dcd7118f4982a782798384c89c409a328b8c80d75c09335925f6f1afb",
+      "bytes": 19922
+    },
+    {
+      "path": "spec/v5/01-core-spec/kristal-v5-core-spec.md",
+      "sha256": "348a982f020ad5869fef84e5e18fd1bc379bb29101ba47a1be2cb23931978bd4",
+      "bytes": 37684
+    },
+    {
+      "path": "spec/v5/01-core-spec/referents-and-domain-neutral-model.md",
+      "sha256": "e6cafbb2e47305f978e975f4ea0c6f4c5ac11589944b925d6f927ab40e4b5447",
+      "bytes": 2856
+    },
+    {
+      "path": "spec/v5/01-core-spec/signatures-trust.md",
+      "sha256": "addfef32fe4a4dc333765d5a7c3873374b95dbddf24148399d21c30300d22915",
+      "bytes": 24824
+    },
+    {
+      "path": "spec/v5/01-core-spec/structured-epistemic-state.md",
+      "sha256": "0920f10b29b37c5822ffd806ee1a6dc5b22669bb3e2ff37814c5092604f2fe7b",
+      "bytes": 26499
+    },
+    {
+      "path": "spec/v5/02-schemas/assertion-status.schema.json",
+      "sha256": "a67491dee7a5f74f881c29aa5a5743fae96605540eac81fadd201371ae1c805b",
+      "bytes": 19247
+    },
+    {
+      "path": "spec/v5/02-schemas/authority-recognition.schema.json",
+      "sha256": "eab983aac19c4a3354a18e83be2e3af9e749169716f8ee5bc8ff38450e476edc",
+      "bytes": 21926
+    },
+    {
+      "path": "spec/v5/02-schemas/authority-registry.schema.json",
+      "sha256": "309eb37c8bf8162220e3f6825a164e769c1010c4b6b6b70300a0b72396ebb23e",
+      "bytes": 20656
+    },
+    {
+      "path": "spec/v5/02-schemas/claim-ir.schema.json",
+      "sha256": "f7a6316e63d328d89f7c4eb5b445515955dd44a3d93db908733c06dd35cf158e",
+      "bytes": 24916
+    },
+    {
+      "path": "spec/v5/02-schemas/exchange-federation-manifest.schema.json",
+      "sha256": "64631ac5279a80c8d38e5ecf25c3dbce7c93b8e8c863c503cb9bb743a516f123",
+      "bytes": 14067
+    },
+    {
+      "path": "spec/v5/02-schemas/exchange-manifest.schema.json",
+      "sha256": "546ae618712de1cfc496b966249f740064d91263e9d373b3e5281663dd3cbb3d",
+      "bytes": 28610
+    },
+    {
+      "path": "spec/v5/02-schemas/exchange-shard-manifest.schema.json",
+      "sha256": "6939526b882e01ff97141050577f5718e146b1ae343ea3020ac18b74452edda4",
+      "bytes": 18860
+    },
+    {
+      "path": "spec/v5/02-schemas/reader-policy.schema.json",
+      "sha256": "2a3f843eaf4e89515ebf40ce5514f85406e1d556f4ecd503f0075d35b43c565c",
+      "bytes": 17386
+    },
+    {
+      "path": "spec/v5/02-schemas/referent-registry.schema.json",
+      "sha256": "fe56cb6dc0bca3deeb81488c120d1c60bc800703a575f5d1b6250977df258d5d",
+      "bytes": 4030
+    },
+    {
+      "path": "spec/v5/02-schemas/resolved-claim-ir.schema.json",
+      "sha256": "3934235b28296bf785105a1046690a7b985bbdc86586acde26169d1f14b1e265",
+      "bytes": 23117
+    },
+    {
+      "path": "spec/v5/02-schemas/revocations.schema.json",
+      "sha256": "1f868c94a961471f232310589ee5c5b79b33edb27cd50892fb7a145ab30cce8a",
+      "bytes": 24006
+    },
+    {
+      "path": "spec/v5/02-schemas/runtime-pack-manifest.schema.json",
+      "sha256": "17b3569166a3278953853b6d781058414614d8ca52ac64e006ad02e90961461e",
+      "bytes": 22621
+    },
+    {
+      "path": "spec/v5/02-schemas/structured-epistemic-state.schema.json",
+      "sha256": "23de5d84986c1f09235f619f41af0e6ef87f9c25aa240c00b5632bc84a5a8598",
+      "bytes": 37503
+    },
+    {
+      "path": "spec/v5/02-schemas/validation-report.schema.json",
+      "sha256": "83085f0dd000c36d90e0929dbb1d276d96103bfc21128bca86e5e2e1634e8aa1",
+      "bytes": 29439
+    },
+    {
+      "path": "spec/v5/03-reproducibility/allowed-runtime-pack-policies.md",
+      "sha256": "6d6bd6479edcbc9c355febe87a3b11c8a04126776442f57ada258a8592bdd9c8",
+      "bytes": 19193
+    },
+    {
+      "path": "spec/v5/03-reproducibility/deterministic-build-rules.md",
+      "sha256": "4eefd40cf40f544952a51d8ec55b9f0efb36cb0d91ea79005996acb70601dd3f",
+      "bytes": 26935
+    },
+    {
+      "path": "spec/v5/03-reproducibility/reproducibility-acceptance-tests.md",
+      "sha256": "a29fe65f41e967f86787264e6111eb7e2ed8f1210cae6dfeb207dbffd914a8f8",
+      "bytes": 9554
+    },
+    {
+      "path": "spec/v5/03-reproducibility/subset-recipes.md",
+      "sha256": "f000a72fcd813af5dc07c5f0e34f36a777b4fb97fd35147cf6eaaf4d3624be53",
+      "bytes": 24844
+    },
+    {
+      "path": "spec/v5/04-query/query-contract.md",
+      "sha256": "f6392c7be79b6380481f05de9f525070219d3078c01e6acd6dbdac753f40da1a",
+      "bytes": 23435
+    },
+    {
+      "path": "spec/v5/04-query/reader-policy-profiles.md",
+      "sha256": "842d34e26275c883facef1587d986f824fefeada8af6027647c7781cc321a54c",
+      "bytes": 35065
+    },
+    {
+      "path": "spec/v5/05-profiles/profile-jsonld-export.md",
+      "sha256": "98c5c181f1efc9a0eec0977779b6654486069c5a5255a65f2983c96a7b9f2002",
+      "bytes": 21737
+    },
+    {
+      "path": "spec/v5/05-profiles/profile-konstellation-reader-json.md",
+      "sha256": "eddab9160f8a6a171b9fedb7865b6e18efaa1b0b1f50e661aa4da7872901ee55",
+      "bytes": 2912
+    },
+    {
+      "path": "spec/v5/05-profiles/profile-provenance-nanopub-provo.md",
+      "sha256": "70557871cac751431e2e52f50094818686e8b276740db4295af07a035133f9ee",
+      "bytes": 21643
+    },
+    {
+      "path": "spec/v5/05-profiles/profile-query-tpf-pagination.md",
+      "sha256": "e2b5b38c9a202b9c758d5cf431e5e51b4ce091d2d465ac6da8a3091cea98cccb",
+      "bytes": 17536
+    },
+    {
+      "path": "spec/v5/05-profiles/profile-rdf-integrity-rdfc.md",
+      "sha256": "de464e3adc45e57a7b2cb97c71f5ef37f740e44933837cbe4572c63cff92162d",
+      "bytes": 15351
+    },
+    {
+      "path": "spec/v5/05-profiles/profile-rdf-wdqs-export.md",
+      "sha256": "074f5c4f0ed246458a81cc09c3c28e2208c3f2c6c4652b203b631fe294d49d31",
+      "bytes": 21797
+    },
+    {
+      "path": "spec/v5/05-profiles/profile-runtime-pack-portable-conformance.md",
+      "sha256": "2bfe1ffd514aa5484b6bd358e2b286db4edb9a9b689da945a2b1f32cc8a3b287",
+      "bytes": 8166
+    },
+    {
+      "path": "spec/v5/05-profiles/profile-transparency-log.md",
+      "sha256": "298c5502f2112184f7daf167dfa1b27cdc0608188526c44588265c068ee29272",
+      "bytes": 23075
+    },
+    {
+      "path": "spec/v5/05-profiles/profile-validation-shacl.md",
+      "sha256": "bfefe3b21fe67baecdc4986c1246326e505d502202ce319bb87eec7c957ef360",
+      "bytes": 15436
+    },
+    {
+      "path": "spec/v5/05-profiles/profile-validation-shex.md",
+      "sha256": "d9b2ba5015229c3ff7835467c07c5a0771189da6fa9ad8139301cf4ff8385b53",
+      "bytes": 16461
+    },
+    {
+      "path": "spec/v5/06-integration/architect-rendering-contract.md",
+      "sha256": "a62dcc49161e9e26695f92fcad7aaa6b2f9a463e9e83601c49a89cbd6906ffae",
+      "bytes": 19872
+    },
+    {
+      "path": "spec/v5/06-integration/konnaxion-distribution-contract.md",
+      "sha256": "afcbcb9ab0ea3e27e3dccb79aac19426a5778a57ba1970555303184125260cd2",
+      "bytes": 27798
+    },
+    {
+      "path": "spec/v5/06-integration/orgo-workflow-contract.md",
+      "sha256": "4f6b5c1171f29d7156bd87baa8cb81cf7bf3b254bb0aaf3b435468785dd911d3",
+      "bytes": 27061
+    },
+    {
+      "path": "spec/v5/06-integration/sentient-resolution-contract.md",
+      "sha256": "16f8a698aa307c314ca70b0fcf7da8cbe350d778258bcb31993c8f58babc2fab",
+      "bytes": 14245
+    },
+    {
+      "path": "spec/v5/07-security/downgrade-rollback-policy.md",
+      "sha256": "68bfd17416322c560d63057dee3270e0c3855ec0df07df3fca03d1f644ee5c32",
+      "bytes": 31834
+    },
+    {
+      "path": "spec/v5/07-security/key-management-and-trust-roots.md",
+      "sha256": "dc7c0c24e986d3bdb37f442258bb284958dbdb18ca1d522641c7095b21b538ab",
+      "bytes": 24199
+    },
+    {
+      "path": "spec/v5/07-security/multi-tenancy-boundaries.md",
+      "sha256": "e43224762570b0a87f8ebd47e2dedd31e820ae5bd94a9bbbab99f4faeb1e4b1f",
+      "bytes": 21462
+    },
+    {
+      "path": "spec/v5/08-ops/failure-paths-and-resilience.md",
+      "sha256": "daa1c41d09989163a88476fdaec26548c878731a6d878547b4b6b29afcfff07a",
+      "bytes": 20490
+    },
+    {
+      "path": "spec/v5/08-ops/logging-and-correlation-ids.md",
+      "sha256": "5fa31a29c003bee8eb15e1fd9f1fbd6ec2ad8a39d083322613fa16a0af8b4c3d",
+      "bytes": 21269
+    },
+    {
+      "path": "spec/v5/08-ops/operational-guidance-template.md",
+      "sha256": "87c1554362da757293d3100a9db4ba179706a90a719ddb3d00279d25699cc0fc",
+      "bytes": 11284
+    },
+    {
+      "path": "spec/v5/08-ops/release-strategies.md",
+      "sha256": "5e1131a07dac092e88890eb0e409cd586f665c73757efd9fcc2baf73f95c3189",
+      "bytes": 21035
+    },
+    {
+      "path": "spec/v5/09-test-vectors/TCK.md",
+      "sha256": "70722a5f4393d82e8e165a8f0b7319e41bb9f68fcb5c02908731d9cb5a78ab0f",
+      "bytes": 3008
+    },
+    {
+      "path": "spec/v5/09-test-vectors/exchange/README.md",
+      "sha256": "48b211be40559c5864c045185fa46f4d8ee54197b60daa8cab75db59c3ab4bd6",
+      "bytes": 1173
+    },
+    {
+      "path": "spec/v5/09-test-vectors/exchange/vectors.json",
+      "sha256": "2f61a7c38cadfd32446922f43bfba94aac042c02b12f946d7cd5a8bd9bd43c48",
+      "bytes": 8912
+    },
+    {
+      "path": "spec/v5/09-test-vectors/jcs/README.md",
+      "sha256": "a38ae97adf64f7ffe10fc559af5495985332e238f222c29db9608754a8b27c23",
+      "bytes": 11967
+    },
+    {
+      "path": "spec/v5/09-test-vectors/jcs/expected-hashes.txt",
+      "sha256": "880bf0c233b7ff2a4635d385a4069e998b75928295393addea95a34ec64aa858",
+      "bytes": 920
+    },
+    {
+      "path": "spec/v5/09-test-vectors/jcs/vectors.json",
+      "sha256": "65a3ba92c64b69c8858692b941aa8ac2c92ec3509120378f8cf689e0eb4c5623",
+      "bytes": 10702
+    },
+    {
+      "path": "spec/v5/09-test-vectors/rdfc/README.md",
+      "sha256": "2a42c4fba2781e85270288f39fec5cd5704c0bf0fc0b06667aa3049ef739b2dd",
+      "bytes": 16859
+    },
+    {
+      "path": "spec/v5/09-test-vectors/runtime-pack/README.md",
+      "sha256": "5845780fb7523bbf4bca25198d5a5a296eab91c99e0f3b853388d2f6d51fd376",
+      "bytes": 1820
+    },
+    {
+      "path": "spec/v5/09-test-vectors/runtime-pack/portable-vectors.json",
+      "sha256": "5d884dc047dcc21f229421dc50b730c5140f989b51e3b834cc529f3e0ea55e41",
+      "bytes": 6196
+    },
+    {
+      "path": "spec/v5/09-test-vectors/runtime-pack/vectors.json",
+      "sha256": "389dc0aa53c44e4f2c6d61fa02553afd487c2c9d551aa5ab712f5bf5455e036a",
+      "bytes": 8316
+    },
+    {
+      "path": "spec/v5/10-examples/authority-registry.example.json",
+      "sha256": "cfa62e8eaafc9ad2db0edd078fcf9cd87c42252ca6ac1d442e68202499a552fa",
+      "bytes": 12369
+    },
+    {
+      "path": "spec/v5/10-examples/claim-ir.example.json",
+      "sha256": "9cd41fd87415a3741919eed1f929433de9e043b0131ebac3be398113aa4e20b0",
+      "bytes": 10249
+    },
+    {
+      "path": "spec/v5/10-examples/divergent-fork.example.json",
+      "sha256": "0df4f61a97364b12db44dd01d3a55106d7ba88500205545efd3014d9b33f5dab",
+      "bytes": 27119
+    },
+    {
+      "path": "spec/v5/10-examples/dogma-classification.example.json",
+      "sha256": "2bb85f580c67a7a89d422eef21f60a0d64ac560660f9e43b6c1702f16e42177c",
+      "bytes": 3482
+    },
+    {
+      "path": "spec/v5/10-examples/exchange-federation-manifest.example.json",
+      "sha256": "1d040ad1c19a4380acd5dcd9a440064d1c65e2f3aa13ad63b2ad65e356d59681",
+      "bytes": 13932
+    },
+    {
+      "path": "spec/v5/10-examples/exchange-shard-manifest.example.json",
+      "sha256": "03ef196db3cdd5206cc360d833af410a37a1b5c572221621cd526a8f15263a80",
+      "bytes": 8890
+    },
+    {
+      "path": "spec/v5/10-examples/exchange.example.json",
+      "sha256": "9035f02ebaf62f63ac7e85a6108d4eb1812f0b790ae312263209237532110eb2",
+      "bytes": 9703
+    },
+    {
+      "path": "spec/v5/10-examples/independent-research-evidence-bundle.example.json",
+      "sha256": "217e574d56b1850b07954ffe51cc2ec47b12add599b8986f089314cacfb2dea6",
+      "bytes": 26711
+    },
+    {
+      "path": "spec/v5/10-examples/medical-authority-recognition.example.json",
+      "sha256": "0a7586a8dc8dcea9796e5738dd3ae4c8a203349717405f55a9f4d7b3b490ffa8",
+      "bytes": 13579
+    },
+    {
+      "path": "spec/v5/10-examples/mythology-corpus-kristal.example.json",
+      "sha256": "b5e2fa2975ab1303314a95f3a298f11ebf9dad3d56380b1c33507e979758fa76",
+      "bytes": 26509
+    },
+    {
+      "path": "spec/v5/10-examples/plural-authority-federation.example.json",
+      "sha256": "01181f48edbea2e901d01ed9517dcfaf9597ef96d0da5b885a81df66f3b2e41f",
+      "bytes": 19812
+    },
+    {
+      "path": "spec/v5/10-examples/publisher-declared-system-kristal.example.json",
+      "sha256": "17bc41d9217d30e9fe22fa73a5a99580314560e2a7ec7efea9c4d0876061652f",
+      "bytes": 37755
+    },
+    {
+      "path": "spec/v5/10-examples/reader-policy-validated-only.example.json",
+      "sha256": "57ee1c5adc8af49172955e0b55375b4618bda990211310ceae1a46af77a8d25e",
+      "bytes": 9651
+    },
+    {
+      "path": "spec/v5/10-examples/referent-registry.example.json",
+      "sha256": "c0c8338d677a62186a701937a777cf26ea56007157843bcd3d1e316b05cada1c",
+      "bytes": 1537
+    },
+    {
+      "path": "spec/v5/10-examples/resolved-claim-ir.example.json",
+      "sha256": "637d7bf6fd328575c83fb4a6ee20ae4063a6f59c816ecb69ebdab69ef404d350",
+      "bytes": 9540
+    },
+    {
+      "path": "spec/v5/10-examples/revocations.example.json",
+      "sha256": "9d06c5cae54615e17b57d8086dc1e41bc4e23551ffa96aee4e35fdd74c7046c9",
+      "bytes": 3630
+    },
+    {
+      "path": "spec/v5/10-examples/runtime-pack-manifest.example.json",
+      "sha256": "52570aefd1220b03cdd9e32fb6d3c467af043153ef0f81e7d742e8f1c733bfb5",
+      "bytes": 6745
+    },
+    {
+      "path": "spec/v5/10-examples/structured-epistemic-state.example.json",
+      "sha256": "ed67cf98c74542f778558f0efe9d11999f4d62c3a6b2caf7b99a0c1bbb394539",
+      "bytes": 27067
+    },
+    {
+      "path": "spec/v5/10-examples/validation-report.example.json",
+      "sha256": "85d079f50448756bba9dca078e36e536f5d06ac5ad434b8868d58324257aed04",
+      "bytes": 13120
+    },
+    {
+      "path": "spec/v5/10-examples/wikidata-seed-kristal.example.json",
+      "sha256": "ffd89a7023324821e441e66ceaf5293e580e1f34719744d46d1b26ea0ec10334",
+      "bytes": 25807
+    },
+    {
+      "path": "spec/v6/00-overview/specification-status.md",
+      "sha256": "401740ad137355dbc09023604df175ece7d0c80f386129326268aef646b162e8",
+      "bytes": 1263
+    },
+    {
+      "path": "spec/v6/01-core-spec/compatibility-contract.md",
+      "sha256": "30cd814673fca137eddee9402d9971f0fa88fbbcf3251541c7fc9ceb45211c12",
+      "bytes": 1043
+    },
+    {
+      "path": "spec/v6/01-core-spec/kristal-v6-core-spec.md",
+      "sha256": "2dd34986942ae1de3814bb82d7aa8138e32cbe0578ba3959c74ede7c31ed7a01",
+      "bytes": 5826
+    },
+    {
+      "path": "spec/v6/Actionability-and-Human-Boundaries.md",
+      "sha256": "88645ac756fd6799fc23da38fe128dac1f1ceca31076c5541012b8b635b69f01",
+      "bytes": 1622
+    },
+    {
+      "path": "spec/v6/Artifact-Authority-Registry.md",
+      "sha256": "7108664ed6a605e365039d800082f2c45a2090ad46435a9bd2ce3759ed03e9f7",
+      "bytes": 1047
+    },
+    {
+      "path": "spec/v6/Artifact-Exchange.md",
+      "sha256": "76a11fb3bccab5e97fe30b1730d640be9e023dd98bfcfed936f0d14e9b913acf",
+      "bytes": 2692
+    },
+    {
+      "path": "spec/v6/Artifact-Federation-Manifest.md",
+      "sha256": "ade88b2ab331e95278678ba38f9d8995a26a4bcde9cb58fbed3d4156cb67f970",
+      "bytes": 2300
+    },
+    {
+      "path": "spec/v6/Artifact-Runtime-Pack.md",
+      "sha256": "88ae99f32c2072af5fd17943befdf81a22b4bfd7e58ce41139bd2c79304e90a4",
+      "bytes": 2408
+    },
+    {
+      "path": "spec/v6/Artifact-Shard-Manifest.md",
+      "sha256": "1b60a5ac96a058e54d643eae1a9b0b82ec4dd3e4c5601b86831cc67254fb037e",
+      "bytes": 2099
+    },
+    {
+      "path": "spec/v6/Artifact-Validation-Report.md",
+      "sha256": "8833710e7eb903c2710df99039a360416052b9a0fae594c8109d442a65cc85e2",
+      "bytes": 1853
+    },
+    {
+      "path": "spec/v6/Artifacts.md",
+      "sha256": "10716105e819c7b27ac32ff29f03fb512a3e10afb6528cbc59e3104556dfd83c",
+      "bytes": 1516
+    },
+    {
+      "path": "spec/v6/Automation-and-Organizational-Memory.md",
+      "sha256": "75ef8882f98eac50356cf1ae7072e22f1d5946d60da4dffb4980d6482f70d8b0",
+      "bytes": 1394
+    },
+    {
+      "path": "spec/v6/Concepts-and-Mental-Model.md",
+      "sha256": "1d6c604a57389dc363e8f49bd155f3a91d155398ed06cdefaecd6acfbd1e5f20",
+      "bytes": 2294
+    },
+    {
+      "path": "spec/v6/Coordinates-and-Applicability.md",
+      "sha256": "b0b7ec576ec41f01e7a092db542e86cafb4ab823b844bb46f550a12078ee4f32",
+      "bytes": 1313
+    },
+    {
+      "path": "spec/v6/Ecosystem-Integration.md",
+      "sha256": "ac6eb609f79ef8c2a366eeac1bfeb1b591004273da28aba0ed5903d307472623",
+      "bytes": 1713
+    },
+    {
+      "path": "spec/v6/Examples-and-Archetypes.md",
+      "sha256": "8c55d2a21817fbed249fbf127db1aab34db457e32f4eabdd08e7c685d3243942",
+      "bytes": 1802
+    },
+    {
+      "path": "spec/v6/FAQ.md",
+      "sha256": "15a6a413b22548421d6caeb6f92c3084aee0c83d9a147afc12fe074adbb79c6c",
+      "bytes": 2462
+    },
+    {
+      "path": "spec/v6/Getting-Started.md",
+      "sha256": "812db2889568fa9672dcd1713c53137879954c8589598a85c9e18e3675e7a4ad",
+      "bytes": 1554
+    },
+    {
+      "path": "spec/v6/Glossary.md",
+      "sha256": "1602bda28bb8065354522b76d322ff80ce127f4be3fb46ff347801232dabb63e",
+      "bytes": 2500
+    },
+    {
+      "path": "spec/v6/Home.md",
+      "sha256": "60a49d0494a05482ed242d9dd3f7552aafbba18e1c6fa9e2e788dfbe60cc73ae",
+      "bytes": 4904
+    },
+    {
+      "path": "spec/v6/Identity-and-Determinism.md",
+      "sha256": "5c6088eb66280e0c0769095ef5d5849f859c16c7342c1fd01cc6ea6101dc0636",
+      "bytes": 1364
+    },
+    {
+      "path": "spec/v6/Kristal-State.md",
+      "sha256": "845fbb05e7a4267ec7a515077778f2293bd1017864fb7311e2d2d8a2279955b4",
+      "bytes": 1711
+    },
+    {
+      "path": "spec/v6/Migration-v5-to-v6.md",
+      "sha256": "8ffe466364f181803672f4b59cd477d6f077175e88996264379c8910be8b7ce8",
+      "bytes": 1651
+    },
+    {
+      "path": "spec/v6/Operations-Compatibility.md",
+      "sha256": "ae452a6ac5f5d22e025fc24ca16128fb13f71682c76aa6e5de69b860df7225d5",
+      "bytes": 1165
+    },
+    {
+      "path": "spec/v6/Operations-Observability-and-Troubleshooting.md",
+      "sha256": "a8cd5e78bc95950d9a5ab8d4450f644b4f2b1a24337e99dbd72178388fb86a26",
+      "bytes": 1018
+    },
+    {
+      "path": "spec/v6/Operations-Release-Strategy.md",
+      "sha256": "7076329027a2346beb1c05b9ea5c2e6e82f5315a26cbc4f5d14c69c9b30d3016",
+      "bytes": 1761
+    },
+    {
+      "path": "spec/v6/Operations.md",
+      "sha256": "8857b060f4ef750095005b70ce067b2ff83382341dda2693c5cb8d5d44a9f8c5",
+      "bytes": 810
+    },
+    {
+      "path": "spec/v6/Query-Basics.md",
+      "sha256": "24dcb9ffd100c925d86bb82878fe7e842b8167b036eec051d2f7e3df322e32cc",
+      "bytes": 899
+    },
+    {
+      "path": "spec/v6/Query-Pagination-and-Capabilities.md",
+      "sha256": "366da5af2de252b742bcf217d274a6b79673567f1b5fc9102abdca217d306a62",
+      "bytes": 721
+    },
+    {
+      "path": "spec/v6/Query.md",
+      "sha256": "929bb0464a076e51ea6e5abee0adbcd10119ebf17f87686eaacec56c621bd97b",
+      "bytes": 930
+    },
+    {
+      "path": "spec/v6/Quickstart.md",
+      "sha256": "c068aa5471e873b434d1f6a7e9fc88f2ab2feb5a75ca749e3bf56259a5b0872c",
+      "bytes": 1426
+    },
+    {
+      "path": "spec/v6/Record-Roles.md",
+      "sha256": "b127d3d7561086b54ab4c4774df6af82e953d8f6931affe29497d417701ee9be",
+      "bytes": 1571
+    },
+    {
+      "path": "spec/v6/Referents-and-Domain-Neutral-Model.md",
+      "sha256": "9d633676538a5c60b3f8cca619e58fe85064a0c975c769d1cad6f7b90ada052d",
+      "bytes": 1152
+    },
+    {
+      "path": "spec/v6/Trust-Authority-and-Signatures.md",
+      "sha256": "3149c15e66ba009b3721a429149411e6e25d31148969814c7ee33cd35f983ff1",
+      "bytes": 1069
+    },
+    {
+      "path": "spec/v6/Valuations-and-Value-Semantics.md",
+      "sha256": "52a1701c20e51f8fc02b0f456dac49c00e522c440fc1b8402aba138b5c2fbbb7",
+      "bytes": 2144
+    },
+    {
+      "path": "spec/v6/What-is-Kristal.md",
+      "sha256": "756e2ab5db958c9d08005679b83a63f28df061a9087a4cfa553a945ed52f276f",
+      "bytes": 3152
+    },
+    {
+      "path": "spec/v6/Workflow-Activate-Rollback-Downgrade.md",
+      "sha256": "e5bbf7882e940e91e9f1bafc33e0b0aead8d8f8297467fddf36c22fb62d5c576",
+      "bytes": 1025
+    },
+    {
+      "path": "spec/v6/Workflow-Build-and-Validate.md",
+      "sha256": "67a6af274770f9494abbe27e37c789181b8215b8cddbcf9395f317776e9e7827",
+      "bytes": 1822
+    },
+    {
+      "path": "spec/v6/Workflow-Federation-and-Curation.md",
+      "sha256": "284dfd7102246b4990fd61b026ff0d67db23514705b6b33ab37e0ddb740b69fe",
+      "bytes": 931
+    },
+    {
+      "path": "spec/v6/Workflow-Publish-and-Distribute.md",
+      "sha256": "cfe3cffd49a00884ebd58c503a3e371de92bf199ce7b51f5bcac34f8b15de424",
+      "bytes": 1087
+    },
+    {
+      "path": "spec/v6/Workflow-Subsets-Recipes.md",
+      "sha256": "3448545379ee91000f88b0bfed74111398f870b59caeb5e9c382a89d55461f5f",
+      "bytes": 1075
+    },
+    {
+      "path": "spec/v6/Workflows.md",
+      "sha256": "458ccf131a0409886cbd251f5529184260991c63d4cf443012af729847b0109e",
+      "bytes": 1180
+    },
+    {
+      "path": "spec/v7/00-overview/specification-status.md",
+      "sha256": "f0017e42e2fd4b3d63b58dff8080ba6eef10ceeb1fe14b69efab7925f277c78c",
+      "bytes": 441
+    },
+    {
+      "path": "spec/v7/01-core-spec/compatibility-contract.md",
+      "sha256": "ca428db0e62005513e1d8b8a3a4dace1d0fb419ed9d247b15c1fd71bf53a43a7",
+      "bytes": 485
+    },
+    {
+      "path": "spec/v7/01-core-spec/kristal-v7-core-spec.md",
+      "sha256": "7e46e149f89c40f101cc4b6fc1081db3052105dab48970a11b7d7cc19a71fe01",
+      "bytes": 3365
+    },
+    {
+      "path": "spec/v7/Architecture.md",
+      "sha256": "0d59a4b5473f4d04e55a9b396136d12d27d3c0f6662b8199389747c604cd3d36",
+      "bytes": 324
+    },
+    {
+      "path": "spec/v7/Assertion-Families.md",
+      "sha256": "50b98c6676a2d7336806809814b879b553f3701893941a1af5aa93b2a7ed1bab",
+      "bytes": 209
+    },
+    {
+      "path": "spec/v7/Axes-and-Orientation.md",
+      "sha256": "15fc1a17ce8cc099d07c8860f1150ddedfdc3436d539ddc08a65cbc2f44dac9f",
+      "bytes": 230
+    },
+    {
+      "path": "spec/v7/Axis-Discovery.md",
+      "sha256": "0686b47c023cf3e096d309c98f49ba5cd7f5de5c8534e39260899c8783c97707",
+      "bytes": 240
+    },
+    {
+      "path": "spec/v7/Axis-Types.md",
+      "sha256": "d3802271b9d604d2d0706cd5e446a444ac252e986268b0623ff048a9bfdacf26",
+      "bytes": 1383
+    },
+    {
+      "path": "spec/v7/Conformance.md",
+      "sha256": "c62cf5ea93d678497472f2106830b8ed6e214593d106f13f814beef7f78a52cf",
+      "bytes": 417
+    },
+    {
+      "path": "spec/v7/Core-Invariants.md",
+      "sha256": "f015ac2c5892eb75b050be8e61cdff8519914c0f3cbb346228444af81b50a6ea",
+      "bytes": 591
+    },
+    {
+      "path": "spec/v7/Crystallization.md",
+      "sha256": "03cdc0c1508676e764e0dcc35cd4a7dd0427afd8eb63d93049b0040bfe87fe6c",
+      "bytes": 218
+    },
+    {
+      "path": "spec/v7/DaaT-Boundary.md",
+      "sha256": "cbee9f3c222d41ca3941707af08cc400a52a8e2b22c2c9cd1dded8d69f20aa06",
+      "bytes": 2525
+    },
+    {
+      "path": "spec/v7/Deduplication-and-Factorization.md",
+      "sha256": "30f523deced0e6f26a2bb7db1b53e24a8d0d2d60136da7bc755852b6840d7e20",
+      "bytes": 1228
+    },
+    {
+      "path": "spec/v7/Entity-Resolution.md",
+      "sha256": "6d9ba3ce2455e28a98f276feef354a6307d752c3c5cb96544e3648447e14379f",
+      "bytes": 226
+    },
+    {
+      "path": "spec/v7/Epistemic-Safety.md",
+      "sha256": "00b1911daca04a6729ae9bf28a5bf09b4e01a835a9b9f1245d36558968f76946",
+      "bytes": 212
+    },
+    {
+      "path": "spec/v7/FAQ.md",
+      "sha256": "2205088b77b4f19c0f31ad5951a000a954bed09587a0ed79da36ef7a1c095abb",
+      "bytes": 1026
+    },
+    {
+      "path": "spec/v7/Glossary.md",
+      "sha256": "d022a3ac74c207991a44099435ce59e1b9778a8c85cdb200c893f7fc69009d8a",
+      "bytes": 1062
+    },
+    {
+      "path": "spec/v7/Home.md",
+      "sha256": "feee47365e55f42ecf6954b9fccf63a99fb2165e02f97d013d9efa0b9487b4b0",
+      "bytes": 629
+    },
+    {
+      "path": "spec/v7/Identity-and-Determinism.md",
+      "sha256": "7ab53c07d98258610ba968c374a48486c617489a8a91e1bd96925b4e4a567eb5",
+      "bytes": 1631
+    },
+    {
+      "path": "spec/v7/Implementation-Plan.md",
+      "sha256": "bca61f0bbd14066d4e6c00ec08d4656d9b7cb40d22322138e697e7c670f4295a",
+      "bytes": 211
+    },
+    {
+      "path": "spec/v7/Kristal-and-Kristall.md",
+      "sha256": "5b72113d70770c7278b614d3d59a46f707cbb47c7efe036e3f4baeec36bdb416",
+      "bytes": 265
+    },
+    {
+      "path": "spec/v7/Kristall.md",
+      "sha256": "f61f77da396fb441ad0f52b4776c2417da3cb4db894790d6fd855a848d3a058e",
+      "bytes": 1012
+    },
+    {
+      "path": "spec/v7/Mesh.md",
+      "sha256": "d9f234eb9620347adc8d0ffaeeb1598827d24a5444e36c2011dbc0bc2f0f8000",
+      "bytes": 188
+    },
+    {
+      "path": "spec/v7/Migration-v6-to-v7.md",
+      "sha256": "0b1a66a5d6cb6d5b1756cc76ebea8862fe2084fbbe9e9770ec3d26f03b09c0b3",
+      "bytes": 234
+    },
+    {
+      "path": "spec/v7/Orchestrator.md",
+      "sha256": "911d79757eccb862e6da8705a484e9c73c577022cae6bfff7ac49f938b9222d9",
+      "bytes": 268
+    },
+    {
+      "path": "spec/v7/Orgo-Implementation-Note.md",
+      "sha256": "2b0fa9da2f4a5c0a1c86aa8783ec592dbb6cf801b0a49322a113fc37e1915a70",
+      "bytes": 815
+    },
+    {
+      "path": "spec/v7/Orgo-Kristal-Alignment.md",
+      "sha256": "83a3977e9e4a20c597c51b3cfff9d1d8a25fc5ffec1020ca18f42aa1889f7924",
+      "bytes": 244
+    },
+    {
+      "path": "spec/v7/Projection-Engine.md",
+      "sha256": "edef2c2914e3e2a509505c8222e7d02a5400db775912a9d65067bb81dd694450",
+      "bytes": 953
+    },
+    {
+      "path": "spec/v7/Query.md",
+      "sha256": "373dbdae336f24fdacba184cb0b5e2ea12d5d4f6c9ad4e1f4436bade2e25ca9f",
+      "bytes": 589
+    },
+    {
+      "path": "spec/v7/Quickstart.md",
+      "sha256": "9b04ad0cf77c00e8be886879981a998ae1171040482e733d69656289d7f98b80",
+      "bytes": 398
+    },
+    {
+      "path": "spec/v7/Recursive-Factorization.md",
+      "sha256": "32bda2f45b665535cc2346e0a0b7f6b268680f2135a3ba3f04fda2082d2c8322",
+      "bytes": 238
+    },
+    {
+      "path": "spec/v7/Reference-Architecture.md",
+      "sha256": "a8bf246f1594b1341d03f0536ebd6673c9a18f56e652515d214c36535d297457",
+      "bytes": 363
+    },
+    {
+      "path": "spec/v7/Resonance.md",
+      "sha256": "c932be8a7c072df413f26e33abdc6a311a480262167f3b03b78d715dc2316591",
+      "bytes": 319
+    },
+    {
+      "path": "spec/v7/Semantic-Identity.md",
+      "sha256": "2cdc1b6fa8ac00ccc31fdc25b6d444940c599253557029aa5ef61cf501f13959",
+      "bytes": 244
+    },
+    {
+      "path": "spec/v7/Storage-Model.md",
+      "sha256": "a72a1d69f9f067df880722dd23a39a165e214a49bd8fd34f24ee2190a9784c54",
+      "bytes": 250
+    },
+    {
+      "path": "spec/v7/Surfaces-and-Projections.md",
+      "sha256": "fbbb41409cff1f93d9c68e3ef672dc5359547b01cf7e16f93767e8bcada08ac0",
+      "bytes": 225
+    },
+    {
+      "path": "spec/v7/TOC-Seed-100-Kristals.md",
+      "sha256": "bf8e6b75202c92971de92573280bfdc2e3bce22638c1b31e9c7d9432cc6e787e",
+      "bytes": 906
+    },
+    {
+      "path": "spec/v7/TOC-and-Subject-Model.md",
+      "sha256": "ac3d5a122ab85e82b9d891a626094d5f03463bb82e2f572b5cf84ed291bdba68",
+      "bytes": 2382
+    },
+    {
+      "path": "spec/v7/UNESCO-Thesaurus-Alignment.md",
+      "sha256": "5d7b56e3fb492a923f0e630b4759658fe4c510d576b77581f3a8cb63b12f9677",
+      "bytes": 2379
+    },
+    {
+      "path": "spec/v7/What-is-Kristal-v7.md",
+      "sha256": "fb48a2185963950f1e814a0942dee74ad634f145cce4ecaddf827a59c0d4e7a4",
+      "bytes": 1468
+    },
+    {
+      "path": "spec/v7/reference-kos/README.md",
+      "sha256": "91074216e579b540b9e1ae27b81777376d9e8d984b7b03b0e0fff2a27354f4da",
+      "bytes": 353
+    },
+    {
+      "path": "spec/v7/reference-kos/unesco-thesaurus-baseline.json",
+      "sha256": "7661e225962faa67fd782e2e909f91fb7560f622d564f4e22b4e80dae2f10bc0",
+      "bytes": 878
+    },
+    {
+      "path": "spec/v7/reference-kos/unesco-thesaurus-profile.json",
+      "sha256": "d1023cb10c0e516f05c048484388c1deacdc41152ff3af7f1a2444bd7f77cd42",
+      "bytes": 18089
+    },
+    {
+      "path": "spec/v8/00-overview/specification-status.md",
+      "sha256": "c7a41ec7a28c6dab8dc091077a82d95d4db43ec547a6098c21d1f08c78e93ffa",
+      "bytes": 632
+    },
+    {
+      "path": "spec/v8/01-core-spec/compatibility-contract.md",
+      "sha256": "442db141dea135b3c19b8dbfc2a493de690579188ef95e34fc4dc4ec4295c7fb",
+      "bytes": 1980
+    },
+    {
+      "path": "spec/v8/01-core-spec/kristal-v8-core-spec.md",
+      "sha256": "2a889d69d580221634860cb34ecff436b207eaaeaeaffa28dac52705104430f4",
+      "bytes": 4542
+    },
+    {
+      "path": "spec/v8/AI-Compact-Encoding.md",
+      "sha256": "45d2d2c4bb697cd312356ea6503268ddd536e5c3d033c6917f1a676876ab6149",
+      "bytes": 1225
+    },
+    {
+      "path": "spec/v8/AI-Context-Compiler.md",
+      "sha256": "7048d32016787e0e7871faf87d26fe807fa812d98e041c1b06c700043833e598",
+      "bytes": 2204
+    },
+    {
+      "path": "spec/v8/AI-Query-Layer.md",
+      "sha256": "3e5359fa05c7b2a782e2178180c99ad314fa0e2af3145c59f10fb3f826fc0397",
+      "bytes": 1792
+    },
+    {
+      "path": "spec/v8/Adapters-v6-v7.md",
+      "sha256": "907f932ccf39b248454a793b187ef98de409a2d0b69f93e5fa05fa165c375e2d",
+      "bytes": 1149
+    },
+    {
+      "path": "spec/v8/Architecture.md",
+      "sha256": "bfd2e110ce5f5de5c8c074f6bf4f04d9fd41342a855feb933afdf0ed71390cb5",
+      "bytes": 2832
+    },
+    {
+      "path": "spec/v8/Conformance.md",
+      "sha256": "ca5b500309d62539a67eb1416c2a00d573e748244084acd5a12b39e06b3d195b",
+      "bytes": 1800
+    },
+    {
+      "path": "spec/v8/Core-Invariants.md",
+      "sha256": "93d86138961646230574411d88a180e0bc32bcd229f0617f27e2cb367793b332",
+      "bytes": 1159
+    },
+    {
+      "path": "spec/v8/Design-Rationale.md",
+      "sha256": "37bc2118a0cb0a27d6d3b3ef5a3c423e22c44d5549124de6bd04800f5f04486c",
+      "bytes": 1590
+    },
+    {
+      "path": "spec/v8/Federation-Pagination-and-Continuations.md",
+      "sha256": "d6ff2a8b4f0e13676dfbcb2855717ec77d074e68844cadca170f6598d7e15fbe",
+      "bytes": 1416
+    },
+    {
+      "path": "spec/v8/Glossary.md",
+      "sha256": "97dba5da00c31612a1cf2c4381558db6fce0f4ef8af1a21d4e7c18c21938fda8",
+      "bytes": 1804
+    },
+    {
+      "path": "spec/v8/Home.md",
+      "sha256": "97107518105efd052c67cba1f1355aa3770ebc40b84ce5fda872b119430ae6ca",
+      "bytes": 2374
+    },
+    {
+      "path": "spec/v8/Language-Layer.md",
+      "sha256": "0bf7a9403140decc56c56649fe115df727d1242fc6bdd6087af95d0bf1cd7100",
+      "bytes": 2011
+    },
+    {
+      "path": "spec/v8/Lexical-Resolution.md",
+      "sha256": "79352f9867b96399e862b01b9c983de44dcb1affd2908975266cb5447446368b",
+      "bytes": 1560
+    },
+    {
+      "path": "spec/v8/Migration-v7-to-v8.md",
+      "sha256": "7ac0d2d627d9614f133989922aa6c7450c3441cabede69df825373f5d868276a",
+      "bytes": 1226
+    },
+    {
+      "path": "spec/v8/Query-Algebra-and-Planning.md",
+      "sha256": "f3928717b2af061f5662b8aecc85855aa57a638e68d77f3501a4a875372ea62c",
+      "bytes": 1700
+    },
+    {
+      "path": "spec/v8/Query-Protocol.md",
+      "sha256": "c759b9d707226d0b80a97847c3b0dd35209dad1eaa3462741b81b2f27d8d22d0",
+      "bytes": 2004
+    },
+    {
+      "path": "spec/v8/Security-and-Trust-Boundaries.md",
+      "sha256": "b341d6bbb8709cef1c47ef42c561f553b0c8e4de40bade64beeb5e8ed0ba1fa7",
+      "bytes": 1928
+    },
+    {
+      "path": "spec/v8/Semantic-Fingerprints-and-Integrity.md",
+      "sha256": "5220812a833e578938482ac41473b733ef47f25da14c27676c85cd66fcd707b3",
+      "bytes": 1756
+    },
+    {
+      "path": "spec/v8/Semantic-Universe-and-Lexical-Kristals.md",
+      "sha256": "8ee55af0e5f1ef5ba3d1a9562b4e8633a6b5717c823175c1414ab1d3c38dd30d",
+      "bytes": 2275
+    },
+    {
+      "path": "tck/README.md",
+      "sha256": "5a6a5e9c3173f010e8391585129b8afafc096821808c0671cc7dd39d7db77b12",
+      "bytes": 316
+    },
+    {
+      "path": "tck/v6/vectors/kristal-state/README.md",
+      "sha256": "fa502f8ce669567235e4570ec4e345a6df1a32075a750b515febe6bfcfb49132",
+      "bytes": 644
+    },
+    {
+      "path": "tck/v6/vectors/kristal-state/kristal-state.example.json",
+      "sha256": "29d5f8193cd5751e03e40f5e3ff3bd6d66dd533307cb1543a94b7ab145f6c69f",
+      "bytes": 2234
+    },
+    {
+      "path": "tck/v7/vectors/100-kristals-seed-provenance.json",
+      "sha256": "d053375e2643ecfc0f0ab9c14cf52d640cb7251788cb57e885da2d1b186ee495",
+      "bytes": 320
+    },
+    {
+      "path": "tck/v7/vectors/README.md",
+      "sha256": "028a4ae9d443d79ca6cde9f428a75409badfb1dfb99872d8e8ec48f47f748420",
+      "bytes": 698
+    },
+    {
+      "path": "tck/v7/vectors/assertion-family-registry.example.json",
+      "sha256": "d5856ddca0c2787f950b88ef53d9e431c2dc011b9e2089448e4717aeaaf1e2a1",
+      "bytes": 515
+    },
+    {
+      "path": "tck/v7/vectors/assertion-registry.example.json",
+      "sha256": "2dd53396ead123ba5f73570c86922209e42b83d95d54c9cf93f5e14b6ddc6e2c",
+      "bytes": 397
+    },
+    {
+      "path": "tck/v7/vectors/axis-registry.example.json",
+      "sha256": "e3f6aebe051b0001509dc3eb20b1fdabeddc982de785709b932a509af0bfea7d",
+      "bytes": 909
+    },
+    {
+      "path": "tck/v7/vectors/axis-type-registry.example.json",
+      "sha256": "24759ef41e7e0699ee9d33954e5fb5d0e9b8d35617c2258ea991d4b0a03d5e57",
+      "bytes": 6479
+    },
+    {
+      "path": "tck/v7/vectors/crystallization-record.example.json",
+      "sha256": "d7459c30cd9fc2f3e96ef34b8564fe611acbb5ca883eb2527dce3cfefa6c8319",
+      "bytes": 224
+    },
+    {
+      "path": "tck/v7/vectors/entity-registry.example.json",
+      "sha256": "a3e118efc4f3c0c9fd22db0b379d5fd262187dc08e9491c1e2b33804e66ade67",
+      "bytes": 885
+    },
+    {
+      "path": "tck/v7/vectors/kos-registry.example.json",
+      "sha256": "a86c3fe8d431aafffc9056411cb7eb86a5dfd874c5911d80006c0a935f796e22",
+      "bytes": 785
+    },
+    {
+      "path": "tck/v7/vectors/kristall-manifest.example.json",
+      "sha256": "66e07544b2025acd5019b1e4700f8a5fcb19341f6b390e5586182a14b6bd1802",
+      "bytes": 1293
+    },
+    {
+      "path": "tck/v7/vectors/mesh.example.json",
+      "sha256": "9dae6d1731136692f5e062385fd326b0f326500b0f285081ce16393b0b791ccf",
+      "bytes": 463
+    },
+    {
+      "path": "tck/v7/vectors/projection-recipe.example.json",
+      "sha256": "27b00da098b48285341fc4895610dd1a32fb0a8e4e46920759defc242a1d6c25",
+      "bytes": 330
+    },
+    {
+      "path": "tck/v7/vectors/property-registry.example.json",
+      "sha256": "2bb08f7cbbd8c694672419ce2e831313266b2d126b1e3b59d35bc05a80012ab9",
+      "bytes": 437
+    },
+    {
+      "path": "tck/v7/vectors/resonance.example.json",
+      "sha256": "a8d67d9454749539e4b1f50530153808a195675ba2a94ede8d057f17b53b6636",
+      "bytes": 788
+    },
+    {
+      "path": "tck/v7/vectors/source-registry.example.json",
+      "sha256": "f4d4a896b750e21fb22a62fec2aff8076f6967a045993407107d005db160162a",
+      "bytes": 265
+    },
+    {
+      "path": "tck/v7/vectors/toc-registry-100-seed.example.json",
+      "sha256": "93929770f59c268ff3b1cf748af13ee5e6c45c4b4face59bbe5081bc38ee9c4c",
+      "bytes": 98204
+    },
+    {
+      "path": "tck/v7/vectors/toc-seed-100-analysis.json",
+      "sha256": "d35648f91f37fc43786e4ff7dc144dedd741d95165669b6119f6cd179fb326cc",
+      "bytes": 4404
+    },
+    {
+      "path": "tck/v7/vectors/v6-compatible-projection.example.json",
+      "sha256": "3cce44a20adbbef722da63bc86eea14d6f93d4aef52f2e6e41e7c64b900966dd",
+      "bytes": 2666
+    },
+    {
+      "path": "tck/v8/vectors/README.md",
+      "sha256": "7db8280c902c1b6c780f5cd7c5a8fb33a5212043fd80603a975f7b9c7a16ce84",
+      "bytes": 455
+    },
+    {
+      "path": "tck/v8/vectors/ai-context-bundle.example.json",
+      "sha256": "2119f26f2ad563bcb45169be8e35d94a6d94e8ee5d699f2ef848e283c9b42b81",
+      "bytes": 2329
+    },
+    {
+      "path": "tck/v8/vectors/lexicon-fr-chemistry.example.json",
+      "sha256": "daa92ca4a0ef03362278dd66ad7b22a91a7bdc5fbaaae0bbe1c6bbafdc48092d",
+      "bytes": 608
+    },
+    {
+      "path": "tck/v8/vectors/lexicon-fr-core.example.json",
+      "sha256": "e57358517a5d2b91e5ba9ca0ac0f007c8f6337a43c67d2cd7adedb7f997472b3",
+      "bytes": 735
+    },
+    {
+      "path": "tck/v8/vectors/lexicon-stack.example.json",
+      "sha256": "ab99b57cc0fd227d0861dc21a5d431c0c7b406a9cfa6e2fe990e4d81a46ea4aa",
+      "bytes": 509
+    },
+    {
+      "path": "tck/v8/vectors/query-index.example.json",
+      "sha256": "88e9d8eda76d5b900737c11263ab330f065fd270ee996ab647aa0d2689f3006b",
+      "bytes": 656
+    },
+    {
+      "path": "tck/v8/vectors/query-request.example.json",
+      "sha256": "e59e17f2e966bd4d847269fa11ade59f4f6bff9b44554855ffa6491ce5df2c99",
+      "bytes": 1180
+    },
+    {
+      "path": "tck/v8/vectors/query-result.example.json",
+      "sha256": "eb7f386d1dbe8af9cb85c0aacdfbde6576e93c56ac922265825b65e48278edd5",
+      "bytes": 1424
+    },
+    {
+      "path": "tck/v8/vectors/v8-capabilities.example.json",
+      "sha256": "ad9cc2f9cda9bfe20cb94d2d19c21f220305da92d5621ac799a4fbf60a59afce",
+      "bytes": 812
+    },
+    {
+      "path": "tools/build_release.py",
+      "sha256": "cad2ca6814995f7b5c14f822a219862ab41a550fc3d0366b0452576164b43f5f",
+      "bytes": 1540
+    },
+    {
+      "path": "tools/check_contract_set.py",
+      "sha256": "f278c310918d3ba1b5328101113f7b3b416ca54f42897abe92e43e21416dba86",
+      "bytes": 1088
+    },
+    {
+      "path": "tools/check_links.py",
+      "sha256": "72ca36bbcd4c13c082d381eb95a4b2178c179cc17dfde0e020379f9cebfb5fb8",
+      "bytes": 1312
+    },
+    {
+      "path": "tools/check_mkdocs.py",
+      "sha256": "36e869323a242ec20d8780173d66f075309b9300e848717331722e76c4298844",
+      "bytes": 795
+    },
+    {
+      "path": "tools/integrations/publish_konstellation_pack.mjs",
+      "sha256": "88e67c104a281bf9fef927d16efea202991334edbced33c6340dc0557a503b62",
+      "bytes": 7162
+    },
+    {
+      "path": "tools/integrations/validate_konstellation_document.py",
+      "sha256": "77b2083c99aa919064a0119c5f2ae66121cec348db522d22040ac88c6ae15719",
+      "bytes": 614
+    },
+    {
+      "path": "tools/v8/README.md",
+      "sha256": "52d5f476b0140cfd8fcce5e1edc221f721e73f4b48940de782097237f16f5e97",
+      "bytes": 639
+    },
+    {
+      "path": "tools/v8/build_lexicon_delta.py",
+      "sha256": "932bfaac8daedbcb7a5bc23435e7f0eff4d7c67a0fe084cab3d86c14343ea7fa",
+      "bytes": 2184
+    },
+    {
+      "path": "tools/v8/compile_ai_context.py",
+      "sha256": "c6f8641906ffc4326ad6f10bc2823d78de4e0032e790ae39db0e775e44515eb9",
+      "bytes": 5214
+    },
+    {
+      "path": "tools/v8/resolve_lexicon.py",
+      "sha256": "49548f24f04badd91f3b641f74d53e129d1b20e302fdf639f0c3e3fff3bc3d26",
+      "bytes": 1547
+    },
+    {
+      "path": "tools/v8/semantic_slice.py",
+      "sha256": "5e913f136a08b3e3c18926719d92d7d6bf421ab628225c3dbd85b3f727e07379",
+      "bytes": 5823
+    },
+    {
+      "path": "tools/validate_all.py",
+      "sha256": "03ec02d60f803171fa122748d1845251fe61056e1db8eb594938aa8dee692a25",
+      "bytes": 777
+    },
+    {
+      "path": "tools/validate_standard.py",
+      "sha256": "9f45e453e456f153990a7c73f16db772020fa0cbbfffd925103f7769af93096c",
+      "bytes": 13053
+    }
+  ]
+}

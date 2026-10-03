@@ -1,0 +1,318 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kristal Query Protocol result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "protocol",
+    "query_id",
+    "mode",
+    "status",
+    "source_fingerprints",
+    "resolved_roots",
+    "result",
+    "completeness",
+    "continuation",
+    "unresolved",
+    "omissions",
+    "query_plan"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "8.0"
+    },
+    "artifact_type": {
+      "const": "kristall_query_result"
+    },
+    "protocol": {
+      "const": "kristal-query/1.0"
+    },
+    "query_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mode": {
+      "enum": [
+        "identity_lookup",
+        "neighborhood",
+        "semantic_traversal",
+        "evidence_closure",
+        "authority_resolution",
+        "temporal",
+        "diff",
+        "capability",
+        "constraints",
+        "cross_kristal",
+        "lexical",
+        "unknowns",
+        "semantic_slice"
+      ]
+    },
+    "status": {
+      "enum": [
+        "complete",
+        "partial",
+        "error"
+      ]
+    },
+    "source_fingerprints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ref",
+          "byte_sha256"
+        ],
+        "properties": {
+          "ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "byte_sha256": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-fA-F]{64}$"
+          },
+          "semantic_fingerprint": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "profile",
+              "digest"
+            ],
+            "properties": {
+              "profile": {
+                "type": "string",
+                "minLength": 1
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-fA-F]{64}$"
+              }
+            }
+          },
+          "schema_version": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "resolved_roots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "identity_space",
+          "id"
+        ],
+        "properties": {
+          "identity_space": {
+            "enum": [
+              "kristall",
+              "kristal_v6",
+              "external"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "namespace": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "resolution_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "nodes",
+        "edges",
+        "assertions",
+        "evidence"
+      ],
+      "properties": {
+        "nodes": {
+          "type": "array"
+        },
+        "edges": {
+          "type": "array"
+        },
+        "assertions": {
+          "type": "array"
+        },
+        "evidence": {
+          "type": "array"
+        }
+      }
+    },
+    "completeness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "semantic_closure",
+        "evidence_closure",
+        "source_coverage",
+        "truncated",
+        "reasons"
+      ],
+      "properties": {
+        "semantic_closure": {
+          "enum": [
+            "complete",
+            "partial",
+            "not_requested",
+            "unknown"
+          ]
+        },
+        "evidence_closure": {
+          "enum": [
+            "complete",
+            "partial",
+            "not_requested",
+            "unknown"
+          ]
+        },
+        "source_coverage": {
+          "enum": [
+            "complete",
+            "partial",
+            "not_requested",
+            "unknown"
+          ]
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "continuation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "has_more"
+      ],
+      "properties": {
+        "has_more": {
+          "type": "boolean"
+        },
+        "cursor": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ordering_profile": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "has_more": {
+                "const": true
+              }
+            },
+            "required": [
+              "has_more"
+            ]
+          },
+          "then": {
+            "required": [
+              "cursor"
+            ]
+          }
+        }
+      ]
+    },
+    "unresolved": {
+      "type": "array"
+    },
+    "conflicts": {
+      "type": "array"
+    },
+    "omissions": {
+      "type": "array"
+    },
+    "query_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "discovery",
+        "strategy"
+      ],
+      "properties": {
+        "discovery": {
+          "enum": [
+            "exact",
+            "lexical",
+            "semantic_similarity",
+            "hybrid"
+          ]
+        },
+        "strategy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "intent": {
+          "type": "string"
+        },
+        "traversal_direction": {
+          "enum": [
+            "out",
+            "in",
+            "both",
+            "none"
+          ]
+        },
+        "max_depth": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_nodes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_edges": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "properties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "indexes_used": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "shards_contacted": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

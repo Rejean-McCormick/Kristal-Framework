@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "semantic_resonance_set",
+  "profile_id": "default",
+  "observations": [
+    {
+      "resonance_id": "res:1",
+      "left": {
+        "system": "kristall",
+        "kind": "entity",
+        "id": "KQ1001"
+      },
+      "right": {
+        "system": "source",
+        "kind": "referent",
+        "id": "urn:actor:ministre-quebec"
+      },
+      "directionality": "symmetric",
+      "dimensions": [
+        {
+          "dimension_id": "semantic",
+          "value": 0.9,
+          "method": "example"
+        }
+      ],
+      "aggregate": {
+        "value": 0.9,
+        "method": "example",
+        "non_authoritative": true
+      },
+      "status": "computed",
+      "created_at": "2026-10-02T18:00:00Z",
+      "provenance": {}
+    }
+  ]
+}

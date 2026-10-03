@@ -1,0 +1,11 @@
+{
+  "source": "100Kristals/Index.txt",
+  "sha256": "3dff21912d6c6b4f0baae55f7e0c3b64259f632797eae4dd815b83261de5bf32",
+  "subjects": 100,
+  "used_for": [
+    "subject_seed_labels",
+    "natural_angles",
+    "axis_type_seed_mapping"
+  ],
+  "note": "Seed provenance only; source Kristal bundles remain external inputs."
+}

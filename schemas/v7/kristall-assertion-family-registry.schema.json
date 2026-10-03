@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Assertion family registry",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "namespace_id",
+    "registry_id",
+    "families"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.0"
+    },
+    "artifact_type": {
+      "const": "kristall_assertion_family_registry"
+    },
+    "namespace_id": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "families": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "family_id",
+          "family_type",
+          "status",
+          "members",
+          "provenance"
+        ],
+        "properties": {
+          "family_id": {
+            "type": "string"
+          },
+          "family_type": {
+            "enum": [
+              "exact_duplicate",
+              "semantic_equivalent",
+              "variant",
+              "specialization",
+              "conflict"
+            ]
+          },
+          "status": {
+            "enum": [
+              "candidate",
+              "accepted",
+              "superseded"
+            ]
+          },
+          "members": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "object"
+            }
+          },
+          "representative": {
+            "type": "object"
+          },
+          "provenance": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

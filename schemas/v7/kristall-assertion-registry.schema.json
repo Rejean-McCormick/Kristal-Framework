@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Assertion registry",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "namespace_id",
+    "registry_id",
+    "assertions"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.0"
+    },
+    "artifact_type": {
+      "const": "kristall_assertion_registry"
+    },
+    "namespace_id": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "assertions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "assertion_id",
+          "assertion_kind",
+          "status"
+        ],
+        "properties": {
+          "assertion_id": {
+            "type": "string",
+            "pattern": "^KA[1-9][0-9]*$"
+          },
+          "assertion_kind": {
+            "enum": [
+              "source_mapped",
+              "derived",
+              "meta"
+            ]
+          },
+          "status": {
+            "enum": [
+              "active",
+              "superseded",
+              "retracted"
+            ]
+          },
+          "source_binding": {
+            "type": "object"
+          },
+          "statement": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

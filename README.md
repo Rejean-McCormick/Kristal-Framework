@@ -1,114 +1,85 @@
-# Kristal Standard v6
+# Kristal
 
-> **Active baseline:** `6.0.0`
+**Current standard baseline:** `8.0.0`
 
-Kristal is a deterministic, portable **structured-memory and actionability standard** for preserving human and machine work as explicit, contextual, traceable assertions that can be enriched over time.
+Kristal is a portable, deterministic knowledge-state standard. v8 preserves the v6 portable state contract and the v7 semantic identity model, and adds two optional capability layers: **external composable language Kristals** and an **AI-native semantic query/context protocol**.
 
-The v6 canonical artifact is **`kristal_state`**.
-
-```text
-referents + atomic assertions
-        │
-        ├── valuations[]          typed measures / states
-        ├── coordinates           domain geometry
-        ├── applicability         where / when / for whom
-        ├── record_role           what kind of record this is
-        ├── actionability         automation / human boundary
-        ├── provenance/evidence   why and where it came from
-        ├── validation            policy evaluation
-        ├── recognition           scoped authority
-        ├── conflict/succession   disagreement and replacement
-        └── lineage               derivation / specialization
-        │
-        ▼
-reader policies + derived projections + authorized actions
-```
-
-## Why v6
-
-Kristal no longer assumes that a field called “certainty” has one universal meaning. Domains can represent proof closure, diagnostic support, constitutive necessity, administrative applicability, taxonomic acceptance, maintenance necessity, compatibility or other explicit dimensions through typed valuations.
-
-Supported value semantics include boolean, categorical, set, ordinal, scalar, interval, probability, distribution, vector, partial order, state and temporal values. `unknown`, `not_applicable`, `indeterminate` and `not_measured` are value states, not disguised numbers.
-
-v6 also makes the human/automation boundary explicit. `actionability.mode = automatic` means that the represented policy does not require human judgment before an action path can be attempted; it **does not grant permission to mutate another system**.
-
-## Stable separations
+## v8 in one sentence
 
 ```text
-artifact identity
-≠ assertion content
-≠ valuation
-≠ applicability
-≠ validation
-≠ authority recognition
-≠ reader visibility
-≠ actionability
-≠ execution authority
+v6 portable truth + v7 semantic identity + optional v8 language/query capabilities
 ```
 
-These separations let Kristal preserve laws and official procedures, neutral observations, organization-specific rules, machine-derived state, human decisions and actions in one portable memory without confusing their roles.
+v8 is additive. A valid v6 or v7 artifact does not need to be rewritten to participate in a v8 deployment.
 
-## Human + AI memory
-
-Kristal is designed so useful AI work does not disappear after one answer:
+## Repository boundaries
 
 ```text
-research / extraction / reasoning
-        ↓
-traceable assertions
-        ↓
-Kristal State
-        ↓
-human correction / validation / new evidence
-        ↓
-richer Kristal State
-        ↓
-next human or AI starts from accumulated work
+spec/       normative prose and frozen compatibility specifications
+schemas/    canonical active v6/v7/v8 JSON Schemas
+tck/        normative conformance vectors and golden fixtures
+examples/   non-normative examples
+reference/  non-normative reference implementation(s)
+tools/      repository, release, and non-normative v8 helper tooling
+contracts/  release/contract manifests and compatibility locks
+history/    status records and release history
+compat/     frozen materialization needed only by legacy compatibility tests
 ```
 
-Deterministic work can be automated while ambiguity, interpretation, authority, exceptions and high-value judgment remain with humans.
+The specification and TCK define behavior. Reference code demonstrates behavior.
 
-## Start here
+## Architecture
 
-1. [`docs/Technical-Reference/kristal-docs-v6/What-is-Kristal.md`](docs/Technical-Reference/kristal-docs-v6/What-is-Kristal.md)
-2. [`docs/Technical-Reference/kristal-docs-v6/Concepts-and-Mental-Model.md`](docs/Technical-Reference/kristal-docs-v6/Concepts-and-Mental-Model.md)
-3. [`docs/Technical-Reference/kristal-docs-v6/01-core-spec/kristal-v6-core-spec.md`](docs/Technical-Reference/kristal-docs-v6/01-core-spec/kristal-v6-core-spec.md)
-4. [`docs/Technical-Reference/kristal-docs-v6/Kristal-State.md`](docs/Technical-Reference/kristal-docs-v6/Kristal-State.md)
-5. [`docs/Technical-Reference/kristal-docs-v6/Valuations-and-Value-Semantics.md`](docs/Technical-Reference/kristal-docs-v6/Valuations-and-Value-Semantics.md)
-6. [`docs/Technical-Reference/kristal-docs-v6/Record-Roles.md`](docs/Technical-Reference/kristal-docs-v6/Record-Roles.md)
-7. [`docs/Technical-Reference/kristal-docs-v6/Actionability-and-Human-Boundaries.md`](docs/Technical-Reference/kristal-docs-v6/Actionability-and-Human-Boundaries.md)
-8. [`docs/Technical-Reference/kristal-docs-v6/Migration-v5-to-v6.md`](docs/Technical-Reference/kristal-docs-v6/Migration-v5-to-v6.md)
+```text
+v6  kristal_state/6.0                         unchanged portable truth
+        ↓
+v7  KQ/KP/KA/KS + Mesh/KOS/axes/projections unchanged semantic baseline
+        ↓
+v8  Language Layer + AI Query Layer          additive optional capabilities
+        ↓
+    derived read models / AI contexts         never canonical authority
+```
 
-## Normative v6 surfaces
+### Language Layer
 
-- Core spec: `docs/Technical-Reference/kristal-docs-v6/01-core-spec/kristal-v6-core-spec.md`
-- Kristal State schema: `docs/Technical-Reference/kristal-docs-v6/02-schemas/kristal-state.schema.json`
-- v6 test vector: `docs/Technical-Reference/kristal-docs-v6/09-test-vectors/kristal-state/`
-- Release metadata: `VERSION`, `kristal-release.json`, `contract-set.manifest.json`
-- Knowledge-model bundle: `knowledge-model-contract.v2.json`
+Language is external to semantic identity. Lexical Kristals are composable by language, domain, education level, geography and project. A French deployment can resolve through `fr-core + fr-science + fr-chemistry + fr-CA + project-delta` without embedding 300 languages in the semantic Kristal.
 
-The active canonicalization profile is `kristal.v6:jcs-rfc8785`.
+### AI Query Layer
 
-## Legacy v5 compatibility
+AI clients discover and resolve semantic identities, then query exact graph relations, assertions, evidence and provenance through the Kristal Query Protocol (KQP). Query indexes are rebuildable read models. Results explicitly declare completeness, truncation and continuation state. AI context bundles are bounded projections with provenance and trust metadata.
 
-The full v5 specification and schemas remain under:
+## Final v8 invariants
 
-`docs/Technical-Reference/kristal-docs-v5/`
+```text
+SEMANTICS != LANGUAGE
+READ MODEL != CANONICAL STATE
+MODEL OUTPUT != AUTHORITY
+SCHEMA VALID != SEMANTICALLY VALID
+SEMANTIC FINGERPRINT != BYTE HASH
+PARTIAL RESULT != NEGATIVE RESULT
+FUZZY DISCOVERY != SEMANTIC ANSWER
+EXTENSION != CANONICAL MUTATION
+```
 
-Structured Epistemic State, Exchange, Runtime Pack, shard and federation surfaces remain valid for legacy consumers and compatibility adapters. They are no longer the conceptual center of new v6 domain models.
+See [v8 Home](spec/v8/Home.md) for the standard entry point and [Core Invariants](spec/v8/Core-Invariants.md) for the complete list.
 
-The frozen v5 knowledge-model bundle remains at `knowledge-model-contract.v1.json`.
+## Compatibility
 
-## Conformance
+- valid v6 artifacts remain valid unchanged;
+- valid v7 artifacts remain valid unchanged;
+- v7 labels remain legal compatibility/display fallbacks;
+- v8 lexicons, indexes, plans and AI contexts are external or derived;
+- `contracts/v8-compatibility-lock.json` freezes inherited v6/v7 machine surfaces;
+- downgrade may lose v8 capabilities but MUST NOT change semantic assertions to compensate.
 
-Run:
+## Validate
 
 ```bash
 python tools/validate_all.py
 ```
 
-The v6 gate validates release metadata, the v6 schema and fixture, canonical identity semantics and retained v5 compatibility surfaces. External implementation conformance remains a separate claim until an implementation/reference adapter is tested.
+Build the deterministic release archive:
 
-## Authority boundary
-
-Kristal represents knowledge, state, policy and actionability. It does not manufacture legal authority, organizational authority or execution permission by storing a record.
+```bash
+python tools/build_release.py
+```

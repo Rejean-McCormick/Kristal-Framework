@@ -1,0 +1,5 @@
+# Kristal Reference snapshot-only exclusions.
+# Status/history files remain versioned in Git.
+
+docs/status/
+SMARTDUMP_INDEX.txt

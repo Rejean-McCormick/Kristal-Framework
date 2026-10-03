@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Projection recipe",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "recipe_id",
+    "subject",
+    "orientation",
+    "output"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.0"
+    },
+    "artifact_type": {
+      "const": "kristall_projection_recipe"
+    },
+    "recipe_id": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "object",
+      "required": [
+        "subject_id"
+      ]
+    },
+    "orientation": {
+      "type": "object",
+      "required": [
+        "primary_axis"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "primary_axis": {
+          "type": "string"
+        },
+        "secondary_axis": {
+          "type": "string"
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "required": [
+        "artifact_type",
+        "schema_version",
+        "profile"
+      ],
+      "properties": {
+        "artifact_type": {
+          "const": "kristal_state"
+        },
+        "schema_version": {
+          "const": "6.0"
+        },
+        "profile": {
+          "const": "v6_compatible"
+        }
+      }
+    }
+  }
+}

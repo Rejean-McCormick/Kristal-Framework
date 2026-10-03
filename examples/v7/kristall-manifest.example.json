@@ -1,0 +1,41 @@
+{
+  "schema_version": "7.0",
+  "artifact_type": "kristall_manifest",
+  "artifact_status": "working",
+  "created_at": "2026-10-02T18:00:00Z",
+  "kristall_id": "urn:kristall:main",
+  "namespace_id": "kristall-main",
+  "compatibility": {
+    "accepts_kristal_state_versions": [
+      "6.0"
+    ],
+    "preferred_projection_profile": "v6_compatible"
+  },
+  "sources": [],
+  "subjects": [
+    {
+      "subject_id": "subject:power",
+      "label": "Power"
+    }
+  ],
+  "registries": {
+    "entities": "entity-registry.example.json",
+    "properties": "property-registry.example.json",
+    "assertions": "assertion-registry.example.json",
+    "sources": "source-registry.example.json",
+    "assertion_families": "assertion-family-registry.example.json",
+    "axes": "axis-registry.example.json",
+    "mesh": "mesh.example.json",
+    "projection_recipes": "projection-recipe.example.json",
+    "crystallization_ledger": "crystallization-record.example.json",
+    "resonance": "resonance.example.json",
+    "kos": "kos-registry.example.json",
+    "toc": "toc-registry-100-seed.example.json",
+    "axis_types": "axis-type-registry.example.json"
+  },
+  "policies": {
+    "conflict_strategy": "preserve_disagreement",
+    "path_semantics": "exploratory_not_assertive",
+    "max_orientation_axes": 2
+  }
+}

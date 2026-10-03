@@ -1,0 +1,555 @@
+{
+  "kos_id": "kos:unesco-thesaurus",
+  "title": "UNESCO Thesaurus",
+  "kos_type": "thesaurus",
+  "standard": "SKOS / ISO 25964",
+  "canonical_uri": "http://vocabularies.unesco.org/thesaurus",
+  "publisher": "UNESCO",
+  "license": "CC-BY-SA 3.0 IGO",
+  "languages": [
+    "ar",
+    "en",
+    "es",
+    "fr",
+    "ru"
+  ],
+  "retrieved_at": "2026-10-02",
+  "source_last_modified_reported": "2026-08-31",
+  "counts": {
+    "concepts_approx": 4500,
+    "domains": 7,
+    "microthesauri": 88
+  },
+  "alignment_policy": {
+    "role": "reference_spine",
+    "sovereignty": "external_reference_not_internal_identity",
+    "full_import_required": false,
+    "concept_uri_policy": "preserve_dereferenceable_uri"
+  },
+  "domains": [
+    {
+      "notation": "1",
+      "label_en": "Education",
+      "uri": "http://vocabularies.unesco.org/thesaurus/domain1",
+      "kristall_default_role": "category_root",
+      "microthesauri": [
+        {
+          "notation": "1.05",
+          "label_en": "Educational sciences and environment",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt1.05"
+        },
+        {
+          "notation": "1.10",
+          "label_en": "Educational policy",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt1.10"
+        },
+        {
+          "notation": "1.15",
+          "label_en": "Educational planning",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt1.15"
+        },
+        {
+          "notation": "1.20",
+          "label_en": "Educational administration",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt1.20"
+        },
+        {
+          "notation": "1.25",
+          "label_en": "Educational management",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt1.25"
+        },
+        {
+          "notation": "1.30",
+          "label_en": "Educational systems and levels",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt1.30"
+        },
+        {
+          "notation": "1.35",
+          "label_en": "Educational institutions",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt1.35"
+        },
+        {
+          "notation": "1.40",
+          "label_en": "Curriculum",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt1.40"
+        },
+        {
+          "notation": "1.45",
+          "label_en": "Basic and general study subjects",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt1.45"
+        },
+        {
+          "notation": "1.50",
+          "label_en": "Technical and vocational study subjects",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt1.50"
+        },
+        {
+          "notation": "1.55",
+          "label_en": "Educational population",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt1.55"
+        },
+        {
+          "notation": "1.60",
+          "label_en": "Teaching and training",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt1.60"
+        },
+        {
+          "notation": "1.65",
+          "label_en": "Educational evaluation",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt1.65"
+        },
+        {
+          "notation": "1.70",
+          "label_en": "Educational facilities",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt1.70"
+        }
+      ]
+    },
+    {
+      "notation": "2",
+      "label_en": "Science",
+      "uri": "http://vocabularies.unesco.org/thesaurus/domain2",
+      "kristall_default_role": "category_root",
+      "microthesauri": [
+        {
+          "notation": "2.05",
+          "label_en": "Scientific approach",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt2.05"
+        },
+        {
+          "notation": "2.10",
+          "label_en": "Science and research management",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt2.10"
+        },
+        {
+          "notation": "2.15",
+          "label_en": "Mathematics and statistics",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt2.15"
+        },
+        {
+          "notation": "2.20",
+          "label_en": "Physical sciences",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt2.20"
+        },
+        {
+          "notation": "2.25",
+          "label_en": "Chemical sciences",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt2.25"
+        },
+        {
+          "notation": "2.30",
+          "label_en": "Space sciences",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt2.30"
+        },
+        {
+          "notation": "2.35",
+          "label_en": "Earth sciences",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt2.35"
+        },
+        {
+          "notation": "2.40",
+          "label_en": "Geography and oceanography",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt2.40"
+        },
+        {
+          "notation": "2.45",
+          "label_en": "Meteorology",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt2.45"
+        },
+        {
+          "notation": "2.50",
+          "label_en": "Hydrology",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt2.50"
+        },
+        {
+          "notation": "2.55",
+          "label_en": "Environmental sciences and engineering",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt2.55"
+        },
+        {
+          "notation": "2.60",
+          "label_en": "Pollution, disasters and safety",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt2.60"
+        },
+        {
+          "notation": "2.65",
+          "label_en": "Natural resources",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt2.65"
+        },
+        {
+          "notation": "2.70",
+          "label_en": "Biology",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt2.70"
+        },
+        {
+          "notation": "2.75",
+          "label_en": "Natural sciences",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt2.75"
+        },
+        {
+          "notation": "2.80",
+          "label_en": "Medical sciences",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt2.80"
+        },
+        {
+          "notation": "2.85",
+          "label_en": "Pathology",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt2.85"
+        }
+      ]
+    },
+    {
+      "notation": "3",
+      "label_en": "Culture",
+      "uri": "http://vocabularies.unesco.org/thesaurus/domain3",
+      "kristall_default_role": "category_root",
+      "microthesauri": [
+        {
+          "notation": "3.05",
+          "label_en": "Culture",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt3.05"
+        },
+        {
+          "notation": "3.10",
+          "label_en": "Cultural policy and planning",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt3.10"
+        },
+        {
+          "notation": "3.15",
+          "label_en": "Philosophy and ethics",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt3.15"
+        },
+        {
+          "notation": "3.20",
+          "label_en": "Religion",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt3.20"
+        },
+        {
+          "notation": "3.25",
+          "label_en": "History",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt3.25"
+        },
+        {
+          "notation": "3.30",
+          "label_en": "Linguistics",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt3.30"
+        },
+        {
+          "notation": "3.35",
+          "label_en": "Languages",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt3.35"
+        },
+        {
+          "notation": "3.40",
+          "label_en": "Literature",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt3.40"
+        },
+        {
+          "notation": "3.45",
+          "label_en": "Art",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt3.45"
+        },
+        {
+          "notation": "3.50",
+          "label_en": "Visual arts",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt3.50"
+        },
+        {
+          "notation": "3.55",
+          "label_en": "Performing arts",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt3.55"
+        },
+        {
+          "notation": "3.60",
+          "label_en": "Museums",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt3.60"
+        },
+        {
+          "notation": "3.65",
+          "label_en": "Leisure",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt3.65"
+        }
+      ]
+    },
+    {
+      "notation": "4",
+      "label_en": "Social and human sciences",
+      "uri": "http://vocabularies.unesco.org/thesaurus/domain4",
+      "kristall_default_role": "category_root",
+      "microthesauri": [
+        {
+          "notation": "4.05",
+          "label_en": "Social sciences",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt4.05"
+        },
+        {
+          "notation": "4.10",
+          "label_en": "Psychology",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt4.10"
+        },
+        {
+          "notation": "4.15",
+          "label_en": "Social systems",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt4.15"
+        },
+        {
+          "notation": "4.20",
+          "label_en": "Social problems",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt4.20"
+        },
+        {
+          "notation": "4.25",
+          "label_en": "Social policy and welfare",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt4.25"
+        },
+        {
+          "notation": "4.30",
+          "label_en": "Ethnic questions",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt4.30"
+        },
+        {
+          "notation": "4.35",
+          "label_en": "Population",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt4.35"
+        },
+        {
+          "notation": "4.40",
+          "label_en": "Family",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt4.40"
+        },
+        {
+          "notation": "4.45",
+          "label_en": "Human settlements and land use",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt4.45"
+        }
+      ]
+    },
+    {
+      "notation": "5",
+      "label_en": "Information and communication",
+      "uri": "http://vocabularies.unesco.org/thesaurus/domain5",
+      "kristall_default_role": "category_root",
+      "microthesauri": [
+        {
+          "notation": "5.05",
+          "label_en": "Information sciences",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt5.05"
+        },
+        {
+          "notation": "5.10",
+          "label_en": "Communication research and policy",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt5.10"
+        },
+        {
+          "notation": "5.15",
+          "label_en": "Information management",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt5.15"
+        },
+        {
+          "notation": "5.20",
+          "label_en": "Information industry",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt5.20"
+        },
+        {
+          "notation": "5.25",
+          "label_en": "Documentary information systems",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt5.25"
+        },
+        {
+          "notation": "5.30",
+          "label_en": "Information sources",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt5.30"
+        },
+        {
+          "notation": "5.35",
+          "label_en": "Documentary information processing",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt5.35"
+        },
+        {
+          "notation": "5.40",
+          "label_en": "Information technology (software)",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt5.40"
+        },
+        {
+          "notation": "5.45",
+          "label_en": "Information technology (hardware)",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt5.45"
+        }
+      ]
+    },
+    {
+      "notation": "6",
+      "label_en": "Politics, law and economics",
+      "uri": "http://vocabularies.unesco.org/thesaurus/domain6",
+      "kristall_default_role": "category_root",
+      "microthesauri": [
+        {
+          "notation": "6.05",
+          "label_en": "Legal systems",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt6.05"
+        },
+        {
+          "notation": "6.10",
+          "label_en": "Human rights",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt6.10"
+        },
+        {
+          "notation": "6.15",
+          "label_en": "Politics and government",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt6.15"
+        },
+        {
+          "notation": "6.20",
+          "label_en": "International relations",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt6.20"
+        },
+        {
+          "notation": "6.25",
+          "label_en": "Economics",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt6.25"
+        },
+        {
+          "notation": "6.30",
+          "label_en": "Economic and social development",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt6.30"
+        },
+        {
+          "notation": "6.35",
+          "label_en": "Agriculture",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt6.35"
+        },
+        {
+          "notation": "6.40",
+          "label_en": "Industry",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt6.40"
+        },
+        {
+          "notation": "6.45",
+          "label_en": "Civil, military, and mining engineering",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt6.45"
+        },
+        {
+          "notation": "6.50",
+          "label_en": "Manufacturing and transport engineering",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt6.50"
+        },
+        {
+          "notation": "6.55",
+          "label_en": "Materials and products",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt6.55"
+        },
+        {
+          "notation": "6.60",
+          "label_en": "Equipment and facilities",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt6.60"
+        },
+        {
+          "notation": "6.65",
+          "label_en": "Services",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt6.65"
+        },
+        {
+          "notation": "6.70",
+          "label_en": "Finance and trade",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt6.70"
+        },
+        {
+          "notation": "6.75",
+          "label_en": "Organization and management",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt6.75"
+        },
+        {
+          "notation": "6.80",
+          "label_en": "Personnel management",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt6.80"
+        },
+        {
+          "notation": "6.85",
+          "label_en": "Labour",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt6.85"
+        }
+      ]
+    },
+    {
+      "notation": "7",
+      "label_en": "Countries and country groupings",
+      "uri": "http://vocabularies.unesco.org/thesaurus/domain7",
+      "kristall_default_role": "facet_root",
+      "microthesauri": [
+        {
+          "notation": "7.05",
+          "label_en": "Africa",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt7.05"
+        },
+        {
+          "notation": "7.10",
+          "label_en": "Americas and the Caribbean",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt7.10"
+        },
+        {
+          "notation": "7.15",
+          "label_en": "Asia and the Pacific",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt7.15"
+        },
+        {
+          "notation": "7.20",
+          "label_en": "Europe",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt7.20"
+        },
+        {
+          "notation": "7.25",
+          "label_en": "Political groupings",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt7.25"
+        },
+        {
+          "notation": "7.30",
+          "label_en": "Economic groupings",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt7.30"
+        },
+        {
+          "notation": "7.35",
+          "label_en": "Geographic groupings",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt7.35"
+        },
+        {
+          "notation": "7.40",
+          "label_en": "Ethnic and religious groupings",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt7.40"
+        },
+        {
+          "notation": "7.45",
+          "label_en": "Linguistic groupings",
+          "uri": "http://vocabularies.unesco.org/thesaurus/mt7.45"
+        }
+      ]
+    }
+  ],
+  "source_refs": [
+    {
+      "role": "service_home",
+      "url": "https://vocabularies.unesco.org/en/",
+      "observed": "~4500 concepts, 5 languages, 7 domains, 88 microthesauri"
+    },
+    {
+      "role": "about",
+      "url": "https://vocabularies.unesco.org/en/about",
+      "observed": "SKOS Linked Open Data, ISO 25964, permanent dereferenceable URIs; one cached/about rendition reports 72 microthesauri"
+    },
+    {
+      "role": "sparql",
+      "url": "https://vocabularies.unesco.org/sparql",
+      "observed": "official SPARQL endpoint and ConceptGroup query model"
+    }
+  ],
+  "source_notes": [
+    "The public UNESCO vocabulary pages observed on 2026-10-02 are internally inconsistent on the microthesaurus count (some About content reports 72; the current service landing and the enumerated domain profile yield 88). This Kristall reference profile pins the 88-group enumeration and records the discrepancy rather than hiding it."
+  ],
+  "baseline_status": "pinned",
+  "baseline_observed_on": "2026-10-02",
+  "baseline_domains": 7,
+  "baseline_microthesauri": 88,
+  "source_service_url": "https://vocabularies.unesco.org/en/",
+  "source_vocabulary_url": "https://vocabularies.unesco.org/unesco/en/",
+  "source_vocabulary_last_modified": "2026-06-29",
+  "provenance_note": "Presentation metadata may vary across UNESCO pages; Kristall v7 pins the 7-domain / 88-microthesaurus service structure as its reference-spine baseline."
+}

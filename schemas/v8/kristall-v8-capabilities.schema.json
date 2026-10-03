@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kristal v8 capability descriptor",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "compatibility",
+    "capabilities"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "8.0"
+    },
+    "artifact_type": {
+      "const": "kristall_v8_capabilities"
+    },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reads",
+        "portable_state",
+        "semantic_baseline"
+      ],
+      "properties": {
+        "reads": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "portable_state": {
+          "const": "kristal_state/6.0"
+        },
+        "semantic_baseline": {
+          "const": "kristall/7.0"
+        }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "language",
+        "ai_query"
+      ],
+      "properties": {
+        "language": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "protocol"
+          ],
+          "properties": {
+            "protocol": {
+              "const": "kristal-language/1.0"
+            },
+            "bcp47": {
+              "const": true
+            },
+            "max_stack_layers": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        "ai_query": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "protocol"
+          ],
+          "properties": {
+            "protocol": {
+              "const": "kristal-query/1.0"
+            },
+            "modes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            },
+            "encodings": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "expanded_json",
+                  "symbol_table_v1"
+                ]
+              },
+              "uniqueItems": true
+            },
+            "pagination": {
+              "type": "boolean"
+            },
+            "federation": {
+              "type": "boolean"
+            },
+            "semantic_fingerprints": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  }
+}

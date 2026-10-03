@@ -1,0 +1,99 @@
+{
+  "schema_version": "8.0",
+  "artifact_type": "kristall_ai_context_bundle",
+  "bundle_id": "AICB-1",
+  "query_id": "Q-architecture-1",
+  "source_fingerprints": [
+    {
+      "ref": "examples/v7/mesh.example.json",
+      "byte_sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "roots": [
+    {
+      "identity_space": "kristall",
+      "id": "KQ1001"
+    }
+  ],
+  "encoding": "expanded_json",
+  "budget": {
+    "max_bytes": 200000,
+    "used_bytes": 620,
+    "max_tokens": 6000,
+    "estimated_tokens": 220,
+    "tokenizer_id": "example-tokenizer/v1",
+    "token_estimate_kind": "heuristic"
+  },
+  "selection": {
+    "policy": "semantic_atom_priority",
+    "intent": "explain_architecture",
+    "atom_ordering": "priority_then_stable_id"
+  },
+  "completeness": {
+    "semantic_closure": "complete",
+    "evidence_closure": "complete",
+    "source_coverage": "complete",
+    "truncated": false,
+    "reasons": []
+  },
+  "context": {
+    "atoms": [
+      {
+        "atom_id": "atom:entity:KQ1001",
+        "kind": "entity",
+        "semantic_refs": [
+          {
+            "identity_space": "kristall",
+            "id": "KQ1001"
+          }
+        ],
+        "payload": {
+          "id": "KQ1001",
+          "kind": "entity"
+        },
+        "provenance": [
+          {
+            "source_ref": "examples/v7/mesh.example.json",
+            "retrieval_reason": "query_root"
+          }
+        ],
+        "trust_class": "derived",
+        "priority": 100
+      },
+      {
+        "atom_id": "atom:edge:1",
+        "kind": "edge",
+        "semantic_refs": [
+          {
+            "identity_space": "kristall",
+            "id": "KQ1001"
+          },
+          {
+            "identity_space": "kristall",
+            "id": "KP1001"
+          }
+        ],
+        "payload": {
+          "from": "source:formal",
+          "relation": "KP1001",
+          "to": "KQ1001"
+        },
+        "provenance": [
+          {
+            "source_ref": "examples/v7/mesh.example.json",
+            "retrieval_reason": "semantic_slice"
+          }
+        ],
+        "trust_class": "derived",
+        "priority": 90
+      }
+    ]
+  },
+  "lexical_resolution": {
+    "locale": "fr-CA",
+    "stack_id": "KLS-fr-chemistry-college",
+    "missing": []
+  },
+  "unresolved": [],
+  "omissions": []
+}

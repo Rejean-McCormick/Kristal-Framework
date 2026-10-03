@@ -1,0 +1,366 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kristall AI context bundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "bundle_id",
+    "query_id",
+    "source_fingerprints",
+    "roots",
+    "encoding",
+    "budget",
+    "selection",
+    "completeness",
+    "context",
+    "unresolved",
+    "omissions"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "8.0"
+    },
+    "artifact_type": {
+      "const": "kristall_ai_context_bundle"
+    },
+    "bundle_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "query_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_fingerprints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ref",
+          "byte_sha256"
+        ],
+        "properties": {
+          "ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "byte_sha256": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-fA-F]{64}$"
+          },
+          "semantic_fingerprint": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "profile",
+              "digest"
+            ],
+            "properties": {
+              "profile": {
+                "type": "string",
+                "minLength": 1
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-fA-F]{64}$"
+              }
+            }
+          },
+          "schema_version": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "roots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "identity_space",
+          "id"
+        ],
+        "properties": {
+          "identity_space": {
+            "enum": [
+              "kristall",
+              "kristal_v6",
+              "external"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "namespace": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "encoding": {
+      "enum": [
+        "expanded_json",
+        "symbol_table_v1"
+      ]
+    },
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_bytes",
+        "used_bytes"
+      ],
+      "properties": {
+        "max_bytes": {
+          "type": "integer",
+          "minimum": 256
+        },
+        "used_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_tokens": {
+          "type": "integer",
+          "minimum": 128
+        },
+        "estimated_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tokenizer_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "token_estimate_kind": {
+          "enum": [
+            "exact",
+            "heuristic",
+            "unavailable"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "max_tokens"
+            ]
+          },
+          "then": {
+            "required": [
+              "tokenizer_id",
+              "token_estimate_kind"
+            ]
+          }
+        }
+      ]
+    },
+    "selection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy"
+      ],
+      "properties": {
+        "policy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "intent": {
+          "type": "string"
+        },
+        "atom_ordering": {
+          "type": "string"
+        }
+      }
+    },
+    "completeness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "semantic_closure",
+        "evidence_closure",
+        "source_coverage",
+        "truncated",
+        "reasons"
+      ],
+      "properties": {
+        "semantic_closure": {
+          "enum": [
+            "complete",
+            "partial",
+            "not_requested",
+            "unknown"
+          ]
+        },
+        "evidence_closure": {
+          "enum": [
+            "complete",
+            "partial",
+            "not_requested",
+            "unknown"
+          ]
+        },
+        "source_coverage": {
+          "enum": [
+            "complete",
+            "partial",
+            "not_requested",
+            "unknown"
+          ]
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "atoms"
+      ],
+      "properties": {
+        "symbol_table": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "atoms": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "atom_id",
+              "kind",
+              "payload",
+              "provenance",
+              "trust_class"
+            ],
+            "properties": {
+              "atom_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "enum": [
+                  "assertion",
+                  "edge",
+                  "entity",
+                  "property",
+                  "evidence_ref",
+                  "source",
+                  "conflict",
+                  "unresolved"
+                ]
+              },
+              "semantic_refs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "identity_space",
+                    "id"
+                  ],
+                  "properties": {
+                    "identity_space": {
+                      "enum": [
+                        "kristall",
+                        "kristal_v6",
+                        "external"
+                      ]
+                    },
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "namespace": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              },
+              "payload": {},
+              "provenance": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "source_ref"
+                  ],
+                  "properties": {
+                    "source_ref": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "fingerprint_ref": {
+                      "type": "string"
+                    },
+                    "retrieval_reason": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "trust_class": {
+                "enum": [
+                  "canonical",
+                  "recognized",
+                  "external_untrusted",
+                  "derived",
+                  "unknown"
+                ]
+              },
+              "priority": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "lexical_resolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "locale": {
+          "type": "string",
+          "pattern": "^[A-Za-z]{2,8}(?:-[A-Za-z0-9]{1,8})*$"
+        },
+        "stack_id": {
+          "type": "string"
+        },
+        "missing": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "unresolved": {
+      "type": "array"
+    },
+    "omissions": {
+      "type": "array"
+    }
+  }
+}

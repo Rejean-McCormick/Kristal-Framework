@@ -1,0 +1,16 @@
+{
+  "schema_version": "7.0",
+  "artifact_type": "kristall_projection_recipe",
+  "recipe_id": "recipe:1",
+  "subject": {
+    "subject_id": "subject:power"
+  },
+  "orientation": {
+    "primary_axis": "KQ2001"
+  },
+  "output": {
+    "artifact_type": "kristal_state",
+    "schema_version": "6.0",
+    "profile": "v6_compatible"
+  }
+}

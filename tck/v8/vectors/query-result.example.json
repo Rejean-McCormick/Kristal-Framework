@@ -1,0 +1,66 @@
+{
+  "schema_version": "8.0",
+  "artifact_type": "kristall_query_result",
+  "protocol": "kristal-query/1.0",
+  "query_id": "Q-architecture-1",
+  "mode": "semantic_slice",
+  "status": "complete",
+  "source_fingerprints": [
+    {
+      "ref": "examples/v7/mesh.example.json",
+      "byte_sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "resolved_roots": [
+    {
+      "identity_space": "kristall",
+      "id": "KQ1001"
+    }
+  ],
+  "resolution_candidates": [],
+  "result": {
+    "nodes": [
+      {
+        "id": "KQ1001",
+        "kind": "entity"
+      }
+    ],
+    "edges": [
+      {
+        "from": "source:formal",
+        "relation": "KP1001",
+        "to": "KQ1001"
+      }
+    ],
+    "assertions": [],
+    "evidence": []
+  },
+  "completeness": {
+    "semantic_closure": "complete",
+    "evidence_closure": "complete",
+    "source_coverage": "complete",
+    "truncated": false,
+    "reasons": []
+  },
+  "continuation": {
+    "has_more": false,
+    "ordering_profile": "kristal.query/stable-id-v1"
+  },
+  "unresolved": [],
+  "conflicts": [],
+  "omissions": [],
+  "query_plan": {
+    "discovery": "exact",
+    "strategy": "identity_graph",
+    "intent": "explain_architecture",
+    "traversal_direction": "both",
+    "max_depth": 2,
+    "max_nodes": 120,
+    "max_edges": 500,
+    "properties": [
+      "KP1001"
+    ],
+    "indexes_used": [],
+    "shards_contacted": []
+  }
+}

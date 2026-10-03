@@ -1,0 +1,37 @@
+{
+  "schema_version": "8.0",
+  "artifact_type": "kristall_v8_capabilities",
+  "compatibility": {
+    "reads": [
+      "kristal_state/6.0",
+      "kristall/7.0",
+      "kristall/8.0"
+    ],
+    "portable_state": "kristal_state/6.0",
+    "semantic_baseline": "kristall/7.0"
+  },
+  "capabilities": {
+    "language": {
+      "protocol": "kristal-language/1.0",
+      "bcp47": true,
+      "max_stack_layers": 64
+    },
+    "ai_query": {
+      "protocol": "kristal-query/1.0",
+      "modes": [
+        "identity_lookup",
+        "neighborhood",
+        "semantic_traversal",
+        "evidence_closure",
+        "semantic_slice"
+      ],
+      "encodings": [
+        "expanded_json",
+        "symbol_table_v1"
+      ],
+      "pagination": true,
+      "federation": true,
+      "semantic_fingerprints": true
+    }
+  }
+}

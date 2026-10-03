@@ -1,0 +1,26 @@
+{
+  "schema_version": "8.0",
+  "artifact_type": "kristall_query_index",
+  "index_id": "KQI-example",
+  "authoritative": false,
+  "rebuildable": true,
+  "built_from": [
+    {
+      "ref": "examples/v7/mesh.example.json",
+      "byte_sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "schema_version": "7.0"
+    }
+  ],
+  "indexes": [
+    {
+      "kind": "outgoing_edges",
+      "location": "indexes/outgoing.json",
+      "profile": "kristal.query-index/outgoing/v1"
+    },
+    {
+      "kind": "identity_lookup",
+      "location": "indexes/identity.json",
+      "profile": "kristal.query-index/identity/v1"
+    }
+  ]
+}

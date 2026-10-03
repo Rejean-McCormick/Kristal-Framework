@@ -1,0 +1,13 @@
+{
+  "schema_version": "7.0",
+  "artifact_type": "kristall_source_registry",
+  "namespace_id": "kristall-main",
+  "registry_id": "reg:sources",
+  "sources": [
+    {
+      "source_id": "KS1",
+      "title": "Formal power source",
+      "status": "active"
+    }
+  ]
+}

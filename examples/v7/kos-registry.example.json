@@ -1,0 +1,28 @@
+{
+  "schema_version": "7.0",
+  "artifact_type": "kristall_kos_registry",
+  "registry_id": "urn:kristall:registry:kos",
+  "systems": [
+    {
+      "kos_id": "kos:unesco-thesaurus",
+      "title": "UNESCO Thesaurus",
+      "kos_type": "thesaurus",
+      "canonical_uri": "http://vocabularies.unesco.org/thesaurus",
+      "role": "reference_spine",
+      "standard": "SKOS / ISO 25964",
+      "license": "CC-BY-SA 3.0 IGO",
+      "snapshot_ref": "reference-kos/unesco-thesaurus-profile.json",
+      "mapping_policy": {
+        "internal_identity_remains_kristall": true,
+        "allowed_mapping_semantics": [
+          "exactMatch",
+          "closeMatch",
+          "broadMatch",
+          "narrowMatch",
+          "relatedMatch",
+          "classifiedIn"
+        ]
+      }
+    }
+  ]
+}

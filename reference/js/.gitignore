@@ -1,0 +1,29 @@
+node_modules/
+.tmp/
+dist/
+coverage/
+*.log
+.DS_Store
+Thumbs.db
+/SmartSnap.pyw
+
+# Local helper
+GitSink.bat
+
+# Local environment / editor / caches
+.env
+.env.*
+!.env.example
+!*.example
+.cache/
+.vscode/
+.idea/
+*.tmp
+*.swp
+
+# Backup files
+*.bak
+*.bak_*
+*.bak-*
+*.backup
+*.backup-*

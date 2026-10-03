@@ -1,0 +1,72 @@
+{
+  "format": "kristal.contract-set/v3",
+  "version": "8.0.0",
+  "normative": {
+    "core": [
+      "spec/v8/01-core-spec/kristal-v8-core-spec.md",
+      "spec/v8/01-core-spec/compatibility-contract.md",
+      "spec/v8/Core-Invariants.md",
+      "spec/v8/Architecture.md",
+      "spec/v8/Language-Layer.md",
+      "spec/v8/Semantic-Universe-and-Lexical-Kristals.md",
+      "spec/v8/Lexical-Resolution.md",
+      "spec/v8/AI-Query-Layer.md",
+      "spec/v8/Query-Protocol.md",
+      "spec/v8/Query-Algebra-and-Planning.md",
+      "spec/v8/Federation-Pagination-and-Continuations.md",
+      "spec/v8/AI-Context-Compiler.md",
+      "spec/v8/AI-Compact-Encoding.md",
+      "spec/v8/Semantic-Fingerprints-and-Integrity.md",
+      "spec/v8/Security-and-Trust-Boundaries.md",
+      "spec/v8/Conformance.md"
+    ],
+    "schemas": [
+      "schemas/v6/kristal-state.schema.json",
+      "schemas/v7/kristal-v7-extension.schema.json",
+      "schemas/v7/kristall-assertion-family-registry.schema.json",
+      "schemas/v7/kristall-assertion-registry.schema.json",
+      "schemas/v7/kristall-axis-registry.schema.json",
+      "schemas/v7/kristall-axis-type-registry.schema.json",
+      "schemas/v7/kristall-crystallization-record.schema.json",
+      "schemas/v7/kristall-entity-registry.schema.json",
+      "schemas/v7/kristall-kos-registry.schema.json",
+      "schemas/v7/kristall-manifest.schema.json",
+      "schemas/v7/kristall-mesh.schema.json",
+      "schemas/v7/kristall-projection-recipe.schema.json",
+      "schemas/v7/kristall-property-registry.schema.json",
+      "schemas/v7/kristall-source-registry.schema.json",
+      "schemas/v7/kristall-toc-registry.schema.json",
+      "schemas/v7/semantic-resonance.schema.json",
+      "schemas/v8/kristall-ai-context-bundle.schema.json",
+      "schemas/v8/kristall-lexicon-stack.schema.json",
+      "schemas/v8/kristall-lexicon.schema.json",
+      "schemas/v8/kristall-query-index.schema.json",
+      "schemas/v8/kristall-query-request.schema.json",
+      "schemas/v8/kristall-query-result.schema.json",
+      "schemas/v8/kristall-v8-capabilities.schema.json"
+    ],
+    "compatibility": [
+      "contracts/v8-compatibility-lock.json"
+    ],
+    "tck": [
+      "tck/v8/vectors/",
+      "tck/v7/vectors/",
+      "tck/v6/vectors/",
+      "spec/v5/09-test-vectors/"
+    ]
+  },
+  "informative": {
+    "reference": [
+      "reference/js/",
+      "tools/v8/"
+    ],
+    "examples": [
+      "examples/v8/",
+      "examples/v7/",
+      "examples/v6/"
+    ],
+    "history": [
+      "history/status/"
+    ]
+  }
+}

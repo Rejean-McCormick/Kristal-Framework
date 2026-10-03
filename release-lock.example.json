@@ -1,8 +1,0 @@
-{
-  "format": "kristal.release-lock/v1",
-  "version": "6.0.0",
-  "git_tag": "v6.0.0",
-  "git_commit": "REPLACE_WITH_FULL_COMMIT_SHA_AFTER_TAGGING",
-  "canonicalization_profile": "kristal.v6:jcs-rfc8785",
-  "canonicalization_version": "1"
-}

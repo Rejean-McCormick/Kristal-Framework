@@ -1,0 +1,247 @@
+{
+  "subjects": 100,
+  "primary_category_distribution": [
+    {
+      "category": "Biology",
+      "count": 8
+    },
+    {
+      "category": "Manufacturing and transport engineering",
+      "count": 8
+    },
+    {
+      "category": "Medical sciences",
+      "count": 7
+    },
+    {
+      "category": "Earth sciences",
+      "count": 5
+    },
+    {
+      "category": "Philosophy and ethics",
+      "count": 5
+    },
+    {
+      "category": "Information technology (software)",
+      "count": 5
+    },
+    {
+      "category": "Space sciences",
+      "count": 3
+    },
+    {
+      "category": "Geography and oceanography",
+      "count": 3
+    },
+    {
+      "category": "Meteorology",
+      "count": 3
+    },
+    {
+      "category": "Materials and products",
+      "count": 3
+    },
+    {
+      "category": "Performing arts",
+      "count": 3
+    },
+    {
+      "category": "Psychology",
+      "count": 2
+    },
+    {
+      "category": "Environmental sciences and engineering",
+      "count": 2
+    },
+    {
+      "category": "Equipment and facilities",
+      "count": 2
+    },
+    {
+      "category": "Legal systems",
+      "count": 2
+    },
+    {
+      "category": "Social sciences",
+      "count": 2
+    },
+    {
+      "category": "Civil, military, and mining engineering",
+      "count": 2
+    },
+    {
+      "category": "Agriculture",
+      "count": 2
+    },
+    {
+      "category": "Population",
+      "count": 2
+    },
+    {
+      "category": "Pollution, disasters and safety",
+      "count": 2
+    },
+    {
+      "category": "Human settlements and land use",
+      "count": 2
+    },
+    {
+      "category": "Communication research and policy",
+      "count": 2
+    },
+    {
+      "category": "Scientific approach",
+      "count": 2
+    },
+    {
+      "category": "Finance and trade",
+      "count": 2
+    },
+    {
+      "category": "Religion",
+      "count": 2
+    },
+    {
+      "category": "Art",
+      "count": 2
+    },
+    {
+      "category": "Leisure",
+      "count": 2
+    },
+    {
+      "category": "Information sciences",
+      "count": 1
+    },
+    {
+      "category": "History",
+      "count": 1
+    },
+    {
+      "category": "Linguistics",
+      "count": 1
+    },
+    {
+      "category": "Economics",
+      "count": 1
+    },
+    {
+      "category": "Natural resources",
+      "count": 1
+    },
+    {
+      "category": "Hydrology",
+      "count": 1
+    },
+    {
+      "category": "Information technology (hardware)",
+      "count": 1
+    },
+    {
+      "category": "Information management",
+      "count": 1
+    },
+    {
+      "category": "Politics and government",
+      "count": 1
+    },
+    {
+      "category": "Organization and management",
+      "count": 1
+    },
+    {
+      "category": "Services",
+      "count": 1
+    },
+    {
+      "category": "Labour",
+      "count": 1
+    },
+    {
+      "category": "Educational sciences and environment",
+      "count": 1
+    },
+    {
+      "category": "Literature",
+      "count": 1
+    },
+    {
+      "category": "Visual arts",
+      "count": 1
+    }
+  ],
+  "primary_axis_type_distribution": [
+    {
+      "axis_type": "Flow / transformation",
+      "count": 13
+    },
+    {
+      "axis_type": "Structural / hierarchical",
+      "count": 9
+    },
+    {
+      "axis_type": "State / transition",
+      "count": 9
+    },
+    {
+      "axis_type": "Network / interaction",
+      "count": 8
+    },
+    {
+      "axis_type": "Information / representation",
+      "count": 7
+    },
+    {
+      "axis_type": "Temporal / causal",
+      "count": 7
+    },
+    {
+      "axis_type": "Narrative / cultural",
+      "count": 7
+    },
+    {
+      "axis_type": "Spatial / distribution",
+      "count": 6
+    },
+    {
+      "axis_type": "Constraint / design",
+      "count": 5
+    },
+    {
+      "axis_type": "Evolution / development",
+      "count": 5
+    },
+    {
+      "axis_type": "Risk / exposure / control",
+      "count": 5
+    },
+    {
+      "axis_type": "Normative / decision",
+      "count": 4
+    },
+    {
+      "axis_type": "Agential / institutional",
+      "count": 4
+    },
+    {
+      "axis_type": "Epistemic / evidence",
+      "count": 4
+    },
+    {
+      "axis_type": "Functional / system",
+      "count": 2
+    },
+    {
+      "axis_type": "Resource / allocation",
+      "count": 2
+    },
+    {
+      "axis_type": "Feedback / control",
+      "count": 2
+    },
+    {
+      "axis_type": "Measurement / evaluation",
+      "count": 1
+    }
+  ]
+}

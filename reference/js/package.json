@@ -1,0 +1,17 @@
+{
+  "name": "@kristal/reference",
+  "version": "8.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Non-normative JavaScript reference implementation for Kristal v8 with v6/v7 compatibility, language resolution, KQP, AI context compilation, and legacy v5 helpers.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node tests/run_v6_tests.mjs && node tests/run_v8_tests.mjs && node tests/run_tests.mjs",
+    "test:v6": "node tests/run_v6_tests.mjs",
+    "test:legacy-v5": "node tests/run_tests.mjs",
+    "self-test": "node bin/kristal-ref.mjs self-test",
+    "test:v8": "node tests/run_v8_tests.mjs"
+  }
+}

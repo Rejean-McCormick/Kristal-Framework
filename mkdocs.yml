@@ -1,98 +1,36 @@
-site_name: Kristal Framework v6
-site_description: Portable structured memory and actionability standard
-site_author: Réjean McCormick
-
-docs_dir: docs
-
-validation:
-  links:
-    absolute_links: relative_to_docs
-    unrecognized_links: warn
-    anchors: warn
-
-not_in_nav: |
-  Technical-Reference/kristal-docs-v6/02-schemas/*.json
-  Technical-Reference/kristal-docs-v6/09-test-vectors/**/*.json
-  Technical-Reference/kristal-docs-v6/10-examples/*.json
-  Technical-Reference/kristal-docs-v5/**/*.json
-  Technical-Reference/kristal-docs-v5/**/*.txt
-  Technical-Reference/kristal-docs-v5/**/*.md
-
+site_name: Kristal
+site_description: Kristal standard, portable state, semantic orchestration, language and AI query layers
+docs_dir: spec
 theme:
   name: material
-  language: en
-  features:
-    - navigation.sections
-    - navigation.indexes
-    - navigation.top
-    - toc.integrate
-    - content.code.copy
-    - search.suggest
-    - search.highlight
-
-markdown_extensions:
-  - admonition
-  - attr_list
-  - footnotes
-  - def_list
-  - tables
-  - toc:
-      permalink: true
-  - pymdownx.highlight
-  - pymdownx.superfences
-  - pymdownx.inlinehilite
-  - pymdownx.details
-
 plugins:
   - search
-
 nav:
-  - Home: index.md
-  - Status:
-      - v6.0.0 validation status: status/2026-10-01-v6.0.0.md
-  - Overview:
-      - What is Kristal: Technical-Reference/kristal-docs-v6/What-is-Kristal.md
-      - Concepts and mental model: Technical-Reference/kristal-docs-v6/Concepts-and-Mental-Model.md
-      - Specification status: Technical-Reference/kristal-docs-v6/00-overview/specification-status.md
-      - Automation and organizational memory: Technical-Reference/kristal-docs-v6/Automation-and-Organizational-Memory.md
-      - Examples and archetypes: Technical-Reference/kristal-docs-v6/Examples-and-Archetypes.md
-      - Glossary: Technical-Reference/kristal-docs-v6/Glossary.md
-  - Core specification:
-      - Core spec: Technical-Reference/kristal-docs-v6/01-core-spec/kristal-v6-core-spec.md
-      - Kristal State: Technical-Reference/kristal-docs-v6/Kristal-State.md
-      - Valuations and value semantics: Technical-Reference/kristal-docs-v6/Valuations-and-Value-Semantics.md
-      - Coordinates and applicability: Technical-Reference/kristal-docs-v6/Coordinates-and-Applicability.md
-      - Record roles: Technical-Reference/kristal-docs-v6/Record-Roles.md
-      - Actionability and human boundaries: Technical-Reference/kristal-docs-v6/Actionability-and-Human-Boundaries.md
-      - Referents and domain-neutral model: Technical-Reference/kristal-docs-v6/Referents-and-Domain-Neutral-Model.md
-      - Identity and determinism: Technical-Reference/kristal-docs-v6/Identity-and-Determinism.md
-      - Trust, authority and signatures: Technical-Reference/kristal-docs-v6/Trust-Authority-and-Signatures.md
-      - v6/v5 compatibility contract: Technical-Reference/kristal-docs-v6/01-core-spec/compatibility-contract.md
-  - Getting started:
-      - Getting started: Technical-Reference/kristal-docs-v6/Getting-Started.md
-      - Quickstart: Technical-Reference/kristal-docs-v6/Quickstart.md
-      - Migration v5 to v6: Technical-Reference/kristal-docs-v6/Migration-v5-to-v6.md
-  - Artifacts:
-      - Artifacts: Technical-Reference/kristal-docs-v6/Artifacts.md
-      - Validation report: Technical-Reference/kristal-docs-v6/Artifact-Validation-Report.md
-      - Authority registry: Technical-Reference/kristal-docs-v6/Artifact-Authority-Registry.md
-      - Legacy Exchange: Technical-Reference/kristal-docs-v6/Artifact-Exchange.md
-      - Legacy Runtime Pack: Technical-Reference/kristal-docs-v6/Artifact-Runtime-Pack.md
-      - Legacy shard manifest: Technical-Reference/kristal-docs-v6/Artifact-Shard-Manifest.md
-      - Legacy federation manifest: Technical-Reference/kristal-docs-v6/Artifact-Federation-Manifest.md
-  - Query and operations:
-      - Query: Technical-Reference/kristal-docs-v6/Query.md
-      - Query basics: Technical-Reference/kristal-docs-v6/Query-Basics.md
-      - Operations: Technical-Reference/kristal-docs-v6/Operations.md
-      - Compatibility: Technical-Reference/kristal-docs-v6/Operations-Compatibility.md
-      - Observability: Technical-Reference/kristal-docs-v6/Operations-Observability-and-Troubleshooting.md
-      - Release strategy: Technical-Reference/kristal-docs-v6/Operations-Release-Strategy.md
-  - Workflows:
-      - Workflows: Technical-Reference/kristal-docs-v6/Workflows.md
-      - Build and validate: Technical-Reference/kristal-docs-v6/Workflow-Build-and-Validate.md
-      - Publish and distribute: Technical-Reference/kristal-docs-v6/Workflow-Publish-and-Distribute.md
-      - Activate / rollback / downgrade: Technical-Reference/kristal-docs-v6/Workflow-Activate-Rollback-Downgrade.md
-      - Federation and curation: Technical-Reference/kristal-docs-v6/Workflow-Federation-and-Curation.md
-      - Subset recipes: Technical-Reference/kristal-docs-v6/Workflow-Subsets-Recipes.md
-  - Ecosystem integration: Technical-Reference/kristal-docs-v6/Ecosystem-Integration.md
-  - FAQ: Technical-Reference/kristal-docs-v6/FAQ.md
+  - v8 Home: v8/Home.md
+  - v8 Core: v8/01-core-spec/kristal-v8-core-spec.md
+  - v8 Compatibility: v8/01-core-spec/compatibility-contract.md
+  - v8 Invariants: v8/Core-Invariants.md
+  - v8 Architecture: v8/Architecture.md
+  - v8 Language Layer: v8/Language-Layer.md
+  - v8 Semantic Universe: v8/Semantic-Universe-and-Lexical-Kristals.md
+  - v8 Lexical Resolution: v8/Lexical-Resolution.md
+  - v8 AI Query Layer: v8/AI-Query-Layer.md
+  - v8 Query Protocol: v8/Query-Protocol.md
+  - v8 Query Algebra: v8/Query-Algebra-and-Planning.md
+  - v8 Federation/Pagination: v8/Federation-Pagination-and-Continuations.md
+  - v8 AI Context Compiler: v8/AI-Context-Compiler.md
+  - v8 AI Compact Encoding: v8/AI-Compact-Encoding.md
+  - v8 Semantic Fingerprints: v8/Semantic-Fingerprints-and-Integrity.md
+  - v8 Security/Trust: v8/Security-and-Trust-Boundaries.md
+  - v8 v6/v7 Adapters: v8/Adapters-v6-v7.md
+  - v8 Conformance: v8/Conformance.md
+  - v8 Migration: v8/Migration-v7-to-v8.md
+  - v8 Glossary: v8/Glossary.md
+  - v8 Design Rationale: v8/Design-Rationale.md
+  - v7 Home: v7/Home.md
+  - v7 Core: v7/01-core-spec/kristal-v7-core-spec.md
+  - v7 Compatibility: v7/01-core-spec/compatibility-contract.md
+  - v7 Identity: v7/Semantic-Identity.md
+  - v7 Query: v7/Query.md
+  - v6 Home: v6/Home.md
+  - v5 Overview: v5/00-overview/what-is-kristal-v5.md

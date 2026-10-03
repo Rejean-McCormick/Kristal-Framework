@@ -1,0 +1,24 @@
+{
+  "schema_version": "8.0",
+  "artifact_type": "kristall_lexicon_stack",
+  "stack_id": "KLS-fr-chemistry-college",
+  "requested_locale": "fr-CA",
+  "resolution_policy": {
+    "precedence": "highest_numeric_wins",
+    "on_missing": "preserve_semantic_id",
+    "on_conflict": "return_conflict",
+    "locale_fallback": [
+      "fr"
+    ]
+  },
+  "layers": [
+    {
+      "lexicon_ref": "KL-fr-core",
+      "precedence": 100
+    },
+    {
+      "lexicon_ref": "KL-fr-chemistry",
+      "precedence": 300
+    }
+  ]
+}

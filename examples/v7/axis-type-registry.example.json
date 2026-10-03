@@ -1,0 +1,188 @@
+{
+  "schema_version": "7.0",
+  "artifact_type": "kristall_axis_type_registry",
+  "namespace_id": "kristall-main",
+  "registry_id": "urn:kristall:registry:axis-types",
+  "axis_types": [
+    {
+      "axis_type_id": "KQ3001",
+      "label": "Structural / hierarchical",
+      "definition": "Organizes a subject by levels, parts, composition, classes or nested structure.",
+      "status": "active",
+      "organizing_questions": [
+        "What is composed of what?",
+        "At which level does this object belong?"
+      ]
+    },
+    {
+      "axis_type_id": "KQ3002",
+      "label": "Flow / transformation",
+      "definition": "Organizes stocks, flows, conversions, pipelines and transformations.",
+      "status": "active",
+      "organizing_questions": [
+        "What flows?",
+        "What transforms into what, through which process?"
+      ]
+    },
+    {
+      "axis_type_id": "KQ3003",
+      "label": "State / transition",
+      "definition": "Organizes states, events, transitions, interventions and outcomes.",
+      "status": "active",
+      "organizing_questions": [
+        "What state is the system in?",
+        "What transition changes that state?"
+      ]
+    },
+    {
+      "axis_type_id": "KQ3004",
+      "label": "Temporal / causal",
+      "definition": "Organizes precedence, trajectories, periods, causal chains and consequences through time.",
+      "status": "active",
+      "organizing_questions": [
+        "What happened before/after?",
+        "What caused or followed this?"
+      ]
+    },
+    {
+      "axis_type_id": "KQ3005",
+      "label": "Spatial / distribution",
+      "definition": "Organizes location, scale, boundary, distance, territory and spatial distribution.",
+      "status": "active",
+      "organizing_questions": [
+        "Where is it?",
+        "How is it distributed across space or scale?"
+      ]
+    },
+    {
+      "axis_type_id": "KQ3006",
+      "label": "Network / interaction",
+      "definition": "Organizes nodes, links, interactions, dependencies and network effects.",
+      "status": "active",
+      "organizing_questions": [
+        "Who/what interacts with whom/what?",
+        "What network structure results?"
+      ]
+    },
+    {
+      "axis_type_id": "KQ3007",
+      "label": "Functional / system",
+      "definition": "Organizes need, function, component, system, use, service and failure.",
+      "status": "active",
+      "organizing_questions": [
+        "What function is served?",
+        "How do components contribute to the system?"
+      ]
+    },
+    {
+      "axis_type_id": "KQ3008",
+      "label": "Constraint / design",
+      "definition": "Organizes requirements, constraints, trade-offs, architectures, solutions and verification.",
+      "status": "active",
+      "organizing_questions": [
+        "What constraints must be satisfied?",
+        "Which design satisfies them and how is it verified?"
+      ]
+    },
+    {
+      "axis_type_id": "KQ3009",
+      "label": "Normative / decision",
+      "definition": "Organizes rules, rights, duties, conditions, exceptions, jurisdiction and decisions.",
+      "status": "active",
+      "organizing_questions": [
+        "Which rule applies?",
+        "Who may decide under what conditions?"
+      ]
+    },
+    {
+      "axis_type_id": "KQ3010",
+      "label": "Agential / institutional",
+      "definition": "Organizes actors, roles, groups, institutions, mandates, incentives and accountability.",
+      "status": "active",
+      "organizing_questions": [
+        "Who acts?",
+        "Which role or institution structures the action?"
+      ]
+    },
+    {
+      "axis_type_id": "KQ3011",
+      "label": "Information / representation",
+      "definition": "Organizes representation, encoding, semantics, storage, transmission, inference and interpretation.",
+      "status": "active",
+      "organizing_questions": [
+        "How is information represented?",
+        "How is it transformed or communicated?"
+      ]
+    },
+    {
+      "axis_type_id": "KQ3012",
+      "label": "Resource / allocation",
+      "definition": "Organizes scarce resources, assets, inputs, allocation, incentives, valuation and consumption.",
+      "status": "active",
+      "organizing_questions": [
+        "What resources exist?",
+        "How are they allocated, valued or consumed?"
+      ]
+    },
+    {
+      "axis_type_id": "KQ3013",
+      "label": "Risk / exposure / control",
+      "definition": "Organizes hazards, threats, exposure, vulnerability, controls, impacts and resilience.",
+      "status": "active",
+      "organizing_questions": [
+        "What can go wrong?",
+        "Who/what is exposed and which controls reduce impact?"
+      ]
+    },
+    {
+      "axis_type_id": "KQ3014",
+      "label": "Epistemic / evidence",
+      "definition": "Organizes claims, evidence, sources, justification, uncertainty and bounded conclusions.",
+      "status": "active",
+      "organizing_questions": [
+        "What is claimed?",
+        "What evidence justifies it and with what uncertainty?"
+      ]
+    },
+    {
+      "axis_type_id": "KQ3015",
+      "label": "Measurement / evaluation",
+      "definition": "Organizes quantities, indicators, instruments, assessment, uncertainty, quality and conformity.",
+      "status": "active",
+      "organizing_questions": [
+        "How is it measured?",
+        "How is quality, performance or conformity evaluated?"
+      ]
+    },
+    {
+      "axis_type_id": "KQ3016",
+      "label": "Evolution / development",
+      "definition": "Organizes stages, variation, inheritance, adaptation, selection, growth and long trajectories.",
+      "status": "active",
+      "organizing_questions": [
+        "How does it develop or evolve?",
+        "What varies, persists or adapts over time?"
+      ]
+    },
+    {
+      "axis_type_id": "KQ3017",
+      "label": "Narrative / cultural",
+      "definition": "Organizes works, narratives, symbols, motifs, traditions, representation, context and reception.",
+      "status": "active",
+      "organizing_questions": [
+        "How is meaning expressed or narrated?",
+        "How do forms vary across traditions and reception?"
+      ]
+    },
+    {
+      "axis_type_id": "KQ3018",
+      "label": "Feedback / control",
+      "definition": "Organizes targets, measurement, error, decision, correction and closed-loop adaptation.",
+      "status": "active",
+      "organizing_questions": [
+        "What is the target?",
+        "How is deviation measured and corrected?"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,346 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kristal Query Protocol request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "protocol",
+    "query_id",
+    "mode",
+    "roots",
+    "budget"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "8.0"
+    },
+    "artifact_type": {
+      "const": "kristall_query_request"
+    },
+    "protocol": {
+      "const": "kristal-query/1.0"
+    },
+    "query_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mode": {
+      "enum": [
+        "identity_lookup",
+        "neighborhood",
+        "semantic_traversal",
+        "evidence_closure",
+        "authority_resolution",
+        "temporal",
+        "diff",
+        "capability",
+        "constraints",
+        "cross_kristal",
+        "lexical",
+        "unknowns",
+        "semantic_slice"
+      ]
+    },
+    "intent": {
+      "type": "string"
+    },
+    "roots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "identity_space",
+          "id"
+        ],
+        "properties": {
+          "identity_space": {
+            "enum": [
+              "kristall",
+              "kristal_v6",
+              "external"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "namespace": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kristal_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "namespace_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "shards": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "discovery": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "enum": [
+            "exact",
+            "lexical",
+            "semantic_similarity",
+            "hybrid"
+          ]
+        },
+        "query_text": {
+          "type": "string"
+        },
+        "max_candidates": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000
+        }
+      }
+    },
+    "traversal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "direction": {
+          "enum": [
+            "out",
+            "in",
+            "both"
+          ]
+        },
+        "max_depth": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 64
+        },
+        "max_nodes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_edges": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "properties": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "edge_semantics": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "include_connectors": {
+          "type": "boolean"
+        }
+      }
+    },
+    "filters": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "assertion_status": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "record_role": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "property_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "valid_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "include": {
+          "type": "boolean"
+        },
+        "closure": {
+          "enum": [
+            "none",
+            "direct",
+            "transitive"
+          ]
+        },
+        "max_depth": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 64
+        },
+        "payload_policy": {
+          "enum": [
+            "references_only",
+            "metadata",
+            "inline_small"
+          ]
+        }
+      }
+    },
+    "language": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "locale": {
+          "type": "string",
+          "pattern": "^[A-Za-z]{2,8}(?:-[A-Za-z0-9]{1,8})*$"
+        },
+        "lexicon_stack_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "pagination": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "page_size": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10000
+        },
+        "cursor": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "deadline_ms",
+        "max_items",
+        "max_bytes"
+      ],
+      "properties": {
+        "deadline_ms": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_items": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_bytes": {
+          "type": "integer",
+          "minimum": 256
+        },
+        "max_tokens": {
+          "type": "integer",
+          "minimum": 128
+        },
+        "tokenizer_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "max_remote_shards": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_concurrency": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "max_tokens"
+            ]
+          },
+          "then": {
+            "required": [
+              "tokenizer_id"
+            ]
+          }
+        }
+      ]
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "encoding": {
+          "enum": [
+            "expanded_json",
+            "symbol_table_v1"
+          ]
+        },
+        "include_plan": {
+          "type": "boolean"
+        },
+        "include_label_hints": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

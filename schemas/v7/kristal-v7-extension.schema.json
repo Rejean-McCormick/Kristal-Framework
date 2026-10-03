@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "v7 extension",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "role",
+    "kristall_id",
+    "projection_id",
+    "subject",
+    "orientation",
+    "generated_from"
+  ],
+  "properties": {
+    "role": {
+      "const": "projection"
+    },
+    "kristall_id": {
+      "type": "string"
+    },
+    "projection_id": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "object",
+      "required": [
+        "subject_id"
+      ]
+    },
+    "orientation": {
+      "type": "object",
+      "required": [
+        "primary_axis"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "primary_axis": {
+          "type": "string"
+        },
+        "secondary_axis": {
+          "type": "string"
+        }
+      }
+    },
+    "generated_from": {
+      "type": "object",
+      "required": [
+        "manifest_id",
+        "recipe_id",
+        "source_state_refs"
+      ]
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Axis registry",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "namespace_id",
+    "registry_id",
+    "axes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.0"
+    },
+    "artifact_type": {
+      "const": "kristall_axis_registry"
+    },
+    "namespace_id": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "axes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "axis_id",
+          "axis_type",
+          "axis_type_id",
+          "label",
+          "description",
+          "status",
+          "semantics",
+          "provenance"
+        ],
+        "properties": {
+          "axis_id": {
+            "type": "string",
+            "pattern": "^KQ[1-9][0-9]*$"
+          },
+          "axis_type": {
+            "const": "orientation"
+          },
+          "label": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "candidate",
+              "active",
+              "deprecated"
+            ]
+          },
+          "semantics": {
+            "type": "object",
+            "required": [
+              "intent"
+            ]
+          },
+          "provenance": {
+            "type": "object",
+            "required": [
+              "mode"
+            ]
+          },
+          "axis_type_id": {
+            "type": "string",
+            "pattern": "^KQ[1-9][0-9]*$"
+          }
+        }
+      }
+    }
+  }
+}

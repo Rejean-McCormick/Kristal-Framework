@@ -1,0 +1,59 @@
+{
+  "schema_version": "8.0",
+  "artifact_type": "kristall_query_request",
+  "protocol": "kristal-query/1.0",
+  "query_id": "Q-architecture-1",
+  "mode": "semantic_slice",
+  "intent": "explain_architecture",
+  "roots": [
+    {
+      "identity_space": "kristall",
+      "id": "KQ1001"
+    }
+  ],
+  "scope": {
+    "namespace_ids": [
+      "kristall-main"
+    ]
+  },
+  "discovery": {
+    "mode": "exact"
+  },
+  "traversal": {
+    "direction": "both",
+    "max_depth": 2,
+    "max_nodes": 120,
+    "max_edges": 500,
+    "properties": [
+      "KP1001"
+    ],
+    "include_connectors": true
+  },
+  "evidence": {
+    "include": true,
+    "closure": "direct",
+    "max_depth": 1,
+    "payload_policy": "references_only"
+  },
+  "language": {
+    "locale": "fr-CA",
+    "lexicon_stack_ref": "KLS-fr-chemistry-college"
+  },
+  "pagination": {
+    "page_size": 300
+  },
+  "budget": {
+    "deadline_ms": 3000,
+    "max_items": 300,
+    "max_bytes": 200000,
+    "max_tokens": 6000,
+    "tokenizer_id": "example-tokenizer/v1",
+    "max_remote_shards": 8,
+    "max_concurrency": 4
+  },
+  "output": {
+    "encoding": "expanded_json",
+    "include_plan": true,
+    "include_label_hints": false
+  }
+}

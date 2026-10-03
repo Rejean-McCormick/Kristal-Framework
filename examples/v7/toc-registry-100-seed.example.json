@@ -1,0 +1,3533 @@
+{
+  "schema_version": "7.0",
+  "artifact_type": "kristall_toc_registry",
+  "namespace_id": "kristall-main",
+  "registry_id": "urn:kristall:registry:toc",
+  "category_model": {
+    "reference_kos": "kos:unesco-thesaurus",
+    "polyhierarchical_subjects": true,
+    "country_domain_default_role": "facet"
+  },
+  "categories": [
+    {
+      "category_id": "KQ4001",
+      "label": "Education",
+      "category_role": "knowledge_category",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/domain1",
+        "notation": "1",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4002",
+      "label": "Educational sciences and environment",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4001",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt1.05",
+        "notation": "1.05",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4003",
+      "label": "Educational policy",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4001",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt1.10",
+        "notation": "1.10",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4004",
+      "label": "Educational planning",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4001",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt1.15",
+        "notation": "1.15",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4005",
+      "label": "Educational administration",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4001",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt1.20",
+        "notation": "1.20",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4006",
+      "label": "Educational management",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4001",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt1.25",
+        "notation": "1.25",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4007",
+      "label": "Educational systems and levels",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4001",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt1.30",
+        "notation": "1.30",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4008",
+      "label": "Educational institutions",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4001",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt1.35",
+        "notation": "1.35",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4009",
+      "label": "Curriculum",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4001",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt1.40",
+        "notation": "1.40",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4010",
+      "label": "Basic and general study subjects",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4001",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt1.45",
+        "notation": "1.45",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4011",
+      "label": "Technical and vocational study subjects",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4001",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt1.50",
+        "notation": "1.50",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4012",
+      "label": "Educational population",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4001",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt1.55",
+        "notation": "1.55",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4013",
+      "label": "Teaching and training",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4001",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt1.60",
+        "notation": "1.60",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4014",
+      "label": "Educational evaluation",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4001",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt1.65",
+        "notation": "1.65",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4015",
+      "label": "Educational facilities",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4001",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt1.70",
+        "notation": "1.70",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4016",
+      "label": "Science",
+      "category_role": "knowledge_category",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/domain2",
+        "notation": "2",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4017",
+      "label": "Scientific approach",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4016",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt2.05",
+        "notation": "2.05",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4018",
+      "label": "Science and research management",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4016",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt2.10",
+        "notation": "2.10",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4019",
+      "label": "Mathematics and statistics",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4016",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt2.15",
+        "notation": "2.15",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4020",
+      "label": "Physical sciences",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4016",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt2.20",
+        "notation": "2.20",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4021",
+      "label": "Chemical sciences",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4016",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt2.25",
+        "notation": "2.25",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4022",
+      "label": "Space sciences",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4016",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt2.30",
+        "notation": "2.30",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4023",
+      "label": "Earth sciences",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4016",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt2.35",
+        "notation": "2.35",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4024",
+      "label": "Geography and oceanography",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4016",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt2.40",
+        "notation": "2.40",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4025",
+      "label": "Meteorology",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4016",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt2.45",
+        "notation": "2.45",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4026",
+      "label": "Hydrology",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4016",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt2.50",
+        "notation": "2.50",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4027",
+      "label": "Environmental sciences and engineering",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4016",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt2.55",
+        "notation": "2.55",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4028",
+      "label": "Pollution, disasters and safety",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4016",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt2.60",
+        "notation": "2.60",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4029",
+      "label": "Natural resources",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4016",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt2.65",
+        "notation": "2.65",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4030",
+      "label": "Biology",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4016",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt2.70",
+        "notation": "2.70",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4031",
+      "label": "Natural sciences",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4016",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt2.75",
+        "notation": "2.75",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4032",
+      "label": "Medical sciences",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4016",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt2.80",
+        "notation": "2.80",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4033",
+      "label": "Pathology",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4016",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt2.85",
+        "notation": "2.85",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4034",
+      "label": "Culture",
+      "category_role": "knowledge_category",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/domain3",
+        "notation": "3",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4035",
+      "label": "Culture",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4034",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt3.05",
+        "notation": "3.05",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4036",
+      "label": "Cultural policy and planning",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4034",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt3.10",
+        "notation": "3.10",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4037",
+      "label": "Philosophy and ethics",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4034",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt3.15",
+        "notation": "3.15",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4038",
+      "label": "Religion",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4034",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt3.20",
+        "notation": "3.20",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4039",
+      "label": "History",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4034",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt3.25",
+        "notation": "3.25",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4040",
+      "label": "Linguistics",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4034",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt3.30",
+        "notation": "3.30",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4041",
+      "label": "Languages",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4034",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt3.35",
+        "notation": "3.35",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4042",
+      "label": "Literature",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4034",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt3.40",
+        "notation": "3.40",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4043",
+      "label": "Art",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4034",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt3.45",
+        "notation": "3.45",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4044",
+      "label": "Visual arts",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4034",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt3.50",
+        "notation": "3.50",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4045",
+      "label": "Performing arts",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4034",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt3.55",
+        "notation": "3.55",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4046",
+      "label": "Museums",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4034",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt3.60",
+        "notation": "3.60",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4047",
+      "label": "Leisure",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4034",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt3.65",
+        "notation": "3.65",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4048",
+      "label": "Social and human sciences",
+      "category_role": "knowledge_category",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/domain4",
+        "notation": "4",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4049",
+      "label": "Social sciences",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4048",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt4.05",
+        "notation": "4.05",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4050",
+      "label": "Psychology",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4048",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt4.10",
+        "notation": "4.10",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4051",
+      "label": "Social systems",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4048",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt4.15",
+        "notation": "4.15",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4052",
+      "label": "Social problems",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4048",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt4.20",
+        "notation": "4.20",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4053",
+      "label": "Social policy and welfare",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4048",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt4.25",
+        "notation": "4.25",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4054",
+      "label": "Ethnic questions",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4048",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt4.30",
+        "notation": "4.30",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4055",
+      "label": "Population",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4048",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt4.35",
+        "notation": "4.35",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4056",
+      "label": "Family",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4048",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt4.40",
+        "notation": "4.40",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4057",
+      "label": "Human settlements and land use",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4048",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt4.45",
+        "notation": "4.45",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4058",
+      "label": "Information and communication",
+      "category_role": "knowledge_category",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/domain5",
+        "notation": "5",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4059",
+      "label": "Information sciences",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4058",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt5.05",
+        "notation": "5.05",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4060",
+      "label": "Communication research and policy",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4058",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt5.10",
+        "notation": "5.10",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4061",
+      "label": "Information management",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4058",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt5.15",
+        "notation": "5.15",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4062",
+      "label": "Information industry",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4058",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt5.20",
+        "notation": "5.20",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4063",
+      "label": "Documentary information systems",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4058",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt5.25",
+        "notation": "5.25",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4064",
+      "label": "Information sources",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4058",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt5.30",
+        "notation": "5.30",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4065",
+      "label": "Documentary information processing",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4058",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt5.35",
+        "notation": "5.35",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4066",
+      "label": "Information technology (software)",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4058",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt5.40",
+        "notation": "5.40",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4067",
+      "label": "Information technology (hardware)",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4058",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt5.45",
+        "notation": "5.45",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4068",
+      "label": "Politics, law and economics",
+      "category_role": "knowledge_category",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/domain6",
+        "notation": "6",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4069",
+      "label": "Legal systems",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4068",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt6.05",
+        "notation": "6.05",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4070",
+      "label": "Human rights",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4068",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt6.10",
+        "notation": "6.10",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4071",
+      "label": "Politics and government",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4068",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt6.15",
+        "notation": "6.15",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4072",
+      "label": "International relations",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4068",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt6.20",
+        "notation": "6.20",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4073",
+      "label": "Economics",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4068",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt6.25",
+        "notation": "6.25",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4074",
+      "label": "Economic and social development",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4068",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt6.30",
+        "notation": "6.30",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4075",
+      "label": "Agriculture",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4068",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt6.35",
+        "notation": "6.35",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4076",
+      "label": "Industry",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4068",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt6.40",
+        "notation": "6.40",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4077",
+      "label": "Civil, military, and mining engineering",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4068",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt6.45",
+        "notation": "6.45",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4078",
+      "label": "Manufacturing and transport engineering",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4068",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt6.50",
+        "notation": "6.50",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4079",
+      "label": "Materials and products",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4068",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt6.55",
+        "notation": "6.55",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4080",
+      "label": "Equipment and facilities",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4068",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt6.60",
+        "notation": "6.60",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4081",
+      "label": "Services",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4068",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt6.65",
+        "notation": "6.65",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4082",
+      "label": "Finance and trade",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4068",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt6.70",
+        "notation": "6.70",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4083",
+      "label": "Organization and management",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4068",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt6.75",
+        "notation": "6.75",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4084",
+      "label": "Personnel management",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4068",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt6.80",
+        "notation": "6.80",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4085",
+      "label": "Labour",
+      "category_role": "knowledge_category",
+      "parent_category_id": "KQ4068",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt6.85",
+        "notation": "6.85",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4086",
+      "label": "Countries and country groupings",
+      "category_role": "facet_category",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/domain7",
+        "notation": "7",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4087",
+      "label": "Africa",
+      "category_role": "facet_category",
+      "parent_category_id": "KQ4086",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt7.05",
+        "notation": "7.05",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4088",
+      "label": "Americas and the Caribbean",
+      "category_role": "facet_category",
+      "parent_category_id": "KQ4086",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt7.10",
+        "notation": "7.10",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4089",
+      "label": "Asia and the Pacific",
+      "category_role": "facet_category",
+      "parent_category_id": "KQ4086",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt7.15",
+        "notation": "7.15",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4090",
+      "label": "Europe",
+      "category_role": "facet_category",
+      "parent_category_id": "KQ4086",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt7.20",
+        "notation": "7.20",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4091",
+      "label": "Political groupings",
+      "category_role": "facet_category",
+      "parent_category_id": "KQ4086",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt7.25",
+        "notation": "7.25",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4092",
+      "label": "Economic groupings",
+      "category_role": "facet_category",
+      "parent_category_id": "KQ4086",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt7.30",
+        "notation": "7.30",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4093",
+      "label": "Geographic groupings",
+      "category_role": "facet_category",
+      "parent_category_id": "KQ4086",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt7.35",
+        "notation": "7.35",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4094",
+      "label": "Ethnic and religious groupings",
+      "category_role": "facet_category",
+      "parent_category_id": "KQ4086",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt7.40",
+        "notation": "7.40",
+        "mapping_semantics": "exactMatch"
+      }
+    },
+    {
+      "category_id": "KQ4095",
+      "label": "Linguistic groupings",
+      "category_role": "facet_category",
+      "parent_category_id": "KQ4086",
+      "external_alignment": {
+        "kos_id": "kos:unesco-thesaurus",
+        "external_uri": "http://vocabularies.unesco.org/thesaurus/mt7.45",
+        "notation": "7.45",
+        "mapping_semantics": "exactMatch"
+      }
+    }
+  ],
+  "subjects": [
+    {
+      "subject_id": "KQ5001",
+      "label": "Biology",
+      "status": "seed",
+      "natural_angle": "organization of life: cell → tissue → organism → population; function, reproduction, heredity, evolution",
+      "category_placements": [
+        {
+          "category_id": "KQ4030",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3001",
+        "KQ3016"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Biology"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5002",
+      "label": "Earth",
+      "status": "seed",
+      "natural_angle": "Earth system: geosphere / hydrosphere / atmosphere / biosphere; stocks, flows, cycles, scales",
+      "category_placements": [
+        {
+          "category_id": "KQ4023",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4027",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3002",
+        "KQ3001"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Earth"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5003",
+      "label": "Astronomy",
+      "status": "seed",
+      "natural_angle": "celestial objects + observation: type, mass, distance, motion, radiation, formation, evolution",
+      "category_placements": [
+        {
+          "category_id": "KQ4022",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3005",
+        "KQ3004"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Astronomy"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5004",
+      "label": "Mind",
+      "status": "seed",
+      "natural_angle": "cognitive functions: perception → representation → memory → decision → action; states and processes",
+      "category_placements": [
+        {
+          "category_id": "KQ4050",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3003",
+        "KQ3011"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Mind"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5005",
+      "label": "Computing",
+      "status": "seed",
+      "natural_angle": "information transformation: representation, computation, storage, communication, abstraction",
+      "category_placements": [
+        {
+          "category_id": "KQ4059",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4066",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3011",
+        "KQ3002"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Computing"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5006",
+      "label": "History",
+      "status": "seed",
+      "natural_angle": "events and temporal causality: actors, places, events, periods, precedence, consequences, sources",
+      "category_placements": [
+        {
+          "category_id": "KQ4039",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3004",
+        "KQ3014"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:History"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5007",
+      "label": "Geography",
+      "status": "seed",
+      "natural_angle": "space: location, territory, scale, neighborhood, boundary, distribution, flows",
+      "category_placements": [
+        {
+          "category_id": "KQ4024",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3005",
+        "KQ3002"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Geography"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5008",
+      "label": "Linguistics",
+      "status": "seed",
+      "natural_angle": "levels of language: phonology → morphology → syntax → semantics → pragmatics",
+      "category_placements": [
+        {
+          "category_id": "KQ4040",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3001",
+        "KQ3011"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Linguistics"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5009",
+      "label": "Ecology",
+      "status": "seed",
+      "natural_angle": "networks of living interactions: organism ↔ population ↔ community ↔ ecosystem; matter/energy flows",
+      "category_placements": [
+        {
+          "category_id": "KQ4027",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4030",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3006",
+        "KQ3002"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Ecology"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5010",
+      "label": "Medicine",
+      "status": "seed",
+      "natural_angle": "clinical state: normal → abnormality → syndrome → diagnosis → intervention → outcome",
+      "category_placements": [
+        {
+          "category_id": "KQ4032",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4033",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3003",
+        "KQ3014"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Medicine"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5011",
+      "label": "Technology",
+      "status": "seed",
+      "natural_angle": "artificial function: need → function → principle → component → system → use → failure",
+      "category_placements": [
+        {
+          "category_id": "KQ4080",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4078",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3007",
+        "KQ3008"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Technology"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5012",
+      "label": "Economics",
+      "status": "seed",
+      "natural_angle": "resource allocation: agents, goods, constraints, incentives, transactions, prices, production",
+      "category_placements": [
+        {
+          "category_id": "KQ4073",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3012",
+        "KQ3010"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Economics"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5013",
+      "label": "Law",
+      "status": "seed",
+      "natural_angle": "normativity: subject → rule → right/obligation → condition → exception → jurisdiction → decision",
+      "category_placements": [
+        {
+          "category_id": "KQ4069",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3009",
+        "KQ3010"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Law"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5014",
+      "label": "Sociology",
+      "status": "seed",
+      "natural_angle": "social structures and interactions: individuals, groups, roles, institutions, norms, networks",
+      "category_placements": [
+        {
+          "category_id": "KQ4049",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4051",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3010",
+        "KQ3006"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Sociology"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5015",
+      "label": "Philosophy",
+      "status": "seed",
+      "natural_angle": "problems and positions: question → thesis → argument → objection → response → tradition",
+      "category_placements": [
+        {
+          "category_id": "KQ4037",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3014",
+        "KQ3009"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Philosophy"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5016",
+      "label": "Anthropology",
+      "status": "seed",
+      "natural_angle": "comparative cultural systems: practices, kinship, symbols, institutions, environment",
+      "category_placements": [
+        {
+          "category_id": "KQ4049",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4035",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3017",
+        "KQ3010"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Anthropology"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5017",
+      "label": "Engineering",
+      "status": "seed",
+      "natural_angle": "design constraints: need → requirements → architecture → trade-offs → verification",
+      "category_placements": [
+        {
+          "category_id": "KQ4077",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4078",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3008",
+        "KQ3007"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Engineering"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5018",
+      "label": "Agriculture",
+      "status": "seed",
+      "natural_angle": "biological production system: soil → cultivated organism → inputs → practices → yield",
+      "category_placements": [
+        {
+          "category_id": "KQ4075",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3002",
+        "KQ3007"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Agriculture"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5019",
+      "label": "Ocean",
+      "status": "seed",
+      "natural_angle": "water masses and flows: depth, temperature, salinity, circulation, chemistry, ecosystems",
+      "category_placements": [
+        {
+          "category_id": "KQ4024",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4027",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3002",
+        "KQ3005"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Ocean"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5020",
+      "label": "Weather",
+      "status": "seed",
+      "natural_angle": "dynamic atmospheric state: variables → gradients → phenomena → evolution → forecasting",
+      "category_placements": [
+        {
+          "category_id": "KQ4025",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3003",
+        "KQ3015"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Weather"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5021",
+      "label": "Climate",
+      "status": "seed",
+      "natural_angle": "long-term distributions: forcings, feedbacks, averages, variability, trends",
+      "category_placements": [
+        {
+          "category_id": "KQ4025",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4027",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3004",
+        "KQ3002"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Climate"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5022",
+      "label": "Geology",
+      "status": "seed",
+      "natural_angle": "Earth matter through time: material → process → structure → stratum → geological event",
+      "category_placements": [
+        {
+          "category_id": "KQ4023",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3004",
+        "KQ3002"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Geology"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5023",
+      "label": "Materials",
+      "status": "seed",
+      "natural_angle": "structure → property → behavior → use",
+      "category_placements": [
+        {
+          "category_id": "KQ4079",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3001",
+        "KQ3007"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Materials"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5024",
+      "label": "Energy",
+      "status": "seed",
+      "natural_angle": "source → conversion → storage → transport → consumption → losses",
+      "category_placements": [
+        {
+          "category_id": "KQ4029",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4080",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3002",
+        "KQ3012"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Energy"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5025",
+      "label": "Infrastructure",
+      "status": "seed",
+      "natural_angle": "physical service networks: nodes, links, capacity, dependencies, resilience",
+      "category_placements": [
+        {
+          "category_id": "KQ4080",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4057",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3006",
+        "KQ3007"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Infrastructure"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5026",
+      "label": "Genetics",
+      "status": "seed",
+      "natural_angle": "hereditary information: locus, variant, genotype, expression, phenotype, transmission",
+      "category_placements": [
+        {
+          "category_id": "KQ4030",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3011",
+        "KQ3016"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Genetics"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5027",
+      "label": "Evolution",
+      "status": "seed",
+      "natural_angle": "variation + selection + descent: populations, traits, lineages, pressures, divergence",
+      "category_placements": [
+        {
+          "category_id": "KQ4030",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3016",
+        "KQ3004"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Evolution"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5028",
+      "label": "Microbiology",
+      "status": "seed",
+      "natural_angle": "microorganism ↔ environment: metabolism, niche, growth, interactions",
+      "category_placements": [
+        {
+          "category_id": "KQ4030",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3006",
+        "KQ3002"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Microbiology"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5029",
+      "label": "Botany",
+      "status": "seed",
+      "natural_angle": "plant architecture and life cycle: organs, functions, reproduction, taxonomy, environment",
+      "category_placements": [
+        {
+          "category_id": "KQ4030",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3001",
+        "KQ3016"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Botany"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5030",
+      "label": "Zoology",
+      "status": "seed",
+      "natural_angle": "body plans + lineages + adaptations",
+      "category_placements": [
+        {
+          "category_id": "KQ4030",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3001",
+        "KQ3016"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Zoology"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5031",
+      "label": "Fungi",
+      "status": "seed",
+      "natural_angle": "mycelial networks and cycles: substrate, nutrition, reproduction, symbiosis",
+      "category_placements": [
+        {
+          "category_id": "KQ4030",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3006",
+        "KQ3002"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Fungi"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5032",
+      "label": "Virology",
+      "status": "seed",
+      "natural_angle": "viral cycle: genome → particle → host → entry → replication → transmission",
+      "category_placements": [
+        {
+          "category_id": "KQ4030",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4033",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3003",
+        "KQ3006"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Virology"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5033",
+      "label": "Neuroscience",
+      "status": "seed",
+      "natural_angle": "circuits → functions: cell, connection, circuit, region, signal, behavior",
+      "category_placements": [
+        {
+          "category_id": "KQ4032",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4050",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3006",
+        "KQ3011"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Neuroscience"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5034",
+      "label": "Pharmacology",
+      "status": "seed",
+      "natural_angle": "substance → target → mechanism → dose/exposure → effect → risk",
+      "category_placements": [
+        {
+          "category_id": "KQ4032",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4033",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3003",
+        "KQ3013"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Pharmacology"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5035",
+      "label": "PublicHealth",
+      "status": "seed",
+      "natural_angle": "population → exposure → intervention → outcome",
+      "category_placements": [
+        {
+          "category_id": "KQ4032",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4053",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3013",
+        "KQ3015"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:PublicHealth"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5036",
+      "label": "Epidemiology",
+      "status": "seed",
+      "natural_angle": "causal distribution of health events: population, exposure, incidence, association",
+      "category_placements": [
+        {
+          "category_id": "KQ4032",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4017",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3013",
+        "KQ3015"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Epidemiology"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5037",
+      "label": "Nutrition",
+      "status": "seed",
+      "natural_angle": "food → nutrient → absorption → metabolism → requirement → physiological effect",
+      "category_placements": [
+        {
+          "category_id": "KQ4032",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4075",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3002",
+        "KQ3003"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Nutrition"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5038",
+      "label": "Veterinary",
+      "status": "seed",
+      "natural_angle": "species × physiological system × pathology × intervention",
+      "category_placements": [
+        {
+          "category_id": "KQ4032",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4075",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3003",
+        "KQ3001"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Veterinary"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5039",
+      "label": "Aging",
+      "status": "seed",
+      "natural_angle": "trajectories through time: mechanisms, functions, reserves, decline, compensation",
+      "category_placements": [
+        {
+          "category_id": "KQ4055",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4032",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3016",
+        "KQ3004"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Aging"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5040",
+      "label": "Development",
+      "status": "seed",
+      "natural_angle": "developmental trajectories: stage → acquisition → variation → environment",
+      "category_placements": [
+        {
+          "category_id": "KQ4050",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3016",
+        "KQ3003"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Development"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5041",
+      "label": "Paleontology",
+      "status": "seed",
+      "natural_angle": "fossil → organism → stratum → age → environment → lineage",
+      "category_placements": [
+        {
+          "category_id": "KQ4023",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4030",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3004",
+        "KQ3014"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Paleontology"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5042",
+      "label": "Mineralogy",
+      "status": "seed",
+      "natural_angle": "composition + crystal structure → properties → occurrence",
+      "category_placements": [
+        {
+          "category_id": "KQ4023",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3001",
+        "KQ3015"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Mineralogy"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5043",
+      "label": "Soil",
+      "status": "seed",
+      "natural_angle": "vertical profile + processes: horizon, texture, chemistry, biology, water, fertility",
+      "category_placements": [
+        {
+          "category_id": "KQ4023",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4075",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3001",
+        "KQ3002"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Soil"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5044",
+      "label": "Hydrology",
+      "status": "seed",
+      "natural_angle": "water stocks and flows: precipitation → infiltration → aquifer → runoff → evaporation",
+      "category_placements": [
+        {
+          "category_id": "KQ4026",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3002",
+        "KQ3005"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Hydrology"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5045",
+      "label": "Atmosphere",
+      "status": "seed",
+      "natural_angle": "layers + composition + energy and matter transfers",
+      "category_placements": [
+        {
+          "category_id": "KQ4025",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3001",
+        "KQ3002"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Atmosphere"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5046",
+      "label": "Biodiversity",
+      "status": "seed",
+      "natural_angle": "taxa × space × time: presence, abundance, diversity, threat",
+      "category_placements": [
+        {
+          "category_id": "KQ4027",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4030",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3005",
+        "KQ3015"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Biodiversity"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5047",
+      "label": "Forestry",
+      "status": "seed",
+      "natural_angle": "forest stand through time: composition, growth, disturbance, intervention",
+      "category_placements": [
+        {
+          "category_id": "KQ4075",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4029",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3016",
+        "KQ3012"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Forestry"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5048",
+      "label": "NaturalHazards",
+      "status": "seed",
+      "natural_angle": "hazard × exposure × vulnerability → risk",
+      "category_placements": [
+        {
+          "category_id": "KQ4028",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3013",
+        "KQ3005"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:NaturalHazards"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5049",
+      "label": "SolarSystem",
+      "status": "seed",
+      "natural_angle": "orbital bodies + dynamics: orbits, composition, surfaces, interactions",
+      "category_placements": [
+        {
+          "category_id": "KQ4022",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3005",
+        "KQ3004"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:SolarSystem"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5050",
+      "label": "Cosmology",
+      "status": "seed",
+      "natural_angle": "large-scale Universe: content, geometry, expansion, structure, cosmic epoch",
+      "category_placements": [
+        {
+          "category_id": "KQ4022",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3004",
+        "KQ3001"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Cosmology"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5051",
+      "label": "MechanicalEngineering",
+      "status": "seed",
+      "natural_angle": "loads → motion → mechanisms → power → wear/failure",
+      "category_placements": [
+        {
+          "category_id": "KQ4078",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3007",
+        "KQ3008"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:MechanicalEngineering"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5052",
+      "label": "ElectricalEngineering",
+      "status": "seed",
+      "natural_angle": "source → circuit → load: voltage, current, power, signal",
+      "category_placements": [
+        {
+          "category_id": "KQ4078",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4080",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3002",
+        "KQ3007"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:ElectricalEngineering"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5053",
+      "label": "Electronics",
+      "status": "seed",
+      "natural_angle": "component → circuit → function → signal",
+      "category_placements": [
+        {
+          "category_id": "KQ4067",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4080",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3011",
+        "KQ3007"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Electronics"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5054",
+      "label": "Robotics",
+      "status": "seed",
+      "natural_angle": "perceive → estimate → decide → act → feedback",
+      "category_placements": [
+        {
+          "category_id": "KQ4078",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4067",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3018",
+        "KQ3003"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Robotics"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5055",
+      "label": "ControlSystems",
+      "status": "seed",
+      "natural_angle": "setpoint → system → measurement → error → correction",
+      "category_placements": [
+        {
+          "category_id": "KQ4078",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4067",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3018",
+        "KQ3003"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:ControlSystems"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5056",
+      "label": "Manufacturing",
+      "status": "seed",
+      "natural_angle": "raw material → process → geometry → tolerance → part → quality control",
+      "category_placements": [
+        {
+          "category_id": "KQ4078",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4076",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3002",
+        "KQ3015"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Manufacturing"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5057",
+      "label": "CivilEngineering",
+      "status": "seed",
+      "natural_angle": "load × material × geometry × soil → structure",
+      "category_placements": [
+        {
+          "category_id": "KQ4077",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3008",
+        "KQ3013"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:CivilEngineering"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5058",
+      "label": "Architecture",
+      "status": "seed",
+      "natural_angle": "program → space → envelope → structure → use",
+      "category_placements": [
+        {
+          "category_id": "KQ4057",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4077",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3008",
+        "KQ3005"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Architecture"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5059",
+      "label": "Transportation",
+      "status": "seed",
+      "natural_angle": "origin → network → vehicle → destination; capacity, cost, time, flow",
+      "category_placements": [
+        {
+          "category_id": "KQ4078",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4081",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3006",
+        "KQ3002"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Transportation"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5060",
+      "label": "Aerospace",
+      "status": "seed",
+      "natural_angle": "mission → vehicle → environment → trajectory → systems",
+      "category_placements": [
+        {
+          "category_id": "KQ4078",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4022",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3008",
+        "KQ3005"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Aerospace"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5061",
+      "label": "Maritime",
+      "status": "seed",
+      "natural_angle": "vessel × marine environment × navigation × cargo/operation",
+      "category_placements": [
+        {
+          "category_id": "KQ4078",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4024",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3006",
+        "KQ3005"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Maritime"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5062",
+      "label": "Telecommunications",
+      "status": "seed",
+      "natural_angle": "source → encoding → channel → transmission → reception",
+      "category_placements": [
+        {
+          "category_id": "KQ4060",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4067",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3011",
+        "KQ3002"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Telecommunications"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5063",
+      "label": "Internet",
+      "status": "seed",
+      "natural_angle": "layers + addressing + routing + protocols + services",
+      "category_placements": [
+        {
+          "category_id": "KQ4066",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4060",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3006",
+        "KQ3011"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Internet"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5064",
+      "label": "Software",
+      "status": "seed",
+      "natural_angle": "intent → specification → code → execution → state → defect",
+      "category_placements": [
+        {
+          "category_id": "KQ4066",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3003",
+        "KQ3011"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Software"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5065",
+      "label": "Data",
+      "status": "seed",
+      "natural_angle": "schema → value → transformation → provenance → quality → query",
+      "category_placements": [
+        {
+          "category_id": "KQ4061",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4059",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3011",
+        "KQ3014"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Data"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5066",
+      "label": "Cybersecurity",
+      "status": "seed",
+      "natural_angle": "asset × threat × vulnerability × control × impact",
+      "category_placements": [
+        {
+          "category_id": "KQ4066",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4028",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3013",
+        "KQ3006"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Cybersecurity"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5067",
+      "label": "AI",
+      "status": "seed",
+      "natural_angle": "data → representation → model → learning → inference → evaluation",
+      "category_placements": [
+        {
+          "category_id": "KQ4066",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4059",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3011",
+        "KQ3015"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:AI"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5068",
+      "label": "HCI",
+      "status": "seed",
+      "natural_angle": "user → goal → interface → interaction → feedback → outcome",
+      "category_placements": [
+        {
+          "category_id": "KQ4066",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4050",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3003",
+        "KQ3015"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:HCI"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5069",
+      "label": "Metrology",
+      "status": "seed",
+      "natural_angle": "quantity → unit → instrument → measurement → uncertainty → traceability",
+      "category_placements": [
+        {
+          "category_id": "KQ4017",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3015",
+        "KQ3014"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Metrology"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5070",
+      "label": "Standards",
+      "status": "seed",
+      "natural_angle": "standardized object → requirement → method → conformity → organization/version",
+      "category_placements": [
+        {
+          "category_id": "KQ4017",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4080",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3009",
+        "KQ3015"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Standards"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5071",
+      "label": "Cartography",
+      "status": "seed",
+      "natural_angle": "territory → reference system → projection → layer → symbol → map",
+      "category_placements": [
+        {
+          "category_id": "KQ4024",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3005",
+        "KQ3011"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Cartography"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5072",
+      "label": "Demography",
+      "status": "seed",
+      "natural_angle": "population + time: birth, death, migration, age, cohort",
+      "category_placements": [
+        {
+          "category_id": "KQ4055",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3004",
+        "KQ3015"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Demography"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5073",
+      "label": "Urbanism",
+      "status": "seed",
+      "natural_angle": "parcel → neighborhood → city → network; land use, density, mobility",
+      "category_placements": [
+        {
+          "category_id": "KQ4057",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3005",
+        "KQ3006"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Urbanism"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5074",
+      "label": "Governance",
+      "status": "seed",
+      "natural_angle": "mandate → institution → authority → decision → implementation → accountability",
+      "category_placements": [
+        {
+          "category_id": "KQ4071",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4083",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3010",
+        "KQ3009"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Governance"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5075",
+      "label": "Finance",
+      "status": "seed",
+      "natural_angle": "asset × time × risk × cash flow × valuation",
+      "category_placements": [
+        {
+          "category_id": "KQ4082",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3012",
+        "KQ3013"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Finance"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5076",
+      "label": "Accounting",
+      "status": "seed",
+      "natural_angle": "economic event → entry → account → period → financial statement",
+      "category_placements": [
+        {
+          "category_id": "KQ4082",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4083",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3002",
+        "KQ3015"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Accounting"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5077",
+      "label": "Organizations",
+      "status": "seed",
+      "natural_angle": "objective → role → unit → process → decision → outcome",
+      "category_placements": [
+        {
+          "category_id": "KQ4083",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3010",
+        "KQ3007"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Organizations"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5078",
+      "label": "Logistics",
+      "status": "seed",
+      "natural_angle": "object → origin → storage → movement → destination",
+      "category_placements": [
+        {
+          "category_id": "KQ4081",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4078",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3002",
+        "KQ3006"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Logistics"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5079",
+      "label": "Work",
+      "status": "seed",
+      "natural_angle": "activity → skill → role → occupation → environment → outcome",
+      "category_placements": [
+        {
+          "category_id": "KQ4085",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4084",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3010",
+        "KQ3007"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Work"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5080",
+      "label": "Education",
+      "status": "seed",
+      "natural_angle": "learner → objective → activity → assessment → progression",
+      "category_placements": [
+        {
+          "category_id": "KQ4002",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4013",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3016",
+        "KQ3015"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Education"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5081",
+      "label": "Religion",
+      "status": "seed",
+      "natural_angle": "tradition → belief → text → practice → institution → community",
+      "category_placements": [
+        {
+          "category_id": "KQ4038",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3017",
+        "KQ3010"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Religion"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5082",
+      "label": "Mythology",
+      "status": "seed",
+      "natural_angle": "narrative → character → motif → relation → variant → tradition",
+      "category_placements": [
+        {
+          "category_id": "KQ4038",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4035",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3017",
+        "KQ3001"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Mythology"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5083",
+      "label": "Ethics",
+      "status": "seed",
+      "natural_angle": "situation → agents → values/duties → options → arguments → consequences",
+      "category_placements": [
+        {
+          "category_id": "KQ4037",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3009",
+        "KQ3014"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Ethics"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5084",
+      "label": "Epistemology",
+      "status": "seed",
+      "natural_angle": "proposition → evidence → source → justification → belief → knowledge",
+      "category_placements": [
+        {
+          "category_id": "KQ4037",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4017",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3014",
+        "KQ3011"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Epistemology"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5085",
+      "label": "Logic",
+      "status": "seed",
+      "natural_angle": "proposition → form → inference → validity",
+      "category_placements": [
+        {
+          "category_id": "KQ4037",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4017",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3014",
+        "KQ3011"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Logic"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5086",
+      "label": "Literature",
+      "status": "seed",
+      "natural_angle": "work → text → form → theme → context → reception",
+      "category_placements": [
+        {
+          "category_id": "KQ4042",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3017",
+        "KQ3014"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Literature"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5087",
+      "label": "Music",
+      "status": "seed",
+      "natural_angle": "sound → pitch/rhythm/timbre → motif → structure → work → performance",
+      "category_placements": [
+        {
+          "category_id": "KQ4045",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3001",
+        "KQ3017"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Music"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5088",
+      "label": "VisualArts",
+      "status": "seed",
+      "natural_angle": "work → medium → technique → form → subject → context",
+      "category_placements": [
+        {
+          "category_id": "KQ4044",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4043",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3017",
+        "KQ3001"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:VisualArts"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5089",
+      "label": "Cinema",
+      "status": "seed",
+      "natural_angle": "shot → scene → sequence → work; image, sound, editing, narrative",
+      "category_placements": [
+        {
+          "category_id": "KQ4045",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4060",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3017",
+        "KQ3002"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Cinema"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5090",
+      "label": "Theatre",
+      "status": "seed",
+      "natural_angle": "text/performance → character → scene → staging → performance",
+      "category_placements": [
+        {
+          "category_id": "KQ4045",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3017",
+        "KQ3010"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Theatre"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5091",
+      "label": "Design",
+      "status": "seed",
+      "natural_angle": "problem → user → constraint → solution → prototype → evaluation",
+      "category_placements": [
+        {
+          "category_id": "KQ4043",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4079",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3008",
+        "KQ3015"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Design"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5092",
+      "label": "Media",
+      "status": "seed",
+      "natural_angle": "event/information → production → channel → audience → circulation",
+      "category_placements": [
+        {
+          "category_id": "KQ4060",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4062",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3011",
+        "KQ3006"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Media"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5093",
+      "label": "Sports",
+      "status": "seed",
+      "natural_angle": "rule → participant → action → event → score/outcome → competition",
+      "category_placements": [
+        {
+          "category_id": "KQ4047",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3009",
+        "KQ3003"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Sports"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5094",
+      "label": "Games",
+      "status": "seed",
+      "natural_angle": "state → rules → possible actions → transition → objective → outcome",
+      "category_placements": [
+        {
+          "category_id": "KQ4047",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3003",
+        "KQ3009"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Games"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5095",
+      "label": "Textiles",
+      "status": "seed",
+      "natural_angle": "fiber → yarn → textile structure → treatment → property → product",
+      "category_placements": [
+        {
+          "category_id": "KQ4079",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4076",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3002",
+        "KQ3001"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Textiles"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5096",
+      "label": "Crafts",
+      "status": "seed",
+      "natural_angle": "material → tool → gesture → operation → object",
+      "category_placements": [
+        {
+          "category_id": "KQ4043",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4079",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3002",
+        "KQ3007"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Crafts"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5097",
+      "label": "FoodScience",
+      "status": "seed",
+      "natural_angle": "composition → transformation → structure → properties → stability/safety",
+      "category_placements": [
+        {
+          "category_id": "KQ4079",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4075",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3002",
+        "KQ3013"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:FoodScience"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5098",
+      "label": "Disasters",
+      "status": "seed",
+      "natural_angle": "event → damage → needs → response → recovery",
+      "category_placements": [
+        {
+          "category_id": "KQ4028",
+          "placement": "primary",
+          "confidence": 0.9
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3013",
+        "KQ3003"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Disasters"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5099",
+      "label": "Forensics",
+      "status": "seed",
+      "natural_angle": "trace → acquisition → analysis → comparison → interpretation → bounded conclusion",
+      "category_placements": [
+        {
+          "category_id": "KQ4069",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4017",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3014",
+        "KQ3015"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Forensics"
+      ],
+      "external_concept_mappings": []
+    },
+    {
+      "subject_id": "KQ5100",
+      "label": "Time",
+      "status": "seed",
+      "natural_angle": "instant / interval / duration / order / recurrence / calendar / temporal reference frame",
+      "category_placements": [
+        {
+          "category_id": "KQ4037",
+          "placement": "primary",
+          "confidence": 0.9
+        },
+        {
+          "category_id": "KQ4017",
+          "placement": "secondary",
+          "confidence": 0.75
+        }
+      ],
+      "preferred_axis_type_ids": [
+        "KQ3004",
+        "KQ3015"
+      ],
+      "source_kristal_refs": [
+        "100Kristals:Time"
+      ],
+      "external_concept_mappings": []
+    }
+  ]
+}

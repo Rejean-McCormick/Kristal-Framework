@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kristall manifest",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "artifact_status",
+    "created_at",
+    "kristall_id",
+    "namespace_id",
+    "compatibility",
+    "sources",
+    "registries",
+    "policies"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.0"
+    },
+    "artifact_type": {
+      "const": "kristall_manifest"
+    },
+    "artifact_status": {
+      "enum": [
+        "working",
+        "reference",
+        "published",
+        "retired"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "kristall_id": {
+      "type": "string"
+    },
+    "namespace_id": {
+      "type": "string"
+    },
+    "compatibility": {
+      "type": "object"
+    },
+    "sources": {
+      "type": "array"
+    },
+    "subjects": {
+      "type": "array"
+    },
+    "registries": {
+      "type": "object",
+      "required": [
+        "entities",
+        "properties",
+        "assertions",
+        "sources",
+        "assertion_families",
+        "axes",
+        "mesh",
+        "kos",
+        "toc",
+        "axis_types"
+      ],
+      "properties": {
+        "entities": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "string"
+        },
+        "assertions": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "string"
+        },
+        "assertion_families": {
+          "type": "string"
+        },
+        "axes": {
+          "type": "string"
+        },
+        "mesh": {
+          "type": "string"
+        },
+        "projection_recipes": {
+          "type": "string"
+        },
+        "crystallization_ledger": {
+          "type": "string"
+        },
+        "resonance": {
+          "type": "string"
+        },
+        "kos": {
+          "type": "string"
+        },
+        "toc": {
+          "type": "string"
+        },
+        "axis_types": {
+          "type": "string"
+        }
+      }
+    },
+    "policies": {
+      "type": "object"
+    }
+  }
+}

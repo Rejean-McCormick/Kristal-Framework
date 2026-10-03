@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kristal.example/schema/v7/kristall-kos-registry.schema.json",
+  "title": "Kristall External KOS Registry",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "registry_id",
+    "systems"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.0"
+    },
+    "artifact_type": {
+      "const": "kristall_kos_registry"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "systems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "kos_id",
+          "title",
+          "kos_type",
+          "canonical_uri",
+          "role",
+          "mapping_policy"
+        ],
+        "properties": {
+          "kos_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "kos_type": {
+            "enum": [
+              "thesaurus",
+              "taxonomy",
+              "ontology",
+              "classification",
+              "authority_file",
+              "other"
+            ]
+          },
+          "canonical_uri": {
+            "type": "string"
+          },
+          "role": {
+            "enum": [
+              "reference_spine",
+              "supplementary",
+              "authority_mapping",
+              "domain_specialist"
+            ]
+          },
+          "standard": {
+            "type": "string"
+          },
+          "license": {
+            "type": "string"
+          },
+          "snapshot_ref": {
+            "type": "string"
+          },
+          "mapping_policy": {
+            "type": "object",
+            "required": [
+              "internal_identity_remains_kristall",
+              "allowed_mapping_semantics"
+            ],
+            "properties": {
+              "internal_identity_remains_kristall": {
+                "const": true
+              },
+              "allowed_mapping_semantics": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "exactMatch",
+                    "closeMatch",
+                    "broadMatch",
+                    "narrowMatch",
+                    "relatedMatch",
+                    "classifiedIn"
+                  ]
+                }
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      }
+    }
+  }
+}

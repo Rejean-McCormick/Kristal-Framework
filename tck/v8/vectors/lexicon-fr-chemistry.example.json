@@ -1,0 +1,32 @@
+{
+  "schema_version": "8.0",
+  "artifact_type": "kristall_lexicon",
+  "lexicon_id": "KL-fr-chemistry",
+  "language": "fr",
+  "scope": {
+    "kind": "domain",
+    "domains": [
+      {
+        "identity_space": "kristall",
+        "id": "KQ8000"
+      }
+    ]
+  },
+  "dependencies": [
+    "KL-fr-core"
+  ],
+  "entries": [
+    {
+      "semantic_ref": {
+        "identity_space": "kristall",
+        "id": "KQ847291"
+      },
+      "lexical_status": "resolved",
+      "preferred_term": "oxygène",
+      "part_of_speech": "noun",
+      "grammatical_features": {
+        "gender": "masculine"
+      }
+    }
+  ]
+}

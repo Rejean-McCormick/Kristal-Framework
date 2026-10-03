@@ -1,0 +1,22 @@
+{
+  "schema": "kristall-reference-kos-baseline/1.0",
+  "kos_id": "unesco-thesaurus",
+  "role": "reference_spine",
+  "status": "pinned",
+  "baseline": {
+    "domains": 7,
+    "microthesauri": 88,
+    "concepts_approx": 4500,
+    "languages": 5
+  },
+  "source": {
+    "publisher": "UNESCO",
+    "service_url": "https://vocabularies.unesco.org/en/",
+    "vocabulary_url": "https://vocabularies.unesco.org/unesco/en/",
+    "vocabulary_identifier": "http://vocabularies.unesco.org/thesaurus",
+    "observed_on": "2026-10-02",
+    "vocabulary_last_modified": "2026-06-29"
+  },
+  "resolution_policy": "Kristall v7 uses 7 domains and 88 microthesauri as its pinned UNESCO reference-spine baseline.",
+  "provenance_note": "Some UNESCO presentation metadata is not perfectly uniform across every page. This is retained only as source provenance and does not alter the pinned baseline."
+}

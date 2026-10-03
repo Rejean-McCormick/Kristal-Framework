@@ -1,0 +1,29 @@
+{
+  "format": "kristal.release/v3",
+  "name": "Kristal",
+  "version": "8.0.0",
+  "status": "final",
+  "canonical_spec": "spec/v8/01-core-spec/kristal-v8-core-spec.md",
+  "portable_contract": {
+    "artifact_type": "kristal_state",
+    "schema_version": "6.0",
+    "schema": "schemas/v6/kristal-state.schema.json"
+  },
+  "semantic_baseline": {
+    "version": "7.0",
+    "schema_root": "schemas/v7",
+    "status": "frozen_compatible_substrate"
+  },
+  "v8": {
+    "schema_root": "schemas/v8",
+    "tck_root": "tck/v8/vectors",
+    "language_protocol": "kristal-language/1.0",
+    "query_protocol": "kristal-query/1.0",
+    "ai_compact_profile": "kristal-ai-compact/1.0",
+    "semantic_fingerprint_profile": "kristal.semantic-fingerprint/v1"
+  },
+  "reference_implementation": "reference/js",
+  "helper_tools": "tools/v8",
+  "external_diagnostic_repo": "kristal-diag",
+  "compatibility_lock": "contracts/v8-compatibility-lock.json"
+}

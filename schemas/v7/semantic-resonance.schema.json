@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Semantic resonance",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "profile_id",
+    "observations"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "artifact_type": {
+      "const": "semantic_resonance_set"
+    },
+    "profile_id": {
+      "type": "string"
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "resonance_id",
+          "left",
+          "right",
+          "directionality",
+          "dimensions",
+          "status",
+          "created_at",
+          "provenance"
+        ],
+        "properties": {
+          "resonance_id": {
+            "type": "string"
+          },
+          "left": {
+            "type": "object"
+          },
+          "right": {
+            "type": "object"
+          },
+          "directionality": {
+            "enum": [
+              "symmetric",
+              "left_to_right",
+              "right_to_left"
+            ]
+          },
+          "dimensions": {
+            "type": "array",
+            "minItems": 1
+          },
+          "aggregate": {
+            "type": "object"
+          },
+          "status": {
+            "enum": [
+              "computed",
+              "reviewed",
+              "superseded",
+              "expired"
+            ]
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "provenance": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

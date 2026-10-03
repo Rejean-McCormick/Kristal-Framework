@@ -1,0 +1,36 @@
+{
+  "schema_version": "7.0",
+  "artifact_type": "kristall_entity_registry",
+  "namespace_id": "kristall-main",
+  "registry_id": "reg:entities",
+  "entities": [
+    {
+      "entity_id": "KQ1001",
+      "entity_kind": "office",
+      "preferred_label": "Ministre",
+      "status": "stable",
+      "source_referents": [
+        {
+          "source_id": "source:formal",
+          "referent_id": "urn:actor:ministre-quebec",
+          "global_source_id": "KS1"
+        }
+      ]
+    },
+    {
+      "entity_id": "KQ2001",
+      "entity_kind": "orientation_axis",
+      "preferred_label": "Legal authority",
+      "status": "stable",
+      "source_referents": []
+    },
+    {
+      "entity_id": "KQ2002",
+      "entity_kind": "orientation_axis",
+      "preferred_label": "Informal influence",
+      "status": "stable",
+      "source_referents": []
+    }
+  ],
+  "resolution_candidates": []
+}
