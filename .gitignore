@@ -29,3 +29,18 @@ htmlcov/
 *.bak-*
 *.backup
 *.backup-*
+
+# Additional Python/local artifacts
+venv/
+*.py[cod]
+.pytest-tmp/
+.coverage.*
+*.temp
+*.bak.*
+*.backup_*
+*.swo
+*~
+.idea/
+.vscode/
+Thumbs.db
+Desktop.ini
