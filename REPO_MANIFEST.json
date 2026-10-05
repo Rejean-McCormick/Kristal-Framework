@@ -8,9 +8,19 @@
       "bytes": 223
     },
     {
+      "path": ".github/QUALIFICATION.md",
+      "sha256": "1813f89c2cf5d6ef9500a03abf7121db170ccef7cf13860e16dcaaa8bc2254a2",
+      "bytes": 1641
+    },
+    {
       "path": ".github/workflows/ci.yml",
-      "sha256": "ac7882c01687dbbb58251c459e263abea50c6356c0b9ce098296c9781d87001d",
-      "bytes": 391
+      "sha256": "4afcaf299250b6c8bd32566bedac813ad9d7686b66e9a29aafd29085df3762cf",
+      "bytes": 2152
+    },
+    {
+      "path": ".github/workflows/release-qualification.yml",
+      "sha256": "a92636a56e041edaf28198923804587512e88ce8c25ba4b23159efae0a01436c",
+      "bytes": 2734
     },
     {
       "path": ".gitignore",
@@ -51,6 +61,11 @@
       "path": "README.md",
       "sha256": "1a300d0042ae7fca9e07e809fbed7bc8b3892bc558e47b7c1c38ac9562f62d34",
       "bytes": 3814
+    },
+    {
+      "path": "SMARTDUMP_INDEX.txt",
+      "sha256": "61bb838d63bc6840100bbbfe0a2411dcda60350dc3a7ecf5bb1ed4adcbfd1584",
+      "bytes": 18980
     },
     {
       "path": "SNAPSHOT_INDEX.txt",
