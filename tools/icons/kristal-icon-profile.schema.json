@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kristal:tooling:kristal-icon-profile:1.0",
+  "title": "Kristal Icon Code presentation profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile",
+    "nature",
+    "maturity",
+    "domains"
+  ],
+  "properties": {
+    "profile": {
+      "const": "kristal-icon/1.0"
+    },
+    "kristal_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nature": {
+      "enum": [
+        "REF",
+        "COL",
+        "MOD",
+        "PRT",
+        "TWN",
+        "INV",
+        "SRC"
+      ]
+    },
+    "maturity": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5
+    },
+    "domains": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 3,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "color"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "pattern": "^[A-Z0-9]{2,8}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "semantic_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "color": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          }
+        }
+      }
+    },
+    "rendering": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "nature_icon_color": {
+          "const": "#1e6864"
+        },
+        "sizes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              16,
+              20,
+              24,
+              32,
+              40,
+              48,
+              64,
+              96,
+              128,
+              256
+            ]
+          }
+        },
+        "filename": {
+          "type": "string",
+          "pattern": "^KR-(REF|COL|MOD|PRT|TWN|INV|SRC)-[A-Z0-9]{2,8}(?:-[A-Z0-9]{2,8}){0,2}-M[0-5]\\.ico$"
+        }
+      }
+    }
+  }
+}

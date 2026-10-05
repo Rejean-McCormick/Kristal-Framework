@@ -24,8 +24,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "f5484d893fe46ba7fa8743dbba603cfc29dfde4f8678cb9aa14d0b22a9edda4b",
-      "bytes": 9844
+      "sha256": "e6bb3570d2de72e4b1739d41aea1c991aa4baf974c2d7d05fc333c6309de6382",
+      "bytes": 10825
     },
     {
       "path": "GOVERNANCE.md",
@@ -49,13 +49,13 @@
     },
     {
       "path": "README.md",
-      "sha256": "982fd3d8a612d87b539f724219dcc29f50e42cfc27fffcd7fa7a89fb51ee49a4",
-      "bytes": 3234
+      "sha256": "1a300d0042ae7fca9e07e809fbed7bc8b3892bc558e47b7c1c38ac9562f62d34",
+      "bytes": 3814
     },
     {
       "path": "SNAPSHOT_INDEX.txt",
-      "sha256": "0f9da87260fec61dfb73bb05e996b8a0b504bc27d47f1248fc6a4f0dfbef5a6d",
-      "bytes": 14213
+      "sha256": "31fb4d6153843786c9e32b2c894b5ed373a1238d0047849eef57f46f624febfa",
+      "bytes": 14685
     },
     {
       "path": "VERSION",
@@ -213,6 +213,16 @@
       "bytes": 2329
     },
     {
+      "path": "examples/v8/desktop.ini.example",
+      "sha256": "f18f07b12ebf8845354501b4ac361258884ba664990e858826be3683fbb738f3",
+      "bytes": 511
+    },
+    {
+      "path": "examples/v8/icon-profile.example.json",
+      "sha256": "ae471b60df9fa34b7e5eacf9a4293044b7441ca8edf9f1782b058289d8e196d9",
+      "bytes": 648
+    },
+    {
       "path": "examples/v8/lexicon-fr-chemistry.example.json",
       "sha256": "daa92ca4a0ef03362278dd66ad7b22a91a7bdc5fbaaae0bbe1c6bbafdc48092d",
       "bytes": 608
@@ -333,6 +343,11 @@
       "bytes": 499
     },
     {
+      "path": "history/status/2026-10-04-kristal-icon-code.md",
+      "sha256": "4fd2eca24e47bd49f00e6ae3e788cb3425dd178725cda7aa494f075f0e472b41",
+      "bytes": 692
+    },
+    {
       "path": "migration/retired-repos/Kristal-Standard-README.md",
       "sha256": "2e41d1d802b8ef617cbc3418e2e63a6875c202dae43da746a917a12c73237db1",
       "bytes": 297
@@ -349,8 +364,8 @@
     },
     {
       "path": "mkdocs.yml",
-      "sha256": "c29b91ce74343c9fc4b00acb6c8d7862a5428cfb51316c7e475bfaad77bfbadc",
-      "bytes": 1526
+      "sha256": "07514ab306a312eb34018cce7211f63f40f012fb3dd42d684719af501162e538",
+      "bytes": 1576
     },
     {
       "path": "reference/README.md",
@@ -391,11 +406,6 @@
       "path": "reference/js/docs/ADAPTER_CONTRACT.md",
       "sha256": "db935a2a46710491f9e1badb3907024985a3ea5852fa0947a7b3fb6a9d09e0f6",
       "bytes": 1246
-    },
-    {
-      "path": "reference/js/docs/status/2026-10-03-kristal-v8-reference.md",
-      "sha256": "1bada4db7ca0eed8e91d5ad3608e1f40a07430928185438b337ea162c7384721",
-      "bytes": 786
     },
     {
       "path": "reference/js/package.json",
@@ -1559,13 +1569,18 @@
     },
     {
       "path": "spec/v8/Glossary.md",
-      "sha256": "97dba5da00c31612a1cf2c4381558db6fce0f4ef8af1a21d4e7c18c21938fda8",
-      "bytes": 1804
+      "sha256": "a84fb06b86d218d1fd0d6d82a5048a90f1140818df657a5edda4ac3955a95423",
+      "bytes": 2899
     },
     {
       "path": "spec/v8/Home.md",
-      "sha256": "97107518105efd052c67cba1f1355aa3770ebc40b84ce5fda872b119430ae6ca",
-      "bytes": 2374
+      "sha256": "ec2879e6f89e12c8be8ee142120e7d68bf78d547801a5400a4940be0ac6c557d",
+      "bytes": 2868
+    },
+    {
+      "path": "spec/v8/Kristal-Icon-Code.md",
+      "sha256": "a9961160afe597007c3b08455376f885290c8c63856a138e97a9c1400ad4bf85",
+      "bytes": 8617
     },
     {
       "path": "spec/v8/Language-Layer.md",
@@ -1778,6 +1793,21 @@
       "bytes": 795
     },
     {
+      "path": "tools/icons/README.md",
+      "sha256": "d40e5b0054b901f81277a854d3473d2691d6b15f9642e6026446041271b0a609",
+      "bytes": 5466
+    },
+    {
+      "path": "tools/icons/index.html",
+      "sha256": "b2a9d618db37ffe48d4bd2ea890813e0b61b312d8257f97e8c78ece0a9354ec9",
+      "bytes": 24536
+    },
+    {
+      "path": "tools/icons/kristal-icon-profile.schema.json",
+      "sha256": "487caa9fa58b296b917ab5d86e4039a5a54b971c3ef688b8f099b49a00e84531",
+      "bytes": 2101
+    },
+    {
       "path": "tools/integrations/publish_konstellation_pack.mjs",
       "sha256": "88e67c104a281bf9fef927d16efea202991334edbced33c6340dc0557a503b62",
       "bytes": 7162
@@ -1819,8 +1849,8 @@
     },
     {
       "path": "tools/validate_standard.py",
-      "sha256": "9f45e453e456f153990a7c73f16db772020fa0cbbfffd925103f7769af93096c",
-      "bytes": 13053
+      "sha256": "d72f58e9498110cbeafc660f3e02d73951e2c455d99cc9aae1861e5dc81f96e4",
+      "bytes": 14695
     }
   ]
 }

@@ -27,6 +27,7 @@ nav:
   - v8 Migration: v8/Migration-v7-to-v8.md
   - v8 Glossary: v8/Glossary.md
   - v8 Design Rationale: v8/Design-Rationale.md
+  - v8 Kristal Icon Code: v8/Kristal-Icon-Code.md
   - v7 Home: v7/Home.md
   - v7 Core: v7/01-core-spec/kristal-v7-core-spec.md
   - v7 Compatibility: v7/01-core-spec/compatibility-contract.md

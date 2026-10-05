@@ -45,6 +45,10 @@ v8 therefore optimizes access without mutating truth.
 - [Conformance](Conformance.md)
 - [Migration](Migration-v7-to-v8.md)
 
+## Presentation profile
+
+The optional [Kristal Icon Code](Kristal-Icon-Code.md) is an informative read-side presentation profile. It encodes domain, dominant knowledge-object nature and artifact maturity without changing semantic identity, certainty, provenance or canonical state. Its companion `kristal-desktop/1.0` convention defines a regenerable Windows folder binding (`IconResource`, compact `InfoTip`, and a `[Kristal]` metadata cache) without promoting desktop metadata to authority.
+
 ## Compatibility first
 
 A v8 implementation MUST accept valid v6 and v7 artifacts unchanged. Enabling v8 features does not authorize rewriting a source artifact. v8 capabilities are negotiated and may be absent.

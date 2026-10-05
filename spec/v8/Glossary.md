@@ -31,3 +31,15 @@
 **symbol table** — local compact mapping used inside an AI bundle to reduce repeated IDs; never a persistent semantic identity.
 
 **trust class** — metadata describing how context should be treated by a consuming AI/control plane; it does not itself establish factual truth.
+
+
+**Kristal Icon Code** — informative presentation profile `kristal-icon/1.0` that encodes domain, dominant knowledge-object nature and maturity in a compact icon. Not semantic authority.
+
+**icon nature** — one dominant presentation category (`REF`, `COL`, `MOD`, `PRT`, `TWN`, `INV`, `SRC`) describing what kind of knowledge object a Kristal primarily represents. Distinct from JSON `artifact_type` and storage/schema version.
+
+**icon maturity** — presentation-level `0..5` assessment of how mature/stable the Kristal representation is. Not certainty, truth probability or problem-resolution status.
+
+**Kristal desktop binding** — informative Windows folder-binding convention `kristal-desktop/1.0` that maps a generated Kristal icon and compact human `InfoTip` onto a folder while optionally exposing a machine-readable `[Kristal]` cache. It is regenerable and not semantic authority.
+
+**Kristal InfoTip** — localized human tooltip derived from presentation metadata in the order name, nature, domains, maturity and optional volume. It is a display summary, not a machine identity.
+

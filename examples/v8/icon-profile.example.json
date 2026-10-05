@@ -1,0 +1,39 @@
+{
+  "profile": "kristal-icon/1.0",
+  "kristal_ref": "Kristal-VehiculeDiag",
+  "nature": "MOD",
+  "maturity": 4,
+  "domains": [
+    {
+      "code": "AUTO",
+      "name": "Automotive systems",
+      "color": "#3B82F6"
+    },
+    {
+      "code": "ELEC",
+      "name": "Electrical systems",
+      "color": "#F2B441"
+    },
+    {
+      "code": "NET",
+      "name": "Information networks",
+      "color": "#2DC5D6"
+    }
+  ],
+  "rendering": {
+    "nature_icon_color": "#1e6864",
+    "sizes": [
+      16,
+      20,
+      24,
+      32,
+      40,
+      48,
+      64,
+      96,
+      128,
+      256
+    ],
+    "filename": "KR-MOD-AUTO-ELEC-NET-M4.ico"
+  }
+}

@@ -48,6 +48,11 @@ Language is external to semantic identity. Lexical Kristals are composable by la
 
 AI clients discover and resolve semantic identities, then query exact graph relations, assertions, evidence and provenance through the Kristal Query Protocol (KQP). Query indexes are rebuildable read models. Results explicitly declare completeness, truncation and continuation state. AI context bundles are bounded projections with provenance and trust metadata.
 
+
+### Kristal Icon Code (presentation profile)
+
+Kristal also defines an **informative, non-authoritative visual presentation profile** for desktop and UI identification. It encodes exactly three signals: domain band, knowledge-object nature pictogram and maturity `0..5`. The companion `kristal-desktop/1.0` convention standardizes a regenerable Windows `desktop.ini` binding with a compact `InfoTip` and machine-readable `[Kristal]` cache. Rendered icons and desktop metadata are derived views and never semantic authority. See [Kristal Icon Code](spec/v8/Kristal-Icon-Code.md).
+
 ## Final v8 invariants
 
 ```text

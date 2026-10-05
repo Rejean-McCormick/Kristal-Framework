@@ -225,6 +225,40 @@ def check_query_reference_tools():
         if c['budget']['estimated_tokens'] > c['budget']['max_tokens']:
             raise AssertionError('AI context exceeded declared budget')
 
+
+def check_icon_profile_tooling():
+    schema_path = ROOT/'tools/icons/kristal-icon-profile.schema.json'
+    example_path = ROOT/'examples/v8/icon-profile.example.json'
+    desktop_example_path = ROOT/'examples/v8/desktop.ini.example'
+    schema = load(schema_path)
+    Draft202012Validator.check_schema(schema)
+    validate(load(example_path), schema, 'icon profile example')
+    generator = (ROOT/'tools/icons/index.html').read_text(encoding='utf-8')
+    for token in (
+        "kristal-icon-pack/1.3", "kristal-icon/1.0", "#1e6864",
+        "REF", "COL", "MOD", "PRT", "TWN", "INV", "SRC",
+        "16,20,24,32,40,48,64,96,128,256",
+        "KR-${type}-${p.map(d=>safe(d.id)).join('-')}-M${maturity}"
+    ):
+        if token not in generator:
+            raise AssertionError(f'icon generator/profile drift: missing {token}')
+    desktop = desktop_example_path.read_text(encoding='utf-8')
+    for token in (
+        '[.ShellClassInfo]', 'IconResource=', 'InfoTip=', '[Kristal]',
+        'Profile=kristal-desktop/1.0', 'IconProfile=kristal-icon/1.0',
+        'IconCode=KR-MOD-AUTO-ELEC-NET-M4', 'Maturity=4'
+    ):
+        if token not in desktop:
+            raise AssertionError(f'desktop binding example drift: missing {token}')
+    spec = (ROOT/'spec/v8/Kristal-Icon-Code.md').read_text(encoding='utf-8')
+    for token in (
+        'kristal-desktop/1.0', 'DESKTOP.INI != SEMANTIC AUTHORITY',
+        'NAME • NATURE • DOMAINS • MATURITY • VOLUME'
+    ):
+        if token not in spec:
+            raise AssertionError(f'desktop binding spec drift: missing {token}')
+
+
 def check_active_version_text():
     version = (ROOT/'VERSION').read_text(encoding='utf-8').strip()
     release = load(ROOT/'contracts/release.json')
@@ -260,6 +294,7 @@ def main():
         ('v8 compatibility lock', check_compatibility_lock),
         ('v8 language helper', check_language_reference_tools),
         ('v8 query helpers', check_query_reference_tools),
+        ('icon profile tooling', check_icon_profile_tooling),
         ('active version text', check_active_version_text),
         ('DaaT boundary', check_daat_boundary),
     ]

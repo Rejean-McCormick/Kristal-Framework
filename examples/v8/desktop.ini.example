@@ -1,0 +1,18 @@
+; Generated from Kristal presentation metadata. Regenerable local binding.
+[.ShellClassInfo]
+IconResource=.kristal\KR-MOD-AUTO-ELEC-NET-M4.ico,0
+InfoTip=Vehicle Diagnostics • Modèle • Auto / Électrique / Data • Maturité 4/5 • 833 assertions · 29 sources
+
+[Kristal]
+Profile=kristal-desktop/1.0
+IconProfile=kristal-icon/1.0
+IconCode=KR-MOD-AUTO-ELEC-NET-M4
+Title=Vehicle Diagnostics
+KristalRef=Kristal-VehiculeDiag
+Nature=MOD
+Domain1=AUTO
+Domain2=ELEC
+Domain3=NET
+Maturity=4
+Assertions=833
+Sources=29

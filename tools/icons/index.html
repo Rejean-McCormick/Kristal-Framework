@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kristal Icon Generator</title>
+<style>
+  :root{
+    --bg:#f5f7f8; --panel:#ffffff; --ink:#10233d; --muted:#68778a;
+    --line:#dbe2e8; --soft:#eef2f5; --accent:#16746f;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI",sans-serif}
+  .app{max-width:1180px;margin:0 auto;padding:26px}
+  header{display:flex;gap:20px;justify-content:space-between;align-items:flex-start;margin-bottom:20px}
+  h1{font:700 34px/1.05 Georgia,serif;margin:0 0 6px}
+  .subtitle{color:var(--muted);max-width:720px}
+  .badge{padding:7px 10px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--muted);font-size:12px}
+  .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 1px 2px rgba(16,35,61,.04)}
+  h2{font-size:15px;letter-spacing:.04em;text-transform:uppercase;margin:0 0 14px;color:#435366}
+  h3{font-size:14px;margin:20px 0 10px}
+  .row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:10px}
+  .row.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+  label{font-size:12px;color:#536274;display:block}
+  select,input[type="number"],input[type="text"]{width:100%;margin-top:5px;border:1px solid var(--line);border-radius:9px;background:white;padding:9px 10px;color:var(--ink)}
+  input[type="color"]{width:38px;height:30px;padding:0;border:0;background:transparent}
+  .preview-strip{display:grid;grid-template-columns:repeat(5,minmax(82px,1fr));align-items:end;gap:18px;min-height:240px;padding:18px;border-radius:14px;background:linear-gradient(#fbfcfd,#f2f5f7);border:1px dashed #d8e0e6;overflow:auto}
+  .pv{text-align:center;color:var(--muted);font-size:12px;min-width:72px}
+  .pv canvas{display:block;margin:0 auto 8px;image-rendering:auto;box-shadow:0 4px 20px rgba(17,35,61,.10)}
+  .pv canvas[data-size="16"],.pv canvas[data-size="20"],.pv canvas[data-size="24"]{width:56px;height:56px}
+  .pv canvas[data-size="32"],.pv canvas[data-size="40"]{width:68px;height:68px}
+  .pv canvas[data-size="48"],.pv canvas[data-size="64"]{width:80px;height:80px}
+  .pv canvas[data-size="96"]{width:96px;height:96px}
+  .pv canvas[data-size="128"]{width:112px;height:112px}
+  .pv canvas[data-size="256"]{width:128px;height:128px}
+  .buttons{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
+  button{border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 12px;border-radius:10px;font-weight:600;cursor:pointer}
+  button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  .domain-table{width:100%;border-collapse:collapse;font-size:12px}
+  .domain-table th,.domain-table td{padding:7px;border-bottom:1px solid var(--soft);text-align:left;vertical-align:middle}
+  .domain-table th{color:#68778a;font-weight:600}
+  .domain-table input[type="text"]{margin:0;padding:6px 8px}
+  .tiny{font-size:11px;color:var(--muted)}
+  .checkrow{display:flex;flex-wrap:wrap;gap:12px 18px;margin:8px 0}
+  .checkrow label{display:flex;align-items:center;gap:6px;color:var(--ink);font-size:13px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+  .stat{background:var(--soft);border-radius:10px;padding:10px}
+  .stat b{display:block;font-size:18px}
+  progress{width:100%;height:12px;margin-top:8px}
+  #log{height:130px;overflow:auto;background:#0e1724;color:#c8d5e6;border-radius:10px;padding:10px;font:11px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap}
+  .note{padding:10px 12px;border-radius:10px;background:#f7f9e9;color:#596322;border:1px solid #e1e7b7;font-size:12px;margin-top:10px}
+  .filename{margin-top:12px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fbfcfd;font:12px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;color:#31445a;overflow-wrap:anywhere}
+  .filename b{font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:var(--muted);font-weight:600;margin-right:8px}
+  .danger{background:#fff1ef;border-color:#f1c8c2;color:#8f3932}
+  .types{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}
+  .type-chip{border:1px solid var(--line);padding:7px;border-radius:9px;font-size:12px;text-align:center;background:#fbfcfd}
+  @media(max-width:850px){.grid{grid-template-columns:1fr}.row{grid-template-columns:1fr 1fr}.types{grid-template-columns:1fr 1fr}.preview-strip{grid-template-columns:repeat(3,minmax(82px,1fr));gap:14px;overflow:auto}}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+  <div><h1>Kristal Icon Generator</h1><div class="subtitle">Assemble le code visuel Kristal : <b>domaine</b> en haut, <b>nature</b> au centre, <b>maturité</b> en bas. Génère des ICO Windows multi‑résolutions (16 à 256 px) et, au besoin, les PNG séparés.</div></div>
+  <div class="badge">v1.2 · 100 % local · sans dépendance</div>
+</header>
+
+<div class="grid">
+<section class="panel">
+  <h2>Aperçu</h2>
+  <div class="row">
+    <label>Domaine principal<select id="d1"></select></label>
+    <label>Domaine secondaire<select id="d2"><option value="">— aucun —</option></select></label>
+    <label>3e domaine<select id="d3"><option value="">— aucun —</option></select></label>
+  </div>
+  <div class="row two">
+    <label>Nature<select id="type"></select></label>
+    <label>Maturité<select id="maturity"></select></label>
+  </div>
+  <div class="preview-strip" id="previewStrip"></div>
+  <div class="filename"><b>Nom de fichier</b><span id="filenamePreview"></span></div>
+  <div class="buttons">
+    <button id="downloadIco">Télécharger cette icône .ICO</button>
+    <button id="downloadPng">Télécharger les 10 PNG</button>
+  </div>
+  <div class="note">Chaque <b>.ico</b> contient 10 résolutions Windows : <b>16, 20, 24, 32, 40, 48, 64, 96, 128 et 256 px</b>. Les aperçus 16–64 px sont agrandis à l’écran pour inspection. À 16–24 px, le rendu est volontairement simplifié.</div>
+
+  <h3>Natures disponibles</h3>
+  <div class="types" id="typesLegend"></div>
+</section>
+
+<section class="panel">
+  <h2>Méga collection</h2>
+  <div class="checkrow">
+    <label><input type="checkbox" id="one" checked> 1 domaine</label>
+    <label><input type="checkbox" id="two" checked> 2 domaines</label>
+    <label><input type="checkbox" id="three" checked> 3 domaines</label>
+  </div>
+  <div class="checkrow">
+    <label><input type="checkbox" id="allTypes" checked> Toutes les natures</label>
+    <label><input type="checkbox" id="allMaturity" checked> Maturités 0–5</label>
+    <label><input type="checkbox" id="pngToo"> Exporter aussi les PNG</label>
+  </div>
+  <div class="stats">
+    <div class="stat"><span class="tiny">profils domaine</span><b id="profileCount">0</b></div>
+    <div class="stat"><span class="tiny">icônes .ico</span><b id="iconCount">0</b></div>
+    <div class="stat"><span class="tiny">images / résolutions</span><b id="renderCount">0</b></div>
+  </div>
+  <div class="buttons">
+    <button class="primary" id="generateFolder">Choisir un dossier et générer tout</button>
+    <button id="cancel" disabled>Annuler</button>
+  </div>
+  <progress id="progress" value="0" max="1"></progress>
+  <div id="log">Prêt.</div>
+  <div class="note" id="fsNote">Sur Chrome/Edge, le bouton écrit directement les fichiers dans un dossier choisi. Les ICO sont rangés dans <code>ico/</code>; les PNG optionnels dans un sous-dossier <code>png/&lt;taille&gt;</code> pour chacune des 10 résolutions.</div>
+
+  <h3>Nomenclature</h3>
+  <div class="note"><code>KR-{TYPE}-{DOMAINE1}[-DOMAINE2][-DOMAINE3]-M{0..5}.ico</code><br>Le domaine principal est toujours le premier. La taille n’est pas dans le nom du fichier ICO, car chaque ICO contient déjà toutes les résolutions.</div>
+
+  <h3>Charte des domaines</h3>
+  <table class="domain-table">
+    <thead><tr><th>Actif</th><th>Code</th><th>Nom</th><th>Couleur</th></tr></thead>
+    <tbody id="domainRows"></tbody>
+  </table>
+  <div class="buttons"><button id="addDomain">+ Ajouter un domaine</button><button id="resetDomains">Réinitialiser</button></div>
+  <div class="tiny">Règle d’assemblage : 1 domaine = 100 %. 2 domaines = 65/35. 3 domaines = 50/25/25. Pour 3 domaines, les deux secondaires sont considérés équivalents afin d’éviter des doublons visuellement identiques.</div>
+</section>
+</div>
+</div>
+
+<script>
+'use strict';
+
+const ICON_SIZES = [16,20,24,32,40,48,64,96,128,256];
+const NATURE_ICON_COLOR = '#1e6864';
+const PREVIEW_SIZES = ICON_SIZES;
+
+const TYPES = [
+  {id:'REF', label:'Référence'},
+  {id:'COL', label:'Collection'},
+  {id:'MOD', label:'Modèle'},
+  {id:'PRT', label:'Protocole'},
+  {id:'TWN', label:'Twin'},
+  {id:'INV', label:'Investigation'},
+  {id:'SRC', label:'Sources'}
+];
+const DEFAULT_DOMAINS = [
+  {id:'ALG', name:'Algèbre', color:'#2D7FF9', active:true},
+  {id:'NUM', name:'Théorie des nombres', color:'#F2B441', active:true},
+  {id:'GEO', name:'Géométrie', color:'#3CCB7F', active:true},
+  {id:'TOP', name:'Topologie', color:'#7A5CF5', active:true},
+  {id:'ANA', name:'Analyse / PDE', color:'#F26B38', active:true},
+  {id:'PRB', name:'Probabilités', color:'#2DC5D6', active:true},
+  {id:'LOG', name:'Logique / fondements', color:'#7B8493', active:true},
+  {id:'TCS', name:'Informatique théorique', color:'#E96FB2', active:true}
+];
+let domains = structuredClone(DEFAULT_DOMAINS);
+let cancelled = false;
+
+const $ = s => document.querySelector(s);
+const log = msg => { const el=$('#log'); el.textContent += (el.textContent?'\n':'') + msg; el.scrollTop=el.scrollHeight; };
+const sleep = ms => new Promise(r=>setTimeout(r,ms));
+
+function hexToRgb(hex){
+  const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return m ? {r:parseInt(m[1],16),g:parseInt(m[2],16),b:parseInt(m[3],16)} : {r:80,g:120,b:160};
+}
+function mix(hex, amount=0.18){
+  const c=hexToRgb(hex), t=255;
+  const f=v=>Math.round(v+(t-v)*amount).toString(16).padStart(2,'0');
+  return '#'+f(c.r)+f(c.g)+f(c.b);
+}
+function activeDomains(){return domains.filter(d=>d.active && d.id.trim());}
+function domainById(id){return domains.find(d=>d.id===id);}
+function safe(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^A-Za-z0-9_-]+/g,'-').replace(/^-+|-+$/g,'').toUpperCase();}
+
+function roundRect(ctx,x,y,w,h,r){
+  r=Math.min(r,w/2,h/2); ctx.beginPath();
+  ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();
+}
+function line(ctx,x1,y1,x2,y2,w){ctx.lineWidth=w;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();}
+function circle(ctx,x,y,r,fill=true){ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2); fill?ctx.fill():ctx.stroke();}
+
+function drawIcon(canvas, profile, typeId, maturity){
+  const s=canvas.width, ctx=canvas.getContext('2d');
+  const u=s/128;
+  ctx.clearRect(0,0,s,s);
+  // background
+  ctx.fillStyle='#ffffff'; roundRect(ctx,1*u,1*u,126*u,126*u,12*u); ctx.fill();
+  ctx.strokeStyle='#d7dfe6';ctx.lineWidth=Math.max(1,1.2*u);roundRect(ctx,1*u,1*u,126*u,126*u,12*u);ctx.stroke();
+
+  // domain band: one segmented strip, max 3.
+  const colors=profile.map(d=>d.color);
+  const weights=colors.length===1?[1]:colors.length===2?[.65,.35]:[.5,.25,.25];
+  const x0=7*u,y0=7*u,bw=114*u,bh=11*u,gap=Math.max(1,1*u);
+  let x=x0;
+  colors.forEach((c,i)=>{
+    const w=(bw-gap*(colors.length-1))*weights[i];
+    ctx.fillStyle=c;roundRect(ctx,x,y0,w,bh,3*u);ctx.fill();x+=w+gap;
+  });
+
+  ctx.fillStyle=NATURE_ICON_COLOR;ctx.strokeStyle=NATURE_ICON_COLOR;
+  drawType(ctx,typeId,s,u);
+
+  // maturity bar. À très petite taille, on conserve les 5 cases mais on omet le chiffre.
+  const tiny = s <= 24, compact = s <= 40;
+  const main=profile[0]?.color || '#2D7FF9';
+  const bx=(compact?8:9)*u, by=(compact?109:107)*u;
+  const cellW=(tiny?18:(compact?17:15))*u, cellH=(tiny?9:8)*u, cg=(tiny?2:(compact?2.5:3))*u;
+  for(let i=0;i<5;i++){
+    ctx.fillStyle=i<maturity ? main : '#e5e9ed';
+    roundRect(ctx,bx+i*(cellW+cg),by,cellW,cellH,Math.max(.8,2.5*u));ctx.fill();
+  }
+  if(!compact){
+    ctx.fillStyle='#536274';ctx.font=`700 ${Math.max(6,12*u)}px ui-sans-serif,system-ui,sans-serif`;ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillText(String(maturity),120*u,111*u);
+  }
+}
+
+function drawType(ctx,id,s,u){
+  const cx=64*u, cy=62*u;
+  ctx.save(); ctx.fillStyle=NATURE_ICON_COLOR;ctx.strokeStyle=NATURE_ICON_COLOR;
+  switch(id){
+    case 'REF': {
+      ctx.beginPath();ctx.moveTo(cx,39*u);ctx.lineTo(87*u,62*u);ctx.lineTo(cx,85*u);ctx.lineTo(41*u,62*u);ctx.closePath();ctx.fill();
+      [[64,29,64,36],[64,88,64,95],[31,62,38,62],[90,62,97,62],[40,38,46,44],[82,80,88,86],[40,86,46,80],[82,44,88,38]].forEach(a=>line(ctx,...a.map(v=>v*u),4*u));
+      break;
+    }
+    case 'COL': {
+      const w=15*u,g=7*u,x=35*u,y=43*u;
+      for(let r=0;r<2;r++)for(let c=0;c<3;c++){roundRect(ctx,x+c*(w+g),y+r*(w+g),w,w,3*u);ctx.fill();}
+      break;
+    }
+    case 'MOD': {
+      const pts=[[64,39],[64,62],[42,78],[86,78]];
+      ctx.lineWidth=5*u;ctx.lineCap='round';
+      [[0,1],[1,2],[1,3]].forEach(([a,b])=>line(ctx,pts[a][0]*u,pts[a][1]*u,pts[b][0]*u,pts[b][1]*u,5*u));
+      pts.forEach(([x,y],i)=>circle(ctx,x*u,y*u,(i===1?9:8)*u,true));
+      break;
+    }
+    case 'PRT': {
+      circle(ctx,34*u,58*u,8*u,true);
+      line(ctx,43*u,58*u,55*u,58*u,4*u);
+      // arrow
+      line(ctx,51*u,54*u,56*u,58*u,3*u);line(ctx,51*u,62*u,56*u,58*u,3*u);
+      ctx.beginPath();ctx.moveTo(70*u,45*u);ctx.lineTo(83*u,58*u);ctx.lineTo(70*u,71*u);ctx.lineTo(57*u,58*u);ctx.closePath();ctx.fill();
+      line(ctx,84*u,58*u,95*u,58*u,4*u);line(ctx,95*u,58*u,95*u,78*u,4*u);
+      line(ctx,91*u,73*u,95*u,78*u,3*u);line(ctx,99*u,73*u,95*u,78*u,3*u);
+      roundRect(ctx,87*u,79*u,16*u,16*u,3*u);ctx.fill();
+      break;
+    }
+    case 'TWN': {
+      // two identical objects mirrored around a central axis
+      roundRect(ctx,33*u,47*u,25*u,31*u,6*u);ctx.fill();
+      roundRect(ctx,70*u,47*u,25*u,31*u,6*u);ctx.fill();
+      ctx.lineWidth=2.5*u;ctx.setLineDash([4*u,4*u]);line(ctx,64*u,42*u,64*u,84*u,2.5*u);ctx.setLineDash([]);
+      // tiny link marks toward mirror axis
+      line(ctx,58*u,62*u,61*u,62*u,2.5*u);line(ctx,67*u,62*u,70*u,62*u,2.5*u);
+      break;
+    }
+    case 'INV': {
+      // open, unfinished path with unresolved node
+      ctx.lineWidth=5*u;ctx.lineCap='round';
+      ctx.beginPath();ctx.arc(cx,63*u,28*u,0.65*Math.PI,1.82*Math.PI);ctx.stroke();
+      ctx.setLineDash([4*u,5*u]);ctx.beginPath();ctx.arc(cx,63*u,28*u,1.82*Math.PI,2.18*Math.PI);ctx.stroke();ctx.setLineDash([]);
+      circle(ctx,43*u,80*u,7*u,false);ctx.lineWidth=4*u;ctx.stroke();
+      circle(ctx,86*u,46*u,6*u,true);
+      break;
+    }
+    case 'SRC': {
+      const pts=(y,w)=>{ctx.beginPath();ctx.moveTo((64-w/2)*u,y*u);ctx.lineTo(64*u,(y-8)*u);ctx.lineTo((64+w/2)*u,y*u);ctx.lineTo(64*u,(y+8)*u);ctx.closePath();ctx.fill();};
+      pts(50,52);pts(64,45);pts(78,38);
+      break;
+    }
+  }
+  ctx.restore();
+}
+
+function profileFromUI(){
+  const ids=[$('#d1').value,$('#d2').value,$('#d3').value].filter(Boolean);
+  const uniq=[...new Set(ids)];return uniq.map(domainById).filter(Boolean).slice(0,3);
+}
+function refreshPreview(){
+  const p=profileFromUI(); if(!p.length)return;
+  const type=$('#type').value, maturity=+$('#maturity').value;
+  for(const n of PREVIEW_SIZES) drawIcon($('#c'+n),p,type,maturity);
+  $('#filenamePreview').textContent=fileBase(p,type,maturity)+'.ico';
+}
+
+function renderDomainTable(){
+  const body=$('#domainRows');body.innerHTML='';
+  domains.forEach((d,i)=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td><input type="checkbox" data-k="active" data-i="${i}" ${d.active?'checked':''}></td>
+      <td><input type="text" data-k="id" data-i="${i}" value="${d.id}" maxlength="8" style="width:70px"></td>
+      <td><input type="text" data-k="name" data-i="${i}" value="${d.name}"></td>
+      <td><input type="color" data-k="color" data-i="${i}" value="${d.color}"></td>`;
+    body.appendChild(tr);
+  });
+  body.querySelectorAll('input').forEach(inp=>inp.addEventListener('input',e=>{
+    const i=+e.target.dataset.i,k=e.target.dataset.k;
+    domains[i][k]=k==='active'?e.target.checked:e.target.value;
+    if(k==='id') domains[i][k]=safe(e.target.value).slice(0,8);
+    rebuildDomainSelects();updateCounts();refreshPreview();
+  }));
+}
+function rebuildDomainSelects(){
+  const act=activeDomains();
+  const vals=[$('#d1').value,$('#d2').value,$('#d3').value];
+  for(const [idx,id] of [['d1',0],['d2',1],['d3',2]]){
+    const el=$('#'+idx), optional=idx!=='d1'; el.innerHTML=optional?'<option value="">— aucun —</option>':'';
+    act.forEach(d=>{const o=document.createElement('option');o.value=d.id;o.textContent=`${d.id} — ${d.name}`;el.appendChild(o);});
+    if([...el.options].some(o=>o.value===vals[id])) el.value=vals[id];
+  }
+  if(!$('#d1').value && act[0]) $('#d1').value=act[0].id;
+}
+function buildProfiles(){
+  const ds=activeDomains();const out=[];
+  if($('#one').checked) ds.forEach(a=>out.push([a]));
+  if($('#two').checked) for(const a of ds) for(const b of ds) if(a!==b) out.push([a,b]);
+  if($('#three').checked){
+    // main domain matters; two secondary domains are an unordered pair.
+    for(const a of ds){const others=ds.filter(x=>x!==a);for(let i=0;i<others.length;i++)for(let j=i+1;j<others.length;j++)out.push([a,others[i],others[j]]);}
+  }
+  return out;
+}
+function updateCounts(){
+  const pc=buildProfiles().length;
+  const tc=$('#allTypes').checked?TYPES.length:1;
+  const mc=$('#allMaturity').checked?6:1;
+  const ic=pc*tc*mc;
+  $('#profileCount').textContent=pc.toLocaleString('fr-CA');$('#iconCount').textContent=ic.toLocaleString('fr-CA');$('#renderCount').textContent=(ic*ICON_SIZES.length).toLocaleString('fr-CA');
+}
+
+async function canvasPngBytes(size,profile,type,maturity){
+  const c=document.createElement('canvas');c.width=c.height=size;drawIcon(c,profile,type,maturity);
+  const blob=await new Promise(res=>c.toBlob(res,'image/png'));
+  return new Uint8Array(await blob.arrayBuffer());
+}
+function u16le(v){return [v&255,(v>>8)&255];}
+function u32le(v){return [v&255,(v>>8)&255,(v>>16)&255,(v>>24)&255];}
+function makeIco(images){
+  const count=images.length, header=[];header.push(...u16le(0),...u16le(1),...u16le(count));
+  let offset=6+16*count;const entries=[];
+  for(const img of images){const s=img.size;entries.push(s===256?0:s,s===256?0:s,0,0,...u16le(1),...u16le(32),...u32le(img.bytes.length),...u32le(offset));offset+=img.bytes.length;}
+  return new Blob([new Uint8Array(header),new Uint8Array(entries),...images.map(x=>x.bytes)],{type:'image/x-icon'});
+}
+function canonicalProfile(profile){if(profile.length<=1)return profile;return [profile[0],...profile.slice(1).sort((a,b)=>safe(a.id).localeCompare(safe(b.id)))];}
+function fileBase(profile,type,maturity){const p=canonicalProfile(profile);return `KR-${type}-${p.map(d=>safe(d.id)).join('-')}-M${maturity}`;}
+async function buildIco(profile,type,maturity){
+  const images=[];for(const size of ICON_SIZES) images.push({size,bytes:await canvasPngBytes(size,profile,type,maturity)});return makeIco(images);
+}
+function downloadBlob(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);}
+
+async function writeFile(dir,name,blob){const fh=await dir.getFileHandle(name,{create:true});const w=await fh.createWritable();await w.write(blob);await w.close();}
+async function ensureDir(parent,name){return parent.getDirectoryHandle(name,{create:true});}
+
+async function generateAll(){
+  if(!window.showDirectoryPicker){alert('Ce navigateur ne permet pas l’écriture directe dans un dossier. Utilise Chrome ou Edge récent.');return;}
+  let root;try{root=await window.showDirectoryPicker({mode:'readwrite'});}catch(e){return;}
+  cancelled=false;$('#generateFolder').disabled=true;$('#cancel').disabled=false;$('#log').textContent='';
+  const profiles=buildProfiles();const types=$('#allTypes').checked?TYPES.map(t=>t.id):[$('#type').value];const mats=$('#allMaturity').checked?[0,1,2,3,4,5]:[+$('#maturity').value];
+  const total=profiles.length*types.length*mats.length;$('#progress').max=total;$('#progress').value=0;
+  const icoDir=await ensureDir(root,'ico');let pngRoot;const pngDirs=new Map();
+  if($('#pngToo').checked){pngRoot=await ensureDir(root,'png');for(const size of ICON_SIZES) pngDirs.set(size,await ensureDir(pngRoot,String(size)));}
+  const manifest={schema:'kristal-icon-pack/1.3',profile:'kristal-icon/1.0',nature_icon_color:NATURE_ICON_COLOR,generated_at:new Date().toISOString(),sizes:ICON_SIZES,naming:{pattern:'KR-{TYPE}-{DOMAIN1}[-{DOMAIN2}][-{DOMAIN3}]-M{0..5}.ico',domain_order:'primary-first'},domains:activeDomains(),types:TYPES,items:[]};
+  let done=0, lastYield=performance.now();
+  log(`Génération de ${total.toLocaleString('fr-CA')} icônes…`);
+  generation:
+  for(const profile of profiles){
+    for(const type of types){
+      for(const maturity of mats){
+        if(cancelled){log('Annulé par l’utilisateur.');break generation;}
+        const base=fileBase(profile,type,maturity);
+        const imgs=[];
+        for(const size of ICON_SIZES) imgs.push({size,bytes:await canvasPngBytes(size,profile,type,maturity)});
+        await writeFile(icoDir,base+'.ico',makeIco(imgs));
+        if($('#pngToo').checked){for(const img of imgs) await writeFile(pngDirs.get(img.size),base+'.png',new Blob([img.bytes],{type:'image/png'}));}
+        manifest.items.push({id:base,file:`ico/${base}.ico`,domains:canonicalProfile(profile).map(d=>d.id),type,maturity});
+        done++;$('#progress').value=done;
+        if(done%25===0) log(`${done.toLocaleString('fr-CA')} / ${total.toLocaleString('fr-CA')}`);
+        if(performance.now()-lastYield>200){await sleep(0);lastYield=performance.now();}
+      }
+    }
+  }
+  await writeFile(root,'manifest.json',new Blob([JSON.stringify(manifest,null,2)],{type:'application/json'}));
+  log(cancelled?`Manifest partiel écrit (${done} icônes).`:`Terminé : ${done.toLocaleString('fr-CA')} icônes .ico générées.`);
+  $('#generateFolder').disabled=false;$('#cancel').disabled=true;
+}
+
+function init(){
+  TYPES.forEach(t=>{const o=document.createElement('option');o.value=t.id;o.textContent=t.label;$('#type').appendChild(o);});
+  for(let i=0;i<=5;i++){const o=document.createElement('option');o.value=i;o.textContent=`${i} — ${['embryonnaire','initialisé','structuré','bien cartographié','fortement validé','mature / référence'][i]}`;$('#maturity').appendChild(o);}$('#maturity').value=4;
+  $('#typesLegend').innerHTML=TYPES.map(t=>`<div class="type-chip"><b>${t.id}</b><br>${t.label}</div>`).join('');
+  $('#previewStrip').innerHTML=PREVIEW_SIZES.map(n=>`<div class="pv"><canvas id="c${n}" width="${n}" height="${n}" data-size="${n}"></canvas>${n} px</div>`).join('');
+  renderDomainTable();rebuildDomainSelects();refreshPreview();updateCounts();
+  ['d1','d2','d3','type','maturity'].forEach(id=>$('#'+id).addEventListener('change',refreshPreview));
+  ['one','two','three','allTypes','allMaturity','pngToo'].forEach(id=>$('#'+id).addEventListener('change',updateCounts));
+  $('#downloadIco').addEventListener('click',async()=>{const p=profileFromUI(),t=$('#type').value,m=+$('#maturity').value;downloadBlob(await buildIco(p,t,m),fileBase(p,t,m)+'.ico');});
+  $('#downloadPng').addEventListener('click',async()=>{const p=profileFromUI(),t=$('#type').value,m=+$('#maturity').value;for(const n of ICON_SIZES){const bytes=await canvasPngBytes(n,p,t,m);downloadBlob(new Blob([bytes],{type:'image/png'}),fileBase(p,t,m)+`_${n}.png`);await sleep(120);}});
+  $('#generateFolder').addEventListener('click',generateAll);$('#cancel').addEventListener('click',()=>{cancelled=true;$('#cancel').disabled=true;});
+  $('#addDomain').addEventListener('click',()=>{domains.push({id:'NEW',name:'Nouveau domaine',color:'#8A93A0',active:true});renderDomainTable();rebuildDomainSelects();updateCounts();});
+  $('#resetDomains').addEventListener('click',()=>{domains=structuredClone(DEFAULT_DOMAINS);renderDomainTable();rebuildDomainSelects();refreshPreview();updateCounts();});
+  if(!window.showDirectoryPicker) $('#fsNote').classList.add('danger');
+}
+init();
+</script>
+</body>
+</html>

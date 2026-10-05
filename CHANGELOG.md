@@ -1,3 +1,16 @@
+## Unreleased — 2026-10-04
+
+- adds the informative `kristal-desktop/1.0` Windows folder-binding convention;
+- standardizes `InfoTip` as `NAME • NATURE • DOMAINS • MATURITY • VOLUME`, targeting a compact 120–180 character human summary;
+- defines a machine-readable `[Kristal]` `desktop.ini` section as a regenerable local cache, never semantic authority;
+- adds the informative `kristal-icon/1.0` presentation profile: domain band + nature pictogram + maturity;
+- standardizes nature codes `REF`, `COL`, `MOD`, `PRT`, `TWN`, `INV`, `SRC`;
+- fixes the central pictogram color to `#1e6864` in the reference renderer;
+- standardizes Windows multi-resolution ICO output at 16, 20, 24, 32, 40, 48, 64, 96, 128 and 256 px;
+- standardizes deterministic names as `KR-{NATURE}-{DOMAIN...}-M{0..5}.ico`;
+- adds a browser-only reference icon generator under `tools/icons/`;
+- keeps icon metadata and generated images explicitly outside semantic identity and canonical authority.
+
 ## 8.0.0 — 2026-10-03
 
 Finalized v8 as an additive capability standard over unchanged v6/v7 semantics.
