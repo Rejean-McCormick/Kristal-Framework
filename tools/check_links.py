@@ -7,7 +7,7 @@ LINK_RE=re.compile(r'\[[^\]]*\]\(([^)]+)\)')
 
 def main():
     errors=[]
-    for p in [ROOT/'README.md',ROOT/'MIGRATION.md',ROOT/'GOVERNANCE.md',*ROOT.glob('spec/**/*.md'),*ROOT.glob('reference/**/*.md')]:
+    for p in [ROOT/'README.md',ROOT/'MIGRATION.md',ROOT/'GOVERNANCE.md',*ROOT.glob('spec/**/*.md'),*ROOT.glob('docs/**/*.md'),*ROOT.glob('reference/**/*.md')]:
         if not p.is_file(): continue
         for n,line in enumerate(p.read_text(encoding='utf-8',errors='ignore').splitlines(),1):
             for raw in LINK_RE.findall(line):

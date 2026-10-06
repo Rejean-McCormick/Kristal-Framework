@@ -1,37 +1,31 @@
 site_name: Kristal
-site_description: Kristal standard, portable state, semantic orchestration, language and AI query layers
+site_description: Kristal v9 Semantic State Architecture with frozen v6-v8 compatibility
 docs_dir: spec
 theme:
   name: material
 plugins:
   - search
 nav:
-  - v8 Home: v8/Home.md
-  - v8 Core: v8/01-core-spec/kristal-v8-core-spec.md
-  - v8 Compatibility: v8/01-core-spec/compatibility-contract.md
-  - v8 Invariants: v8/Core-Invariants.md
-  - v8 Architecture: v8/Architecture.md
-  - v8 Language Layer: v8/Language-Layer.md
-  - v8 Semantic Universe: v8/Semantic-Universe-and-Lexical-Kristals.md
-  - v8 Lexical Resolution: v8/Lexical-Resolution.md
-  - v8 AI Query Layer: v8/AI-Query-Layer.md
-  - v8 Query Protocol: v8/Query-Protocol.md
-  - v8 Query Algebra: v8/Query-Algebra-and-Planning.md
-  - v8 Federation/Pagination: v8/Federation-Pagination-and-Continuations.md
-  - v8 AI Context Compiler: v8/AI-Context-Compiler.md
-  - v8 AI Compact Encoding: v8/AI-Compact-Encoding.md
-  - v8 Semantic Fingerprints: v8/Semantic-Fingerprints-and-Integrity.md
-  - v8 Security/Trust: v8/Security-and-Trust-Boundaries.md
-  - v8 v6/v7 Adapters: v8/Adapters-v6-v7.md
-  - v8 Conformance: v8/Conformance.md
-  - v8 Migration: v8/Migration-v7-to-v8.md
-  - v8 Glossary: v8/Glossary.md
-  - v8 Design Rationale: v8/Design-Rationale.md
-  - v8 Kristal Icon Code: v8/Kristal-Icon-Code.md
-  - v7 Home: v7/Home.md
-  - v7 Core: v7/01-core-spec/kristal-v7-core-spec.md
-  - v7 Compatibility: v7/01-core-spec/compatibility-contract.md
-  - v7 Identity: v7/Semantic-Identity.md
-  - v7 Query: v7/Query.md
-  - v6 Home: v6/Home.md
-  - v5 Overview: v5/00-overview/what-is-kristal-v5.md
+  - v9 Home: v9/Home.md
+  - v9 Core: v9/01-core-spec/kristal-v9-core-spec.md
+  - v9 Compatibility: v9/01-core-spec/compatibility-contract.md
+  - v9 Invariants: v9/Core-Invariants.md
+  - v9 Architecture: v9/Architecture.md
+  - v9 Logical Artifacts: v9/Logical-Artifacts.md
+  - v9 State Snapshots: v9/State-Snapshots.md
+  - v9 Identity/Commitments: v9/Identity-and-Commitments.md
+  - v9 Authority/Provenance: v9/Authority-Provenance-and-Trust.md
+  - v9 Derivations: v9/Derivations-and-Reproducibility.md
+  - v9 Materialization: v9/Materialization.md
+  - v9 Exchange/Runtime: v9/Exchange-and-Runtime.md
+  - v9 Build/Publish/Activate: v9/Build-Publish-Activate.md
+  - v9 Federation/Coverage: v9/Federation-and-Coverage.md
+  - v9 Contract Evolution: v9/Contract-Evolution.md
+  - v9 Security: v9/Security-and-Confidentiality.md
+  - v9 Conformance: v9/Conformance.md
+  - v9 Migration: v9/Migration-v8-to-v9.md
+  - v9 Glossary: v9/Glossary.md
+  - Previous standards:
+      - v8 Home: v8/Home.md
+      - v7 Home: v7/Home.md
+      - v6 Home: v6/Home.md

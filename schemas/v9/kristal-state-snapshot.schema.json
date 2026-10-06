@@ -1,0 +1,260 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kristal:schema:v9:state-snapshot",
+  "title": "Kristal v9 State Snapshot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "state_ref",
+    "logical_commitment",
+    "members",
+    "references"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "9.0"
+    },
+    "artifact_type": {
+      "const": "kristal_state_snapshot"
+    },
+    "state_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "logical_commitment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile",
+        "digest"
+      ],
+      "properties": {
+        "profile": {
+          "type": "string",
+          "minLength": 1
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      }
+    },
+    "members": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "artifact_id",
+          "logical_contract",
+          "logical_commitment"
+        ],
+        "properties": {
+          "artifact_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "logical_contract": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "version"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "version": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "logical_commitment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "profile",
+              "digest"
+            ],
+            "properties": {
+              "profile": {
+                "type": "string",
+                "minLength": 1
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              }
+            }
+          },
+          "authority_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "artifact_id",
+              "logical_contract",
+              "logical_commitment"
+            ],
+            "properties": {
+              "artifact_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "logical_contract": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "version"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "version": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "logical_commitment": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "profile",
+                  "digest"
+                ],
+                "properties": {
+                  "profile": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "digest": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$"
+                  }
+                }
+              },
+              "authority_ref": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "state_ref",
+              "logical_commitment"
+            ],
+            "properties": {
+              "state_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "logical_commitment": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "profile",
+                  "digest"
+                ],
+                "properties": {
+                  "profile": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "digest": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$"
+                  }
+                }
+              },
+              "authority_ref": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        ]
+      }
+    },
+    "parents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "state_ref",
+          "logical_commitment"
+        ],
+        "properties": {
+          "state_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "logical_commitment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "profile",
+              "digest"
+            ],
+            "properties": {
+              "profile": {
+                "type": "string",
+                "minLength": 1
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              }
+            }
+          },
+          "authority_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "scope": {
+      "type": "object"
+    },
+    "authority_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "signatures": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "extensions": {
+      "type": "object"
+    }
+  }
+}

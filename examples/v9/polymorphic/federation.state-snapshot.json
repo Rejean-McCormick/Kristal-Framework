@@ -1,0 +1,32 @@
+{
+  "schema_version": "9.0",
+  "artifact_type": "kristal_state_snapshot",
+  "state_ref": "urn:kristal:workload:federation",
+  "logical_commitment": {
+    "profile": "kristal.state-commitment/jcs-sha256-v1",
+    "digest": "sha256:99c625ef7b20246553fe2d443cda470f4d1ba842fb225d13f7b41652e1d32493"
+  },
+  "members": [],
+  "references": [
+    {
+      "state_ref": "urn:kristal:child:curriculum-a",
+      "logical_commitment": {
+        "profile": "kristal.state-commitment/jcs-sha256-v1",
+        "digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111"
+      },
+      "authority_ref": "urn:kristal:authority:curriculum-a"
+    },
+    {
+      "state_ref": "urn:kristal:child:curriculum-b",
+      "logical_commitment": {
+        "profile": "kristal.state-commitment/jcs-sha256-v1",
+        "digest": "sha256:2222222222222222222222222222222222222222222222222222222222222222"
+      },
+      "authority_ref": "urn:kristal:authority:curriculum-b"
+    }
+  ],
+  "parents": [],
+  "scope": {
+    "workload": "federated-hierarchy"
+  }
+}

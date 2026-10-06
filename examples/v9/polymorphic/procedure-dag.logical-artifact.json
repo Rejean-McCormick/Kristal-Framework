@@ -1,0 +1,43 @@
+{
+  "schema_version": "9.0",
+  "artifact_type": "kristal_logical_artifact",
+  "artifact_id": "urn:kristal:workload:procedure",
+  "logical_contract": {
+    "id": "workload.procedure-graph",
+    "version": "1.0"
+  },
+  "payload": {
+    "nodes": [
+      {
+        "id": "n1",
+        "kind": "input"
+      },
+      {
+        "id": "n2",
+        "kind": "operation",
+        "op": "mix"
+      },
+      {
+        "id": "n3",
+        "kind": "output"
+      }
+    ],
+    "edges": [
+      {
+        "from": "n1",
+        "to": "n2"
+      },
+      {
+        "from": "n2",
+        "to": "n3"
+      }
+    ]
+  },
+  "logical_commitment": {
+    "profile": "kristal.logical/jcs-sha256-v1",
+    "digest": "sha256:92fdf3d8957b833841a0193d1eefbd2a41c87a909fce4a25a1c2a06c8c051292"
+  },
+  "scope": {
+    "workload": "polymorphic-reference"
+  }
+}

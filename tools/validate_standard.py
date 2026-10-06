@@ -11,6 +11,9 @@ from pathlib import Path
 from jsonschema import Draft202012Validator, FormatChecker
 
 ROOT = Path(__file__).resolve().parents[1]
+V9_SCHEMA_ROOT = ROOT / 'schemas' / 'v9'
+V9_VECTORS = ROOT / 'tck' / 'v9' / 'vectors'
+V9_EXAMPLES = ROOT / 'examples' / 'v9'
 V8_SCHEMA_ROOT = ROOT / 'schemas' / 'v8'
 V8_VECTORS = ROOT / 'tck' / 'v8' / 'vectors'
 V8_EXAMPLES = ROOT / 'examples' / 'v8'
@@ -38,6 +41,16 @@ EXPECTED_V7_SCHEMAS = {
     'kristall-toc-registry.schema.json',
     'semantic-resonance.schema.json',
 }
+EXPECTED_V9_SCHEMAS = {
+    'kristal-activation.schema.json',
+    'kristal-derivation.schema.json',
+    'kristal-exchange.schema.json',
+    'kristal-logical-artifact.schema.json',
+    'kristal-materialization-manifest.schema.json',
+    'kristal-state-snapshot.schema.json',
+    'kristal-v9-capabilities.schema.json',
+}
+
 EXPECTED_V8_SCHEMAS = {
     'kristall-ai-context-bundle.schema.json',
     'kristall-lexicon-stack.schema.json',
@@ -64,6 +77,16 @@ V7_PAIRINGS = {
     'kos-registry.example.json': 'kristall-kos-registry.schema.json',
     'toc-registry-100-seed.example.json': 'kristall-toc-registry.schema.json',
 }
+V9_PAIRINGS = {
+    'logical-artifact.example.json': 'kristal-logical-artifact.schema.json',
+    'state-snapshot.example.json': 'kristal-state-snapshot.schema.json',
+    'derivation.example.json': 'kristal-derivation.schema.json',
+    'materialization-manifest.example.json': 'kristal-materialization-manifest.schema.json',
+    'exchange.example.json': 'kristal-exchange.schema.json',
+    'activation.example.json': 'kristal-activation.schema.json',
+    'v9-capabilities.example.json': 'kristal-v9-capabilities.schema.json',
+}
+
 V8_PAIRINGS = {
     'v8-capabilities.example.json': 'kristall-v8-capabilities.schema.json',
     'lexicon-fr-core.example.json': 'kristall-lexicon.schema.json',
@@ -92,10 +115,10 @@ def validate(instance, schema, label: str):
 
 
 def check_layout():
-    for ver in ('v8', 'v7', 'v6'):
+    for ver in ('v9', 'v8', 'v7', 'v6'):
         if (ROOT / f'spec/{ver}/02-schemas').exists() or (ROOT / f'spec/{ver}/09-test-vectors').exists():
             raise AssertionError(f'active {ver} machine contracts must not be duplicated under spec/{ver}')
-    if (ROOT / 'VERSION').read_text(encoding='utf-8').strip() != '8.0.0':
+    if (ROOT / 'VERSION').read_text(encoding='utf-8').strip() != '9.0.0-draft.1':
         raise AssertionError('unexpected active VERSION')
 
 
@@ -106,7 +129,10 @@ def check_schemas():
     actual8 = {p.name for p in V8_SCHEMA_ROOT.glob('*.schema.json')}
     if actual8 != EXPECTED_V8_SCHEMAS:
         raise AssertionError(f'v8 schema set drift: {sorted(actual8 ^ EXPECTED_V8_SCHEMAS)}')
-    for root in (V7_SCHEMA_ROOT, V8_SCHEMA_ROOT):
+    actual9 = {p.name for p in V9_SCHEMA_ROOT.glob('*.schema.json')}
+    if actual9 != EXPECTED_V9_SCHEMAS:
+        raise AssertionError(f'v9 schema set drift: {sorted(actual9 ^ EXPECTED_V9_SCHEMAS)}')
+    for root in (V7_SCHEMA_ROOT, V8_SCHEMA_ROOT, V9_SCHEMA_ROOT):
         for p in sorted(root.glob('*.schema.json')):
             Draft202012Validator.check_schema(load(p))
     Draft202012Validator.check_schema(load(V6_SCHEMA))
@@ -127,6 +153,9 @@ def check_v7_examples_and_vectors():
     validate(projection, load(V6_SCHEMA), 'v6-compatible projection')
     validate(projection['extensions']['kristal_v7'], load(V7_SCHEMA_ROOT/'kristal-v7-extension.schema.json'), 'v7 extension')
 
+
+def check_v9_examples_and_vectors():
+    check_examples_and_vectors(V9_PAIRINGS, V9_SCHEMA_ROOT, V9_EXAMPLES, V9_VECTORS, 'v9')
 
 def check_v8_examples_and_vectors():
     check_examples_and_vectors(V8_PAIRINGS, V8_SCHEMA_ROOT, V8_EXAMPLES, V8_VECTORS, 'v8')
@@ -172,12 +201,69 @@ def check_v8_invariants():
             raise AssertionError(f'missing v8 conformance profile: {profile}')
 
 
-def check_compatibility_lock():
+def check_v8_compatibility_lock():
     lock=load(ROOT/'contracts/v8-compatibility-lock.json')
     for e in lock['files']:
         p=ROOT/e['path']; b=p.read_bytes(); h='sha256:'+hashlib.sha256(b).hexdigest()
         if h != e['sha256'] or len(b) != e['bytes']:
             raise AssertionError(f'v8 changed frozen v6/v7 compatibility surface: {e["path"]}')
+
+
+def check_v9_compatibility_lock():
+    lock=load(ROOT/'contracts/v9-compatibility-lock.json')
+    if lock.get('release') != '9.0.0-draft.1':
+        raise AssertionError('v9 compatibility lock release mismatch')
+    for e in lock['files']:
+        p=ROOT/e['path']; b=p.read_bytes(); h='sha256:'+hashlib.sha256(b).hexdigest()
+        if h != e['sha256'] or len(b) != e['bytes']:
+            raise AssertionError(f'v9 changed frozen v6/v7/v8 compatibility surface: {e["path"]}')
+
+
+def check_v9_invariants():
+    invariants=(ROOT/'spec/v9/Core-Invariants.md').read_text(encoding='utf-8')
+    for token in (
+        'LOGICAL STATE != PHYSICAL MATERIALIZATION','KNOWLEDGE != ASSERTION LIST',
+        'SEMANTIC IDENTITY != CONTENT IDENTITY','LOGICAL COMMITMENT != BLOB DIGEST',
+        'REPACK != LOGICAL REVISION','INDEX != SOURCE OF TRUTH','SHARD != SEGMENT',
+        'STATE COMPOSITION != AUTHORITY MERGE','EPISTEMIC PROVENANCE != BUILD PROVENANCE',
+        'PARTIAL AVAILABILITY != NEGATION','SMALL KRISTAL MUST STAY SMALL'):
+        if token not in invariants: raise AssertionError(f'missing v9 invariant: {token}')
+    conformance=(ROOT/'spec/v9/Conformance.md').read_text(encoding='utf-8')
+    for profile in ('V9-State-Reader','V9-Builder','V9-Materializer','V9-Publisher','V9-Full'):
+        if profile not in conformance: raise AssertionError(f'missing v9 conformance profile: {profile}')
+    caps=load(V9_EXAMPLES/'v9-capabilities.example.json')
+    if not {'kristal_state/6.0','kristall/7.0','kristall/8.0','kristal.state/9.0'}.issubset(set(caps['compatibility']['reads'])):
+        raise AssertionError('v9 capability descriptor lost inherited reads')
+
+
+def check_v9_commitment_vectors():
+    vectors=load(V9_VECTORS/'logical-commitment-vectors.json')
+    for v in vectors.get('vectors',[]):
+        file=V9_VECTORS/v['file']
+        cmd='logical-commitment-v9' if v['kind']=='logical_artifact' else 'state-commitment-v9'
+        proc=subprocess.run(['node',str(ROOT/'reference/js/bin/kristal-ref.mjs'),cmd,str(file)],check=True,capture_output=True,text=True,cwd=ROOT/'reference/js')
+        actual=json.loads(proc.stdout)['digest']
+        if actual != v['expected_digest']:
+            raise AssertionError(f'v9 commitment vector drift: {v["id"]}')
+
+
+def check_v9_polymorphic_workloads():
+    root=ROOT/'tck/v9/workloads'
+    art_schema=load(V9_SCHEMA_ROOT/'kristal-logical-artifact.schema.json')
+    state_schema=load(V9_SCHEMA_ROOT/'kristal-state-snapshot.schema.json')
+    required_contracts={
+        'workload.relation','workload.procedure-graph','workload.multiplex-graph','workload.formula-ir','workload.epistemic-corpus'
+    }
+    seen=set()
+    for p in sorted(root.glob('*.logical-artifact.json')):
+        doc=load(p); validate(doc,art_schema,f'v9 polymorphic workload {p.name}')
+        seen.add(doc['logical_contract']['id'])
+        proc=subprocess.run(['node',str(ROOT/'reference/js/bin/kristal-ref.mjs'),'verify-logical-artifact-v9',str(p)],check=True,capture_output=True,text=True,cwd=ROOT/'reference/js')
+        if not json.loads(proc.stdout)['ok']: raise AssertionError(f'v9 workload commitment failed: {p.name}')
+    if seen != required_contracts: raise AssertionError(f'v9 polymorphic workload set drift: {sorted(seen ^ required_contracts)}')
+    fed=root/'federation.state-snapshot.json'; validate(load(fed),state_schema,'v9 federated workload')
+    proc=subprocess.run(['node',str(ROOT/'reference/js/bin/kristal-ref.mjs'),'verify-state-v9',str(fed)],check=True,capture_output=True,text=True,cwd=ROOT/'reference/js')
+    if not json.loads(proc.stdout)['ok']: raise AssertionError('v9 federated workload commitment failed')
 
 
 def check_language_reference_tools():
@@ -263,15 +349,15 @@ def check_active_version_text():
     version = (ROOT/'VERSION').read_text(encoding='utf-8').strip()
     release = load(ROOT/'contracts/release.json')
     contract_set = load(ROOT/'contracts/contract-set.json')
-    knowledge = load(ROOT/'contracts/knowledge-model-contract.v4.json')
+    knowledge = load(ROOT/'contracts/knowledge-model-contract.v5.json')
     if not (release.get('version') == contract_set.get('version') == knowledge.get('release') == version):
         raise AssertionError('active release/version surfaces disagree')
-    core = (ROOT/'spec/v8/01-core-spec/kristal-v8-core-spec.md').read_text(encoding='utf-8')
+    core = (ROOT/'spec/v9/01-core-spec/kristal-v9-core-spec.md').read_text(encoding='utf-8')
     if version not in core:
-        raise AssertionError('v8 core spec not aligned to active VERSION')
-    status = (ROOT/'spec/v8/00-overview/specification-status.md').read_text(encoding='utf-8')
-    if version not in '\n'.join(status.splitlines()[:6]):
-        raise AssertionError('active v8 specification status is stale')
+        raise AssertionError('v9 core spec not aligned to active VERSION')
+    status = (ROOT/'spec/v9/00-overview/specification-status.md').read_text(encoding='utf-8')
+    if version not in '\n'.join(status.splitlines()[:8]):
+        raise AssertionError('active v9 specification status is stale')
 
 
 def check_daat_boundary():
@@ -286,12 +372,17 @@ def main():
     checks = [
         ('layout', check_layout),
         ('schemas', check_schemas),
+        ('v9 examples/vectors', check_v9_examples_and_vectors),
         ('v8 examples/vectors', check_v8_examples_and_vectors),
         ('v7 examples/vectors', check_v7_examples_and_vectors),
         ('v6 portable contract', check_v6_portable_contract),
         ('v7 invariants', check_v7_invariants),
         ('v8 invariants', check_v8_invariants),
-        ('v8 compatibility lock', check_compatibility_lock),
+        ('v9 invariants', check_v9_invariants),
+        ('v8 compatibility lock', check_v8_compatibility_lock),
+        ('v9 compatibility lock', check_v9_compatibility_lock),
+        ('v9 commitment vectors', check_v9_commitment_vectors),
+        ('v9 polymorphic workloads', check_v9_polymorphic_workloads),
         ('v8 language helper', check_language_reference_tools),
         ('v8 query helpers', check_query_reference_tools),
         ('icon profile tooling', check_icon_profile_tooling),

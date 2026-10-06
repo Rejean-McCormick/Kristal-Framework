@@ -17,6 +17,11 @@ import { executeQuery, verifyQueryRequest } from './v8/query.mjs';
 import { createQueryIndex, exportQueryIndex } from './v8/query_index.mjs';
 import { compileAIContext } from './v8/ai_context.mjs';
 import { referenceV8Capabilities } from './v8/capabilities.mjs';
+import { logicalArtifactCommitment, stateCommitment, verifyLogicalArtifact, verifyStateSnapshot } from './v9/state.mjs';
+import { verifyMaterializationManifest } from './v9/materialization.mjs';
+import { referenceV9Capabilities } from './v9/capabilities.mjs';
+import { verifyDerivation, verifyExchangeV9, verifyActivation } from './v9/contracts.mjs';
+import { publishStateSnapshot, activateChannel } from './v9/lifecycle.mjs';
 
 function die(message, code = 2) {
   process.stderr.write(message + '\n');
@@ -71,6 +76,40 @@ export async function main(argv = process.argv.slice(2)) {
     case 'v8-capabilities': {
       printJson(referenceV8Capabilities());return;
     }
+    case 'v9-capabilities': {
+      printJson(referenceV9Capabilities());return;
+    }
+    case 'logical-commitment-v9': {
+      const file=requireArg(args,0,'v9 Logical Artifact JSON');printJson(logicalArtifactCommitment(readJson(file)));return;
+    }
+    case 'verify-logical-artifact-v9': {
+      const file=requireArg(args,0,'v9 Logical Artifact JSON');return resultExit(verifyLogicalArtifact(readJson(file)));
+    }
+    case 'state-commitment-v9': {
+      const file=requireArg(args,0,'v9 State Snapshot JSON');printJson(stateCommitment(readJson(file)));return;
+    }
+    case 'verify-state-v9': {
+      const file=requireArg(args,0,'v9 State Snapshot JSON');return resultExit(verifyStateSnapshot(readJson(file)));
+    }
+    case 'verify-materialization-v9': {
+      const file=requireArg(args,0,'v9 Materialization Manifest JSON');return resultExit(verifyMaterializationManifest(readJson(file)));
+    }
+    case 'verify-derivation-v9': {
+      const file=requireArg(args,0,'v9 Derivation JSON');return resultExit(verifyDerivation(readJson(file)));
+    }
+    case 'verify-exchange-v9': {
+      const file=requireArg(args,0,'v9 Exchange JSON');return resultExit(verifyExchangeV9(readJson(file)));
+    }
+    case 'verify-activation-v9': {
+      const file=requireArg(args,0,'v9 Activation JSON');return resultExit(verifyActivation(readJson(file)));
+    }
+    case 'publish-state-v9': {
+      const file=requireArg(args,0,'v9 State Snapshot JSON');const store=requireArg(args,1,'store directory');printJson(publishStateSnapshot(readJson(file),store));return;
+    }
+    case 'activate-state-v9': {
+      const file=requireArg(args,0,'v9 Activation JSON');const pointer=requireArg(args,1,'activation pointer file');printJson(activateChannel(readJson(file),pointer));return;
+    }
+
     case 'semantic-fingerprint': {
       const file=requireArg(args,0,'Kristal artifact JSON');printJson(semanticFingerprint(readJson(file)));return;
     }
@@ -181,13 +220,15 @@ export async function main(argv = process.argv.slice(2)) {
         if (!result.ok) throw new Error(result.issues.join('; '));
         const caps=referenceV8Capabilities();
         if(caps.schema_version!=='8.0')throw new Error('v8 capabilities self-test failed');
-        printJson({ ok: true, self_test: 'PASS', v8:true });
+        const caps9=referenceV9Capabilities();
+        if(caps9.schema_version!=='9.0')throw new Error('v9 capabilities self-test failed');
+        printJson({ ok: true, self_test: 'PASS', v8:true, v9:true });
       } finally {
         fs.rmSync(tmp, { recursive: true, force: true });
       }
       return;
     }
     default:
-      die('usage: kristal-ref <state-id|verify-state|summarize-state|inspect-artifact|v8-capabilities|semantic-fingerprint|verify-query-request|resolve-lexicon|query-v8|build-query-index|compile-ai-context|exchange-id|verify-exchange|build-runtime-pack|verify-runtime-pack|verify-runtime-profile|verify-signature|verify-trust|verify-referent-registry|verify-knowledge-model-contract|self-test> ...');
+      die('usage: kristal-ref <state-id|verify-state|summarize-state|inspect-artifact|v8-capabilities|v9-capabilities|logical-commitment-v9|verify-logical-artifact-v9|state-commitment-v9|verify-state-v9|verify-materialization-v9|verify-derivation-v9|verify-exchange-v9|verify-activation-v9|publish-state-v9|activate-state-v9|semantic-fingerprint|verify-query-request|resolve-lexicon|query-v8|build-query-index|compile-ai-context|exchange-id|verify-exchange|build-runtime-pack|verify-runtime-pack|verify-runtime-profile|verify-signature|verify-trust|verify-referent-registry|verify-knowledge-model-contract|self-test> ...');
   }
 }

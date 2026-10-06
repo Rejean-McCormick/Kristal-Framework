@@ -1,0 +1,27 @@
+{
+  "schema_version": "9.0",
+  "artifact_type": "kristal_exchange",
+  "exchange_id": "urn:kristal:exchange:example-recipes",
+  "state": {
+    "state_ref": "urn:kristal:state:example-recipes",
+    "logical_commitment": {
+      "profile": "kristal.state-commitment/jcs-sha256-v1",
+      "digest": "sha256:80a4e55e7d73cbd9902f8c6cc2bbc3fbfceefc51f597da68cd58685e55856445"
+    }
+  },
+  "state_blob": {
+    "media_type": "application/vnd.kristal.state+json",
+    "digest": "sha256:41895df0e5bab37f85e5b14aa1d79262731b6bb5a0d62fbbcaae3d01d73f94b4",
+    "size": 999
+  },
+  "materializations": [
+    {
+      "artifact_id": "urn:kristal:example:recipe:carbonara",
+      "manifest_blob": {
+        "media_type": "application/vnd.kristal.materialization+json",
+        "digest": "sha256:9ade794e867e8a47a4c5146df4a0adc162cb8d1634859fa91ef1ed68d4cf2ce4",
+        "size": 888
+      }
+    }
+  ]
+}

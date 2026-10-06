@@ -20,7 +20,7 @@ env:
 
 jobs:
   native-conformance:
-    name: Native v8 standard conformance
+    name: Native v9 standard conformance
     runs-on: ubuntu-24.04
     timeout-minutes: 20
 
@@ -71,7 +71,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: kristal-native-v8-${{ github.sha }}
+          name: kristal-native-v9-${{ github.sha }}
           if-no-files-found: error
           retention-days: 30
           path: ci-evidence/

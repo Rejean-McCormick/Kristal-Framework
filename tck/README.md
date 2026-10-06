@@ -1,5 +1,10 @@
-# Technology Compatibility Kit
+# Kristal TCK
 
-Normative conformance vectors for active contracts. v8 vectors are additive; v8 implementations must continue to honor the v6/v7 compatibility surfaces they claim.
+The Test Compatibility Kit contains normative vectors for the active and inherited standards.
 
-The TCK defines expected observable behavior; implementation code under `reference/` and `tools/v8/` is not normative.
+- `v6/` portable state
+- `v7/` semantic identity/Kristall
+- `v8/` language/query/read models
+- `v9/` Semantic State Architecture
+
+The reference implementation is informative; the specification, schemas and TCK define conformance.

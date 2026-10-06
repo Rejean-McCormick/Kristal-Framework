@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kristal:schema:v9:activation",
+  "title": "Kristal v9 Activation Pointer",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "channel_id",
+    "active_state",
+    "sequence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "9.0"
+    },
+    "artifact_type": {
+      "const": "kristal_activation"
+    },
+    "channel_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "active_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state_ref",
+        "logical_commitment"
+      ],
+      "properties": {
+        "state_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "logical_commitment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "profile",
+            "digest"
+          ],
+          "properties": {
+            "profile": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          }
+        },
+        "authority_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "previous_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state_ref",
+        "logical_commitment"
+      ],
+      "properties": {
+        "state_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "logical_commitment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "profile",
+            "digest"
+          ],
+          "properties": {
+            "profile": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          }
+        },
+        "authority_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "expected_previous": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state_ref",
+        "logical_commitment"
+      ],
+      "properties": {
+        "state_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "logical_commitment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "profile",
+            "digest"
+          ],
+          "properties": {
+            "profile": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          }
+        },
+        "authority_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "signatures": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "extensions": {
+      "type": "object"
+    }
+  }
+}

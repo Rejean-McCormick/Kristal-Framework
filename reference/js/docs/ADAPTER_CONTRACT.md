@@ -8,25 +8,25 @@ It accepts canonical artifacts without rewriting them:
 
 - `kristal_state/6.0` portable state;
 - v7 KQ/KP/KA/KS registries and Mesh artifacts;
-- v8 companion artifacts such as lexical Kristals, lexicon stacks, KQP requests/results, query indexes and AI context bundles.
+- v8 language/query/read-model artifacts;
+- v9 Logical Artifacts, State Snapshots, Derivations, Materialization Manifests, Exchange manifests and Activation pointers.
 
-A v6 identity is not silently promoted to KQ. External/source-local IDs remain external unless a declared mapping says otherwise.
+A v6 identity is not silently promoted to KQ. A physical segment ordinal is never promoted to semantic identity.
 
 ## Derived boundary
 
-The following are rebuildable/read-side products and never canonical authority:
+The following remain rebuildable/read-side products and never canonical authority:
 
-- in-memory identity and graph indexes;
-- exported `kristall_query_index` payloads;
-- KQP query results;
-- semantic fingerprints;
-- AI context bundles;
-- lexical projections.
+- identity, graph, search and segment indexes;
+- exported v8 query indexes;
+- KQP query results and AI contexts;
+- v9 Runtime Packs and cache structures;
+- physical materialization choices.
 
-## AI boundary
+## Lifecycle boundary
 
-The model/client may propose a typed KQP request. The deterministic runtime validates and executes supported operators. Free-form intent can influence ranking but cannot override typed scope, traversal, filters, budgets or authority boundaries.
+The reference implementation demonstrates local immutable publication and atomic pointer activation. It does not define distributed consensus. `BUILD != PUBLISH != ACTIVATE` remains explicit.
 
 ## Compatibility
 
-v8 functionality is additive. Existing v6/v5 functions remain in place, and v7 source artifacts are consumed without schema mutation.
+V9 is additive. Existing v6/v7/v8 artifacts remain readable under their frozen contracts.

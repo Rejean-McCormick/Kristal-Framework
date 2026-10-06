@@ -1,0 +1,46 @@
+{
+  "schema_version": "9.0",
+  "artifact_type": "kristal_logical_artifact",
+  "artifact_id": "urn:kristal:workload:multiplex",
+  "logical_contract": {
+    "id": "workload.multiplex-graph",
+    "version": "1.0"
+  },
+  "payload": {
+    "components": [
+      {
+        "id": "ecu"
+      },
+      {
+        "id": "sensor"
+      }
+    ],
+    "ports": [
+      {
+        "id": "p1",
+        "component": "sensor"
+      },
+      {
+        "id": "p2",
+        "component": "ecu"
+      }
+    ],
+    "connections": [
+      {
+        "from": "p1",
+        "to": "p2",
+        "layer": "signal",
+        "enabled_when": {
+          "ignition": "on"
+        }
+      }
+    ]
+  },
+  "logical_commitment": {
+    "profile": "kristal.logical/jcs-sha256-v1",
+    "digest": "sha256:d5c38694c9ee23b5fa1d4cd24ba4dfa8e4ac12ba3893f0c3a691424872329145"
+  },
+  "scope": {
+    "workload": "polymorphic-reference"
+  }
+}

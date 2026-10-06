@@ -1,6 +1,10 @@
 import { verifyKristalState } from '../kristal_state.mjs';
 import { isObject, V7_ARTIFACT_TYPES, V8_ARTIFACT_TYPES, byteFingerprintFromJson } from './common.mjs';
 import { verifyLexicon, verifyLexiconStack } from './lexicon.mjs';
+import { verifyLogicalArtifact, verifyStateSnapshot } from '../v9/state.mjs';
+import { verifyMaterializationManifest } from '../v9/materialization.mjs';
+import { verifyDerivation, verifyExchangeV9, verifyActivation } from '../v9/contracts.mjs';
+import { verifyV9Capabilities } from '../v9/capabilities.mjs';
 
 const V7_ARRAY_REQUIREMENTS = new Map([
   ['kristall_entity_registry','entities'],
@@ -35,6 +39,20 @@ function basicV8Verify(doc) {
   return {ok:issues.length===0,issues};
 }
 
+
+function basicV9Verify(doc) {
+  switch(doc?.artifact_type){
+    case 'kristal_logical_artifact': return verifyLogicalArtifact(doc);
+    case 'kristal_state_snapshot': return verifyStateSnapshot(doc);
+    case 'kristal_materialization_manifest': return verifyMaterializationManifest(doc);
+    case 'kristal_derivation': return verifyDerivation(doc);
+    case 'kristal_exchange': return verifyExchangeV9(doc);
+    case 'kristal_activation': return verifyActivation(doc);
+    case 'kristal_v9_capabilities': return verifyV9Capabilities(doc);
+    default: return {ok:false,issues:[{path:'$.artifact_type',message:'unrecognized v9 artifact type'}]};
+  }
+}
+
 export function inspectArtifact(doc) {
   if (doc?.schema_version === '6.0' && doc?.artifact_type === 'kristal_state') {
     const verification = verifyKristalState(doc);
@@ -48,13 +66,17 @@ export function inspectArtifact(doc) {
     const verification=basicV8Verify(doc);
     return { ok:verification.ok, family:'v8', schema_version:'8.0', artifact_type:doc?.artifact_type, issues:verification.issues };
   }
+  if (doc?.schema_version === '9.0') {
+    const verification=basicV9Verify(doc);
+    return { ok:verification.ok, family:'v9', schema_version:'9.0', artifact_type:doc?.artifact_type, issues:verification.issues };
+  }
   return { ok:false, family:'unknown', schema_version:doc?.schema_version, artifact_type:doc?.artifact_type, issues:[{path:'$',message:'unsupported Kristal artifact'}] };
 }
 
 export function buildDataset(artifacts) {
   const dataset = {
     entities:[], properties:[], assertions:[], sources:[], edges:[],
-    v6_states:[], lexicons:[], lexicon_stacks:[], query_indexes:[], capabilities:[],
+    v6_states:[], lexicons:[], lexicon_stacks:[], query_indexes:[], capabilities:[], v9_artifacts:[],
     artifacts:[], source_fingerprints:[],
   };
   for (const item of artifacts ?? []) {
@@ -76,6 +98,8 @@ export function buildDataset(artifacts) {
       case 'kristall_lexicon_stack': dataset.lexicon_stacks.push(doc); break;
       case 'kristall_query_index': dataset.query_indexes.push(doc); break;
       case 'kristall_v8_capabilities': dataset.capabilities.push(doc); break;
+      case 'kristal_v9_capabilities': dataset.capabilities.push(doc); dataset.v9_artifacts.push({ref,doc}); break;
+      case 'kristal_logical_artifact': case 'kristal_state_snapshot': case 'kristal_materialization_manifest': case 'kristal_derivation': case 'kristal_exchange': case 'kristal_activation': dataset.v9_artifacts.push({ref,doc}); break;
       default: break;
     }
   }

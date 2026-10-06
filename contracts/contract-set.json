@@ -1,24 +1,24 @@
 {
-  "format": "kristal.contract-set/v3",
-  "version": "8.0.0",
+  "format": "kristal.contract-set/v4",
+  "version": "9.0.0-draft.1",
   "normative": {
     "core": [
-      "spec/v8/01-core-spec/kristal-v8-core-spec.md",
-      "spec/v8/01-core-spec/compatibility-contract.md",
-      "spec/v8/Core-Invariants.md",
-      "spec/v8/Architecture.md",
-      "spec/v8/Language-Layer.md",
-      "spec/v8/Semantic-Universe-and-Lexical-Kristals.md",
-      "spec/v8/Lexical-Resolution.md",
-      "spec/v8/AI-Query-Layer.md",
-      "spec/v8/Query-Protocol.md",
-      "spec/v8/Query-Algebra-and-Planning.md",
-      "spec/v8/Federation-Pagination-and-Continuations.md",
-      "spec/v8/AI-Context-Compiler.md",
-      "spec/v8/AI-Compact-Encoding.md",
-      "spec/v8/Semantic-Fingerprints-and-Integrity.md",
-      "spec/v8/Security-and-Trust-Boundaries.md",
-      "spec/v8/Conformance.md"
+      "spec/v9/01-core-spec/kristal-v9-core-spec.md",
+      "spec/v9/01-core-spec/compatibility-contract.md",
+      "spec/v9/Core-Invariants.md",
+      "spec/v9/Architecture.md",
+      "spec/v9/Logical-Artifacts.md",
+      "spec/v9/State-Snapshots.md",
+      "spec/v9/Identity-and-Commitments.md",
+      "spec/v9/Authority-Provenance-and-Trust.md",
+      "spec/v9/Derivations-and-Reproducibility.md",
+      "spec/v9/Materialization.md",
+      "spec/v9/Exchange-and-Runtime.md",
+      "spec/v9/Build-Publish-Activate.md",
+      "spec/v9/Federation-and-Coverage.md",
+      "spec/v9/Contract-Evolution.md",
+      "spec/v9/Security-and-Confidentiality.md",
+      "spec/v9/Conformance.md"
     ],
     "schemas": [
       "schemas/v6/kristal-state.schema.json",
@@ -43,27 +43,43 @@
       "schemas/v8/kristall-query-index.schema.json",
       "schemas/v8/kristall-query-request.schema.json",
       "schemas/v8/kristall-query-result.schema.json",
-      "schemas/v8/kristall-v8-capabilities.schema.json"
+      "schemas/v8/kristall-v8-capabilities.schema.json",
+      "schemas/v9/kristal-activation.schema.json",
+      "schemas/v9/kristal-derivation.schema.json",
+      "schemas/v9/kristal-exchange.schema.json",
+      "schemas/v9/kristal-logical-artifact.schema.json",
+      "schemas/v9/kristal-materialization-manifest.schema.json",
+      "schemas/v9/kristal-state-snapshot.schema.json",
+      "schemas/v9/kristal-v9-capabilities.schema.json"
     ],
     "compatibility": [
-      "contracts/v8-compatibility-lock.json"
+      "contracts/v9-compatibility-lock.json"
     ],
     "tck": [
+      "tck/v9/vectors/",
+      "tck/v9/workloads/",
       "tck/v8/vectors/",
       "tck/v7/vectors/",
       "tck/v6/vectors/",
       "spec/v5/09-test-vectors/"
+    ],
+    "bundles": [
+      "contracts/release.json",
+      "contracts/knowledge-model-contract.v5.json"
     ]
   },
   "informative": {
     "reference": [
-      "reference/js/",
-      "tools/v8/"
+      "reference/js/"
     ],
     "examples": [
+      "examples/v9/",
       "examples/v8/",
       "examples/v7/",
       "examples/v6/"
+    ],
+    "docs": [
+      "docs/"
     ],
     "history": [
       "history/status/"

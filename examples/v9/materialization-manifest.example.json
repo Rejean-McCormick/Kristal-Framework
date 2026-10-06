@@ -1,0 +1,41 @@
+{
+  "schema_version": "9.0",
+  "artifact_type": "kristal_materialization_manifest",
+  "materialization_id": "urn:kristal:materialization:example-recipe",
+  "source": {
+    "artifact_id": "urn:kristal:example:recipe:carbonara",
+    "logical_contract": {
+      "id": "example.recipe-procedure",
+      "version": "1.0"
+    },
+    "logical_commitment": {
+      "profile": "kristal.logical/jcs-sha256-v1",
+      "digest": "sha256:5118cf41de4624644f06f6d5e15340b3b3aa88c93f12ce68eee2cb6d02479be5"
+    }
+  },
+  "profile": "kristal.materialization/segmented-jsonl/1",
+  "partition_spec": {
+    "strategy": "single"
+  },
+  "segments": [
+    {
+      "segment_key": "all",
+      "record_count": 2,
+      "blob": {
+        "media_type": "application/vnd.kristal.segment+jsonl",
+        "digest": "sha256:97240999829f9a6e5a1e28e306b73c8ed959255f8583324eab7bf45c6fd991ad",
+        "size": 137
+      }
+    }
+  ],
+  "coverage": {
+    "included": [
+      "procedure"
+    ],
+    "omitted": []
+  },
+  "reconstructability": {
+    "lossless": true,
+    "profile": "example.recipe-procedure/1"
+  }
+}

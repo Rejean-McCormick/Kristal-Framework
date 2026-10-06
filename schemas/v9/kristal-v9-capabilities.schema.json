@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kristal:schema:v9:capabilities",
+  "title": "Kristal v9 Capability Descriptor",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "compatibility",
+    "capabilities"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "9.0"
+    },
+    "artifact_type": {
+      "const": "kristal_v9_capabilities"
+    },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reads",
+        "portable_state",
+        "semantic_baseline",
+        "query_baseline"
+      ],
+      "properties": {
+        "reads": {
+          "type": "array",
+          "minItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "portable_state": {
+          "const": "kristal_state/6.0"
+        },
+        "semantic_baseline": {
+          "const": "kristall/7.0"
+        },
+        "query_baseline": {
+          "const": "kristall/8.0"
+        }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state_architecture",
+        "materialization",
+        "lifecycle"
+      ],
+      "properties": {
+        "state_architecture": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "logical_artifacts",
+            "immutable_snapshots",
+            "logical_commitments"
+          ],
+          "properties": {
+            "logical_artifacts": {
+              "const": true
+            },
+            "immutable_snapshots": {
+              "const": true
+            },
+            "logical_commitments": {
+              "const": true
+            },
+            "external_pinned_references": {
+              "type": "boolean"
+            }
+          }
+        },
+        "materialization": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "profiles",
+            "multiple_representations"
+          ],
+          "properties": {
+            "profiles": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            },
+            "multiple_representations": {
+              "const": true
+            },
+            "segmentation": {
+              "type": "boolean"
+            },
+            "factorization": {
+              "type": "boolean"
+            }
+          }
+        },
+        "lifecycle": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "build_publish_activate",
+            "atomic_activation"
+          ],
+          "properties": {
+            "build_publish_activate": {
+              "const": true
+            },
+            "atomic_activation": {
+              "const": true
+            },
+            "rollback": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  }
+}

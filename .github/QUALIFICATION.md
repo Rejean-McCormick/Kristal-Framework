@@ -4,38 +4,25 @@ Kristal separates normative authority from implementation diagnostics.
 
 ## Native authority
 
-`Kristal Standard CI` runs the repository's own normative validation surface:
+`Kristal Standard CI` runs the repository's native validation surface:
 
-- `tools/validate_standard.py`
-- contract-set validation
-- documentation link/navigation validation
-- the JavaScript reference implementation tests
+- `tools/validate_standard.py` across frozen v6-v8 and active v9 draft contracts;
+- contract-set and knowledge-model bundle validation;
+- documentation link/navigation validation;
+- the JavaScript reference implementation tests, including v9 commitments and local lifecycle behavior.
 
-The workflow stores the exact Git commit, Standard version and tool versions as
-an artifact with the validation log.
+The workflow stores the exact Git commit, Standard version and tool versions as validation evidence.
 
 ## Independent examiner
 
-KristalDiag remains a separate examiner. Its GitHub workflow should test the
-frozen v6/v7 semantic substrate independently. It must **not** be described as
-the authority for v8 language/query semantics until KristalDiag itself gains
-explicit v8 profiles.
+KristalDiag remains a separate examiner. The Framework does not treat KristalDiag as normative authority. Until KristalDiag gains explicit v9 profiles, native Framework CI is the executable v9 draft qualification surface and KristalDiag continues to qualify only the profiles it explicitly implements.
 
 ## Release reproducibility
 
-`Kristal Release Reproducibility` is manual. It validates the Standard, verifies
-the committed `REPO_MANIFEST.json`, builds the release twice and requires the
-two archives to be byte-identical before uploading the release evidence.
+`Kristal Release Reproducibility` is manual. It validates the Standard, verifies the committed `REPO_MANIFEST.json`, builds the release twice and requires byte-identical archives before uploading release evidence.
 
-## Current independent-diagnostic finding
+## Compatibility posture
 
-Against the 2026-10-04 snapshots, the native v8 validation passes, while
-KristalDiag 0.7.0 `V7-Projection` reports K02 FAIL on the two
-`v6-compatible-projection.example.json` files. Their declared v6 state/content
-hash equals the base v6 state hash, while KristalDiag's v6 hash target includes
-`extensions.kristal_v7` because the v6 core excludes only `state_id`,
-`content_hash`, and `signatures`.
+V9 uses `contracts/v9-compatibility-lock.json` to freeze inherited v6/v7/v8 normative and TCK surfaces. A v9 change that mutates a frozen inherited file must fail qualification rather than silently redefining compatibility.
 
-Do not suppress this finding in CI. Resolve the semantic/hash rule explicitly
-in either the Standard vectors/specification or KristalDiag, then keep a
-regression test for the chosen rule.
+Independent diagnostic disagreements must remain visible until the Standard and diagnostic agree on an explicit rule; CI must not suppress them merely to obtain a green result.

@@ -1,0 +1,193 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kristal:schema:v9:exchange",
+  "title": "Kristal v9 Exchange Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "state",
+    "state_blob",
+    "materializations"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "9.0"
+    },
+    "artifact_type": {
+      "const": "kristal_exchange"
+    },
+    "exchange_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state_ref",
+        "logical_commitment"
+      ],
+      "properties": {
+        "state_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "logical_commitment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "profile",
+            "digest"
+          ],
+          "properties": {
+            "profile": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          }
+        },
+        "authority_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "state_blob": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "media_type",
+        "digest",
+        "size"
+      ],
+      "properties": {
+        "media_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "size": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "compression": {
+          "type": "string",
+          "minLength": 1
+        },
+        "encryption": {
+          "type": "object"
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "materializations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "artifact_id",
+          "manifest_blob"
+        ],
+        "properties": {
+          "artifact_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "manifest_blob": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "media_type",
+              "digest",
+              "size"
+            ],
+            "properties": {
+              "media_type": {
+                "type": "string",
+                "minLength": 1
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              },
+              "size": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "compression": {
+                "type": "string",
+                "minLength": 1
+              },
+              "encryption": {
+                "type": "object"
+              },
+              "locator": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "derivations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "media_type",
+          "digest",
+          "size"
+        ],
+        "properties": {
+          "media_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "digest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "size": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "compression": {
+            "type": "string",
+            "minLength": 1
+          },
+          "encryption": {
+            "type": "object"
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "signatures": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "extensions": {
+      "type": "object"
+    }
+  }
+}

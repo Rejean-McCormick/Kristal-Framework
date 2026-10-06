@@ -4,102 +4,62 @@
 [![KristalDiag](https://github.com/Rejean-McCormick/KristalDiag/actions/workflows/ci.yml/badge.svg)](https://github.com/Rejean-McCormick/KristalDiag/actions/workflows/ci.yml)
 [![Release Reproducibility](https://github.com/Rejean-McCormick/Kristal-Framework/actions/workflows/release-qualification.yml/badge.svg)](https://github.com/Rejean-McCormick/Kristal-Framework/actions/workflows/release-qualification.yml)
 
-**Current standard baseline:** `8.0.0`
+**Current standard baseline:** `9.0.0-draft.1`
 
-Kristal is a portable, deterministic knowledge-state standard. v8 preserves the v6 portable state contract and the v7 semantic identity model, and adds two optional capability layers: **external composable language Kristals** and an **AI-native semantic query/context protocol**.
+Kristal is a portable, deterministic knowledge-state standard. **Kristal v9 — Semantic State Architecture** preserves the frozen v6 portable epistemic state, v7 semantic identity model, and v8 language/query layers while adding representation-independent logical artifacts, immutable state snapshots, declared derivations, polymorphic materialization, and a Build → Publish → Activate lifecycle.
 
-## v8 in one sentence
+## v9 in one sentence
 
 ```text
-v6 portable truth + v7 semantic identity + optional v8 language/query capabilities
+v6 portable epistemics + v7 semantic identity + v8 language/query + v9 semantic-state architecture
 ```
 
-v8 is additive. A valid v6 or v7 artifact does not need to be rewritten to participate in a v8 deployment.
+## Core v9 rule
+
+```text
+KNOWLEDGE != BUILD != MATERIALIZATION != READ MODEL
+```
+
+V9 does **not** force graphs, DAGs, ASTs, relations, event ledgers, documents or federations into one universal shape. A `Logical Artifact` keeps its domain-native contract; a `State Snapshot` composes immutable logical commitments; physical representations can be changed or optimized without silently changing the logical state.
 
 ## Repository boundaries
 
 ```text
-spec/       normative prose and frozen compatibility specifications
-schemas/    canonical active v6/v7/v8 JSON Schemas
+spec/       normative prose and compatibility specifications
+schemas/    canonical JSON Schemas (v6-v9)
 tck/        normative conformance vectors and golden fixtures
 examples/   non-normative examples
 reference/  non-normative reference implementation(s)
-tools/      repository, release, and non-normative v8 helper tooling
+tools/      repository, release, and helper tooling
 contracts/  release/contract manifests and compatibility locks
+docs/       v9 architecture/authoring documentation
 history/    status records and release history
-compat/     frozen materialization needed only by legacy compatibility tests
+compat/     frozen legacy compatibility material
 ```
-
-The specification and TCK define behavior. Reference code demonstrates behavior.
 
 ## Architecture
 
 ```text
-v6  kristal_state/6.0                         unchanged portable truth
-        ↓
-v7  KQ/KP/KA/KS + Mesh/KOS/axes/projections unchanged semantic baseline
-        ↓
-v8  Language Layer + AI Query Layer          additive optional capabilities
-        ↓
-    derived read models / AI contexts         never canonical authority
+State Snapshot
+  ├─ Logical Artifact(s) — domain-native shape
+  └─ pinned external reference(s)
+           │
+           ▼
+     Derivation Graph
+           │
+           ▼
+     Materialization
+       ┌───┴───┐
+    Exchange  Runtime
 ```
-
-### Language Layer
-
-Language is external to semantic identity. Lexical Kristals are composable by language, domain, education level, geography and project. A French deployment can resolve through `fr-core + fr-science + fr-chemistry + fr-CA + project-delta` without embedding 300 languages in the semantic Kristal.
-
-### AI Query Layer
-
-AI clients discover and resolve semantic identities, then query exact graph relations, assertions, evidence and provenance through the Kristal Query Protocol (KQP). Query indexes are rebuildable read models. Results explicitly declare completeness, truncation and continuation state. AI context bundles are bounded projections with provenance and trust metadata.
-
-### Kristal Icon Code (presentation profile)
-
-Kristal also defines an **informative, non-authoritative visual presentation profile** for desktop and UI identification. It encodes exactly three signals: domain band, knowledge-object nature pictogram and maturity `0..5`. The companion `kristal-desktop/1.0` convention standardizes a regenerable Windows `desktop.ini` binding with a compact `InfoTip` and machine-readable `[Kristal]` cache. Rendered icons and desktop metadata are derived views and never semantic authority. See [Kristal Icon Code](spec/v8/Kristal-Icon-Code.md).
-
-## Final v8 invariants
-
-```text
-SEMANTICS != LANGUAGE
-READ MODEL != CANONICAL STATE
-MODEL OUTPUT != AUTHORITY
-SCHEMA VALID != SEMANTICALLY VALID
-SEMANTIC FINGERPRINT != BYTE HASH
-PARTIAL RESULT != NEGATIVE RESULT
-FUZZY DISCOVERY != SEMANTIC ANSWER
-EXTENSION != CANONICAL MUTATION
-```
-
-See [v8 Home](spec/v8/Home.md) for the standard entry point and [Core Invariants](spec/v8/Core-Invariants.md) for the complete list.
 
 ## Compatibility
 
 - valid v6 artifacts remain valid unchanged;
-- valid v7 artifacts remain valid unchanged;
-- v7 labels remain legal compatibility/display fallbacks;
-- v8 lexicons, indexes, plans and AI contexts are external or derived;
-- `contracts/v8-compatibility-lock.json` freezes inherited v6/v7 machine surfaces;
-- downgrade may lose v8 capabilities but MUST NOT change semantic assertions to compensate.
-
-## Public verification
-
-Kristal is continuously validated on clean GitHub-hosted runners through separate normative and independent qualification layers.
-
-- **Kristal Standard CI:** runs the Framework's native validation suite against the exact checked-out revision, including normative contracts, schemas, compatibility surfaces, TCK vectors, repository integrity checks and the v8 validation surface.
-- **KristalDiag:** is maintained as a separate independent diagnostic and conformance framework. It self-tests independently and can qualify a pinned Kristal Framework revision against explicit semantic profiles.
-- **Release reproducibility:** rebuilds the Kristal release independently and requires byte-identical archives before the release artifact is accepted.
-- **Evidence artifacts:** GitHub Actions retains validation output, exact repository revisions, manifests and release hashes produced during qualification runs.
-
-The separation is intentional:
-
-```text
-Kristal Framework = normative specification and reference contracts
-KristalDiag        = independent examiner and qualification harness
-GitHub Actions     = clean external execution environment
-```
-
-A green **Kristal Standard CI** demonstrates that the checked-out Framework revision satisfies its native normative validation suite.
-
-A green **KristalDiag** qualification is a separate result against the explicitly pinned Standard revision and profile. The independent diagnostic does not redefine the Standard, and the Standard does not self-certify the independent diagnostic.
+- valid v7 identity surfaces remain unchanged;
+- v8 language/query semantics remain unchanged;
+- `contracts/v9-compatibility-lock.json` freezes inherited v6-v8 machine/TCK surfaces;
+- v9 domain-native artifacts may project to v6 without making the projection canonical by default.
 
 ## Validate
 
@@ -107,8 +67,18 @@ A green **KristalDiag** qualification is a separate result against the explicitl
 python tools/validate_all.py
 ```
 
+Reference implementation:
+
+```bash
+cd reference/js
+npm test
+node bin/kristal-ref.mjs v9-capabilities
+```
+
 Build the deterministic release archive:
 
 ```bash
 python tools/build_release.py
 ```
+
+Start with [v9 Home](spec/v9/Home.md), the [Core Specification](spec/v9/01-core-spec/kristal-v9-core-spec.md), and the extended design documentation in [`docs/`](docs/README.md).

@@ -1,0 +1,248 @@
+{
+  "format": "kristal.knowledge-model-contract/v5",
+  "release": "9.0.0-draft.1",
+  "portable_kristal_state": "6.0",
+  "semantic_baseline": "7.0",
+  "query_baseline": "8.0",
+  "state_architecture": "9.0",
+  "logical_commitment_profile": "kristal.logical/jcs-sha256-v1",
+  "state_commitment_profile": "kristal.state-commitment/jcs-sha256-v1",
+  "files": [
+    {
+      "path": "spec/v9/01-core-spec/kristal-v9-core-spec.md",
+      "sha256": "sha256:dd8d39a9863ab108e5852389940f16a547b65f0e16096cf6c5601f6abb762335",
+      "bytes": 1328
+    },
+    {
+      "path": "spec/v9/01-core-spec/compatibility-contract.md",
+      "sha256": "sha256:816708443e928178afb96ded44b65038426054e15d5ffe08351d36c6fb2088d1",
+      "bytes": 624
+    },
+    {
+      "path": "spec/v9/Core-Invariants.md",
+      "sha256": "sha256:8f465b946a664e6fa6136a7d9c4cb45e196dddfb2512d12ba759083f86c7955b",
+      "bytes": 854
+    },
+    {
+      "path": "spec/v9/Architecture.md",
+      "sha256": "sha256:565eb198dc9a3c2c0a61df6a13f04741d1afdf1dce4d3103670ccfac2e7a7e7e",
+      "bytes": 647
+    },
+    {
+      "path": "spec/v9/Logical-Artifacts.md",
+      "sha256": "sha256:686db0d65341a39e941776eec2c36a9127e36d723b995df8089361d3b344cfcc",
+      "bytes": 1476
+    },
+    {
+      "path": "spec/v9/State-Snapshots.md",
+      "sha256": "sha256:9100deca6b655e3bc8f5b0bcbfeabf740f2e177ee4169acb3f29382e96586aa7",
+      "bytes": 1640
+    },
+    {
+      "path": "spec/v9/Identity-and-Commitments.md",
+      "sha256": "sha256:96fd0345025e600586195ace6cc8c9273ae13efe5d66d1c9c5238a8870e8cd5c",
+      "bytes": 4309
+    },
+    {
+      "path": "spec/v9/Authority-Provenance-and-Trust.md",
+      "sha256": "sha256:beb777bafb93333b4abdc05c5975bf1b1c2248b14c4842a17efa1125a6cd63cf",
+      "bytes": 411
+    },
+    {
+      "path": "spec/v9/Derivations-and-Reproducibility.md",
+      "sha256": "sha256:8f723e5e5c86cc3028e0d459c83a442cc44a4c90e3750371d86ade26209e52d7",
+      "bytes": 426
+    },
+    {
+      "path": "spec/v9/Materialization.md",
+      "sha256": "sha256:bb93e01c38894ccfea1adda5493c159952184d08b0e2e67ab0017ad4d6db6d87",
+      "bytes": 566
+    },
+    {
+      "path": "spec/v9/Exchange-and-Runtime.md",
+      "sha256": "sha256:aa0ee2e06b51be5ee4bd5f9ce28180bdf63aaf36c2607e3f16081fccd013f25f",
+      "bytes": 387
+    },
+    {
+      "path": "spec/v9/Build-Publish-Activate.md",
+      "sha256": "sha256:5672131ddae2002afa0d20916ab909154116c4a57d66de57ddcfc417eeca18dc",
+      "bytes": 2261
+    },
+    {
+      "path": "spec/v9/Federation-and-Coverage.md",
+      "sha256": "sha256:44ed08fe95654b6246bac13aaf2bf7d087a20a432d46e0c1cfe53f1c787f8f38",
+      "bytes": 402
+    },
+    {
+      "path": "spec/v9/Contract-Evolution.md",
+      "sha256": "sha256:ea49291444cfd04aa5816db937ce2efa2dd3a5f9f022186a6b213194efc878fd",
+      "bytes": 1617
+    },
+    {
+      "path": "spec/v9/Security-and-Confidentiality.md",
+      "sha256": "sha256:7056f423dbafec90f7249e21f1db62350748b9079e3f8425ba9f5295f821f004",
+      "bytes": 548
+    },
+    {
+      "path": "spec/v9/Conformance.md",
+      "sha256": "sha256:c6bc4e071aa51545511af06a86800b1c4e179a1e71d5aab7e55494154e53b138",
+      "bytes": 2892
+    },
+    {
+      "path": "schemas/v6/kristal-state.schema.json",
+      "sha256": "sha256:8f3df9a93d6a7c0ca8d7143946ed6f2009ae6d6b5105b8e7d7e873b5288e807c",
+      "bytes": 8389
+    },
+    {
+      "path": "schemas/v7/kristal-v7-extension.schema.json",
+      "sha256": "sha256:fb8f008e9319d922edee4bc7fb93280f46880dd5619f6684810dc8da58cc4987",
+      "bytes": 998
+    },
+    {
+      "path": "schemas/v7/kristall-assertion-family-registry.schema.json",
+      "sha256": "sha256:5394ba95828447890ad186290dbe05360f11a26a92b2ff86ae6a80b383cf59b9",
+      "bytes": 1594
+    },
+    {
+      "path": "schemas/v7/kristall-assertion-registry.schema.json",
+      "sha256": "sha256:d8c560b5ea1f18149fdcc710693a52a0d65a2d49c419764f2d21892475bd50c6",
+      "bytes": 1355
+    },
+    {
+      "path": "schemas/v7/kristall-axis-registry.schema.json",
+      "sha256": "sha256:77726362c125bef7799e0ff74ec6219e4cb2c08897b426bf0ce0a16dfb9760db",
+      "bytes": 1718
+    },
+    {
+      "path": "schemas/v7/kristall-axis-type-registry.schema.json",
+      "sha256": "sha256:7ee29b36d816fdc1e771ac6ca065eea8ff6537b54d7bd4cf4cd2e3452e8eab52",
+      "bytes": 1784
+    },
+    {
+      "path": "schemas/v7/kristall-crystallization-record.schema.json",
+      "sha256": "sha256:b8a554fd034f1d15fe0e9f61b73725791c606c4c688f9b3f3eb414010793fdb1",
+      "bytes": 794
+    },
+    {
+      "path": "schemas/v7/kristall-entity-registry.schema.json",
+      "sha256": "sha256:b497203ffcd584d33c0fe3a63ed16a18c5c6811138278b91353e2e523429e2fe",
+      "bytes": 2126
+    },
+    {
+      "path": "schemas/v7/kristall-kos-registry.schema.json",
+      "sha256": "sha256:7b722e86ee24c174a5183abbf5464f7cb82bf54479867355d5a83ff67223de60",
+      "bytes": 2494
+    },
+    {
+      "path": "schemas/v7/kristall-manifest.schema.json",
+      "sha256": "sha256:53c5e87d82436c2f5b97522d9ede5f5cfc0898ed82f74b7af498fcc6864822fa",
+      "bytes": 2118
+    },
+    {
+      "path": "schemas/v7/kristall-mesh.schema.json",
+      "sha256": "sha256:f834cc6952f1933b5a8de912411059771a8b97f9d6af5bc53ebf4b5ba708a300",
+      "bytes": 1744
+    },
+    {
+      "path": "schemas/v7/kristall-projection-recipe.schema.json",
+      "sha256": "sha256:9ddaf302398c8d30e6c5487b624446c44ec7e97bfb800f660471cbbc7eb179a6",
+      "bytes": 1248
+    },
+    {
+      "path": "schemas/v7/kristall-property-registry.schema.json",
+      "sha256": "sha256:0de972ad8645764aaa56fd6152c41631f30775fdab835cdcc3604dd56de178d0",
+      "bytes": 1201
+    },
+    {
+      "path": "schemas/v7/kristall-source-registry.schema.json",
+      "sha256": "sha256:dc0d09a7797a533c01b75b451ad45d045b6f27da2f7a94896c2733227165d18a",
+      "bytes": 1096
+    },
+    {
+      "path": "schemas/v7/kristall-toc-registry.schema.json",
+      "sha256": "sha256:b52412f7c3268569c5c5e34eccb149c645336db435a6ab36603b13c109577f76",
+      "bytes": 4495
+    },
+    {
+      "path": "schemas/v7/semantic-resonance.schema.json",
+      "sha256": "sha256:e41154ba6561f276043d5e94cd4569d7339fb6b52c160d94c346e8362c18c617",
+      "bytes": 1702
+    },
+    {
+      "path": "schemas/v8/kristall-ai-context-bundle.schema.json",
+      "sha256": "sha256:4fbe1bb28bfeaba538e4d4f36e4db122e3afb54fe89208a0d684053ac09287b9",
+      "bytes": 8394
+    },
+    {
+      "path": "schemas/v8/kristall-lexicon-stack.schema.json",
+      "sha256": "sha256:fa1e8ab60ed1d24a96671df8ada71faa9c1c747a92b1db93dcffc3b63f78d771",
+      "bytes": 1920
+    },
+    {
+      "path": "schemas/v8/kristall-lexicon.schema.json",
+      "sha256": "sha256:c34321540dd3d366538d50509eadd010f014aa403fbf24699c5caa5c885f6ba0",
+      "bytes": 6738
+    },
+    {
+      "path": "schemas/v8/kristall-query-index.schema.json",
+      "sha256": "sha256:447218acd234036621524579c68e7974c93bec6b369618cd265f813abf383560",
+      "bytes": 2646
+    },
+    {
+      "path": "schemas/v8/kristall-query-request.schema.json",
+      "sha256": "sha256:a8788b19444e3769e395b361039e6a9f4aa4fc54fe5ff8e41be618a8f548cd78",
+      "bytes": 7235
+    },
+    {
+      "path": "schemas/v8/kristall-query-result.schema.json",
+      "sha256": "sha256:202414d6e63243663ec7bcce7f101c60c025c32d76e0d55a3226baff9e761692",
+      "bytes": 6513
+    },
+    {
+      "path": "schemas/v8/kristall-v8-capabilities.schema.json",
+      "sha256": "sha256:e10664794c4f7c429691b63309cf6914dd7e5345c33dd6b48fdedc8de7b829ea",
+      "bytes": 2572
+    },
+    {
+      "path": "schemas/v9/kristal-activation.schema.json",
+      "sha256": "sha256:2b1408ea41915b950f8f42ba42857f0714af6336cacfbd55ee7ee71f2ec0b3a2",
+      "bytes": 3321
+    },
+    {
+      "path": "schemas/v9/kristal-derivation.schema.json",
+      "sha256": "sha256:31e61d872efa6aa4e90fa2233f25dc1784d0c755138cccfe5120ce6b7fc483b7",
+      "bytes": 5720
+    },
+    {
+      "path": "schemas/v9/kristal-exchange.schema.json",
+      "sha256": "sha256:c680c43ca84a7f41f4b1c9da2ed1fd83f0696f370c7790cb1892f3d0897913e3",
+      "bytes": 4312
+    },
+    {
+      "path": "schemas/v9/kristal-logical-artifact.schema.json",
+      "sha256": "sha256:3090790f1f9ac9d30db6a07284b21d4a157ca8e9c7357ac50a6130324a228079",
+      "bytes": 3005
+    },
+    {
+      "path": "schemas/v9/kristal-materialization-manifest.schema.json",
+      "sha256": "sha256:88c1f2981058e9779c60ee7773cfd20b9698d91030b5e5136ea3d605b01ee4fa",
+      "bytes": 5044
+    },
+    {
+      "path": "schemas/v9/kristal-state-snapshot.schema.json",
+      "sha256": "sha256:3572060b23e62708fd1bcd803f42a07268690ce3f2e181f32d2f6cfa8f6fd415",
+      "bytes": 6379
+    },
+    {
+      "path": "schemas/v9/kristal-v9-capabilities.schema.json",
+      "sha256": "sha256:cd769813abfaddd9694ab2db4e8b5f9a06061b30b25240c9e7e52d8d737b79d7",
+      "bytes": 3098
+    },
+    {
+      "path": "contracts/v9-compatibility-lock.json",
+      "sha256": "sha256:323b8cac928787baace8604a463914bbd46675d4107c303d8e8a89f7123dbebf",
+      "bytes": 28756
+    }
+  ],
+  "bundle_sha256": "sha256:d4af004b54b81ed5db4c37907e036a4f0ebdad780ebf85ae6a01b176871b5878"
+}
