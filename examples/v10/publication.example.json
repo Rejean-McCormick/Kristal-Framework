@@ -1,0 +1,30 @@
+{
+  "schema_version": "10.0",
+  "artifact_type": "kristal_publication",
+  "publication_id": "urn:kristal:publication:example:recipes:80a4e55e",
+  "node_id": "urn:kristal:node:example:recipes-public",
+  "binding_id": "github-primary",
+  "state": {
+    "state_ref": "urn:kristal:state:example-recipes",
+    "logical_commitment": {
+      "profile": "kristal.state-commitment/jcs-sha256-v1",
+      "digest": "sha256:80a4e55e7d73cbd9902f8c6cc2bbc3fbfceefc51f597da68cd58685e55856445"
+    }
+  },
+  "published_at": "2026-10-07T12:00:00Z",
+  "resources": [
+    {
+      "role": "state_snapshot",
+      "locator": "github-release://example-org/kristal-recipes-public/kristal-state-sha256-80a4e55e",
+      "media_type": "application/json",
+      "blob_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+      "size": 910
+    }
+  ],
+  "attestations": [
+    {
+      "profile": "github-artifact-attestation",
+      "locator": "github-attestation://example-org/kristal-recipes-public/attestation/123"
+    }
+  ]
+}

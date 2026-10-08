@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kristal:schema:v10:publication",
+  "title": "Kristal v10 Publication Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "publication_id",
+    "node_id",
+    "binding_id",
+    "state",
+    "resources"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "10.0"
+    },
+    "artifact_type": {
+      "const": "kristal_publication"
+    },
+    "publication_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "node_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "binding_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state_ref",
+        "logical_commitment"
+      ],
+      "properties": {
+        "state_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "logical_commitment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "profile",
+            "digest"
+          ],
+          "properties": {
+            "profile": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          }
+        }
+      }
+    },
+    "published_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "resources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "role",
+          "locator",
+          "media_type",
+          "size",
+          "blob_digest"
+        ],
+        "properties": {
+          "role": {
+            "enum": [
+              "state_snapshot",
+              "materialization_manifest",
+              "exchange",
+              "runtime_pack",
+              "query_index",
+              "lexicon",
+              "other"
+            ]
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "media_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "blob_digest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "logical_commitment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "profile",
+              "digest"
+            ],
+            "properties": {
+              "profile": {
+                "type": "string",
+                "minLength": 1
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              }
+            }
+          },
+          "size": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "attestations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "profile",
+          "locator"
+        ],
+        "properties": {
+          "profile": {
+            "type": "string",
+            "minLength": 1
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subject_digest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "extensions": {
+      "type": "object"
+    }
+  }
+}

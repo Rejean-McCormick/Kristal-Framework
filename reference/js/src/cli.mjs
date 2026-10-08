@@ -22,6 +22,9 @@ import { verifyMaterializationManifest } from './v9/materialization.mjs';
 import { referenceV9Capabilities } from './v9/capabilities.mjs';
 import { verifyDerivation, verifyExchangeV9, verifyActivation } from './v9/contracts.mjs';
 import { publishStateSnapshot, activateChannel } from './v9/lifecycle.mjs';
+import { referenceV10Capabilities } from './v10/capabilities.mjs';
+import { verifyNodeManifest, verifyHostBinding, verifyPublication, verifyDirectory, verifyGithubBinding } from './v10/contracts.mjs';
+import { buildPublicationBundleFromFiles, verifyPublicationBundle } from './v10/publication.mjs';
 
 function die(message, code = 2) {
   process.stderr.write(message + '\n');
@@ -78,6 +81,34 @@ export async function main(argv = process.argv.slice(2)) {
     }
     case 'v9-capabilities': {
       printJson(referenceV9Capabilities());return;
+    }
+    case 'v10-capabilities': {
+      printJson(referenceV10Capabilities());return;
+    }
+    case 'verify-node-v10': {
+      const file=requireArg(args,0,'v10 Node Manifest JSON');return resultExit(verifyNodeManifest(readJson(file)));
+    }
+    case 'verify-host-binding-v10': {
+      const file=requireArg(args,0,'v10 Host Binding JSON');return resultExit(verifyHostBinding(readJson(file)));
+    }
+    case 'verify-publication-v10': {
+      const file=requireArg(args,0,'v10 Publication JSON');return resultExit(verifyPublication(readJson(file)));
+    }
+    case 'verify-directory-v10': {
+      const file=requireArg(args,0,'v10 Directory JSON');return resultExit(verifyDirectory(readJson(file)));
+    }
+    case 'verify-github-binding-v10': {
+      const file=requireArg(args,0,'v10 GitHub Binding JSON');return resultExit(verifyGithubBinding(readJson(file)));
+    }
+    case 'build-publication-bundle-v10': {
+      const stateFile=requireArg(args,0,'v9 State Snapshot JSON');
+      const nodeFile=requireArg(args,1,'v10 Node Manifest JSON');
+      const bindingFile=requireArg(args,2,'v10 GitHub Binding JSON');
+      const outputDir=requireArg(args,3,'output directory');
+      printJson(buildPublicationBundleFromFiles(stateFile,nodeFile,bindingFile,outputDir,{sourceCommit:optionValue(args,'--source-commit')}));return;
+    }
+    case 'verify-publication-bundle-v10': {
+      const bundleDir=requireArg(args,0,'publication bundle directory');return resultExit(verifyPublicationBundle(bundleDir));
     }
     case 'logical-commitment-v9': {
       const file=requireArg(args,0,'v9 Logical Artifact JSON');printJson(logicalArtifactCommitment(readJson(file)));return;

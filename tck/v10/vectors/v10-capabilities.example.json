@@ -1,0 +1,40 @@
+{
+  "schema_version": "10.0",
+  "artifact_type": "kristal_v10_capabilities",
+  "compatibility": {
+    "reads": [
+      "kristal_state/6.0",
+      "kristall/7.0",
+      "kristall/8.0",
+      "kristal.state/9.0",
+      "kristal.hosting/10.0"
+    ],
+    "portable_state": "kristal_state/6.0",
+    "semantic_baseline": "kristall/7.0",
+    "query_baseline": "kristall/8.0",
+    "semantic_state_baseline": "kristal.state/9.0",
+    "hosted_network_baseline": "kristal.hosting/10.0"
+  },
+  "capabilities": {
+    "semantic_state": {
+      "v9_unchanged": true,
+      "logical_commitments": true,
+      "immutable_snapshots": true
+    },
+    "node_model": {
+      "manifests": true,
+      "bindings": true,
+      "publications": true
+    },
+    "hosting": {
+      "multiple_bindings": true,
+      "profiles": [
+        "kristal.host/github/1.0"
+      ]
+    },
+    "discovery": {
+      "directories": true,
+      "well_known": true
+    }
+  }
+}

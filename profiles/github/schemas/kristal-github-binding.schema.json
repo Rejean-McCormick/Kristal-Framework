@@ -1,0 +1,265 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kristal:profile:github:binding:1.0",
+  "title": "Kristal GitHub Host Binding 1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "binding_id",
+    "node_id",
+    "profile",
+    "host",
+    "resource",
+    "surfaces",
+    "profile_configuration"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "10.0"
+    },
+    "artifact_type": {
+      "const": "kristal_host_binding"
+    },
+    "binding_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "node_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "const": "kristal.host/github"
+        },
+        "version": {
+          "const": "1.0"
+        }
+      }
+    },
+    "host": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider",
+        "account_scope"
+      ],
+      "properties": {
+        "provider": {
+          "const": "github.com"
+        },
+        "account_scope": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "owner"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "user",
+                "organization"
+              ]
+            },
+            "owner": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "resource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "locator",
+        "visibility"
+      ],
+      "properties": {
+        "kind": {
+          "const": "repository"
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "visibility": {
+          "enum": [
+            "public",
+            "private",
+            "internal"
+          ]
+        }
+      }
+    },
+    "surfaces": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "publication",
+        "automation",
+        "discovery"
+      ],
+      "properties": {
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "locator"
+          ],
+          "properties": {
+            "kind": {
+              "const": "git"
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "publication": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "locator"
+          ],
+          "properties": {
+            "kind": {
+              "const": "github-release"
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "materialization": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "github-release-assets",
+                "ghcr",
+                "mixed"
+              ]
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "activation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind"
+          ],
+          "properties": {
+            "kind": {
+              "const": "github-environment"
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "automation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "locator"
+          ],
+          "properties": {
+            "kind": {
+              "const": "github-actions"
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "attestation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind"
+          ],
+          "properties": {
+            "kind": {
+              "const": "github-artifact-attestation"
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "discovery": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "locator"
+          ],
+          "properties": {
+            "kind": {
+              "const": "repository-file"
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "extensions": {
+      "type": "object"
+    },
+    "profile_configuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repository",
+        "default_branch"
+      ],
+      "properties": {
+        "repository": {
+          "type": "string",
+          "minLength": 1
+        },
+        "default_branch": {
+          "type": "string",
+          "minLength": 1
+        },
+        "api_version": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

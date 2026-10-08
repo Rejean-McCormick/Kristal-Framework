@@ -1,0 +1,232 @@
+{
+  "format": "kristal.compatibility-lock/v3",
+  "release": "10.0.0-draft.1",
+  "purpose": "Freeze inherited v9 semantic-state normative prose, machine contracts and TCK while v10 adds hosted-network contracts and host profiles",
+  "files": [
+    {
+      "path": "contracts/v9-compatibility-lock.json",
+      "sha256": "sha256:323b8cac928787baace8604a463914bbd46675d4107c303d8e8a89f7123dbebf",
+      "bytes": 28756
+    },
+    {
+      "path": "schemas/v9/README.md",
+      "sha256": "sha256:4a5f9b65c9ab10bb8c9380ec83f4c0e5bd932dc8a0cf685e682b8b47e19b336b",
+      "bytes": 518
+    },
+    {
+      "path": "schemas/v9/kristal-activation.schema.json",
+      "sha256": "sha256:2b1408ea41915b950f8f42ba42857f0714af6336cacfbd55ee7ee71f2ec0b3a2",
+      "bytes": 3321
+    },
+    {
+      "path": "schemas/v9/kristal-derivation.schema.json",
+      "sha256": "sha256:31e61d872efa6aa4e90fa2233f25dc1784d0c755138cccfe5120ce6b7fc483b7",
+      "bytes": 5720
+    },
+    {
+      "path": "schemas/v9/kristal-exchange.schema.json",
+      "sha256": "sha256:c680c43ca84a7f41f4b1c9da2ed1fd83f0696f370c7790cb1892f3d0897913e3",
+      "bytes": 4312
+    },
+    {
+      "path": "schemas/v9/kristal-logical-artifact.schema.json",
+      "sha256": "sha256:3090790f1f9ac9d30db6a07284b21d4a157ca8e9c7357ac50a6130324a228079",
+      "bytes": 3005
+    },
+    {
+      "path": "schemas/v9/kristal-materialization-manifest.schema.json",
+      "sha256": "sha256:88c1f2981058e9779c60ee7773cfd20b9698d91030b5e5136ea3d605b01ee4fa",
+      "bytes": 5044
+    },
+    {
+      "path": "schemas/v9/kristal-state-snapshot.schema.json",
+      "sha256": "sha256:3572060b23e62708fd1bcd803f42a07268690ce3f2e181f32d2f6cfa8f6fd415",
+      "bytes": 6379
+    },
+    {
+      "path": "schemas/v9/kristal-v9-capabilities.schema.json",
+      "sha256": "sha256:cd769813abfaddd9694ab2db4e8b5f9a06061b30b25240c9e7e52d8d737b79d7",
+      "bytes": 3098
+    },
+    {
+      "path": "spec/v9/00-overview/specification-status.md",
+      "sha256": "sha256:a99efec85b542f4fbe997e6edb41d01e998e14d9576e5b817847c26cb687acb4",
+      "bytes": 455
+    },
+    {
+      "path": "spec/v9/01-core-spec/compatibility-contract.md",
+      "sha256": "sha256:816708443e928178afb96ded44b65038426054e15d5ffe08351d36c6fb2088d1",
+      "bytes": 624
+    },
+    {
+      "path": "spec/v9/01-core-spec/kristal-v9-core-spec.md",
+      "sha256": "sha256:dd8d39a9863ab108e5852389940f16a547b65f0e16096cf6c5601f6abb762335",
+      "bytes": 1328
+    },
+    {
+      "path": "spec/v9/Architecture.md",
+      "sha256": "sha256:565eb198dc9a3c2c0a61df6a13f04741d1afdf1dce4d3103670ccfac2e7a7e7e",
+      "bytes": 647
+    },
+    {
+      "path": "spec/v9/Authority-Provenance-and-Trust.md",
+      "sha256": "sha256:beb777bafb93333b4abdc05c5975bf1b1c2248b14c4842a17efa1125a6cd63cf",
+      "bytes": 411
+    },
+    {
+      "path": "spec/v9/Build-Publish-Activate.md",
+      "sha256": "sha256:5672131ddae2002afa0d20916ab909154116c4a57d66de57ddcfc417eeca18dc",
+      "bytes": 2261
+    },
+    {
+      "path": "spec/v9/Conformance.md",
+      "sha256": "sha256:c6bc4e071aa51545511af06a86800b1c4e179a1e71d5aab7e55494154e53b138",
+      "bytes": 2892
+    },
+    {
+      "path": "spec/v9/Contract-Evolution.md",
+      "sha256": "sha256:ea49291444cfd04aa5816db937ce2efa2dd3a5f9f022186a6b213194efc878fd",
+      "bytes": 1617
+    },
+    {
+      "path": "spec/v9/Core-Invariants.md",
+      "sha256": "sha256:8f465b946a664e6fa6136a7d9c4cb45e196dddfb2512d12ba759083f86c7955b",
+      "bytes": 854
+    },
+    {
+      "path": "spec/v9/Derivations-and-Reproducibility.md",
+      "sha256": "sha256:8f723e5e5c86cc3028e0d459c83a442cc44a4c90e3750371d86ade26209e52d7",
+      "bytes": 426
+    },
+    {
+      "path": "spec/v9/Exchange-and-Runtime.md",
+      "sha256": "sha256:aa0ee2e06b51be5ee4bd5f9ce28180bdf63aaf36c2607e3f16081fccd013f25f",
+      "bytes": 387
+    },
+    {
+      "path": "spec/v9/Federation-and-Coverage.md",
+      "sha256": "sha256:44ed08fe95654b6246bac13aaf2bf7d087a20a432d46e0c1cfe53f1c787f8f38",
+      "bytes": 402
+    },
+    {
+      "path": "spec/v9/Glossary.md",
+      "sha256": "sha256:3eb3129bbc45fca832855fe9de47395c70abdf041be469049ed4dabe9a62a2c1",
+      "bytes": 715
+    },
+    {
+      "path": "spec/v9/Home.md",
+      "sha256": "sha256:d3d33127d3cef51bfdebb0b2943166788fa8b56e9b4f4e86a7b976a031d629c7",
+      "bytes": 640
+    },
+    {
+      "path": "spec/v9/Identity-and-Commitments.md",
+      "sha256": "sha256:96fd0345025e600586195ace6cc8c9273ae13efe5d66d1c9c5238a8870e8cd5c",
+      "bytes": 4309
+    },
+    {
+      "path": "spec/v9/Logical-Artifacts.md",
+      "sha256": "sha256:686db0d65341a39e941776eec2c36a9127e36d723b995df8089361d3b344cfcc",
+      "bytes": 1476
+    },
+    {
+      "path": "spec/v9/Materialization.md",
+      "sha256": "sha256:bb93e01c38894ccfea1adda5493c159952184d08b0e2e67ab0017ad4d6db6d87",
+      "bytes": 566
+    },
+    {
+      "path": "spec/v9/Migration-v8-to-v9.md",
+      "sha256": "sha256:032febbf06ee49dfbb77fa95fd9cc65a5ce40b0086504bd70c46ad7eaced9842",
+      "bytes": 577
+    },
+    {
+      "path": "spec/v9/Security-and-Confidentiality.md",
+      "sha256": "sha256:7056f423dbafec90f7249e21f1db62350748b9079e3f8425ba9f5295f821f004",
+      "bytes": 548
+    },
+    {
+      "path": "spec/v9/State-Snapshots.md",
+      "sha256": "sha256:9100deca6b655e3bc8f5b0bcbfeabf740f2e177ee4169acb3f29382e96586aa7",
+      "bytes": 1640
+    },
+    {
+      "path": "tck/v9/README.md",
+      "sha256": "sha256:6a78d1181b63ab8a5e2ae3c7198ff88899c9b6db96371a8eb0205f384cb8797d",
+      "bytes": 270
+    },
+    {
+      "path": "tck/v9/vectors/README.md",
+      "sha256": "sha256:b1c3b44a19def202803f83ee024f1ff776b6be0ebd8de39b58e4b28728c08ad4",
+      "bytes": 233
+    },
+    {
+      "path": "tck/v9/vectors/activation.example.json",
+      "sha256": "sha256:48d196606e31e365a7b346e32145afa6c6639a7527d281afc7fd535c6e4ccd39",
+      "bytes": 440
+    },
+    {
+      "path": "tck/v9/vectors/derivation.example.json",
+      "sha256": "sha256:533a81a8939602775b34b290441fdf9c2da2c8f85142825f85bd5d70d569a750",
+      "bytes": 929
+    },
+    {
+      "path": "tck/v9/vectors/exchange.example.json",
+      "sha256": "sha256:b5fc75b03d5f45ad194b6310bade16888863a19e4886fc7b592324faec799851",
+      "bytes": 883
+    },
+    {
+      "path": "tck/v9/vectors/logical-artifact.example.json",
+      "sha256": "sha256:b36924ea05a3131cdad0ed5e25409a3740027febb1ca4251b903b7324c57ebf4",
+      "bytes": 705
+    },
+    {
+      "path": "tck/v9/vectors/logical-commitment-vectors.json",
+      "sha256": "sha256:f59b2a6b7b7ecf988ceb492c6b449639ab8545655a23d3c498963c941b2663d5",
+      "bytes": 589
+    },
+    {
+      "path": "tck/v9/vectors/materialization-manifest.example.json",
+      "sha256": "sha256:1df94bd61e1ce2cc62cafffa5aaf2c5272e3762165745ee89d5ad0621f9f1e2c",
+      "bytes": 1078
+    },
+    {
+      "path": "tck/v9/vectors/state-snapshot.example.json",
+      "sha256": "sha256:b2e3f0379ee761490d622e15a28dd2d2ecf6ad4eac13e86d148405d72e888677",
+      "bytes": 910
+    },
+    {
+      "path": "tck/v9/vectors/v9-capabilities.example.json",
+      "sha256": "sha256:549e0b846e79ad443f28f38f1ab3f1e47227443c0429618251f4541b1a17f92c",
+      "bytes": 977
+    },
+    {
+      "path": "tck/v9/workloads/epistemic-corpus.logical-artifact.json",
+      "sha256": "sha256:fc19ef3edb976707d5d5856fc40483377d2f46d74b1bf533330dc13796cfd891",
+      "bytes": 797
+    },
+    {
+      "path": "tck/v9/workloads/federation.state-snapshot.json",
+      "sha256": "sha256:df27cfab1e3137f8350b025527b4cda6af891e2b1f1166f58ee49f79c1bc7779",
+      "bytes": 1049
+    },
+    {
+      "path": "tck/v9/workloads/formula-ast.logical-artifact.json",
+      "sha256": "sha256:d4c2e33a7c1d5d9f8e19296f859c99907344cc0969e322bfbf60421896a0b73e",
+      "bytes": 694
+    },
+    {
+      "path": "tck/v9/workloads/multiplex-graph.logical-artifact.json",
+      "sha256": "sha256:3f9febd809a3c14dad38fcfa22989e535678f353152c82e5d6cfa1dccecd0eb7",
+      "bytes": 891
+    },
+    {
+      "path": "tck/v9/workloads/procedure-dag.logical-artifact.json",
+      "sha256": "sha256:8bc4b645eeb76fc3ec7108e079c97c1572247d88da0f3799c32acf85cef8aa56",
+      "bytes": 827
+    },
+    {
+      "path": "tck/v9/workloads/relation.logical-artifact.json",
+      "sha256": "sha256:7566a915448c057ea8321aab2ccb49446472ea1ccb57dec1e89e5de7ece7bfa6",
+      "bytes": 799
+    }
+  ]
+}

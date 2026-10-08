@@ -1,9 +1,9 @@
 {
   "format": "kristal.release/v4",
   "name": "Kristal",
-  "version": "9.0.0-draft.1",
+  "version": "10.0.0-draft.2",
   "status": "draft",
-  "canonical_spec": "spec/v9/01-core-spec/kristal-v9-core-spec.md",
+  "canonical_spec": "spec/v10/01-core-spec/kristal-v10-core-spec.md",
   "portable_contract": {
     "artifact_type": "kristal_state",
     "schema_version": "6.0",
@@ -24,9 +24,17 @@
     "tck_root": "tck/v9/vectors",
     "logical_commitment_profile": "kristal.logical/jcs-sha256-v1",
     "state_commitment_profile": "kristal.state-commitment/jcs-sha256-v1",
-    "derivation_contract": "kristal.derivation/9.0"
+    "derivation_contract": "kristal.derivation/9.0",
+    "status": "frozen_semantic_state_baseline"
   },
   "reference_implementation": "reference/js",
   "external_diagnostic_repo": "kristal-diag",
-  "compatibility_lock": "contracts/v9-compatibility-lock.json"
+  "compatibility_lock": "contracts/v10-compatibility-lock.json",
+  "v10": {
+    "schema_root": "schemas/v10",
+    "tck_root": "tck/v10/vectors",
+    "semantic_state_baseline": "kristal.state/9.0",
+    "hosted_network_baseline": "kristal.hosting/10.0",
+    "reference_host_profile": "kristal.host/github/1.0"
+  }
 }

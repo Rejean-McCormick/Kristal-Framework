@@ -1,0 +1,20 @@
+{
+  "schema_version": "10.0",
+  "artifact_type": "kristal_node_manifest",
+  "node_id": "urn:kristal:node:example:recipes-public",
+  "roles": [
+    "collection",
+    "publisher"
+  ],
+  "semantic_state_contracts": [
+    "kristal.state/9.0"
+  ],
+  "capabilities": ".kristal/capabilities.json",
+  "bindings": [
+    {
+      "binding_id": "github-primary",
+      "profile": "kristal.host/github/1.0",
+      "descriptor": ".kristal/bindings/github.json"
+    }
+  ]
+}

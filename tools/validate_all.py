@@ -15,5 +15,6 @@ def main():
     run('documentation links',[sys.executable,str(ROOT/'tools/check_links.py')])
     run('mkdocs navigation',[sys.executable,str(ROOT/'tools/check_mkdocs.py')])
     run('reference implementation',['npm','test'],ROOT/'reference/js')
+    run('github bootstrap',[sys.executable,'-m','unittest','discover','-s','tests','-v'],ROOT/'tools/github-bootstrap')
     print('\nKristal monorepo validation: PASS')
 if __name__=='__main__': main()

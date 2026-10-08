@@ -1,0 +1,57 @@
+{
+  "schema_version": "10.0",
+  "artifact_type": "kristal_host_binding",
+  "binding_id": "github-primary",
+  "node_id": "urn:kristal:node:example:recipes-public",
+  "profile": {
+    "id": "kristal.host/github",
+    "version": "1.0"
+  },
+  "host": {
+    "provider": "github.com",
+    "account_scope": {
+      "kind": "organization",
+      "owner": "example-org"
+    }
+  },
+  "resource": {
+    "kind": "repository",
+    "locator": "github://example-org/kristal-recipes-public",
+    "visibility": "public"
+  },
+  "surfaces": {
+    "source": {
+      "kind": "git",
+      "locator": "https://github.com/example-org/kristal-recipes-public.git"
+    },
+    "publication": {
+      "kind": "github-release",
+      "locator": "github-release://example-org/kristal-recipes-public"
+    },
+    "materialization": {
+      "kind": "mixed",
+      "locator": "ghcr.io/example-org/kristal-recipes-public"
+    },
+    "activation": {
+      "kind": "github-environment",
+      "locator": "github-environment://example-org/kristal-recipes-public/production"
+    },
+    "automation": {
+      "kind": "github-actions",
+      "locator": "github-actions://example-org/kristal-recipes-public"
+    },
+    "attestation": {
+      "kind": "github-artifact-attestation",
+      "locator": "github-attestation://example-org/kristal-recipes-public"
+    },
+    "discovery": {
+      "kind": "repository-file",
+      "locator": ".kristal/node.json"
+    }
+  },
+  "profile_configuration": {
+    "repository": "kristal-recipes-public",
+    "default_branch": "main",
+    "api_version": "2026-03-10"
+  }
+}

@@ -1,0 +1,48 @@
+[account]
+owner = "YOUR-GITHUB-OWNER"
+kind = "organization" # organization | user
+
+[network]
+# Stable operational namespace. Keep this value unchanged if repositories move or are renamed.
+id = "urn:kristal:network:YOUR-NETWORK"
+
+[framework]
+repository = "YOUR-GITHUB-OWNER/Kristal-Framework"
+# Required: full immutable 40-character commit SHA.
+ref = "0123456789abcdef0123456789abcdef01234567"
+
+[global]
+create_dotgithub = true
+create_private_profile = true
+create_profile_repository = true
+
+[hub]
+repository = "kristal-hub"
+visibility = "private"
+identity_key = "root-directory"
+
+[policy]
+default_branch = "main"
+
+[features]
+# off | best_effort | required
+immutable_releases = "best_effort"
+environments = "best_effort"
+custom_properties = "best_effort"
+attestations = "best_effort"
+
+[[collections]]
+name = "kristal-public"
+identity_key = "public-primary"
+visibility = "public"
+role = "collection"
+collection = "public"
+description = "Public Kristal collection"
+
+[[collections]]
+name = "kristal-private"
+identity_key = "private-primary"
+visibility = "private"
+role = "collection"
+collection = "private"
+description = "Private Kristal collection"

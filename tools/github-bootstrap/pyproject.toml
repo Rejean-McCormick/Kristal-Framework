@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kristal-github-bootstrap"
+version = "1.1.0-alpha.2"
+description = "Declarative GitHub bootstrap and reconciliation engine for Kristal v10 hosted networks"
+requires-python = ">=3.11"
+
+[project.scripts]
+kristal-github = "kristal_github_bootstrap.cli:main"
+
+[project.gui-scripts]
+kristal-github-setup = "kristal_github_bootstrap.gui:main"
+
+[tool.setuptools]
+packages = ["kristal_github_bootstrap"]

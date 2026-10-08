@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kristal:schema:v10:directory",
+  "title": "Kristal v10 Directory",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "directory_id",
+    "node_id",
+    "entries"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "10.0"
+    },
+    "artifact_type": {
+      "const": "kristal_directory"
+    },
+    "directory_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "node_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "node_id",
+          "bindings"
+        ],
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "roles": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "collection",
+                "directory",
+                "publisher",
+                "gateway"
+              ]
+            }
+          },
+          "bindings": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "binding_id",
+                "profile",
+                "descriptor"
+              ],
+              "properties": {
+                "binding_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "profile": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "descriptor": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          },
+          "advertised_states": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "state_ref",
+                "logical_commitment"
+              ],
+              "properties": {
+                "state_ref": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "logical_commitment": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "profile",
+                    "digest"
+                  ],
+                  "properties": {
+                    "profile": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "digest": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "channels": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "state_ref",
+                "logical_commitment"
+              ],
+              "properties": {
+                "state_ref": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "logical_commitment": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "profile",
+                    "digest"
+                  ],
+                  "properties": {
+                    "profile": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "digest": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "metadata": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "extensions": {
+      "type": "object"
+    }
+  }
+}

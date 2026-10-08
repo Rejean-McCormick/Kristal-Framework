@@ -35,12 +35,31 @@ const reordered=JSON.parse(JSON.stringify(state)); reordered.members=[...reorder
 test('state commitment normalizes member ordering',stateCommitment(state).digest===stateCommitment(reordered).digest);
 const changedPhysical=JSON.parse(JSON.stringify(state)); changedPhysical.created_at='2030-01-01T00:00:00Z';
 test('state commitment ignores publication timestamp',stateCommitment(state).digest===stateCommitment(changedPhysical).digest);
+
+const unicodeA=JSON.parse(JSON.stringify(state));
+unicodeA.members=[
+  {artifact_id:'urn:test:ä',logical_contract:{id:'x',version:'1'},logical_commitment:{profile:'p',digest:'sha256:'+'1'.repeat(64)}},
+  {artifact_id:'urn:test:z',logical_contract:{id:'x',version:'1'},logical_commitment:{profile:'p',digest:'sha256:'+'2'.repeat(64)}}
+];
+const unicodeB=JSON.parse(JSON.stringify(unicodeA)); unicodeB.members=[...unicodeB.members].reverse();
+test('state commitment ordering is locale-independent and deterministic',stateCommitment(unicodeA).digest===stateCommitment(unicodeB).digest);
+const unknownProfile=JSON.parse(JSON.stringify(state));unknownProfile.logical_commitment={profile:'unsupported-profile',digest:'sha256:'+'0'.repeat(64)};
+const unknownCheck=verifyStateSnapshot(unknownProfile);
+test('unknown state commitment profile is never verified',!unknownCheck.ok&&unknownCheck.issues.some(i=>i.code==='UNSUPPORTED_PROFILE'));
+const wrongDigest=JSON.parse(JSON.stringify(state));wrongDigest.logical_commitment={...wrongDigest.logical_commitment,digest:'sha256:'+'0'.repeat(64)};
+const wrongCheck=verifyStateSnapshot(wrongDigest);
+test('wrong state commitment digest is rejected',!wrongCheck.ok&&wrongCheck.issues.some(i=>i.code==='DIGEST_MISMATCH'));
+
 const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'kristal-v9-'));
 const published=publishStateSnapshot(state,tmp);
 test('state publish uses logical commitment',published.logical_commitment.digest===state.logical_commitment.digest);
 const pointer=path.join(tmp,'channels','production.json');
 const active=activateChannel(activation,pointer);
 test('activation pointer written atomically',active.ok&&JSON.parse(fs.readFileSync(pointer,'utf8')).active_state.logical_commitment.digest===state.logical_commitment.digest);
+let staleRejected=false;try{activateChannel({...activation,sequence:0},pointer);}catch(e){staleRejected=/expected_previous|required|sequence/.test(e.message);}test('existing activation requires compare-and-swap precondition',staleRejected);
+const next={...activation,sequence:2,expected_previous:activation.active_state,previous_state:activation.active_state};
+const nextActive=activateChannel(next,pointer);test('activation sequence advances under lock and CAS',nextActive.sequence===2);
+let regressionRejected=false;try{activateChannel({...next,sequence:1},pointer);}catch(e){regressionRejected=true;}test('activation sequence regression rejected',regressionRejected);
 fs.rmSync(tmp,{recursive:true,force:true});
 const kmc=load('contracts/knowledge-model-contract.v5.json');
 test('active knowledge-model contract v5 verifies',verifyKnowledgeModelContract(kmc,ROOT).ok);

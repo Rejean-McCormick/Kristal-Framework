@@ -19,7 +19,9 @@ files=sorted((p for p in ROOT.rglob('*') if p.is_file() and not any(x in EXCLUDE
 with zipfile.ZipFile(OUT,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
     for p in files:
         rel=f'{NAME}/{p.relative_to(ROOT).as_posix()}'; data=p.read_bytes()
-        info=zipfile.ZipInfo(rel,date_time=(1980,1,1,0,0,0)); info.compress_type=zipfile.ZIP_DEFLATED; info.external_attr=(0o100644&0xffff)<<16
+        info=zipfile.ZipInfo(rel,date_time=(1980,1,1,0,0,0)); info.compress_type=zipfile.ZIP_DEFLATED
+        mode=0o100755 if (p.stat().st_mode & 0o111) else 0o100644
+        info.external_attr=(mode&0xffff)<<16
         z.writestr(info,data,compress_type=zipfile.ZIP_DEFLATED,compresslevel=9)
 print(OUT)
 print('sha256',hashlib.sha256(OUT.read_bytes()).hexdigest())

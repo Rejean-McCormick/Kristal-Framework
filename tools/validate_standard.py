@@ -11,6 +11,10 @@ from pathlib import Path
 from jsonschema import Draft202012Validator, FormatChecker
 
 ROOT = Path(__file__).resolve().parents[1]
+V10_SCHEMA_ROOT = ROOT / 'schemas' / 'v10'
+V10_VECTORS = ROOT / 'tck' / 'v10' / 'vectors'
+V10_EXAMPLES = ROOT / 'examples' / 'v10'
+GITHUB_PROFILE_SCHEMA = ROOT / 'profiles' / 'github' / 'schemas' / 'kristal-github-binding.schema.json'
 V9_SCHEMA_ROOT = ROOT / 'schemas' / 'v9'
 V9_VECTORS = ROOT / 'tck' / 'v9' / 'vectors'
 V9_EXAMPLES = ROOT / 'examples' / 'v9'
@@ -41,6 +45,14 @@ EXPECTED_V7_SCHEMAS = {
     'kristall-toc-registry.schema.json',
     'semantic-resonance.schema.json',
 }
+EXPECTED_V10_SCHEMAS = {
+    'kristal-node-manifest.schema.json',
+    'kristal-host-binding.schema.json',
+    'kristal-publication.schema.json',
+    'kristal-directory.schema.json',
+    'kristal-v10-capabilities.schema.json',
+}
+
 EXPECTED_V9_SCHEMAS = {
     'kristal-activation.schema.json',
     'kristal-derivation.schema.json',
@@ -87,6 +99,13 @@ V9_PAIRINGS = {
     'v9-capabilities.example.json': 'kristal-v9-capabilities.schema.json',
 }
 
+V10_PAIRINGS = {
+    'node-manifest.example.json': 'kristal-node-manifest.schema.json',
+    'publication.example.json': 'kristal-publication.schema.json',
+    'directory.example.json': 'kristal-directory.schema.json',
+    'v10-capabilities.example.json': 'kristal-v10-capabilities.schema.json',
+}
+
 V8_PAIRINGS = {
     'v8-capabilities.example.json': 'kristall-v8-capabilities.schema.json',
     'lexicon-fr-core.example.json': 'kristall-lexicon.schema.json',
@@ -115,10 +134,10 @@ def validate(instance, schema, label: str):
 
 
 def check_layout():
-    for ver in ('v9', 'v8', 'v7', 'v6'):
+    for ver in ('v10', 'v9', 'v8', 'v7', 'v6'):
         if (ROOT / f'spec/{ver}/02-schemas').exists() or (ROOT / f'spec/{ver}/09-test-vectors').exists():
             raise AssertionError(f'active {ver} machine contracts must not be duplicated under spec/{ver}')
-    if (ROOT / 'VERSION').read_text(encoding='utf-8').strip() != '9.0.0-draft.1':
+    if (ROOT / 'VERSION').read_text(encoding='utf-8').strip() != '10.0.0-draft.2':
         raise AssertionError('unexpected active VERSION')
 
 
@@ -132,10 +151,14 @@ def check_schemas():
     actual9 = {p.name for p in V9_SCHEMA_ROOT.glob('*.schema.json')}
     if actual9 != EXPECTED_V9_SCHEMAS:
         raise AssertionError(f'v9 schema set drift: {sorted(actual9 ^ EXPECTED_V9_SCHEMAS)}')
-    for root in (V7_SCHEMA_ROOT, V8_SCHEMA_ROOT, V9_SCHEMA_ROOT):
+    actual10 = {p.name for p in V10_SCHEMA_ROOT.glob('*.schema.json')}
+    if actual10 != EXPECTED_V10_SCHEMAS:
+        raise AssertionError(f'v10 schema set drift: {sorted(actual10 ^ EXPECTED_V10_SCHEMAS)}')
+    for root in (V7_SCHEMA_ROOT, V8_SCHEMA_ROOT, V9_SCHEMA_ROOT, V10_SCHEMA_ROOT):
         for p in sorted(root.glob('*.schema.json')):
             Draft202012Validator.check_schema(load(p))
     Draft202012Validator.check_schema(load(V6_SCHEMA))
+    Draft202012Validator.check_schema(load(GITHUB_PROFILE_SCHEMA))
 
 
 def check_examples_and_vectors(pairings, schema_root, examples_root, vectors_root, label):
@@ -156,6 +179,14 @@ def check_v7_examples_and_vectors():
 
 def check_v9_examples_and_vectors():
     check_examples_and_vectors(V9_PAIRINGS, V9_SCHEMA_ROOT, V9_EXAMPLES, V9_VECTORS, 'v9')
+
+def check_v10_examples_and_vectors():
+    check_examples_and_vectors(V10_PAIRINGS, V10_SCHEMA_ROOT, V10_EXAMPLES, V10_VECTORS, 'v10')
+    generic = load(V10_SCHEMA_ROOT/'kristal-host-binding.schema.json')
+    validate(load(V10_EXAMPLES/'github-binding.example.json'), generic, 'v10 generic host binding example')
+    validate(load(V10_VECTORS/'github-binding.example.json'), generic, 'v10 generic host binding vector')
+    validate(load(V10_EXAMPLES/'github-binding.example.json'), load(GITHUB_PROFILE_SCHEMA), 'v10 GitHub host profile example')
+
 
 def check_v8_examples_and_vectors():
     check_examples_and_vectors(V8_PAIRINGS, V8_SCHEMA_ROOT, V8_EXAMPLES, V8_VECTORS, 'v8')
@@ -217,6 +248,50 @@ def check_v9_compatibility_lock():
         p=ROOT/e['path']; b=p.read_bytes(); h='sha256:'+hashlib.sha256(b).hexdigest()
         if h != e['sha256'] or len(b) != e['bytes']:
             raise AssertionError(f'v9 changed frozen v6/v7/v8 compatibility surface: {e["path"]}')
+
+
+def check_v10_compatibility_lock():
+    lock=load(ROOT/'contracts/v10-compatibility-lock.json')
+    if lock.get('release') != '10.0.0-draft.1':
+        raise AssertionError('v10 compatibility lock release mismatch')
+    for e in lock['files']:
+        p=ROOT/e['path']; b=p.read_bytes(); h='sha256:'+hashlib.sha256(b).hexdigest()
+        if h != e['sha256'] or len(b) != e['bytes']:
+            raise AssertionError(f'v10 changed frozen v9 compatibility surface: {e["path"]}')
+
+
+def check_v10_invariants():
+    invariants=(ROOT/'spec/v10/Core-Invariants.md').read_text(encoding='utf-8')
+    for token in (
+        'HOST LOCATION != SEMANTIC IDENTITY','REPOSITORY != KRISTAL NODE',
+        'HOST BINDING != LOGICAL STATE','PUBLICATION RECORD != LOGICAL STATE',
+        'DIRECTORY != AUTHORITY','DISCOVERY != FEDERATION MEMBERSHIP',
+        'HOST ATTESTATION != EPISTEMIC AUTHORITY','AUTOMATION != AUTHORITY',
+        'MIRROR != LOGICAL REVISION'):
+        if token not in invariants: raise AssertionError(f'missing v10 invariant: {token}')
+    conformance=(ROOT/'spec/v10/Conformance.md').read_text(encoding='utf-8')
+    for profile in ('V10-Node-Reader','V10-Publisher','V10-Directory','V10-GitHub-Host','V10-Full'):
+        if profile not in conformance: raise AssertionError(f'missing v10 conformance profile: {profile}')
+    caps=load(V10_EXAMPLES/'v10-capabilities.example.json')
+    if caps['compatibility']['semantic_state_baseline'] != 'kristal.state/9.0':
+        raise AssertionError('v10 must preserve v9 semantic-state baseline')
+
+
+def check_v10_reference_tools():
+    commands=[
+        ('verify-node-v10','node-manifest.example.json'),
+        ('verify-host-binding-v10','github-binding.example.json'),
+        ('verify-github-binding-v10','github-binding.example.json'),
+        ('verify-publication-v10','publication.example.json'),
+        ('verify-directory-v10','directory.example.json'),
+    ]
+    for cmd,name in commands:
+        proc=subprocess.run(['node',str(ROOT/'reference/js/bin/kristal-ref.mjs'),cmd,str(V10_VECTORS/name)],check=True,capture_output=True,text=True,cwd=ROOT/'reference/js')
+        if not json.loads(proc.stdout)['ok']:
+            raise AssertionError(f'v10 reference command failed: {cmd}')
+    proc=subprocess.run(['node',str(ROOT/'reference/js/bin/kristal-ref.mjs'),'v10-capabilities'],check=True,capture_output=True,text=True,cwd=ROOT/'reference/js')
+    if json.loads(proc.stdout).get('schema_version') != '10.0':
+        raise AssertionError('v10 capabilities command drift')
 
 
 def check_v9_invariants():
@@ -349,16 +424,14 @@ def check_active_version_text():
     version = (ROOT/'VERSION').read_text(encoding='utf-8').strip()
     release = load(ROOT/'contracts/release.json')
     contract_set = load(ROOT/'contracts/contract-set.json')
-    knowledge = load(ROOT/'contracts/knowledge-model-contract.v5.json')
-    if not (release.get('version') == contract_set.get('version') == knowledge.get('release') == version):
+    if not (release.get('version') == contract_set.get('version') == version):
         raise AssertionError('active release/version surfaces disagree')
-    core = (ROOT/'spec/v9/01-core-spec/kristal-v9-core-spec.md').read_text(encoding='utf-8')
+    core = (ROOT/'spec/v10/01-core-spec/kristal-v10-core-spec.md').read_text(encoding='utf-8')
     if version not in core:
-        raise AssertionError('v9 core spec not aligned to active VERSION')
-    status = (ROOT/'spec/v9/00-overview/specification-status.md').read_text(encoding='utf-8')
+        raise AssertionError('v10 core spec not aligned to active VERSION')
+    status = (ROOT/'spec/v10/00-overview/specification-status.md').read_text(encoding='utf-8')
     if version not in '\n'.join(status.splitlines()[:8]):
-        raise AssertionError('active v9 specification status is stale')
-
+        raise AssertionError('active v10 specification status is stale')
 
 def check_daat_boundary():
     doc = (ROOT/'spec/v7/DaaT-Boundary.md').read_text(encoding='utf-8')
@@ -372,17 +445,21 @@ def main():
     checks = [
         ('layout', check_layout),
         ('schemas', check_schemas),
+        ('v10 examples/vectors', check_v10_examples_and_vectors),
         ('v9 examples/vectors', check_v9_examples_and_vectors),
         ('v8 examples/vectors', check_v8_examples_and_vectors),
         ('v7 examples/vectors', check_v7_examples_and_vectors),
         ('v6 portable contract', check_v6_portable_contract),
         ('v7 invariants', check_v7_invariants),
         ('v8 invariants', check_v8_invariants),
+        ('v10 invariants', check_v10_invariants),
         ('v9 invariants', check_v9_invariants),
         ('v8 compatibility lock', check_v8_compatibility_lock),
+        ('v10 compatibility lock', check_v10_compatibility_lock),
         ('v9 compatibility lock', check_v9_compatibility_lock),
         ('v9 commitment vectors', check_v9_commitment_vectors),
         ('v9 polymorphic workloads', check_v9_polymorphic_workloads),
+        ('v10 reference tools', check_v10_reference_tools),
         ('v8 language helper', check_language_reference_tools),
         ('v8 query helpers', check_query_reference_tools),
         ('icon profile tooling', check_icon_profile_tooling),

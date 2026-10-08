@@ -1,18 +1,19 @@
 {
   "name": "@kristal/reference",
-  "version": "9.0.0-draft.1",
+  "version": "10.0.0-draft.2",
   "private": true,
   "type": "module",
-  "description": "Non-normative JavaScript reference implementation for Kristal v9 Semantic State Architecture with frozen v6/v7/v8 compatibility.",
+  "description": "Non-normative JavaScript reference implementation for Kristal v10 draft.2 with deterministic v9 verification and hosted-network publication tooling.",
   "engines": {
     "node": ">=22"
   },
   "scripts": {
-    "test": "node tests/run_v6_tests.mjs && node tests/run_v8_tests.mjs && node tests/run_v9_tests.mjs && node tests/run_tests.mjs",
+    "test": "node tests/run_v6_tests.mjs && node tests/run_v8_tests.mjs && node tests/run_v9_tests.mjs && node tests/run_v10_tests.mjs && node tests/run_tests.mjs",
     "test:v6": "node tests/run_v6_tests.mjs",
     "test:legacy-v5": "node tests/run_tests.mjs",
     "self-test": "node bin/kristal-ref.mjs self-test",
     "test:v8": "node tests/run_v8_tests.mjs",
-    "test:v9": "node tests/run_v9_tests.mjs"
+    "test:v9": "node tests/run_v9_tests.mjs",
+    "test:v10": "node tests/run_v10_tests.mjs"
   }
 }

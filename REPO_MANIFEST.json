@@ -1,6 +1,6 @@
 {
   "format": "kristal.repo-manifest/v1",
-  "version": "9.0.0-draft.1",
+  "version": "10.0.0-draft.2",
   "files": [
     {
       "path": ".gitattributes",
@@ -39,13 +39,18 @@
     },
     {
       "path": "README.md",
-      "sha256": "f266b1adff1ad0e8fcf2acf410f43486a8421abe9e9bf18008d3d20fd916ea3e",
-      "bytes": 3242
+      "sha256": "86d0c705c0b89d9747643fc44deb5b24c1f641367d6d969af1035fe832d20f19",
+      "bytes": 1971
+    },
+    {
+      "path": "SNAPSHOT_INDEX.txt",
+      "sha256": "578b615d0d875f265e28b2d84f4095ca16b5c19b832d5fd8733bc4f1ea845c45",
+      "bytes": 18361
     },
     {
       "path": "VERSION",
-      "sha256": "62c2aec17ad294381557bf90dc175324d0afbb46025b779016f8d9df102c00cf",
-      "bytes": 14
+      "sha256": "e2e09e097133d1832fe3abecfe91c40f96e74cc55de0afee5ecea1e4cf4a4dc3",
+      "bytes": 15
     },
     {
       "path": "compat/framework-v5/README.md",
@@ -54,8 +59,8 @@
     },
     {
       "path": "contracts/contract-set.json",
-      "sha256": "96c872f4e8c0f004f6e4a262393375f84f2729c212def888dea00916271acbda",
-      "bytes": 3107
+      "sha256": "929166240f65c25e4feb6d0346f69b9122d0df861365ec40128337a6462a2ad0",
+      "bytes": 3328
     },
     {
       "path": "contracts/knowledge-model-contract.v3.json",
@@ -84,8 +89,13 @@
     },
     {
       "path": "contracts/release.json",
-      "sha256": "746fdaaf97e6d998805f4c8bfed75bec510e5c9f2601dbef4e0ebf69aad6095c",
-      "bytes": 1013
+      "sha256": "82a25a13a0ac8f52159fb2493f88d3818eccc466153b271ee61ceb75a8d66bc5",
+      "bytes": 1313
+    },
+    {
+      "path": "contracts/v10-compatibility-lock.json",
+      "sha256": "f1a3845e4d149e5d805dd0337f70cf58d6e58ebf1721e36dd75c524335952d59",
+      "bytes": 8296
     },
     {
       "path": "contracts/v8-compatibility-lock.json",
@@ -99,8 +109,8 @@
     },
     {
       "path": "docs/00_STATUS.md",
-      "sha256": "24cfd8c67dbb4dc340e6175fe21494e3773070b657bcd03ad2dfb5b4dec03b52",
-      "bytes": 3022
+      "sha256": "a46ddc2ce0495e2ac906a6fef69068442dada41ee423bf6d0607399064718f21",
+      "bytes": 627
     },
     {
       "path": "docs/01_VISION_AND_SCOPE.md",
@@ -239,8 +249,8 @@
     },
     {
       "path": "docs/README.md",
-      "sha256": "8c1e7bfdfa688bfbaebc38d792a650d534fb52586fea199aec8b87bfe6faf443",
-      "bytes": 4173
+      "sha256": "f06113e893862556c5b6a8ece4b3d9ce9b011032d5ca5e25fc173d9882369059",
+      "bytes": 417
     },
     {
       "path": "examples/legacy/konstellation/assertions.json",
@@ -256,6 +266,31 @@
       "path": "examples/legacy/konstellation/policy.json",
       "sha256": "80207ce115d1368f28a2006e2cd53e8bb45d5f0d25ba6249a19498fe4f43677a",
       "bytes": 770
+    },
+    {
+      "path": "examples/v10/directory.example.json",
+      "sha256": "57fb63f8510a346d38331354c96c17b31b5cb4368f369d220bc2673a78cc3f54",
+      "bytes": 1264
+    },
+    {
+      "path": "examples/v10/github-binding.example.json",
+      "sha256": "c55222d1bc1c5dab9d61fab5591f2d7f9492af2d8b304880c73e3b02a36a090e",
+      "bytes": 1562
+    },
+    {
+      "path": "examples/v10/node-manifest.example.json",
+      "sha256": "c77e851108f8452d479a914fd4bd6d8b84373d91ad8df915fa80e21277b8ed5c",
+      "bytes": 459
+    },
+    {
+      "path": "examples/v10/publication.example.json",
+      "sha256": "4820a6e5c69af41bbfc72b7cc396c59cd522ceb313d768e92be37a6a4f11dcd0",
+      "bytes": 1030
+    },
+    {
+      "path": "examples/v10/v10-capabilities.example.json",
+      "sha256": "d7873a8dbf97db489f73ab2af02f5edbc2463d94a6035f78c53d5c1328f4790f",
+      "bytes": 933
     },
     {
       "path": "examples/v6/kristal-state.example.json",
@@ -563,6 +598,11 @@
       "bytes": 372
     },
     {
+      "path": "history/status/2026-10-07-v10-draft2-hardening.md",
+      "sha256": "4562236bccc9d1d29ede0347b6e1a89b3cfb220692798b623dbde8a62a89ab73",
+      "bytes": 480
+    },
+    {
       "path": "migration/retired-repos/Kristal-Standard-README.md",
       "sha256": "2e41d1d802b8ef617cbc3418e2e63a6875c202dae43da746a917a12c73237db1",
       "bytes": 297
@@ -581,6 +621,21 @@
       "path": "mkdocs.yml",
       "sha256": "849c5a4395eec6230d8b5b2c9c0a586bf3a349b1332eb150a216c9b1abc8901a",
       "bytes": 1215
+    },
+    {
+      "path": "profiles/github/README.md",
+      "sha256": "d561bcb7f32632579a4eb9d467407e57c3067de3dcc7b3578391f2f2ddaa5671",
+      "bytes": 434
+    },
+    {
+      "path": "profiles/github/examples/kristal-github-binding.example.json",
+      "sha256": "c55222d1bc1c5dab9d61fab5591f2d7f9492af2d8b304880c73e3b02a36a090e",
+      "bytes": 1562
+    },
+    {
+      "path": "profiles/github/schemas/kristal-github-binding.schema.json",
+      "sha256": "6b1f5d4cfc519f536699a19a24d1089b817a14f727152e78b802b861f751b095",
+      "bytes": 5729
     },
     {
       "path": "reference/README.md",
@@ -623,19 +678,14 @@
       "bytes": 1197
     },
     {
-      "path": "reference/js/docs/status/2026-10-06-kristal-v9-reference.md",
-      "sha256": "8218c147d830a411afa5dc30d6af27370e38692bc551b8ec61d5b962ef4d3597",
-      "bytes": 485
-    },
-    {
       "path": "reference/js/package.json",
-      "sha256": "85599e0665ca0e6c8f06bc06dbbb9122a3a2f4ed49265492399cfcc0410c8e92",
-      "bytes": 687
+      "sha256": "5f04e423f16cc62d9c37c479f5d0934b6d1438bd6a579bfafd0b1b69d822e2c2",
+      "bytes": 788
     },
     {
       "path": "reference/js/src/cli.mjs",
-      "sha256": "88e394aa53e936026aab29d4ba8e63ea2c9de8d8f83aef52fc1868604061ab8a",
-      "bytes": 12608
+      "sha256": "a228818e18f579a7bd0121afbce78479a13e6015159804a48904253455212f67",
+      "bytes": 14416
     },
     {
       "path": "reference/js/src/exchange.mjs",
@@ -688,6 +738,21 @@
       "bytes": 2091
     },
     {
+      "path": "reference/js/src/v10/capabilities.mjs",
+      "sha256": "39d8faf8796161dd477a74acf8e274652086748c4fee42f1c186725a5aa7422f",
+      "bytes": 783
+    },
+    {
+      "path": "reference/js/src/v10/contracts.mjs",
+      "sha256": "c80b15f0e0d7e432924dbecea40b4e67fdce1c9adc02f9edee57a91914ad34f1",
+      "bytes": 9799
+    },
+    {
+      "path": "reference/js/src/v10/publication.mjs",
+      "sha256": "9be56902a237311416b49eb335752e0cba65a94b61eeeb78c9f6ed17e2ed658f",
+      "bytes": 6740
+    },
+    {
       "path": "reference/js/src/v8/ai_context.mjs",
       "sha256": "c7693bb896fedca85edfc2db299679d5c0526cb57c6c8c23e97a0d099f220e3d",
       "bytes": 6453
@@ -729,8 +794,8 @@
     },
     {
       "path": "reference/js/src/v9/common.mjs",
-      "sha256": "654252cd00670c1bc892838b2714dde0817f4b249dbc51e985d8249eb8850514",
-      "bytes": 1515
+      "sha256": "f8ce37981abbd4afe500b3fddc1758a90664b245bbf5d2feadab0eb83e9fc6b5",
+      "bytes": 1893
     },
     {
       "path": "reference/js/src/v9/contracts.mjs",
@@ -739,8 +804,8 @@
     },
     {
       "path": "reference/js/src/v9/lifecycle.mjs",
-      "sha256": "3eaaf8577f203ef3dd65311308bc5aa2443bd79f8b97947f35ac71b476a60f15",
-      "bytes": 1945
+      "sha256": "d823c1100e2ee070c0a7d44b990a0cc4b6e97e9e3a058e331dc7839e996b72be",
+      "bytes": 3467
     },
     {
       "path": "reference/js/src/v9/materialization.mjs",
@@ -749,13 +814,18 @@
     },
     {
       "path": "reference/js/src/v9/state.mjs",
-      "sha256": "8f60d03c2e520ef0f90f0bfe42ebace16375a141be2fee9eb45a504435b1eaa1",
-      "bytes": 5594
+      "sha256": "bbf480231779dabf41b41964915d5a8734e5d917a876303b75de7079aafbe1e4",
+      "bytes": 6967
     },
     {
       "path": "reference/js/tests/run_tests.mjs",
       "sha256": "d89d8fc8ebe650aa940ca775a1ca812f169be5a051df1871da736ef1eede9f3a",
       "bytes": 8035
+    },
+    {
+      "path": "reference/js/tests/run_v10_tests.mjs",
+      "sha256": "fc8f2f7457a01817229b476bf643186483865f77527ea894ba4eb2634d39c7fb",
+      "bytes": 3857
     },
     {
       "path": "reference/js/tests/run_v6_tests.mjs",
@@ -769,18 +839,48 @@
     },
     {
       "path": "reference/js/tests/run_v9_tests.mjs",
-      "sha256": "46846448bd6a52ada2eadd17287f3af186927f6d21471d673c4a7ed83f84f903",
-      "bytes": 4397
+      "sha256": "042dd7678e32243967916fd048474100b3355e7e71967e7061a141fa52340c67",
+      "bytes": 6326
     },
     {
       "path": "requirements-dev.txt",
-      "sha256": "852774496e5f76444d459fc2ae8db9aa53ca6558e8ba775d1281991eb09ae94e",
-      "bytes": 73
+      "sha256": "0e5ca8e12bad30f7bf3d76b9c15c54ad8b0155348c5793a9de05fcc869246b4b",
+      "bytes": 70
     },
     {
       "path": "schemas/README.md",
-      "sha256": "9ee955414fe89dd0ef726c0106b8c15b7e115cda9a8d2f247f1a99c0c5cf1c3c",
-      "bytes": 334
+      "sha256": "5bbab86938fa42cf53a311192e6c9d02ca92c9fb584caebaa4a1af43b8a17ceb",
+      "bytes": 467
+    },
+    {
+      "path": "schemas/v10/README.md",
+      "sha256": "7af9177103dea223962f4ce98be3eb9ec930a6d3ab3716966fa03ed7f8567ce9",
+      "bytes": 353
+    },
+    {
+      "path": "schemas/v10/kristal-directory.schema.json",
+      "sha256": "807b5c296e6b862de3af6b4513ab369c788afd755e1da80e8c0b6727e39f7a4f",
+      "bytes": 4279
+    },
+    {
+      "path": "schemas/v10/kristal-host-binding.schema.json",
+      "sha256": "ac3085c76ef0a8c404a2407403557675deaa25f096141ad8c5697df0ea2c47a7",
+      "bytes": 5786
+    },
+    {
+      "path": "schemas/v10/kristal-node-manifest.schema.json",
+      "sha256": "56ffe8632ceeb690852154608bcfb85eef3992eac16adec8d1e8c99de832d85c",
+      "bytes": 1813
+    },
+    {
+      "path": "schemas/v10/kristal-publication.schema.json",
+      "sha256": "820523e59c4079ab500feb92eb86460533a7374354fd8c4f48f001130824437d",
+      "bytes": 3619
+    },
+    {
+      "path": "schemas/v10/kristal-v10-capabilities.schema.json",
+      "sha256": "a6f1807ec9db1fe9563c60d7270ae623e65ac67e59088008a17e3037eda0e5d0",
+      "bytes": 3342
     },
     {
       "path": "schemas/v6/kristal-state.schema.json",
@@ -941,6 +1041,81 @@
       "path": "spec/README.md",
       "sha256": "6fca051c918fb84be623312d5281aaa77f3da01abd489ad9c183a4b6b9de1de8",
       "bytes": 373
+    },
+    {
+      "path": "spec/v10/00-overview/specification-status.md",
+      "sha256": "421cd98ccfff804b72c814a883a2f483a448a21bba5988e470cacaec4d2b47f9",
+      "bytes": 668
+    },
+    {
+      "path": "spec/v10/01-core-spec/compatibility-contract.md",
+      "sha256": "03c599215ce5634f0bd2846c4cccc4ed546bc756b376112826241ecce97ad5f0",
+      "bytes": 809
+    },
+    {
+      "path": "spec/v10/01-core-spec/kristal-v10-core-spec.md",
+      "sha256": "2334a200f7be590be966686ad5aabdd97b08f45cfb034ae4b13f34b6243e624d",
+      "bytes": 1597
+    },
+    {
+      "path": "spec/v10/Architecture.md",
+      "sha256": "93bda664519abf29be2c5beffddf2c69d05e6e835dc41c8a266a1c54dec2a925",
+      "bytes": 1499
+    },
+    {
+      "path": "spec/v10/Conformance.md",
+      "sha256": "c3cd89a341504aa2a56b6199d21da2a99ff4224577314a2b0590c58efc5ef41d",
+      "bytes": 1470
+    },
+    {
+      "path": "spec/v10/Core-Invariants.md",
+      "sha256": "167f58dd4408df5bf206c9c8ff5e9f3952fdb209e6de723fc7e433beb0b88518",
+      "bytes": 1325
+    },
+    {
+      "path": "spec/v10/Directories-and-Federation.md",
+      "sha256": "f5677707d63793f9de5fba2174907cb9962f16ef6816c57ccc14fd795fa7f497",
+      "bytes": 1590
+    },
+    {
+      "path": "spec/v10/GitHub-Reference-Profile.md",
+      "sha256": "c71edea41360f62b9fad75412d2f925f7203333ed86400fc8255e19e2444c517",
+      "bytes": 2935
+    },
+    {
+      "path": "spec/v10/Home.md",
+      "sha256": "06df7c41e10022ffb4ba01c9a401cbb2040261812ce86b843d8acc5e9637821e",
+      "bytes": 818
+    },
+    {
+      "path": "spec/v10/Host-Bindings.md",
+      "sha256": "4b6f67ea4dea91eea247e76dc5d84405f38dad7ae76f7231d1feacd8fa546aa1",
+      "bytes": 663
+    },
+    {
+      "path": "spec/v10/Migration-v9-to-v10.md",
+      "sha256": "8b171b1c4013621cfa756a0c70fe157a6ebde127063b97ced75adf1c300fcd6a",
+      "bytes": 529
+    },
+    {
+      "path": "spec/v10/Nodes-and-Collections.md",
+      "sha256": "ae15921198dd848a846e2e04f742028894cb0235126bdbc82e6512eda5ca325e",
+      "bytes": 823
+    },
+    {
+      "path": "spec/v10/Publication-and-Discovery.md",
+      "sha256": "7d175fd2c3d81b58cdf84263467c7b26c4d6dd1fa6dfab55e3c57d401e40a00f",
+      "bytes": 2233
+    },
+    {
+      "path": "spec/v10/Security-and-Confidentiality.md",
+      "sha256": "94bb15274d06a0a83f394745b8ef1587793ce891d5e5e385aed988b286c52a8d",
+      "bytes": 1517
+    },
+    {
+      "path": "spec/v10/Semantic-State-Compatibility.md",
+      "sha256": "c2c84de7b82cbe615ab9ee1fa510b736ad948080f7975f16e49dffdd70a18598",
+      "bytes": 1411
     },
     {
       "path": "spec/v5/00-overview/conformance-and-alignment.md",
@@ -2023,6 +2198,41 @@
       "bytes": 340
     },
     {
+      "path": "tck/v10/README.md",
+      "sha256": "738539ef24d93dfb6e4d8210a2eef9b1b0e5dcd460e3f76a2f13523d9cc3e38c",
+      "bytes": 162
+    },
+    {
+      "path": "tck/v10/vectors/README.md",
+      "sha256": "06a5ccae1033e2011a5d8b72206432c7de9628e0bb8d3a3dee42d979d9d31dcd",
+      "bytes": 131
+    },
+    {
+      "path": "tck/v10/vectors/directory.example.json",
+      "sha256": "57fb63f8510a346d38331354c96c17b31b5cb4368f369d220bc2673a78cc3f54",
+      "bytes": 1264
+    },
+    {
+      "path": "tck/v10/vectors/github-binding.example.json",
+      "sha256": "c55222d1bc1c5dab9d61fab5591f2d7f9492af2d8b304880c73e3b02a36a090e",
+      "bytes": 1562
+    },
+    {
+      "path": "tck/v10/vectors/node-manifest.example.json",
+      "sha256": "c77e851108f8452d479a914fd4bd6d8b84373d91ad8df915fa80e21277b8ed5c",
+      "bytes": 459
+    },
+    {
+      "path": "tck/v10/vectors/publication.example.json",
+      "sha256": "4820a6e5c69af41bbfc72b7cc396c59cd522ceb313d768e92be37a6a4f11dcd0",
+      "bytes": 1030
+    },
+    {
+      "path": "tck/v10/vectors/v10-capabilities.example.json",
+      "sha256": "d7873a8dbf97db489f73ab2af02f5edbc2463d94a6035f78c53d5c1328f4790f",
+      "bytes": 933
+    },
+    {
       "path": "tck/v6/vectors/kristal-state/README.md",
       "sha256": "fa502f8ce669567235e4570ec4e345a6df1a32075a750b515febe6bfcfb49132",
       "bytes": 644
@@ -2249,8 +2459,8 @@
     },
     {
       "path": "tools/build_release.py",
-      "sha256": "cad2ca6814995f7b5c14f822a219862ab41a550fc3d0366b0452576164b43f5f",
-      "bytes": 1540
+      "sha256": "ea8a45f7af0847ed9b9dce856f1bf4322e44a4b977a4e59524dbe725f094b6df",
+      "bytes": 1609
     },
     {
       "path": "tools/check_contract_set.py",
@@ -2266,6 +2476,71 @@
       "path": "tools/check_mkdocs.py",
       "sha256": "36e869323a242ec20d8780173d66f075309b9300e848717331722e76c4298844",
       "bytes": 795
+    },
+    {
+      "path": "tools/github-bootstrap/Kristal-GitHub-Setup.pyw",
+      "sha256": "f383c5b79b5fddc072d4f5aeb8392a0d360c5ee93835e1665820c192b73bc58c",
+      "bytes": 85
+    },
+    {
+      "path": "tools/github-bootstrap/Launch-Kristal-GitHub-Setup.cmd",
+      "sha256": "713a8cfc00b9ee2f00525fb047cce14ce9104c766f98bda1db5c2d3fbef22ef1",
+      "bytes": 357
+    },
+    {
+      "path": "tools/github-bootstrap/README.md",
+      "sha256": "1857be51380946bdfb09210334f4fa9c23fb13620dab1390d20ced423fa80e29",
+      "bytes": 5775
+    },
+    {
+      "path": "tools/github-bootstrap/VERSION",
+      "sha256": "b44a506c76daddd8c9deac8da553c76b8b6621fc4467b2e02b837874a365cb29",
+      "bytes": 14
+    },
+    {
+      "path": "tools/github-bootstrap/WINDOWS_SETUP.md",
+      "sha256": "8789bd8d43afd518489875e385357a3908f2967b66be5cd42427405f3cdffb44",
+      "bytes": 2422
+    },
+    {
+      "path": "tools/github-bootstrap/examples/kristal-github.toml",
+      "sha256": "f1b0faf10f240b4b64b0aed861e6cd0aef8bce516007ae66a00769ead6c3a767",
+      "bytes": 1146
+    },
+    {
+      "path": "tools/github-bootstrap/kristal-github",
+      "sha256": "f1b4d70955cd9e4ec13f9753a93b1df5eab07e698c47d2c7b63b85d109d01464",
+      "bytes": 94
+    },
+    {
+      "path": "tools/github-bootstrap/kristal_github_bootstrap/__init__.py",
+      "sha256": "d1436e4402a63229233491e4c800b24c6cfd4ab180bbb5e01f168032f734b19d",
+      "bytes": 30
+    },
+    {
+      "path": "tools/github-bootstrap/kristal_github_bootstrap/cli.py",
+      "sha256": "e7e5c65437ccaa13b1042afe3c629dd64c826be15e26c4e7e55a11a82ba74941",
+      "bytes": 3065
+    },
+    {
+      "path": "tools/github-bootstrap/kristal_github_bootstrap/core.py",
+      "sha256": "fe95fc4661d849fa666c4dbb11760fd5cad8f3c63bdc2768e034fa1d0c7f91ee",
+      "bytes": 42167
+    },
+    {
+      "path": "tools/github-bootstrap/kristal_github_bootstrap/gui.py",
+      "sha256": "5456484e136fde624501338caf63f3d8daa7ce1f8cb4e5774961e6a5eb970814",
+      "bytes": 17133
+    },
+    {
+      "path": "tools/github-bootstrap/pyproject.toml",
+      "sha256": "6432912a72d15b0188ba2f9efc75a80c26719cf23cab20f1f56f1d6eadfc2e91",
+      "bytes": 499
+    },
+    {
+      "path": "tools/github-bootstrap/tests/test_bootstrap.py",
+      "sha256": "101de96a9d110869b6958333827bd3e23eb3768d607f42998dda744e10890589",
+      "bytes": 12376
     },
     {
       "path": "tools/icons/README.md",
@@ -2324,13 +2599,13 @@
     },
     {
       "path": "tools/validate_all.py",
-      "sha256": "03ec02d60f803171fa122748d1845251fe61056e1db8eb594938aa8dee692a25",
-      "bytes": 777
+      "sha256": "af8a26428acc672dc6437a4404346814f56cc5c1bb980f84682f5e13c6970111",
+      "bytes": 897
     },
     {
       "path": "tools/validate_standard.py",
-      "sha256": "aa275637ef6b11fdfc47b9c29d52bde0d260168480634025d0c61288e4a610d4",
-      "bytes": 20003
+      "sha256": "16ae8581b45d05275234ea5090e6e95597de5e0564918f722fb1c42640a8c4f7",
+      "bytes": 24288
     }
   ]
 }

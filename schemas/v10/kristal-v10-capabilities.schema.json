@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kristal:schema:v10:capabilities",
+  "title": "Kristal v10 Capability Descriptor",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "compatibility",
+    "capabilities"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "10.0"
+    },
+    "artifact_type": {
+      "const": "kristal_v10_capabilities"
+    },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reads",
+        "portable_state",
+        "semantic_baseline",
+        "query_baseline",
+        "semantic_state_baseline",
+        "hosted_network_baseline"
+      ],
+      "properties": {
+        "reads": {
+          "type": "array",
+          "minItems": 5,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "portable_state": {
+          "const": "kristal_state/6.0"
+        },
+        "semantic_baseline": {
+          "const": "kristall/7.0"
+        },
+        "query_baseline": {
+          "const": "kristall/8.0"
+        },
+        "semantic_state_baseline": {
+          "const": "kristal.state/9.0"
+        },
+        "hosted_network_baseline": {
+          "const": "kristal.hosting/10.0"
+        }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "semantic_state",
+        "node_model",
+        "hosting",
+        "discovery"
+      ],
+      "properties": {
+        "semantic_state": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "v9_unchanged"
+          ],
+          "properties": {
+            "v9_unchanged": {
+              "const": true
+            },
+            "logical_commitments": {
+              "const": true
+            },
+            "immutable_snapshots": {
+              "const": true
+            }
+          }
+        },
+        "node_model": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "manifests",
+            "bindings",
+            "publications"
+          ],
+          "properties": {
+            "manifests": {
+              "const": true
+            },
+            "bindings": {
+              "const": true
+            },
+            "publications": {
+              "const": true
+            }
+          }
+        },
+        "hosting": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "multiple_bindings",
+            "profiles"
+          ],
+          "properties": {
+            "multiple_bindings": {
+              "const": true
+            },
+            "profiles": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "discovery": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "directories"
+          ],
+          "properties": {
+            "directories": {
+              "const": true
+            },
+            "well_known": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  }
+}

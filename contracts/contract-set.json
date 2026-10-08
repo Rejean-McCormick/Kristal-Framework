@@ -1,24 +1,19 @@
 {
-  "format": "kristal.contract-set/v4",
-  "version": "9.0.0-draft.1",
+  "format": "kristal.contract-set/v5",
+  "version": "10.0.0-draft.2",
   "normative": {
     "core": [
-      "spec/v9/01-core-spec/kristal-v9-core-spec.md",
-      "spec/v9/01-core-spec/compatibility-contract.md",
-      "spec/v9/Core-Invariants.md",
-      "spec/v9/Architecture.md",
-      "spec/v9/Logical-Artifacts.md",
-      "spec/v9/State-Snapshots.md",
-      "spec/v9/Identity-and-Commitments.md",
-      "spec/v9/Authority-Provenance-and-Trust.md",
-      "spec/v9/Derivations-and-Reproducibility.md",
-      "spec/v9/Materialization.md",
-      "spec/v9/Exchange-and-Runtime.md",
-      "spec/v9/Build-Publish-Activate.md",
-      "spec/v9/Federation-and-Coverage.md",
-      "spec/v9/Contract-Evolution.md",
-      "spec/v9/Security-and-Confidentiality.md",
-      "spec/v9/Conformance.md"
+      "spec/v10/01-core-spec/kristal-v10-core-spec.md",
+      "spec/v10/01-core-spec/compatibility-contract.md",
+      "spec/v10/Core-Invariants.md",
+      "spec/v10/Architecture.md",
+      "spec/v10/Semantic-State-Compatibility.md",
+      "spec/v10/Nodes-and-Collections.md",
+      "spec/v10/Host-Bindings.md",
+      "spec/v10/Publication-and-Discovery.md",
+      "spec/v10/Directories-and-Federation.md",
+      "spec/v10/Security-and-Confidentiality.md",
+      "spec/v10/Conformance.md"
     ],
     "schemas": [
       "schemas/v6/kristal-state.schema.json",
@@ -50,12 +45,19 @@
       "schemas/v9/kristal-logical-artifact.schema.json",
       "schemas/v9/kristal-materialization-manifest.schema.json",
       "schemas/v9/kristal-state-snapshot.schema.json",
-      "schemas/v9/kristal-v9-capabilities.schema.json"
+      "schemas/v9/kristal-v9-capabilities.schema.json",
+      "schemas/v10/kristal-node-manifest.schema.json",
+      "schemas/v10/kristal-host-binding.schema.json",
+      "schemas/v10/kristal-publication.schema.json",
+      "schemas/v10/kristal-directory.schema.json",
+      "schemas/v10/kristal-v10-capabilities.schema.json",
+      "profiles/github/schemas/kristal-github-binding.schema.json"
     ],
     "compatibility": [
-      "contracts/v9-compatibility-lock.json"
+      "contracts/v10-compatibility-lock.json"
     ],
     "tck": [
+      "tck/v10/vectors/",
       "tck/v9/vectors/",
       "tck/v9/workloads/",
       "tck/v8/vectors/",
@@ -70,9 +72,11 @@
   },
   "informative": {
     "reference": [
-      "reference/js/"
+      "reference/js/",
+      "profiles/github/"
     ],
     "examples": [
+      "examples/v10/",
       "examples/v9/",
       "examples/v8/",
       "examples/v7/",
