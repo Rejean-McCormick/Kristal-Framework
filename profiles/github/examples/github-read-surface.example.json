@@ -1,0 +1,190 @@
+{
+  "format": "kristal.github-read-surface/1.0",
+  "kit_version": "3.2.4",
+  "slug": "demo-v9-small",
+  "target_root": "kristals/demo-v9-small",
+  "entrypoint": "AI_START_HERE.md",
+  "state_ref": "urn:kristal:state:demo-v9-small",
+  "state_logical_commitment": {
+    "profile": "kristal.state-commitment/jcs-sha256-v1",
+    "digest": "sha256:c046741520edb9e86f739b61c4ed0affcb81340aabcdc9091bcf4be79abe0079"
+  },
+  "ready": true,
+  "errors": [],
+  "surface_digest": "sha256:ab944f5009c1b55f3a98a527b450bd5e3a7dd6d182c0cbb1a7b2f372c2d59624",
+  "file_count": 24,
+  "total_bytes": 21020,
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "role": "ai_instructions",
+      "media_type": "text/markdown",
+      "size": 1416,
+      "sha256": "sha256:211615e096aa531e0f933cd6562802dffa48fa4227ba3211b734f49fbafff406"
+    },
+    {
+      "path": "AI_MANIFEST.json",
+      "role": "ai_manifest",
+      "media_type": "application/json",
+      "size": 1915,
+      "sha256": "sha256:29fd5e4b2e2f35aed0aca5cb7d87e410ce97592110835f177f7737d785fa68f6"
+    },
+    {
+      "path": "AI_START_HERE.md",
+      "role": "ai_entrypoint",
+      "media_type": "text/markdown",
+      "size": 2595,
+      "sha256": "sha256:bd988bba7c5ed7cd1ad8b69aa62e99d0fa9066ab89b1dc81f7a0c3739e8c1d07"
+    },
+    {
+      "path": "README.md",
+      "role": "overview",
+      "media_type": "text/markdown",
+      "size": 868,
+      "sha256": "sha256:ace64ded492960efc38a48b9a8eba4653a891d7a33494a2dc21041babf400753"
+    },
+    {
+      "path": "ai/CONTEXT.md",
+      "role": "ai_context",
+      "media_type": "text/markdown",
+      "size": 2536,
+      "sha256": "sha256:2349410b4a8d6353b7302a02b028eb9872130c649c7cdb30672c017de811728b"
+    },
+    {
+      "path": "ai/COVERAGE.json",
+      "role": "ai_coverage",
+      "media_type": "application/json",
+      "size": 1024,
+      "sha256": "sha256:4fedd93383999dc002e2f3aded103d2e95f0c65736730888bdb265ff457f20c2"
+    },
+    {
+      "path": "ai/GLOSSARY.md",
+      "role": "ai_glossary",
+      "media_type": "text/markdown",
+      "size": 218,
+      "sha256": "sha256:1f6375e83316f360dc9e98383876a5cea39f9d826293c9a9ee4dbb22a7928c01"
+    },
+    {
+      "path": "ai/INDEX.json",
+      "role": "ai_index",
+      "media_type": "application/json",
+      "size": 4026,
+      "sha256": "sha256:daf0f8d18cf2b153634be9884da4aa1c7e8243dcf213bb61f6b2ea9102ad67e7"
+    },
+    {
+      "path": "ai/QUESTIONS.md",
+      "role": "ai_navigation",
+      "media_type": "text/markdown",
+      "size": 593,
+      "sha256": "sha256:5c15e5280fcf2f2685cab1747e90a67db53fc742997557ea799a80499c4603be"
+    },
+    {
+      "path": "ai/RELATIONS.json",
+      "role": "ai_relations",
+      "media_type": "application/json",
+      "size": 688,
+      "sha256": "sha256:58dac2f44e2b55e815197ca025f201f35f2d9ac30c4ab158d5548282f0dc3c8d"
+    },
+    {
+      "path": "canon/domain/core.json",
+      "role": "canonical_content",
+      "media_type": "application/json",
+      "size": 242,
+      "sha256": "sha256:6752200490ac9e6c7bb61954dbdeb53b02ee96dc448b1ceb0a5edea702d4d8f3"
+    },
+    {
+      "path": "canon/state.index.json",
+      "role": "semantic_index",
+      "media_type": "application/json",
+      "size": 654,
+      "sha256": "sha256:45bd9a515c9ced38c41b043b193fcf5c025dd6fb0561a209ba496ef06b202ba3"
+    },
+    {
+      "path": "docs/00_INTENT_AND_SCOPE.md",
+      "role": "documentation",
+      "media_type": "text/markdown",
+      "size": 178,
+      "sha256": "sha256:d0df91ecbb1f53d27cddcbfdebcaa9817124e748be1daf6142b4d238bc566e9e"
+    },
+    {
+      "path": "docs/01_SEMANTIC_BOUNDARY.md",
+      "role": "documentation",
+      "media_type": "text/markdown",
+      "size": 311,
+      "sha256": "sha256:e64f8d02ed78ec658d24e28f5b3350e1f9019cb3a76435db87c7f3e268af52cc"
+    },
+    {
+      "path": "docs/02_NATIVE_MODEL.md",
+      "role": "documentation",
+      "media_type": "text/markdown",
+      "size": 174,
+      "sha256": "sha256:2320cc6f04806628639dce5184a25e97085945f09f31408f5ba6f92f5bcce5cf"
+    },
+    {
+      "path": "docs/03_EPISTEMIC_MODEL.md",
+      "role": "documentation",
+      "media_type": "text/markdown",
+      "size": 356,
+      "sha256": "sha256:6418e38b6e54893d2a03bf702f754b192f48679ad89853b405e1b325260a53b7"
+    },
+    {
+      "path": "docs/04_CANONICAL_DERIVED.md",
+      "role": "documentation",
+      "media_type": "text/markdown",
+      "size": 311,
+      "sha256": "sha256:9ca1154b18ae0980a96e562cedbef1ce85a2912940cf52819dd0fd402e1b1345"
+    },
+    {
+      "path": "docs/05_ORIENTATIONS.md",
+      "role": "documentation",
+      "media_type": "text/markdown",
+      "size": 287,
+      "sha256": "sha256:4ef452034359517fbbc8038117817fc8695d5c3effc12544e8b7437ac6323b77"
+    },
+    {
+      "path": "docs/06_VALIDATION.md",
+      "role": "documentation",
+      "media_type": "text/markdown",
+      "size": 438,
+      "sha256": "sha256:df5dadb0965856b592ed1b614e29d06feaa8f5abfe6013a296727cc449eadc34"
+    },
+    {
+      "path": "docs/07_HOSTING_AND_PUBLICATION.md",
+      "role": "documentation",
+      "media_type": "text/markdown",
+      "size": 795,
+      "sha256": "sha256:ae4e01c7a5ecdb94b4603452bdc78973771b000addd3ed83ebf2082db1d5022b"
+    },
+    {
+      "path": "docs/08_GLOSSARY.md",
+      "role": "documentation",
+      "media_type": "text/markdown",
+      "size": 218,
+      "sha256": "sha256:1f6375e83316f360dc9e98383876a5cea39f9d826293c9a9ee4dbb22a7928c01"
+    },
+    {
+      "path": "docs/PROFILE_NOTES.md",
+      "role": "documentation",
+      "media_type": "text/markdown",
+      "size": 180,
+      "sha256": "sha256:5f62161b993e08b75068058c91f55fb7e105775d86fcf52e38fdd2f6be7d7d44"
+    },
+    {
+      "path": "sources/source-catalog.json",
+      "role": "provenance_catalog",
+      "media_type": "application/json",
+      "size": 210,
+      "sha256": "sha256:38ad8975f9cbb9e98b6b379cac85331d08a8d48a41e0a85f71ccde5e19ee453c"
+    },
+    {
+      "path": "state/state-snapshot.json",
+      "role": "state_snapshot",
+      "media_type": "application/vnd.kristal.state-snapshot+json",
+      "size": 787,
+      "sha256": "sha256:ea56630ec1123593f4fda450036e1658fcf307c02b29a3295c37bc07f7be1be9"
+    }
+  ],
+  "materialization_object_count": 0,
+  "materialization_objects": [],
+  "note": "Derived GitHub/AI read projection. Materialization bytes are separate host-transport candidates; neither surface nor transport is a semantic commitment or publication."
+}

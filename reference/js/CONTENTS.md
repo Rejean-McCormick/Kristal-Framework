@@ -42,3 +42,16 @@ Files: 36
 | `tests/run_v6_tests.mjs` | 2452 |
 | `tests/run_v8_tests.mjs` | 7147 |
 | `tests/run_v9_tests.mjs` | 4397 |
+
+
+## GitHub AI/read-surface verification (v10 draft.3)
+
+```bash
+node bin/kristal-ref.mjs verify-github-read-surface-v10 read-surface.json
+node bin/kristal-ref.mjs verify-github-sync-manifest-v10 kristals/example/.kristal/sync-manifest.json
+node bin/kristal-ref.mjs verify-github-collection-index-v10 kristals/index.json
+node bin/kristal-ref.mjs verify-hosted-kristal-v10 . kristals/example
+node bin/kristal-ref.mjs verify-hosted-collection-v10 .
+```
+
+These commands verify operational GitHub/AI traversal surfaces. They do not create or mutate v9 semantic commitments.

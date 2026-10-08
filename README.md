@@ -1,6 +1,6 @@
 # Kristal
 
-**Current standard baseline:** `10.0.0-draft.2`
+**Current standard baseline:** `10.0.0-draft.3.1`
 
 Kristal is a portable, deterministic knowledge-state standard. **Kristal v10 — Hosted Kristal Network Architecture** preserves the frozen v6 portable epistemic state, v7 semantic identity model, v8 language/query layer, and v9 Semantic State Architecture while adding portable node discovery, host bindings, publication records, directories and host profiles.
 
@@ -42,3 +42,12 @@ Start with [v10 Home](spec/v10/Home.md), the [Core Specification](spec/v10/01-co
 ## GitHub bootstrap
 
 The companion one-time account/repository bootstrap is bundled under [`tools/github-bootstrap/`](tools/github-bootstrap/README.md). It manages account-wide GitHub integration, a private root directory, initial public/private Kristal collections, and later one-time initialization of additional Kristal repositories.
+
+
+## Draft.3.1 compatibility-fixture correction
+
+Draft.3.1 is a maintenance correction. It fixes the declared v6 `state_id` / `content_hash` in the v7 portable projection fixture after independently recomputing the v6 JCS identity with `extensions.kristal_v7` present. No v6/v7/v8/v9 semantic rule or v9 commitment algorithm changes. The historical compatibility locks are preserved byte-for-byte; the correction is recorded explicitly in `contracts/compatibility-errata.json`.
+
+## Draft.3 GitHub AI/read surfaces
+
+The GitHub reference profile now standardizes the operational contracts used by Local Kit 3.2.4+, Manager alpha.11+ and Bootstrap alpha.10+ for efficient AI traversal of large collections: exact per-Kristal read surfaces, sync manifests and a compact collection index. These are derived host surfaces and do not alter v9 semantic commitments.

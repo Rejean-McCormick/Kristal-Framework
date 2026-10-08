@@ -15,6 +15,9 @@ V10_SCHEMA_ROOT = ROOT / 'schemas' / 'v10'
 V10_VECTORS = ROOT / 'tck' / 'v10' / 'vectors'
 V10_EXAMPLES = ROOT / 'examples' / 'v10'
 GITHUB_PROFILE_SCHEMA = ROOT / 'profiles' / 'github' / 'schemas' / 'kristal-github-binding.schema.json'
+GITHUB_READ_SURFACE_SCHEMA = ROOT / 'profiles' / 'github' / 'schemas' / 'kristal-github-read-surface.schema.json'
+GITHUB_SYNC_MANIFEST_SCHEMA = ROOT / 'profiles' / 'github' / 'schemas' / 'kristal-github-sync-manifest.schema.json'
+GITHUB_COLLECTION_INDEX_SCHEMA = ROOT / 'profiles' / 'github' / 'schemas' / 'kristal-github-collection-index.schema.json'
 V9_SCHEMA_ROOT = ROOT / 'schemas' / 'v9'
 V9_VECTORS = ROOT / 'tck' / 'v9' / 'vectors'
 V9_EXAMPLES = ROOT / 'examples' / 'v9'
@@ -137,7 +140,7 @@ def check_layout():
     for ver in ('v10', 'v9', 'v8', 'v7', 'v6'):
         if (ROOT / f'spec/{ver}/02-schemas').exists() or (ROOT / f'spec/{ver}/09-test-vectors').exists():
             raise AssertionError(f'active {ver} machine contracts must not be duplicated under spec/{ver}')
-    if (ROOT / 'VERSION').read_text(encoding='utf-8').strip() != '10.0.0-draft.2':
+    if (ROOT / 'VERSION').read_text(encoding='utf-8').strip() != '10.0.0-draft.3.1':
         raise AssertionError('unexpected active VERSION')
 
 
@@ -175,6 +178,10 @@ def check_v7_examples_and_vectors():
     projection = load(V7_VECTORS / 'v6-compatible-projection.example.json')
     validate(projection, load(V6_SCHEMA), 'v6-compatible projection')
     validate(projection['extensions']['kristal_v7'], load(V7_SCHEMA_ROOT/'kristal-v7-extension.schema.json'), 'v7 extension')
+    proc=subprocess.run(['node',str(ROOT/'reference/js/bin/kristal-ref.mjs'),'state-id',str(V7_VECTORS/'v6-compatible-projection.example.json')],check=True,capture_output=True,text=True,cwd=ROOT/'reference/js')
+    identity=json.loads(proc.stdout)
+    if projection.get('state_id') != identity.get('state_id') or projection.get('content_hash',{}).get('value') != identity.get('sha256_hex'):
+        raise AssertionError('v7 v6-compatible projection declared identity does not match unchanged v6 canonicalization')
 
 
 def check_v9_examples_and_vectors():
@@ -232,12 +239,54 @@ def check_v8_invariants():
             raise AssertionError(f'missing v8 conformance profile: {profile}')
 
 
+def _compatibility_errata_by_path():
+    doc=load(ROOT/'contracts/compatibility-errata.json')
+    if doc.get('format') != 'kristal.compatibility-errata/v1':
+        raise AssertionError('unexpected compatibility errata format')
+    if doc.get('release') != '10.0.0-draft.3.1':
+        raise AssertionError('compatibility errata release mismatch')
+    out={}
+    for e in doc.get('entries',[]):
+        path=e.get('path')
+        if not path or path in out:
+            raise AssertionError('invalid or duplicate compatibility errata path')
+        out[path]=e
+    return out
+
+def _verify_locked_or_erratum(entry, *, label):
+    p=ROOT/entry['path']; b=p.read_bytes(); h='sha256:'+hashlib.sha256(b).hexdigest()
+    if h == entry['sha256'] and len(b) == entry['bytes']:
+        return
+    err=_compatibility_errata_by_path().get(entry['path'])
+    if not err:
+        raise AssertionError(f'{label}: {entry["path"]}')
+    if err.get('locked_sha256') != entry['sha256'] or err.get('locked_bytes') != entry['bytes']:
+        raise AssertionError(f'errata does not bind historical lock: {entry["path"]}')
+    if h != err.get('corrected_sha256') or len(b) != err.get('corrected_bytes'):
+        raise AssertionError(f'corrected compatibility fixture drift: {entry["path"]}')
+    mirror=err.get('mirror')
+    if mirror and (ROOT/mirror).read_bytes() != b:
+        raise AssertionError(f'compatibility errata mirror drift: {mirror}')
+
+def check_compatibility_errata():
+    entries=_compatibility_errata_by_path()
+    if set(entries) != {'tck/v7/vectors/v6-compatible-projection.example.json'}:
+        raise AssertionError('unexpected compatibility errata set')
+    e=entries['tck/v7/vectors/v6-compatible-projection.example.json']
+    projection=load(ROOT/e['path'])
+    proc=subprocess.run(['node',str(ROOT/'reference/js/bin/kristal-ref.mjs'),'state-id',str(ROOT/e['path'])],check=True,capture_output=True,text=True,cwd=ROOT/'reference/js')
+    identity=json.loads(proc.stdout)
+    if projection.get('state_id') != identity.get('state_id'):
+        raise AssertionError('corrected v7 portable projection state_id mismatch')
+    if projection.get('content_hash',{}).get('value') != identity.get('sha256_hex'):
+        raise AssertionError('corrected v7 portable projection content_hash mismatch')
+    if identity.get('state_id') != e.get('declared_identity_after'):
+        raise AssertionError('compatibility errata declared_identity_after mismatch')
+
 def check_v8_compatibility_lock():
     lock=load(ROOT/'contracts/v8-compatibility-lock.json')
     for e in lock['files']:
-        p=ROOT/e['path']; b=p.read_bytes(); h='sha256:'+hashlib.sha256(b).hexdigest()
-        if h != e['sha256'] or len(b) != e['bytes']:
-            raise AssertionError(f'v8 changed frozen v6/v7 compatibility surface: {e["path"]}')
+        _verify_locked_or_erratum(e, label='v8 changed frozen v6/v7 compatibility surface')
 
 
 def check_v9_compatibility_lock():
@@ -245,9 +294,7 @@ def check_v9_compatibility_lock():
     if lock.get('release') != '9.0.0-draft.1':
         raise AssertionError('v9 compatibility lock release mismatch')
     for e in lock['files']:
-        p=ROOT/e['path']; b=p.read_bytes(); h='sha256:'+hashlib.sha256(b).hexdigest()
-        if h != e['sha256'] or len(b) != e['bytes']:
-            raise AssertionError(f'v9 changed frozen v6/v7/v8 compatibility surface: {e["path"]}')
+        _verify_locked_or_erratum(e, label='v9 changed frozen v6/v7/v8 compatibility surface')
 
 
 def check_v10_compatibility_lock():
@@ -277,6 +324,22 @@ def check_v10_invariants():
         raise AssertionError('v10 must preserve v9 semantic-state baseline')
 
 
+
+def check_github_read_surface_profile():
+    pairs = [
+        (GITHUB_READ_SURFACE_SCHEMA, ROOT/'profiles/github/examples/github-read-surface.example.json'),
+        (GITHUB_SYNC_MANIFEST_SCHEMA, ROOT/'profiles/github/examples/github-sync-manifest.example.json'),
+        (GITHUB_COLLECTION_INDEX_SCHEMA, ROOT/'profiles/github/examples/github-collection-index.example.json'),
+    ]
+    for schema_path, example_path in pairs:
+        schema = load(schema_path)
+        Draft202012Validator.check_schema(schema)
+        validate(load(example_path), schema, f'GitHub profile example {example_path.name}')
+    profile=(ROOT/'spec/v10/GitHub-Reference-Profile.md').read_text(encoding='utf-8')
+    for token in ('kristal.github-read-surface/1.0','kristal.github-sync-manifest/1.0','kristal.github-collection-index/1.0','READ SURFACE != SEMANTIC STATE','COLLECTION INDEX != AUTHORITY'):
+        if token not in profile:
+            raise AssertionError(f'missing GitHub read-surface profile token: {token}')
+
 def check_v10_reference_tools():
     commands=[
         ('verify-node-v10','node-manifest.example.json'),
@@ -289,6 +352,15 @@ def check_v10_reference_tools():
         proc=subprocess.run(['node',str(ROOT/'reference/js/bin/kristal-ref.mjs'),cmd,str(V10_VECTORS/name)],check=True,capture_output=True,text=True,cwd=ROOT/'reference/js')
         if not json.loads(proc.stdout)['ok']:
             raise AssertionError(f'v10 reference command failed: {cmd}')
+    profile_commands=[
+        ('verify-github-read-surface-v10', ROOT/'profiles/github/examples/github-read-surface.example.json'),
+        ('verify-github-sync-manifest-v10', ROOT/'profiles/github/examples/github-sync-manifest.example.json'),
+        ('verify-github-collection-index-v10', ROOT/'profiles/github/examples/github-collection-index.example.json'),
+    ]
+    for cmd,file in profile_commands:
+        proc=subprocess.run(['node',str(ROOT/'reference/js/bin/kristal-ref.mjs'),cmd,str(file)],check=True,capture_output=True,text=True,cwd=ROOT/'reference/js')
+        if not json.loads(proc.stdout)['ok']:
+            raise AssertionError(f'GitHub read-surface reference command failed: {cmd}')
     proc=subprocess.run(['node',str(ROOT/'reference/js/bin/kristal-ref.mjs'),'v10-capabilities'],check=True,capture_output=True,text=True,cwd=ROOT/'reference/js')
     if json.loads(proc.stdout).get('schema_version') != '10.0':
         raise AssertionError('v10 capabilities command drift')
@@ -454,11 +526,13 @@ def main():
         ('v8 invariants', check_v8_invariants),
         ('v10 invariants', check_v10_invariants),
         ('v9 invariants', check_v9_invariants),
+        ('compatibility errata', check_compatibility_errata),
         ('v8 compatibility lock', check_v8_compatibility_lock),
         ('v10 compatibility lock', check_v10_compatibility_lock),
         ('v9 compatibility lock', check_v9_compatibility_lock),
         ('v9 commitment vectors', check_v9_commitment_vectors),
         ('v9 polymorphic workloads', check_v9_polymorphic_workloads),
+        ('GitHub read-surface profile', check_github_read_surface_profile),
         ('v10 reference tools', check_v10_reference_tools),
         ('v8 language helper', check_language_reference_tools),
         ('v8 query helpers', check_query_reference_tools),

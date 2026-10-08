@@ -7,7 +7,7 @@ kind = "organization" # organization | user
 id = "urn:kristal:network:YOUR-NETWORK"
 
 [framework]
-repository = "YOUR-GITHUB-OWNER/Kristal-Framework"
+repository = "YOUR-GITHUB-OWNER/KristalV10"
 # Required: full immutable 40-character commit SHA.
 ref = "0123456789abcdef0123456789abcdef01234567"
 

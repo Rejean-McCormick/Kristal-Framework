@@ -43,3 +43,14 @@ MIRROR != LOGICAL REVISION
 PUBLIC VISIBILITY != SEMANTIC AUTHORITY
 PRIVATE LOCATION != SEMANTIC SECRECY
 ```
+
+
+## GitHub reader surfaces
+
+```text
+READ SURFACE != SEMANTIC STATE
+COLLECTION INDEX != AUTHORITY
+SYNC != PUBLICATION != ACTIVATION
+```
+
+A GitHub AI/read surface is a replaceable operational projection. Rebuilding, moving, indexing or synchronizing it MUST NOT create a new v9 logical commitment unless the semantic state itself changed.

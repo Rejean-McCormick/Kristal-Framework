@@ -45,6 +45,32 @@ The generated `network.toml` remains the desired configuration source. Keep it u
 
 At account/organization level it can establish the `.github` integration/profile, an optional private organization profile, and the private Kristal hub/directory.
 
-At repository/node level it installs `.kristal/node.json`, `.kristal/bindings/github.json`, `.kristal/capabilities.json`, `.kristal/bootstrap-state.json`, qualification workflow/receipt support, publication workflow, topics and supported GitHub features.
+At repository/node level it installs `.kristal/node.json`, `.kristal/bindings/github.json`, `.kristal/capabilities.json`, `.kristal/bootstrap-state.json`, qualification workflow/receipt support, publication workflow, topics and supported GitHub features. Collection nodes additionally receive the sharded `kristal-ingest.yml` workflow and `.kristal/tools/validate-read-surface.py` validator for Manager-synchronized AI/GitHub read surfaces.
 
 The UI never stores a GitHub token. Authentication remains owned by GitHub CLI.
+
+### Current prefilled host
+
+- Owner: `Rejean-McCormick`
+- Account type: `user`
+- Framework: `Rejean-McCormick/KristalV10`
+- Stable network ID: `urn:kristal:network:rejean-mccormick`
+- Local framework working tree: `C:\mycode\Kristal\KristalV10` (informational; the wizard operates on GitHub, not directly on this path)
+
+The config and plan files now default beside the launcher instead of the process working directory.
+
+## Lifecycle tab (alpha.10)
+
+Open `Kristal-GitHub-Setup.pyw` and select **Lifecycle**. The default workspace is `C:\mycode\Kristal`, and the default Manager catalog is `C:\mycode\Kristal\kristal-manager.json`.
+
+1. Click **Refresh** beside **Manager Local Kristal** and select the Local Kristal you want. You may also choose **Folder** and browse directly.
+2. Confirm the **Publication target** (`public` or `private`). If the Manager entry already declares `publication_target`, Setup requires the same target instead of silently overriding it.
+3. **Qualify collections** verifies the public/private host repositories and qualification receipts. Routine content synchronization is validated separately by the collection ingest workflow.
+4. **Publish selected Local** verifies the Local v9 State Snapshot, stages its exact bytes at `kristals/<slug>/state/state-snapshot.json` when needed, validates an existing Manager read surface when present, qualifies the exact commit, publishes the v10 bundle and independently verifies the Release.
+5. **Verify selected publication** resolves the Release by the selected `state_ref`, not by "latest Release".
+6. **Activate selected** uses a per-Kristal channel such as `public/bateaux/stable` or `private/finances/stable`.
+7. **Verify active channel** re-downloads the Release referenced by the activation and verifies that the active state is the selected Local Kristal state.
+
+Routine GitHub synchronization/hosting is not owned by Setup. Kristal Manager owns the dynamic read surface consumed by downstream systems; Setup owns qualification, formal publication and activation.
+
+No `.ps1` file is part of this workflow. The `.pyw` invokes `gh`, `git` and `node` directly, and Windows subprocesses are started without transient console windows.

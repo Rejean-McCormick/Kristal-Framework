@@ -72,3 +72,16 @@ The existing v8 commands (`v8-capabilities`, `semantic-fingerprint`, `query-v8`,
 ## Adapter boundary
 
 A v9 reader may inspect inherited artifacts without rewriting them. V9 physical optimization never grants semantic authority, and derived indexes remain rebuildable read models.
+
+
+## GitHub AI/read-surface verification (v10 draft.3)
+
+```bash
+node bin/kristal-ref.mjs verify-github-read-surface-v10 read-surface.json
+node bin/kristal-ref.mjs verify-github-sync-manifest-v10 kristals/example/.kristal/sync-manifest.json
+node bin/kristal-ref.mjs verify-github-collection-index-v10 kristals/index.json
+node bin/kristal-ref.mjs verify-hosted-kristal-v10 . kristals/example
+node bin/kristal-ref.mjs verify-hosted-collection-v10 .
+```
+
+These commands verify operational GitHub/AI traversal surfaces. They do not create or mutate v9 semantic commitments.

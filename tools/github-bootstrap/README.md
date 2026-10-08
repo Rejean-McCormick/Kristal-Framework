@@ -1,5 +1,7 @@
-# Kristal GitHub Bootstrap 1.1.0-alpha.2
+# Kristal GitHub Bootstrap 1.1.0-alpha.10
 
+
+Windows preset: `Rejean-McCormick/KristalV10` at commit `27c0c7db3d79a4597c1c964fe8281fa35b5f858a`, with config `C:\mycode\Kristal\network.toml`. Existing config at that path is auto-loaded.
 Declarative bootstrap and reconciliation engine for a **Kristal v10 Hosted Kristal Network** on GitHub.
 
 This prerelease hardens the 1.0 bootstrap around four rules:
@@ -24,7 +26,8 @@ REPOSITORY / NODE
   ├─ .kristal/capabilities.json
   ├─ .kristal/bootstrap-state.json
   ├─ qualification workflow + receipt
-  └─ verifiable publication workflow
+  ├─ verifiable publication workflow
+  └─ collection nodes: sharded read-surface ingest workflow
 ```
 
 The default topology remains a private root hub plus at least one public and one private collection. A repository is a permissions/lifecycle boundary, not necessarily one Kristal: one collection repository may host many Kristals.
@@ -95,9 +98,31 @@ Generated qualification workflows:
 - validate the node/binding/directory descriptors;
 - emit a qualification receipt tied to the candidate commit and framework commit.
 
+Node qualification is path-scoped to `.kristal/**` and its own workflow, so a large Manager synchronization under `kristals/**` does not rerun node qualification for every content update. Formal publication can still dispatch qualification explicitly for the exact candidate commit.
+
+## Collection ingest validation
+
+Collection repositories additionally receive `.github/workflows/kristal-ingest.yml` and the managed validator `.kristal/tools/validate-read-surface.py`. This is the GitHub-side verifier for the read surface emitted by Local Kit 3.2.4+ and synchronized by Manager alpha.11+.
+
+On changes under `kristals/**` it:
+
+- validates the derived `kristals/index.json`;
+- discovers only changed `kristals/<slug>/` roots;
+- dynamically shards large batches while keeping the matrix below GitHub's practical job-count limit;
+- validates shards in parallel (`max-parallel: 8`);
+- verifies every hosted file size and SHA-256 from `.kristal/sync-manifest.json`;
+- independently recomputes the Local Kit `surface_digest`;
+- checks `AI_MANIFEST.json`, `ai/INDEX.json`, the AI entrypoint, state identity/commitment and materialization metadata;
+- runs the pinned Framework `verify-state-v9` on the hosted State Snapshot;
+- rejects unmanaged extra files inside an exact hosted read surface.
+
+This validation is operational/derived. It does not turn the GitHub index or read surface into semantic authority.
+
 ## Publication
 
 The publication workflow treats `state_file` as untrusted data rather than executable shell text. It resolves the path inside `GITHUB_WORKSPACE`, verifies the v9 state, builds a `kristal.publication-bundle/1.0`, verifies every local payload, then creates a **draft** GitHub Release targeted at the exact source commit.
+
+When the selected state belongs to a Manager alpha.11+ hosted read surface, publication first validates that exact surface with the same managed collection validator. Old state-only collection entries remain supported as a compatibility path; publication still verifies their v9 state directly.
 
 Before finalizing the Release it downloads the remote assets and verifies the bundle again. A retry against an existing publication succeeds only when the downloaded Publication Record and bundle match; otherwise it fails as a conflict.
 
@@ -116,3 +141,94 @@ Host bindings only advertise optional activation/attestation surfaces when the b
 ## Current scope
 
 This alpha implements the draft.2 hardening/convergence milestone. It does not yet install a GitHub App, GHCR as a mandatory storage layer, or a central service, and it does not let AI write canonical knowledge directly.
+
+## Ready defaults for Rejean-McCormick
+
+The Windows setup wizard is prefilled for `Rejean-McCormick/KristalV10`, personal-account mode, stable network ID `urn:kristal:network:rejean-mccormick`, and the minimal topology `kristal-hub` (private), `kristal-public` (public), `kristal-private` (private). Personal-account mode intentionally does not create or modify the GitHub profile repository or a global `.github` repository. Push the framework to `main`, then use **Detect main SHA** before Doctor/Plan/Apply.
+
+
+## Alpha.5 Windows preflight fix
+
+Framework SHA verification now checks the exact Git commit object first and falls back to the repository commit endpoint. Doctor/Plan exposes the attempted endpoints and diagnostic reason instead of returning an opaque `blocked` status.
+
+## alpha.10: GitHub read-surface ingest + multi-Kristal lifecycle
+
+The Windows GUI has a **Lifecycle** tab and does not require PowerShell scripts for the operator flow.
+
+The lifecycle is now centered on a **selected Local Kristal** rather than a repo-global `state/state-snapshot.json`:
+
+```text
+Local Kristal
+  -> Manager synchronizes optimized AI/GitHub read surface
+  -> GitHub Collection Ingest validates changed surfaces in shards
+  -> Setup selects exact v9 State Snapshot for formal publication
+  -> exact-commit qualification
+  -> v10 publication Release
+  -> independent bundle verification
+  -> per-Kristal activation channel
+```
+
+### Kristal Manager bridge
+
+The GUI reads `C:\mycode\Kristal\kristal-manager.json` (`kristal-local-registry/2.0`) when available. A selected entry contributes only operator metadata such as local path, slug and `publication_target`. It does **not** become semantic authority.
+
+GitHub hosting/synchronization visibility and formal publication target remain independent. Kristal Manager owns the dynamic hosted read surface used by downstream systems and AI readers; Setup owns qualification/publication/activation. Neither hosting location nor visibility changes the semantic commitment.
+
+You can also browse a Local Kristal folder directly if no Manager catalog is available.
+
+### Multi-Kristal collection layout
+
+A collection repository may host thousands of Kristals. Manager alpha.11+ uses a derived navigation index plus one optimized read surface per Kristal:
+
+```text
+kristals/
+├── index.json
+├── bateaux/
+│   ├── AI_START_HERE.md
+│   ├── AI_MANIFEST.json
+│   ├── ai/
+│   ├── canon/
+│   ├── docs/
+│   ├── sources/
+│   ├── state/state-snapshot.json
+│   └── .kristal/sync-manifest.json
+├── cuisine/
+└── finances/
+```
+
+The exact file projection is owned by Local Kit's `kristal.github-read-surface/1.0` contract. Manager transports that projection and updates `kristals/index.json`; Bootstrap validates it on GitHub. Large materialization bytes are not implicitly forced into Git.
+
+### Publication selection
+
+alpha.10 no longer treats the repo-global newest Release as the selected Kristal publication. Publication lookup is by exact `state_ref`, with independent bundle verification. Immediately after publish, the Release must also target the exact qualified collection commit.
+
+This avoids selecting the wrong Release when several Kristals coexist in one collection.
+
+### Activation
+
+Activation remains separate from publication. The default channel is now per Kristal:
+
+```text
+public/<slug>/stable
+private/<slug>/stable
+```
+
+The GUI validates the v9 activation transition with the pinned Framework, then advances a dedicated Git ref through a non-force fast-forward update. Existing channels preserve `previous_state`, `expected_previous`, and monotonic `sequence`. Re-activating the same state is idempotent.
+
+When GitHub Environments are `best_effort`, the GUI also attempts to record a `production` Deployment for observability. `environments = "required"` is deliberately refused by the local activation path because a mandatory approval gate should be workflow-mediated.
+
+### Local state discovery
+
+For a selected Local Kristal the GUI recognizes, in order:
+
+- `build/v9/state-snapshot.json`
+- `state/state-snapshot.json`
+- `.kristal/v9/state-snapshot.json`
+- `state-snapshot.json`
+- newest `release/v9/states/*.json`
+
+The chosen file is always verified by the pinned `KristalV10` reference CLI before formal publication staging. Routine GitHub read-surface synchronization is owned by Kristal Manager, not Setup.
+
+### Framework default
+
+The current default/fallback framework repository name is `OWNER/KristalV10`; the active Windows preset remains `Rejean-McCormick/KristalV10` pinned to commit `27c0c7db3d79a4597c1c964fe8281fa35b5f858a`.

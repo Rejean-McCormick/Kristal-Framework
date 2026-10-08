@@ -1,0 +1,21 @@
+{
+  "format": "kristal.compatibility-errata/v1",
+  "release": "10.0.0-draft.3.1",
+  "purpose": "Record narrowly scoped corrections to historically frozen compatibility fixtures without silently rewriting the compatibility locks.",
+  "entries": [
+    {
+      "id": "ERRATA-V7-PROJECTION-IDENTITY-001",
+      "path": "tck/v7/vectors/v6-compatible-projection.example.json",
+      "mirror": "examples/v7/v6-compatible-projection.example.json",
+      "locked_sha256": "sha256:3cce44a20adbbef722da63bc86eea14d6f93d4aef52f2e6e41e7c64b900966dd",
+      "locked_bytes": 2666,
+      "corrected_sha256": "sha256:3bb99255fa4188a1896702047a70f5324038e39731e19bfee068e5081e308c0f",
+      "corrected_bytes": 2666,
+      "declared_identity_before": "sha256:534d57141a4d1c982e2ddb25abfda19be7d63234667542dd3eea6acc5cf6b759",
+      "declared_identity_after": "sha256:9f3fdad6b298e47a3f8750f418899f9208c4e3691f20233648abde2e2188bd79",
+      "rule": "kristal.v6:jcs-rfc8785 state identity includes extensions; only state_id, content_hash and signatures are excluded from the hash target.",
+      "reason": "The v7 portable projection added extensions.kristal_v7 but retained the base v6 fixture identity. The declared state_id/content_hash therefore did not match its own canonical v6 content.",
+      "semantic_change": false
+    }
+  ]
+}

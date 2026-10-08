@@ -3,6 +3,7 @@ from __future__ import annotations
 import base64
 import hashlib
 import json
+import os
 import re
 import subprocess
 import uuid
@@ -11,7 +12,7 @@ from pathlib import Path
 from typing import Any
 
 API_VERSION = "2026-03-10"
-BOOTSTRAP_VERSION = "1.1.0-alpha.2"
+BOOTSTRAP_VERSION = "1.1.0-alpha.10"
 SHA_RE = re.compile(r"^[0-9a-f]{40}$")
 
 # Pinned, verified upstream release commits (2026-10-07).
@@ -25,12 +26,21 @@ class BootstrapError(RuntimeError):
     pass
 
 
+def _text(value: Any) -> str:
+    """Normalize subprocess/API diagnostic text. Windows wrappers can occasionally surface None."""
+    if value is None:
+        return ""
+    return value if isinstance(value, str) else str(value)
+
+
 class GitHubApiError(BootstrapError):
-    def __init__(self, method: str, endpoint: str, stderr: str, status: int | None = None):
-        self.method, self.endpoint, self.stderr, self.status = method, endpoint, stderr, status
+    def __init__(self, method: str, endpoint: str, stderr: str | None, status: int | None = None):
+        stderr_text = _text(stderr)
+        self.method, self.endpoint, self.stderr, self.status = method, endpoint, stderr_text, status
         kind = "not_found" if status == 404 else "forbidden" if status == 403 else "rate_limited" if status == 429 else "api_error"
         self.kind = kind
-        super().__init__(f"GitHub API {method} {endpoint} failed ({kind}{f' HTTP {status}' if status else ''}):\n{stderr.strip()}")
+        detail = stderr_text.strip() or "GitHub CLI returned no diagnostic text"
+        super().__init__(f"GitHub API {method} {endpoint} failed ({kind}{f' HTTP {status}' if status else ''}):\n{detail}")
 
 
 @dataclass(frozen=True)
@@ -52,20 +62,26 @@ class GhClient:
         self.dry_run = dry_run
 
     def _run(self, argv: list[str], stdin: str | None = None, check: bool = True) -> subprocess.CompletedProcess[str]:
-        p = subprocess.run(argv, input=stdin, text=True, capture_output=True)
+        kwargs: dict[str, Any] = {}
+        if os.name == "nt" and hasattr(subprocess, "CREATE_NO_WINDOW"):
+            kwargs["creationflags"] = subprocess.CREATE_NO_WINDOW
+        p = subprocess.run(argv, input=stdin, text=True, capture_output=True, **kwargs)
         if check and p.returncode:
-            raise BootstrapError(f"command failed ({p.returncode}): {' '.join(argv)}\n{p.stderr.strip()}")
+            raise BootstrapError(f"command failed ({p.returncode}): {' '.join(argv)}\n{_text(p.stderr).strip() or 'no diagnostic text'}")
         return p
 
     def doctor(self) -> dict[str, Any]:
         gh = self._run(["gh", "--version"])
         auth = self._run(["gh", "auth", "status"], check=False)
         user = self.api("GET", "/user") if auth.returncode == 0 else None
-        return {"gh": gh.stdout.splitlines()[0], "authenticated": auth.returncode == 0, "user": user}
+        gh_out = _text(gh.stdout).strip()
+        auth_err = _text(auth.stderr).strip()
+        return {"gh": gh_out.splitlines()[0] if gh_out else "gh (version output unavailable)", "authenticated": auth.returncode == 0, "user": user, "auth_diagnostic": auth_err or None}
 
     @staticmethod
-    def _status(stderr: str) -> int | None:
-        m = re.search(r"HTTP\s+(\d{3})", stderr or "", re.I)
+    def _status(stderr: str | None) -> int | None:
+        stderr = _text(stderr)
+        m = re.search(r"HTTP\s+(\d{3})", stderr, re.I)
         if m:
             return int(m.group(1))
         m = re.search(r"status(?: code)?[: ]+(\d{3})", stderr or "", re.I)
@@ -85,12 +101,13 @@ class GhClient:
             if optional and status == 404:
                 return None
             raise GitHubApiError(method, endpoint, p.stderr, status)
-        if not p.stdout.strip():
+        stdout = _text(p.stdout)
+        if not stdout.strip():
             return None
         try:
-            return json.loads(p.stdout)
+            return json.loads(stdout)
         except json.JSONDecodeError:
-            return p.stdout.strip()
+            return stdout.strip()
 
     def repo(self, owner: str, name: str) -> dict[str, Any] | None:
         return self.api("GET", f"/repos/{owner}/{name}", optional=True)
@@ -134,7 +151,7 @@ def load_config(path: Path) -> dict[str, Any]:
 
 def framework(cfg: dict[str, Any]) -> tuple[str, str]:
     f = cfg.get("framework", {})
-    repo = f.get("repository") or f"{cfg['account']['owner']}/Kristal-Framework"
+    repo = f.get("repository") or f"{cfg['account']['owner']}/KristalV10"
     ref = f.get("ref", "")
     return repo, ref
 
@@ -257,23 +274,66 @@ def account_preflight(client: GhClient, cfg: dict[str, Any], required: bool = Fa
 
 
 def framework_preflight(client: GhClient, cfg: dict[str, Any], *, required: bool = False) -> dict[str, Any]:
-    slug, ref = framework(cfg); fw_owner, fw_repo = slug.split("/", 1); current = client.repo(fw_owner, fw_repo)
+    slug, ref = framework(cfg)
+    fw_owner, fw_repo = slug.split("/", 1)
+    current = client.repo(fw_owner, fw_repo)
     result: dict[str, Any] = {"repository": slug, "ref": ref}
     if not current:
-        result.update(status="unresolved", usable_from_public_nodes=False)
-        if required: raise BootstrapError(f"framework repository {slug} is not accessible")
+        result.update(status="unresolved", usable_from_public_nodes=False, ref_resolved=False, reason="repository_not_accessible")
+        if required:
+            raise BootstrapError(f"framework repository {slug} is not accessible")
         return result
+
     visibility = current.get("visibility") if isinstance(current, dict) else None
-    if visibility is None and isinstance(current, dict) and "private" in current: visibility = "private" if current.get("private") else "public"
-    has_public_nodes = any(c.get("visibility") == "public" for c in cfg.get("collections", [])); usable = not has_public_nodes or visibility == "public"
-    try:
-        commit = client.api("GET", f"/repos/{fw_owner}/{fw_repo}/commits/{ref}", optional=True)
-        ref_ok = isinstance(commit, dict) and (commit.get("sha") in {None, ref} or str(commit.get("sha", "")).startswith(ref))
-    except BootstrapError:
-        ref_ok = False
-    result.update(status="ok" if usable and ref_ok else "blocked", visibility=visibility, usable_from_public_nodes=usable, ref_resolved=ref_ok)
-    if required and not usable: raise BootstrapError(f"framework repository {slug} must be public when public Kristal nodes use it without extra credentials")
-    if required and not ref_ok: raise BootstrapError(f"framework ref {ref} is not resolvable as the pinned commit in {slug}")
+    if visibility is None and isinstance(current, dict) and "private" in current:
+        visibility = "private" if current.get("private") else "public"
+    has_public_nodes = any(c.get("visibility") == "public" for c in cfg.get("collections", []))
+    usable = not has_public_nodes or visibility == "public"
+
+    # A full SHA is an immutable Git object identity. Verify the exact object first
+    # through the Git database endpoint, then fall back to the repository commit
+    # endpoint because GitHub CLI/API behavior can vary across environments.
+    attempts: list[dict[str, Any]] = []
+    ref_ok = False
+    resolved_sha: str | None = None
+    endpoints = [
+        f"/repos/{fw_owner}/{fw_repo}/git/commits/{ref}",
+        f"/repos/{fw_owner}/{fw_repo}/commits/{ref}",
+    ]
+    for endpoint in endpoints:
+        try:
+            commit = client.api("GET", endpoint, optional=True)
+            got = str(commit.get("sha", "")).lower() if isinstance(commit, dict) else ""
+            ok = got == ref.lower()
+            attempts.append({"endpoint": endpoint, "status": "ok" if ok else ("not_found" if commit is None else "sha_mismatch"), "sha": got or None})
+            if ok:
+                ref_ok = True
+                resolved_sha = got
+                break
+        except GitHubApiError as exc:
+            attempts.append({"endpoint": endpoint, "status": exc.kind, "http_status": exc.status, "diagnostic": exc.stderr.strip() or None})
+        except BootstrapError as exc:
+            attempts.append({"endpoint": endpoint, "status": "error", "diagnostic": str(exc)})
+
+    reason = None
+    if not usable:
+        reason = "framework_not_public_for_public_nodes"
+    elif not ref_ok:
+        reason = "framework_commit_not_resolved"
+    result.update(
+        status="ok" if usable and ref_ok else "blocked",
+        visibility=visibility,
+        usable_from_public_nodes=usable,
+        ref_resolved=ref_ok,
+        resolved_sha=resolved_sha,
+        reason=reason,
+        verification_attempts=attempts,
+    )
+    if required and not usable:
+        raise BootstrapError(f"framework repository {slug} must be public when public Kristal nodes use it without extra credentials")
+    if required and not ref_ok:
+        detail = json.dumps(attempts, ensure_ascii=False)
+        raise BootstrapError(f"framework ref {ref} is not resolvable as the pinned commit in {slug}; attempts={detail}")
     return result
 
 
@@ -329,7 +389,13 @@ def qualify_workflow(cfg: dict[str, Any], include_directory: bool = False) -> st
 
 on:
   push:
+    paths:
+      - '.kristal/**'
+      - '.github/workflows/kristal-qualify.yml'
   pull_request:
+    paths:
+      - '.kristal/**'
+      - '.github/workflows/kristal-qualify.yml'
   workflow_dispatch:
 
 permissions:
@@ -370,6 +436,94 @@ jobs:
 '''
 
 
+def collection_validator_script() -> str:
+    """Return the standalone read-surface validator installed in collection repos."""
+    return Path(__file__).with_name("collection_ingest.py").read_text(encoding="utf-8")
+
+
+def collection_ingest_workflow(cfg: dict[str, Any]) -> str:
+    """Validate only changed hosted Kristals, sharded for large collection commits."""
+    fw, ref = framework(cfg)
+    return f'''name: Kristal Collection Ingest
+
+on:
+  push:
+    paths:
+      - 'kristals/**'
+      - '.kristal/tools/validate-read-surface.py'
+      - '.github/workflows/kristal-ingest.yml'
+  pull_request:
+    paths:
+      - 'kristals/**'
+      - '.kristal/tools/validate-read-surface.py'
+      - '.github/workflows/kristal-ingest.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kristal-ingest-${{{{ github.repository }}}}-${{{{ github.ref }}}}
+  cancel-in-progress: true
+
+jobs:
+  discover:
+    name: discover-and-index
+    runs-on: ubuntu-latest
+    outputs:
+      count: ${{{{ steps.discover.outputs.count }}}}
+      shard_size: ${{{{ steps.discover.outputs.shard_size }}}}
+      matrix: ${{{{ steps.discover.outputs.matrix }}}}
+    steps:
+      - uses: {ACTION_CHECKOUT}
+        with:
+          fetch-depth: 0
+      - name: Validate derived collection index
+        run: python .kristal/tools/validate-read-surface.py validate-index --repo .
+      - name: Discover changed Kristal read surfaces
+        id: discover
+        shell: bash
+        run: |
+          set -euo pipefail
+          python .kristal/tools/validate-read-surface.py discover --repo . --min-shard-size 50 >> "$GITHUB_OUTPUT"
+      - name: Report discovery
+        shell: bash
+        run: >-
+          echo "Changed/read-surface roots: ${{{{ steps.discover.outputs.count }}}}; shard size: ${{{{ steps.discover.outputs.shard_size }}}}"
+
+  validate:
+    name: validate-read-surface-${{{{ matrix.id }}}}
+    needs: discover
+    if: ${{{{ needs.discover.outputs.count != '0' }}}}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix: ${{{{ fromJSON(needs.discover.outputs.matrix) }}}}
+    steps:
+      - uses: {ACTION_CHECKOUT}
+        with:
+          fetch-depth: 0
+      - uses: {ACTION_SETUP_NODE}
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - name: Load pinned Kristal framework
+        uses: {ACTION_CHECKOUT}
+        with:
+          repository: {fw}
+          ref: {ref}
+          path: .kristal-framework
+      - name: Validate exact AI/GitHub read-surface shard
+        run: >-
+          python .kristal/tools/validate-read-surface.py validate-shard
+          --repo .
+          --shard-id ${{{{ matrix.id }}}}
+          --shard-size ${{{{ needs.discover.outputs.shard_size }}}}
+          --framework-cli .kristal-framework/reference/js/bin/kristal-ref.mjs
+'''
+
+
 def publish_workflow(cfg: dict[str, Any], attest_mode: str = "best_effort") -> str:
     fw, ref=framework(cfg); env_mode=cfg.get("features",{}).get("environments","best_effort")
     environment_line = "    environment: production\n" if env_mode == "required" else ""
@@ -391,9 +545,8 @@ on:
   workflow_dispatch:
     inputs:
       state_file:
-        description: Repository-relative path to a v9 state snapshot
+        description: Repository-relative path to a v9 state snapshot (for example kristals/<slug>/state/state-snapshot.json)
         required: true
-        default: state/state-snapshot.json
 
 permissions:
   contents: write
@@ -430,6 +583,19 @@ jobs:
           if p.is_symlink(): raise SystemExit('state_file must not be a symlink')
           print(p)
           PYSAFE
+      - name: Validate hosted read surface when present
+        shell: bash
+        run: |
+          set -euo pipefail
+          SURFACE_ROOT=$(dirname "$(dirname "$STATE_FILE")")
+          if [ -f "$SURFACE_ROOT/.kristal/sync-manifest.json" ] && [ -f ".kristal/tools/validate-read-surface.py" ]; then
+            python .kristal/tools/validate-read-surface.py validate-root \
+              --repo . \
+              --root "$SURFACE_ROOT" \
+              --framework-cli .kristal-framework/reference/js/bin/kristal-ref.mjs
+          else
+            echo "No hosted read-surface manifest for $STATE_FILE; using state-only compatibility validation."
+          fi
       - name: Build and verify publication bundle
         shell: bash
         run: |
@@ -468,7 +634,8 @@ jobs:
 
 def repo_readme(spec: RepoSpec, hub: str) -> str:
     hub_line = f"- Administrative directory: `{hub}`\n" if spec.visibility != "public" else ""
-    return f'''# {spec.name}\n\nKristal v10 node.\n\n- Node: `{spec.node_id}`\n- Role: `{spec.role}`\n- Visibility: `{spec.visibility}`\n{hub_line}- Semantic state baseline: `kristal.state/9.0`\n- Host profile: `kristal.host/github/1.0`\n\nThe `.kristal/` directory is operational metadata. Logical commitments remain independent of GitHub hosting.\n'''
+    collection_line = "- AI/GitHub discovery index: `kristals/index.json`\n" if spec.role == "collection" else ""
+    return f'''# {spec.name}\n\nKristal v10 node.\n\n- Node: `{spec.node_id}`\n- Role: `{spec.role}`\n- Visibility: `{spec.visibility}`\n{hub_line}- Semantic state baseline: `kristal.state/9.0`\n- Host profile: `kristal.host/github/1.0`\n{collection_line}\nThe `.kristal/` directory is operational metadata. Logical commitments remain independent of GitHub hosting.\n'''
 
 
 def global_profile(owner: str, hub: str) -> str:
@@ -533,6 +700,9 @@ def seed_node_repo(client: GhClient, cfg: dict[str, Any], spec: RepoSpec, is_hub
         ".github/workflows/kristal-qualify.yml":qualify_workflow(cfg,include_directory=is_hub or spec.role=="directory"),
         ".github/workflows/kristal-publish.yml":publish_workflow(cfg,cfg.get('features',{}).get('attestations','best_effort')),
     }
+    if spec.role == "collection":
+        files[".kristal/tools/validate-read-surface.py"] = collection_validator_script()
+        files[".github/workflows/kristal-ingest.yml"] = collection_ingest_workflow(cfg)
     if is_hub:
         registry=_registry_entries(client,cfg)
         files[".kristal/directory.json"]=json.dumps(directory_doc(cfg,all_specs or desired_repos(cfg),registry),indent=2)+"\n"
@@ -619,7 +789,11 @@ def observed_fingerprint(client: GhClient,cfg: dict[str,Any])->str:
 
 def plan_account(client: GhClient,cfg: dict[str,Any])->dict[str,Any]:
     owner=cfg['account']['owner']; account=account_preflight(client,cfg,required=False); fw=framework_preflight(client,cfg,required=False); actions=[]
-    actions.append({"action":"verify","target":"account","status":account['status']}); actions.append({"action":"verify","target":fw['repository'],"feature":"framework","status":fw['status']})
+    actions.append({"action":"verify","target":"account","status":account['status']})
+    fw_action = {"action":"verify","target":fw['repository'],"feature":"framework","status":fw['status'],"ref":fw.get("ref"),"visibility":fw.get("visibility"),"ref_resolved":fw.get("ref_resolved"),"reason":fw.get("reason")}
+    if fw.get("verification_attempts"):
+        fw_action["verification_attempts"] = fw["verification_attempts"]
+    actions.append(fw_action)
     for spec in desired_repos(cfg):
         r=client.repo(owner,spec.name); actions.append({"action":"reuse" if r else "create","repository":f"{owner}/{spec.name}","visibility":spec.visibility,"role":spec.role})
     return {"config_fingerprint":config_fingerprint(cfg),"observed_fingerprint":observed_fingerprint(client,cfg),"actions":actions}

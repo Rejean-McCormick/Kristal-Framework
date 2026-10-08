@@ -1,0 +1,23 @@
+{
+  "format": "kristal.github-collection-index/1.0",
+  "kristals": [
+    {
+      "slug": "demo-v9-small",
+      "title": "Demo v9 Small Kristal",
+      "path": "kristals/demo-v9-small",
+      "entrypoint": "kristals/demo-v9-small/AI_START_HERE.md",
+      "state_ref": "urn:kristal:state:demo-v9-small",
+      "state_logical_commitment": {
+        "profile": "kristal.state-commitment/jcs-sha256-v1",
+        "digest": "sha256:c046741520edb9e86f739b61c4ed0affcb81340aabcdc9091bcf4be79abe0079"
+      },
+      "surface_digest": "sha256:ab944f5009c1b55f3a98a527b450bd5e3a7dd6d182c0cbb1a7b2f372c2d59624",
+      "file_count": 24,
+      "total_bytes": 21020,
+      "materialization_object_count": 0
+    }
+  ],
+  "count": 1,
+  "index_digest": "sha256:128f087ef6672a61f3a86af57378f7c8df2c0d2330f3c7e86a41c203e5de51c5",
+  "note": "Derived navigation index for GitHub/AI discovery; not semantic authority."
+}

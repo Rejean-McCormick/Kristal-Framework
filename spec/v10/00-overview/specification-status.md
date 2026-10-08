@@ -1,6 +1,6 @@
 # Kristal v10 Specification Status
 
-Version `10.0.0-draft.2`.
+Version `10.0.0-draft.3.1`.
 
 Kristal v10 is an additive evolution above the frozen v6 portable epistemic state, v7 semantic identity substrate, v8 language/query layer, and v9 Semantic State Architecture.
 

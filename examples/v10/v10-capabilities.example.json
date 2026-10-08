@@ -30,7 +30,10 @@
       "multiple_bindings": true,
       "profiles": [
         "kristal.host/github/1.0"
-      ]
+      ],
+      "github_read_surfaces": true,
+      "github_collection_indexes": true,
+      "hosted_surface_verification": true
     },
     "discovery": {
       "directories": true,

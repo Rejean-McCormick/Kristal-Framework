@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kristal:github-sync-manifest:1.0",
+  "title": "Kristal GitHub Sync Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "manager_version",
+    "read_surface_format",
+    "slug",
+    "title",
+    "target_root",
+    "entrypoint",
+    "state_ref",
+    "state_logical_commitment",
+    "surface_digest",
+    "file_count",
+    "total_bytes",
+    "materialization_object_count",
+    "files",
+    "policy"
+  ],
+  "properties": {
+    "format": {
+      "const": "kristal.github-sync-manifest/1.0"
+    },
+    "manager_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "read_surface_format": {
+      "const": "kristal.github-read-surface/1.0"
+    },
+    "local_kit_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "slug": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[^/\\\\]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_root": {
+      "type": "string",
+      "pattern": "^kristals/[^/]+$"
+    },
+    "entrypoint": {
+      "const": "AI_START_HERE.md"
+    },
+    "state_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "state_logical_commitment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile",
+        "digest"
+      ],
+      "properties": {
+        "profile": {
+          "type": "string",
+          "minLength": 1
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      }
+    },
+    "surface_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "file_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "total_bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "materialization_object_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "role",
+          "size",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "size": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "derived_read_surface",
+        "sync_is_not_publication",
+        "activation_is_separate",
+        "materialization_blobs_are_not_implicitly_copied"
+      ],
+      "properties": {
+        "derived_read_surface": {
+          "const": true
+        },
+        "sync_is_not_publication": {
+          "const": true
+        },
+        "activation_is_separate": {
+          "const": true
+        },
+        "materialization_blobs_are_not_implicitly_copied": {
+          "const": true
+        }
+      }
+    }
+  }
+}

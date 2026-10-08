@@ -1,6 +1,6 @@
 {
   "format": "kristal.contract-set/v5",
-  "version": "10.0.0-draft.2",
+  "version": "10.0.0-draft.3.1",
   "normative": {
     "core": [
       "spec/v10/01-core-spec/kristal-v10-core-spec.md",
@@ -51,10 +51,14 @@
       "schemas/v10/kristal-publication.schema.json",
       "schemas/v10/kristal-directory.schema.json",
       "schemas/v10/kristal-v10-capabilities.schema.json",
-      "profiles/github/schemas/kristal-github-binding.schema.json"
+      "profiles/github/schemas/kristal-github-binding.schema.json",
+      "profiles/github/schemas/kristal-github-read-surface.schema.json",
+      "profiles/github/schemas/kristal-github-sync-manifest.schema.json",
+      "profiles/github/schemas/kristal-github-collection-index.schema.json"
     ],
     "compatibility": [
-      "contracts/v10-compatibility-lock.json"
+      "contracts/v10-compatibility-lock.json",
+      "contracts/compatibility-errata.json"
     ],
     "tck": [
       "tck/v10/vectors/",

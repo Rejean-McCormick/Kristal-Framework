@@ -25,6 +25,7 @@ import { publishStateSnapshot, activateChannel } from './v9/lifecycle.mjs';
 import { referenceV10Capabilities } from './v10/capabilities.mjs';
 import { verifyNodeManifest, verifyHostBinding, verifyPublication, verifyDirectory, verifyGithubBinding } from './v10/contracts.mjs';
 import { buildPublicationBundleFromFiles, verifyPublicationBundle } from './v10/publication.mjs';
+import { verifyGithubReadSurface, verifyGithubSyncManifest, verifyGithubCollectionIndex, verifyHostedGithubReadSurface, verifyHostedGithubCollection } from './v10/github_read_surface.mjs';
 
 function die(message, code = 2) {
   process.stderr.write(message + '\n');
@@ -99,6 +100,21 @@ export async function main(argv = process.argv.slice(2)) {
     }
     case 'verify-github-binding-v10': {
       const file=requireArg(args,0,'v10 GitHub Binding JSON');return resultExit(verifyGithubBinding(readJson(file)));
+    }
+    case 'verify-github-read-surface-v10': {
+      const file=requireArg(args,0,'GitHub read-surface JSON');return resultExit(verifyGithubReadSurface(readJson(file)));
+    }
+    case 'verify-github-sync-manifest-v10': {
+      const file=requireArg(args,0,'GitHub sync-manifest JSON');return resultExit(verifyGithubSyncManifest(readJson(file)));
+    }
+    case 'verify-github-collection-index-v10': {
+      const file=requireArg(args,0,'GitHub collection index JSON');return resultExit(verifyGithubCollectionIndex(readJson(file)));
+    }
+    case 'verify-hosted-kristal-v10': {
+      const repo=requireArg(args,0,'collection repository root');const root=requireArg(args,1,'kristals/<slug> root');return resultExit(verifyHostedGithubReadSurface(repo,root));
+    }
+    case 'verify-hosted-collection-v10': {
+      const repo=requireArg(args,0,'collection repository root');return resultExit(verifyHostedGithubCollection(repo));
     }
     case 'build-publication-bundle-v10': {
       const stateFile=requireArg(args,0,'v9 State Snapshot JSON');

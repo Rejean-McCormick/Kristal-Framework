@@ -1,9 +1,9 @@
 {
   "name": "@kristal/reference",
-  "version": "10.0.0-draft.2",
+  "version": "10.0.0-draft.3.1",
   "private": true,
   "type": "module",
-  "description": "Non-normative JavaScript reference implementation for Kristal v10 draft.2 with deterministic v9 verification and hosted-network publication tooling.",
+  "description": "Non-normative JavaScript reference implementation for Kristal v10 draft.3.1 with deterministic v9 verification, GitHub AI/read-surface verification, hosted-network publication tooling, and compatibility-fixture errata checks.",
   "engines": {
     "node": ">=22"
   },

@@ -38,3 +38,24 @@ The framework used by generated public-repository workflows MUST be readable fro
 The managed bootstrap profile pins the framework and external Actions to full commit SHAs. Qualification runs read-only and emits a receipt bound to the candidate commit and framework commit. Publication treats the state path as untrusted data, builds a verifiable publication bundle, creates a draft Release targeted at the exact candidate commit, re-downloads and verifies the bundle, and only then finalizes the Release.
 
 `best_effort` host features are not equivalent to required guarantees. In particular, an optional Environment may be created for observability without being referenced as an approval gate; only `required` Environment mode is emitted as a publication job environment.
+
+
+## Draft.3 AI/read-surface collection profile
+
+For large GitHub collections, a hosted Kristal MAY expose an exact derived reader projection under `kristals/<slug>/`. The projection is described by `kristal.github-read-surface/1.0` during local preparation and by `.kristal/sync-manifest.json` using `kristal.github-sync-manifest/1.0` after synchronization. A collection MAY expose `kristals/index.json` using `kristal.github-collection-index/1.0` so an AI or other reader can discover thousands of Kristals without recursively crawling the repository.
+
+The preferred reader entrypoint is `kristals/<slug>/AI_START_HERE.md`; `AI_MANIFEST.json` and `ai/INDEX.json` bind the reader layer to an exact v9 State Snapshot and enumerate useful files. The collection index and read surface are derived navigation/integrity surfaces only:
+
+```text
+READ SURFACE != SEMANTIC STATE
+COLLECTION INDEX != AUTHORITY
+SYNC != PUBLICATION != ACTIVATION
+```
+
+A conforming GitHub host verifier SHOULD verify file byte digests and sizes, the read-surface digest, the exact v9 State Commitment, AI manifest/index consistency and absence of unmanaged files inside a Manager-owned exact read-surface subtree. Large materialization payloads SHOULD remain transport-policy decisions (for example Git, Release assets, GHCR or LFS) rather than being copied into Git solely because the member is referenced by the state.
+
+Normative operational profile schemas:
+
+- `profiles/github/schemas/kristal-github-read-surface.schema.json`
+- `profiles/github/schemas/kristal-github-sync-manifest.schema.json`
+- `profiles/github/schemas/kristal-github-collection-index.schema.json`

@@ -1,7 +1,7 @@
 {
   "format": "kristal.release/v4",
   "name": "Kristal",
-  "version": "10.0.0-draft.2",
+  "version": "10.0.0-draft.3.1",
   "status": "draft",
   "canonical_spec": "spec/v10/01-core-spec/kristal-v10-core-spec.md",
   "portable_contract": {
@@ -35,6 +35,10 @@
     "tck_root": "tck/v10/vectors",
     "semantic_state_baseline": "kristal.state/9.0",
     "hosted_network_baseline": "kristal.hosting/10.0",
-    "reference_host_profile": "kristal.host/github/1.0"
-  }
+    "reference_host_profile": "kristal.host/github/1.0",
+    "github_read_surface_profile": "kristal.github-read-surface/1.0",
+    "github_sync_manifest_profile": "kristal.github-sync-manifest/1.0",
+    "github_collection_index_profile": "kristal.github-collection-index/1.0"
+  },
+  "compatibility_errata": "contracts/compatibility-errata.json"
 }

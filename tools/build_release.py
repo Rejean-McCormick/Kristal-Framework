@@ -6,7 +6,7 @@ ROOT=Path(__file__).resolve().parents[1]
 VERSION=(ROOT/'VERSION').read_text().strip()
 NAME=f'kristal-{VERSION}'
 OUT=ROOT.parent/f'{NAME}.zip'
-EXCLUDE={'.git','.venv','node_modules','site','dist','__pycache__','.pytest_cache'}
+EXCLUDE={'.git','.venv','node_modules','site','dist','__pycache__','.pytest_cache','.kristaldiag','.levelupdiag'}
 
 def eligible(p:Path)->bool:
     return p.is_file() and not any(x in EXCLUDE for x in p.relative_to(ROOT).parts) and p.name!='REPO_MANIFEST.json'

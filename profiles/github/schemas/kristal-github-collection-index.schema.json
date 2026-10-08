@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kristal:github-collection-index:1.0",
+  "title": "Kristal GitHub Collection Navigation Index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "kristals",
+    "count",
+    "index_digest",
+    "note"
+  ],
+  "properties": {
+    "format": {
+      "const": "kristal.github-collection-index/1.0"
+    },
+    "kristals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "slug",
+          "title",
+          "path",
+          "entrypoint",
+          "state_ref",
+          "state_logical_commitment",
+          "surface_digest",
+          "file_count",
+          "total_bytes",
+          "materialization_object_count"
+        ],
+        "properties": {
+          "slug": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[^/\\\\]+$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "pattern": "^kristals/[^/]+$"
+          },
+          "entrypoint": {
+            "type": "string",
+            "pattern": "^kristals/[^/]+/AI_START_HERE\\.md$"
+          },
+          "state_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "state_logical_commitment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "profile",
+              "digest"
+            ],
+            "properties": {
+              "profile": {
+                "type": "string",
+                "minLength": 1
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              }
+            }
+          },
+          "surface_digest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "file_count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "total_bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "materialization_object_count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "index_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "note": {
+      "type": "string"
+    }
+  }
+}

@@ -119,6 +119,15 @@
               "items": {
                 "type": "string"
               }
+            },
+            "github_read_surfaces": {
+              "type": "boolean"
+            },
+            "github_collection_indexes": {
+              "type": "boolean"
+            },
+            "hosted_surface_verification": {
+              "type": "boolean"
             }
           }
         },

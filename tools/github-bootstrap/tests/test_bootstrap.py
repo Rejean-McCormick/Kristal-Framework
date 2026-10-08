@@ -13,7 +13,7 @@ def cfg(kind='organization', features='best_effort'):
     return {
         'account': {'owner':'acme','kind':kind},
         'network': {'id':'urn:kristal:network:test'},
-        'framework': {'repository':'acme/Kristal-Framework','ref':SHA},
+        'framework': {'repository':'acme/KristalV10','ref':SHA},
         'global': {'create_dotgithub':True,'create_private_profile':True,'create_profile_repository':True},
         'hub': {'repository':'kristal-hub','visibility':'private','identity_key':'root-directory'},
         'policy': {'default_branch':'main'},
@@ -27,7 +27,7 @@ def cfg(kind='organization', features='best_effort'):
 class FakeClient:
     def __init__(self, login='acme'):
         self.login=login
-        self.repos={('acme','Kristal-Framework'):{'id':99,'name':'Kristal-Framework','owner':{'login':'acme'},'visibility':'public','default_branch':'main'}}
+        self.repos={('acme','KristalV10'):{'id':99,'name':'KristalV10','owner':{'login':'acme'},'visibility':'public','default_branch':'main'}}
         self.files={}; self.calls=[]; self.topics={}; self.immutable=set(); self.envs=set(); self.next_id=100
     def repo(self,owner,name): return self.repos.get((owner,name))
     def create_repo(self,owner,kind,spec):
@@ -106,6 +106,8 @@ class Tests(unittest.TestCase):
         self.assertIn('STATE_FILE: ${{ inputs.state_file }}',w)
         self.assertNotIn('verify-state-v9 "${{ inputs.state_file }}"',w)
         self.assertIn('build-publication-bundle-v10',w); self.assertIn('--draft --target "$GITHUB_SHA"',w); self.assertIn('verify-publication-bundle-v10',w)
+        self.assertIn('validate-read-surface.py validate-root', w)
+        self.assertIn('state-only compatibility validation', w)
         self.assertNotIn('    environment: production',w)  # best-effort feature is not a claimed gate
         c=cfg(); c['features']['environments']='required'; self.assertIn('    environment: production',publish_workflow(c))
     def test_user_account_owner_mismatch_is_blocked(self):
@@ -136,7 +138,6 @@ class Tests(unittest.TestCase):
         f.repos[('acme','kristal-public')]={'id':123,'visibility':'public','default_branch':'dev'}
         with self.assertRaises(BootstrapError): apply_account(f,c,expected_observed_fingerprint=plan['observed_fingerprint'])
 
-if __name__=='__main__': unittest.main()
 
 class GuiConfigTests(unittest.TestCase):
     def test_gui_render_roundtrip(self):
@@ -146,7 +147,7 @@ class GuiConfigTests(unittest.TestCase):
         from pathlib import Path
         vals={
             'owner':'acme','kind':'organization','network_id':'urn:kristal:network:acme',
-            'framework_repo':'acme/Kristal-Framework','framework_ref':'a'*40,
+            'framework_repo':'acme/KristalV10','framework_ref':'a'*40,
             'hub_repo':'kristal-hub','public_repo':'kristal-public','private_repo':'kristal-private',
             'immutable_releases':'best_effort','environments':'best_effort','custom_properties':'best_effort','attestations':'best_effort',
             'create_private_profile':'true',
@@ -167,3 +168,292 @@ class GuiConfigTests(unittest.TestCase):
         }
         with self.assertRaises(BootstrapError):
             validate_gui_values(vals)
+
+    def test_gui_operator_defaults(self):
+        from kristal_github_bootstrap.gui import (
+            DEFAULT_FRAMEWORK_REPO, DEFAULT_FRAMEWORK_SHA, DEFAULT_WINDOWS_CONFIG
+        )
+        self.assertEqual(DEFAULT_FRAMEWORK_REPO, "Rejean-McCormick/KristalV10")
+        self.assertEqual(DEFAULT_FRAMEWORK_SHA, "27c0c7db3d79a4597c1c964fe8281fa35b5f858a")
+        self.assertEqual(DEFAULT_WINDOWS_CONFIG, r"C:\mycode\Kristal\network.toml")
+
+
+class FrameworkPreflightTests(unittest.TestCase):
+    def test_framework_preflight_prefers_exact_git_commit_and_reports_resolution(self):
+        from kristal_github_bootstrap.core import framework_preflight
+        c=cfg(features='off'); f=FakeClient()
+        out=framework_preflight(f,c)
+        self.assertEqual(out['status'],'ok')
+        self.assertTrue(out['ref_resolved'])
+        self.assertEqual(out['resolved_sha'],SHA)
+        self.assertIn('/git/commits/',out['verification_attempts'][0]['endpoint'])
+
+    def test_plan_exposes_framework_preflight_diagnostics(self):
+        c=cfg(features='off'); f=FakeClient()
+        plan=plan_account(f,c)
+        action=next(a for a in plan['actions'] if a.get('feature')=='framework')
+        self.assertEqual(action['status'],'ok')
+        self.assertEqual(action['ref'],SHA)
+        self.assertTrue(action['ref_resolved'])
+        self.assertIn('verification_attempts',action)
+
+
+if __name__=='__main__': unittest.main()
+
+class LifecycleTests(unittest.TestCase):
+    def test_extract_run_id_from_gh_output(self):
+        from kristal_github_bootstrap.lifecycle import extract_run_id
+        text='✓ Created workflow_dispatch event\nhttps://github.com/acme/repo/actions/runs/37677255910\n'
+        self.assertEqual(extract_run_id(text),'37677255910')
+
+    def test_genesis_state_shape(self):
+        from kristal_github_bootstrap.lifecycle import build_genesis_state
+        s=build_genesis_state('urn:kristal:state:test','public','2026-10-07T00:00:00Z')
+        self.assertEqual(s['schema_version'],'9.0')
+        self.assertEqual(s['artifact_type'],'kristal_state_snapshot')
+        self.assertEqual(s['members'],[])
+        self.assertEqual(s['references'],[])
+        self.assertEqual(s['logical_commitment']['profile'],'kristal.state-commitment/jcs-sha256-v1')
+        self.assertEqual(s['logical_commitment']['digest'],'sha256:'+'0'*64)
+        self.assertEqual(s['created_at'],'2026-10-07T00:00:00Z')
+
+    def test_lifecycle_default_workspace(self):
+        from kristal_github_bootstrap.gui import DEFAULT_WINDOWS_WORKSPACE
+        self.assertEqual(DEFAULT_WINDOWS_WORKSPACE, r'C:\mycode\Kristal')
+
+class ActivationLifecycleTests(unittest.TestCase):
+    def test_activation_ref_is_deterministic_and_git_safe(self):
+        from kristal_github_bootstrap.lifecycle import activation_ref_name
+        a = activation_ref_name('public/stable')
+        b = activation_ref_name('public/stable')
+        self.assertEqual(a, b)
+        self.assertTrue(a.startswith('kristal-activation/public-stable-'))
+        self.assertNotIn(' ', a)
+
+    def test_activation_ref_changes_with_channel(self):
+        from kristal_github_bootstrap.lifecycle import activation_ref_name
+        self.assertNotEqual(activation_ref_name('public/stable'), activation_ref_name('public/canary'))
+
+    def test_same_state_ref_ignores_host_metadata_but_requires_commitment(self):
+        from kristal_github_bootstrap.lifecycle import _same_state_ref
+        a = {
+            'state_ref': 'urn:kristal:state:x',
+            'logical_commitment': {'profile': 'kristal.state-commitment/jcs-sha256-v1', 'digest': 'sha256:'+'1'*64},
+            'authority_ref': 'urn:a',
+        }
+        b = {
+            'state_ref': 'urn:kristal:state:x',
+            'logical_commitment': {'profile': 'kristal.state-commitment/jcs-sha256-v1', 'digest': 'sha256:'+'1'*64},
+        }
+        c = dict(b)
+        c['logical_commitment'] = dict(b['logical_commitment'])
+        c['logical_commitment']['digest'] = 'sha256:'+'2'*64
+        self.assertTrue(_same_state_ref(a, b))
+        self.assertFalse(_same_state_ref(a, c))
+
+class MultiKristalLifecycleTests(unittest.TestCase):
+    def test_manager_catalog_local_state_and_collection_path(self):
+        import tempfile
+        from pathlib import Path
+        from kristal_github_bootstrap.lifecycle import (
+            manager_entries, inspect_local_kristal, collection_state_relative, default_channel_id,
+        )
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            local = root / "My Kristal"
+            (local / "build/v9").mkdir(parents=True)
+            (local / "kristal.workspace.json").write_text(json.dumps({
+                "format":"kristal.local-workspace/3.2.0", "title":"My Kristal", "slug":"my-kristal"
+            }), encoding="utf-8")
+            state = {
+                "schema_version":"9.0", "artifact_type":"kristal_state_snapshot",
+                "state_ref":"urn:kristal:state:my-kristal",
+                "logical_commitment":{"profile":"kristal.state-commitment/jcs-sha256-v1","digest":"sha256:"+"1"*64},
+                "members":[], "references":[], "parents":[]
+            }
+            (local / "build/v9/state-snapshot.json").write_text(json.dumps(state), encoding="utf-8")
+            catalog = root / "kristal-manager.json"
+            catalog.write_text(json.dumps({
+                "format":"kristal-local-registry/2.0",
+                "entries":[{"path":str(local),"title":"My Kristal","slug":"my-kristal","publication_target":"private"}]
+            }), encoding="utf-8")
+            rows = manager_entries(catalog)
+            self.assertEqual(len(rows), 1)
+            info = inspect_local_kristal(local, manager_entry=rows[0])
+            self.assertEqual(info["state_ref"], "urn:kristal:state:my-kristal")
+            self.assertTrue(info["state_path"].endswith("build/v9/state-snapshot.json"))
+            self.assertEqual(collection_state_relative(info["slug"]), "kristals/my-kristal/state/state-snapshot.json")
+            self.assertEqual(default_channel_id("private", info["slug"]), "private/my-kristal/stable")
+
+    def test_release_selection_is_by_state_ref_not_repo_latest(self):
+        from unittest.mock import patch
+        from kristal_github_bootstrap.lifecycle import find_release_for_state_ref
+        releases = [
+            {"tag_name":"kristal-pub-newer","draft":False,"target_commitish":"b"*40},
+            {"tag_name":"kristal-pub-wanted","draft":False,"target_commitish":"a"*40},
+        ]
+        records = {
+            "kristal-pub-newer":{"state":{"state_ref":"urn:kristal:state:other"}},
+            "kristal-pub-wanted":{"state":{"state_ref":"urn:kristal:state:wanted"}},
+        }
+        with patch("kristal_github_bootstrap.lifecycle._releases", return_value=releases), \
+             patch("kristal_github_bootstrap.lifecycle._release_publication_record", side_effect=lambda o,r,t: records[t]):
+            selected = find_release_for_state_ref("acme","collection","urn:kristal:state:wanted")
+            self.assertEqual(selected["tag_name"], "kristal-pub-wanted")
+            selected_commit = find_release_for_state_ref("acme","collection","urn:kristal:state:wanted",target_commit="a"*40)
+            self.assertEqual(selected_commit["tag_name"], "kristal-pub-wanted")
+
+    def test_render_config_defaults_to_kristal_v10(self):
+        from kristal_github_bootstrap.gui import render_config
+        text = render_config({
+            "owner":"acme", "kind":"user", "network_id":"urn:kristal:network:acme",
+            "framework_repo":"", "framework_ref":"a"*40,
+            "hub_repo":"kristal-hub", "public_repo":"kristal-public", "private_repo":"kristal-private",
+            "immutable_releases":"off", "environments":"off", "custom_properties":"off", "attestations":"off",
+            "create_private_profile":"false",
+        })
+        self.assertIn('repository = "acme/KristalV10"', text)
+
+class LocalStateStagingTests(unittest.TestCase):
+    def test_stage_local_state_preserves_exact_bytes(self):
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+        from kristal_github_bootstrap.lifecycle import stage_local_state
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            source = root / "source.json"
+            collection = root / "collection"; collection.mkdir()
+            raw = b'{\n  "schema_version": "9.0",\n  "artifact_type": "kristal_state_snapshot",\n  "state_ref": "urn:kristal:state:x",\n  "logical_commitment": {"profile":"p","digest":"sha256:' + b'1'*64 + b'"}\n}\n'
+            source.write_bytes(raw)
+            with patch("kristal_github_bootstrap.lifecycle._json_command", return_value={"ok":True,"commitment":{"profile":"p","digest":"sha256:"+"1"*64}}):
+                out = stage_local_state(collection, source, "kristals/x/state/state-snapshot.json", Path("cli.mjs"))
+            target = collection / "kristals/x/state/state-snapshot.json"
+            self.assertEqual(target.read_bytes(), raw)
+            self.assertTrue(out["changed"])
+            self.assertEqual(out["state_ref"], "urn:kristal:state:x")
+
+class CollectionIngestTests(unittest.TestCase):
+    def test_collection_workflow_is_path_scoped_sharded_and_pinned(self):
+        from kristal_github_bootstrap.core import collection_ingest_workflow
+        w = collection_ingest_workflow(cfg())
+        self.assertIn("'kristals/**'", w)
+        self.assertIn('validate-read-surface.py validate-index', w)
+        self.assertIn('validate-read-surface.py discover', w)
+        self.assertIn('validate-read-surface.py validate-shard', w)
+        self.assertIn('max-parallel: 8', w)
+        self.assertIn('fetch-depth: 0', w)
+        self.assertIn(ACTION_CHECKOUT, w)
+        self.assertIn(ACTION_SETUP_NODE, w)
+        self.assertIn(f'ref: {SHA}', w)
+
+    def test_node_qualification_is_not_triggered_by_every_kristal_sync(self):
+        w = qualify_workflow(cfg())
+        self.assertIn("- '.kristal/**'", w)
+        self.assertIn("- '.github/workflows/kristal-qualify.yml'", w)
+        self.assertNotIn("- 'kristals/**'", w)
+        self.assertIn('workflow_dispatch:', w)
+
+    def test_collection_apply_installs_ingest_workflow_and_validator_only_on_collections(self):
+        from kristal_github_bootstrap.core import seed_node_repo
+        c = cfg(features='off'); f = FakeClient()
+        # Seed enough fake repositories for direct node seeding.
+        for spec in desired_repos(c):
+            f.repos[('acme', spec.name)] = {'id':1000, 'name':spec.name, 'owner':{'login':'acme'}, 'visibility':spec.visibility, 'default_branch':'main'}
+        public = next(x for x in desired_repos(c) if x.name == 'kristal-public')
+        hub = next(x for x in desired_repos(c) if x.name == 'kristal-hub')
+        seed_node_repo(f, c, public)
+        self.assertIn(('acme','kristal-public','.github/workflows/kristal-ingest.yml'), f.files)
+        self.assertIn(('acme','kristal-public','.kristal/tools/validate-read-surface.py'), f.files)
+        seed_node_repo(f, c, hub, is_hub=True, all_specs=desired_repos(c))
+        self.assertNotIn(('acme','kristal-hub','.github/workflows/kristal-ingest.yml'), f.files)
+
+    def test_collection_validator_accepts_exact_surface_and_rejects_drift(self):
+        import hashlib, tempfile
+        from pathlib import Path
+        from kristal_github_bootstrap import collection_ingest as ci
+        with tempfile.TemporaryDirectory() as td:
+            repo = Path(td)
+            root = repo / 'kristals' / 'zoology'
+            (root / 'ai').mkdir(parents=True)
+            (root / 'state').mkdir(parents=True)
+            (root / '.kristal').mkdir(parents=True)
+            (repo / '.kristal-framework' / 'reference/js/bin').mkdir(parents=True)
+            fake_cli = repo / '.kristal-framework/reference/js/bin/kristal-ref.mjs'
+            fake_cli.write_text("process.exit(0);\n", encoding='utf-8')
+            state_commitment = {'profile':'kristal.state-commitment/jcs-sha256-v1','digest':'sha256:'+'1'*64}
+            state = {'schema_version':'9.0','artifact_type':'kristal_state_snapshot','state_ref':'urn:kristal:state:zoology','logical_commitment':state_commitment,'members':[],'references':[],'parents':[]}
+            (root/'state/state-snapshot.json').write_text(json.dumps(state, separators=(',',':'))+'\n', encoding='utf-8')
+            ai_manifest = {'state_ref':state['state_ref'],'state_logical_commitment':state_commitment}
+            (root/'AI_MANIFEST.json').write_text(json.dumps(ai_manifest)+'\n', encoding='utf-8')
+            (root/'AI_START_HERE.md').write_text('# start\n', encoding='utf-8')
+            (root/'README.md').write_text('# Zoology\n', encoding='utf-8')
+            # ai/INDEX is itself hosted, but its file list points only to content files.
+            indexed = []
+            for rel, role in [('README.md','overview'),('state/state-snapshot.json','state_snapshot')]:
+                p = root / rel
+                indexed.append({'path':rel,'role':role,'size':p.stat().st_size,'sha256':'sha256:'+hashlib.sha256(p.read_bytes()).hexdigest()})
+            ai_index = {'files':indexed,'materialization_blobs':[]}
+            (root/'ai/INDEX.json').write_text(json.dumps(ai_index, separators=(',',':'))+'\n', encoding='utf-8')
+            roles = {
+                'README.md':'overview','AI_START_HERE.md':'ai_entrypoint','AI_MANIFEST.json':'ai_manifest',
+                'ai/INDEX.json':'ai_index','state/state-snapshot.json':'state_snapshot'
+            }
+            files=[]
+            for rel in sorted(roles, key=lambda x: x.encode('utf-8')):
+                p=root/rel
+                files.append({'path':rel,'role':roles[rel],'size':p.stat().st_size,'sha256':'sha256:'+hashlib.sha256(p.read_bytes()).hexdigest()})
+            projection = {'format':ci.READ_SURFACE_FORMAT,'slug':'zoology','state_ref':state['state_ref'],'state_logical_commitment':state_commitment,'entrypoint':'AI_START_HERE.md','files':files,'materialization_objects':[]}
+            surface_digest='sha256:'+hashlib.sha256(ci._canonicalize(projection).encode()).hexdigest()
+            manifest={'format':ci.SYNC_MANIFEST_FORMAT,'read_surface_format':ci.READ_SURFACE_FORMAT,'slug':'zoology','target_root':'kristals/zoology','entrypoint':'AI_START_HERE.md','state_ref':state['state_ref'],'state_logical_commitment':state_commitment,'surface_digest':surface_digest,'file_count':len(files),'total_bytes':sum(x['size'] for x in files),'materialization_object_count':0,'files':files}
+            (root/'.kristal/sync-manifest.json').write_text(json.dumps(manifest)+'\n', encoding='utf-8')
+            out=ci.validate_surface(repo,'kristals/zoology',fake_cli)
+            self.assertEqual(out['result'],'PASS')
+            (root/'README.md').write_text('# drift\n', encoding='utf-8')
+            with self.assertRaises(ci.ValidationError):
+                ci.validate_surface(repo,'kristals/zoology',fake_cli)
+
+    def test_collection_index_digest_matches_manager_contract(self):
+        import hashlib, tempfile
+        from pathlib import Path
+        from kristal_github_bootstrap import collection_ingest as ci
+        with tempfile.TemporaryDirectory() as td:
+            repo=Path(td); root=repo/'kristals/zoology/.kristal'; root.mkdir(parents=True)
+            commitment={'profile':'kristal.state-commitment/jcs-sha256-v1','digest':'sha256:'+'2'*64}
+            manifest={'format':ci.SYNC_MANIFEST_FORMAT,'state_ref':'urn:kristal:state:zoology','state_logical_commitment':commitment,'surface_digest':'sha256:'+'3'*64,'entrypoint':'AI_START_HERE.md','file_count':5,'total_bytes':123}
+            (root/'sync-manifest.json').write_text(json.dumps(manifest), encoding='utf-8')
+            row={'slug':'zoology','title':'Zoology','path':'kristals/zoology','entrypoint':'kristals/zoology/AI_START_HERE.md','state_ref':manifest['state_ref'],'state_logical_commitment':commitment,'surface_digest':manifest['surface_digest'],'file_count':5,'total_bytes':123,'materialization_object_count':0}
+            projection={'format':ci.COLLECTION_INDEX_FORMAT,'kristals':[row]}
+            digest='sha256:'+hashlib.sha256(json.dumps(projection, ensure_ascii=False, sort_keys=True, separators=(',',':')).encode()).hexdigest()
+            index={**projection,'count':1,'index_digest':digest,'note':'derived'}
+            (repo/'kristals/index.json').write_text(json.dumps(index), encoding='utf-8')
+            self.assertEqual(ci.validate_index(repo)['result'],'PASS')
+
+
+class CollectionIngestDiscoveryTests(unittest.TestCase):
+    def test_validator_or_workflow_change_revalidates_all_indexed_surfaces(self):
+        import os, tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+        from kristal_github_bootstrap import collection_ingest as ci
+        with tempfile.TemporaryDirectory() as td:
+            repo=Path(td); (repo/'kristals').mkdir()
+            index={
+                'format':ci.COLLECTION_INDEX_FORMAT,
+                'count':2,
+                'index_digest':'sha256:'+'0'*64,
+                'kristals':[
+                    {'path':'kristals/a'},
+                    {'path':'kristals/b'},
+                ],
+            }
+            # discover_roots only needs the rows; index integrity is checked by the workflow's prior step.
+            (repo/'kristals/index.json').write_text(json.dumps(index), encoding='utf-8')
+            old=os.environ.get('GITHUB_EVENT_NAME')
+            os.environ['GITHUB_EVENT_NAME']='push'
+            try:
+                with patch('kristal_github_bootstrap.collection_ingest._git_changed_paths', return_value=['.github/workflows/kristal-ingest.yml']):
+                    self.assertEqual(ci.discover_roots(repo), ['kristals/a','kristals/b'])
+            finally:
+                if old is None: os.environ.pop('GITHUB_EVENT_NAME',None)
+                else: os.environ['GITHUB_EVENT_NAME']=old

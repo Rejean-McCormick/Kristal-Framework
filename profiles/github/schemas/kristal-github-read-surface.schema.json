@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kristal:github-read-surface:1.0",
+  "title": "Kristal GitHub AI Read Surface",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "kit_version",
+    "slug",
+    "target_root",
+    "entrypoint",
+    "ready",
+    "errors",
+    "surface_digest",
+    "file_count",
+    "total_bytes",
+    "files",
+    "materialization_object_count",
+    "materialization_objects"
+  ],
+  "properties": {
+    "format": {
+      "const": "kristal.github-read-surface/1.0"
+    },
+    "kit_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "slug": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[^/\\\\]+$"
+    },
+    "target_root": {
+      "type": "string",
+      "pattern": "^kristals/[^/]+$"
+    },
+    "entrypoint": {
+      "const": "AI_START_HERE.md"
+    },
+    "state_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "state_logical_commitment": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "profile",
+            "digest"
+          ],
+          "properties": {
+            "profile": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ready": {
+      "type": "boolean"
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "surface_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "file_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "total_bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "role",
+          "size",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "media_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "size": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "materialization_object_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "materialization_objects": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "note": {
+      "type": "string"
+    }
+  }
+}

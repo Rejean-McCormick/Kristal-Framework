@@ -9,7 +9,7 @@ export function referenceV10Capabilities(){
     capabilities:{
       semantic_state:{v9_unchanged:true,logical_commitments:true,immutable_snapshots:true},
       node_model:{manifests:true,bindings:true,publications:true},
-      hosting:{multiple_bindings:true,profiles:['kristal.host/github/1.0']},
+      hosting:{multiple_bindings:true,profiles:['kristal.host/github/1.0'],github_read_surfaces:true,github_collection_indexes:true,hosted_surface_verification:true},
       discovery:{directories:true,well_known:true}
     }
   };

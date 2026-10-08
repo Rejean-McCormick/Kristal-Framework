@@ -1,6 +1,6 @@
 # Kristal v10 Core Specification
 
-Version `10.0.0-draft.2`.
+Version `10.0.0-draft.3.1`.
 
 Kristal v10 defines a portable hosted-network layer above Kristal v9 Semantic State Architecture.
 

@@ -28,3 +28,8 @@ MUST satisfy `V9-Full`, `V10-Node-Reader`, `V10-Publisher`, and `V10-Directory`.
 Reference validators distinguish structural/type failures from unsupported profiles, digest mismatches and relation mismatches with stable issue codes. Malformed input MUST return a failed validation result rather than an uncaught exception for ordinary document errors. An unsupported commitment/profile MAY be transported opaquely, but MUST NOT be reported as verified.
 
 `V10-Publisher` additionally requires byte size and blob digest for each resource in the verifiable baseline and MUST detect a mismatched remote bundle before treating a retry as idempotent.
+
+
+## GitHub read-surface conformance (draft.3)
+
+`V10-GitHub-Host` implementations that advertise GitHub read-surface support MUST validate `kristal.github-read-surface/1.0`, `kristal.github-sync-manifest/1.0`, and `kristal.github-collection-index/1.0`. A hosted verifier MUST preserve the v9 State Commitment as semantic authority and treat the collection index as derived discovery only.

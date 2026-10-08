@@ -126,3 +126,7 @@ Loss must be declared rather than compensated by rewriting semantics.
 ```text
 DOWNGRADE LOSS != SEMANTIC REWRITE
 ```
+## Compatibility fixture errata
+
+A frozen compatibility lock records historical bytes; it must not be silently rewritten to hide a defective fixture. If a historical TCK/example fixture is proven internally inconsistent with an unchanged identity rule, the active tree may carry a narrowly scoped correction only when an explicit `kristal.compatibility-errata/v1` record binds the historical locked hash to the corrected hash, states the unchanged rule, and declares whether semantic behavior changed. Conformance must verify both sides of that record.
+

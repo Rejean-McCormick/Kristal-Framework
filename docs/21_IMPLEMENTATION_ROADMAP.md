@@ -170,3 +170,10 @@ V9 should not reach final status until:
 - at least five distinct workload shapes pass polymorphism tests;
 - crash-consistent publication is demonstrated;
 - no reference workload requires conversion into a foreign native shape.
+
+
+## Draft.3 completed integration
+
+- GitHub AI/read-surface verifier in the reference CLI;
+- deterministic collection index contract for thousands of Kristals;
+- embedded Bootstrap aligned with the sharded GitHub collection-ingest workflow.

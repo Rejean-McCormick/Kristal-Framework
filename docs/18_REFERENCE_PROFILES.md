@@ -105,3 +105,8 @@ PROFILE RULE CHANGE
     =>
 NEW PROFILE ID
 ```
+
+
+## GitHub AI/read-surface contracts (draft.3)
+
+The GitHub 1.0 reference profile additionally defines `kristal.github-read-surface/1.0`, `kristal.github-sync-manifest/1.0`, and `kristal.github-collection-index/1.0` for efficient AI traversal and high-scale collection discovery. They are derived hosting/read surfaces, not semantic authority.

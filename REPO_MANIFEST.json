@@ -1,6 +1,6 @@
 {
   "format": "kristal.repo-manifest/v1",
-  "version": "10.0.0-draft.2",
+  "version": "10.0.0-draft.3.1",
   "files": [
     {
       "path": ".gitattributes",
@@ -29,8 +29,8 @@
     },
     {
       "path": ".smartignore",
-      "sha256": "9803cd7bba9122c1b3300aa5a9688d129f516c94dde7877db368072c1fe7a938",
-      "bytes": 193
+      "sha256": "0cac5f79065af0d53f701858e6c71c03adb01534c0a6814aec7c515879481c64",
+      "bytes": 221
     },
     {
       "path": "LICENSE",
@@ -39,18 +39,18 @@
     },
     {
       "path": "README.md",
-      "sha256": "86d0c705c0b89d9747643fc44deb5b24c1f641367d6d969af1035fe832d20f19",
-      "bytes": 1971
+      "sha256": "d1e2938c5a610606678deb8254e948a48a73d7f0ef931d8ada7376c9806279c5",
+      "bytes": 2831
     },
     {
       "path": "SNAPSHOT_INDEX.txt",
-      "sha256": "578b615d0d875f265e28b2d84f4095ca16b5c19b832d5fd8733bc4f1ea845c45",
-      "bytes": 18361
+      "sha256": "61e713a48daf52dbd8e1b55baeb30459c1d11223d861272f64b961c6fe468926",
+      "bytes": 21317
     },
     {
       "path": "VERSION",
-      "sha256": "e2e09e097133d1832fe3abecfe91c40f96e74cc55de0afee5ecea1e4cf4a4dc3",
-      "bytes": 15
+      "sha256": "3c38f17fec16f02c878afc85b8690911c91e414e90a1bcf92d7174f1cbe0f088",
+      "bytes": 17
     },
     {
       "path": "compat/framework-v5/README.md",
@@ -58,9 +58,14 @@
       "bytes": 570
     },
     {
+      "path": "contracts/compatibility-errata.json",
+      "sha256": "419f31baac7d595f83d5e90e10198c78b1c0cd5b6eb718f77401b3408e49bff1",
+      "bytes": 1318
+    },
+    {
       "path": "contracts/contract-set.json",
-      "sha256": "929166240f65c25e4feb6d0346f69b9122d0df861365ec40128337a6462a2ad0",
-      "bytes": 3328
+      "sha256": "fd8add31bb0a20159fd2e6c6c3175863a8195c9840e0b9f6a8cc388e57176c92",
+      "bytes": 3599
     },
     {
       "path": "contracts/knowledge-model-contract.v3.json",
@@ -89,8 +94,8 @@
     },
     {
       "path": "contracts/release.json",
-      "sha256": "82a25a13a0ac8f52159fb2493f88d3818eccc466153b271ee61ceb75a8d66bc5",
-      "bytes": 1313
+      "sha256": "677bd7347811ccbd9f8922822b53590277553608173d392f12a6743b595be162",
+      "bytes": 1600
     },
     {
       "path": "contracts/v10-compatibility-lock.json",
@@ -109,8 +114,8 @@
     },
     {
       "path": "docs/00_STATUS.md",
-      "sha256": "a46ddc2ce0495e2ac906a6fef69068442dada41ee423bf6d0607399064718f21",
-      "bytes": 627
+      "sha256": "5df002b2a36161ee1842e737ef09dce6ee3b61bc03151dfc3d90485ba3043068",
+      "bytes": 786
     },
     {
       "path": "docs/01_VISION_AND_SCOPE.md",
@@ -184,8 +189,8 @@
     },
     {
       "path": "docs/15_CONTRACT_EVOLUTION_AND_COMPATIBILITY.md",
-      "sha256": "669f953865c8b02e1ce12350ec6c35985b8b2e5017b8fe90068d510bc6ab080e",
-      "bytes": 3207
+      "sha256": "3695db6e7241c48c3332f57bc4d37f13430ba0f3974e5f6016f456d4caabcfd8",
+      "bytes": 3761
     },
     {
       "path": "docs/16_SECURITY_AND_CONFIDENTIALITY.md",
@@ -199,8 +204,8 @@
     },
     {
       "path": "docs/18_REFERENCE_PROFILES.md",
-      "sha256": "27892222f5f693aa6bb50aba226d06afe6d4e7df8c06125cca881b172aad04cc",
-      "bytes": 2931
+      "sha256": "3f92c9f2842fee472a181d4fcaec2f7d7be1becba5bf8966b72478b1b7724a22",
+      "bytes": 3275
     },
     {
       "path": "docs/19_POLYMORPHIC_WORKLOADS.md",
@@ -214,8 +219,8 @@
     },
     {
       "path": "docs/21_IMPLEMENTATION_ROADMAP.md",
-      "sha256": "d9016ee9fde69512d3959053f3813799c728f33420c49732f656b6bcfe1839ce",
-      "bytes": 3975
+      "sha256": "88100a8926684753c051f56c6acd95ba7863c7c63f55f6c59651701ec196d089",
+      "bytes": 4217
     },
     {
       "path": "docs/22_GLOSSARY.md",
@@ -289,8 +294,8 @@
     },
     {
       "path": "examples/v10/v10-capabilities.example.json",
-      "sha256": "d7873a8dbf97db489f73ab2af02f5edbc2463d94a6035f78c53d5c1328f4790f",
-      "bytes": 933
+      "sha256": "a50d3aac8557444ff6d4ddfb3a2bb888fe2a613907807d9e399443f07896ff9d",
+      "bytes": 1053
     },
     {
       "path": "examples/v6/kristal-state.example.json",
@@ -379,7 +384,7 @@
     },
     {
       "path": "examples/v7/v6-compatible-projection.example.json",
-      "sha256": "3cce44a20adbbef722da63bc86eea14d6f93d4aef52f2e6e41e7c64b900966dd",
+      "sha256": "3bb99255fa4188a1896702047a70f5324038e39731e19bfee068e5081e308c0f",
       "bytes": 2666
     },
     {
@@ -603,6 +608,16 @@
       "bytes": 480
     },
     {
+      "path": "history/status/2026-10-08-v10-draft3-github-ai-read-surface.md",
+      "sha256": "84410026c499994a1152c2238e0cc2a10fd1f9b5e47d90b9df8915db1c0f6d52",
+      "bytes": 674
+    },
+    {
+      "path": "history/status/2026-10-08-v10-draft3.1-v7-projection-identity-erratum.md",
+      "sha256": "ded48e1731ece88c1d0da374308641a94e828471473acc77bb548ebdb5373b66",
+      "bytes": 1046
+    },
+    {
       "path": "migration/retired-repos/Kristal-Standard-README.md",
       "sha256": "2e41d1d802b8ef617cbc3418e2e63a6875c202dae43da746a917a12c73237db1",
       "bytes": 297
@@ -624,8 +639,23 @@
     },
     {
       "path": "profiles/github/README.md",
-      "sha256": "d561bcb7f32632579a4eb9d467407e57c3067de3dcc7b3578391f2f2ddaa5671",
-      "bytes": 434
+      "sha256": "eda115c3fd8a65f90988cfbff002d7f3d6a30da5a49723e6054571c9887163b2",
+      "bytes": 982
+    },
+    {
+      "path": "profiles/github/examples/github-collection-index.example.json",
+      "sha256": "f6b59f872629121a54a083b64776b4c971657540d2ba8b835ef46533e56d2994",
+      "bytes": 898
+    },
+    {
+      "path": "profiles/github/examples/github-read-surface.example.json",
+      "sha256": "fa314e6d48e3d49f665f519a1acfb7bbdccbc17745c83b654e0093126a6085cc",
+      "bytes": 6380
+    },
+    {
+      "path": "profiles/github/examples/github-sync-manifest.example.json",
+      "sha256": "4b8ef0527d575e500de3830f99034a017c53251dcba671d2a62f81ad162ce539",
+      "bytes": 5522
     },
     {
       "path": "profiles/github/examples/kristal-github-binding.example.json",
@@ -636,6 +666,21 @@
       "path": "profiles/github/schemas/kristal-github-binding.schema.json",
       "sha256": "6b1f5d4cfc519f536699a19a24d1089b817a14f727152e78b802b861f751b095",
       "bytes": 5729
+    },
+    {
+      "path": "profiles/github/schemas/kristal-github-collection-index.schema.json",
+      "sha256": "9f100e065934fc59a18f1a22a0d6d6776ff19878d44564fba0ec8602f301c75d",
+      "bytes": 2551
+    },
+    {
+      "path": "profiles/github/schemas/kristal-github-read-surface.schema.json",
+      "sha256": "01a4a5fcd15172c584e21ac15a85ff2db5812c4e2018d54178f409958b4bca56",
+      "bytes": 2965
+    },
+    {
+      "path": "profiles/github/schemas/kristal-github-sync-manifest.schema.json",
+      "sha256": "6683e2ef8250c37d6b54933302067bf88c106d03477dc678da6700d4df71b458",
+      "bytes": 3329
     },
     {
       "path": "reference/README.md",
@@ -654,18 +699,18 @@
     },
     {
       "path": "reference/js/CONTENTS.md",
-      "sha256": "62d808322cd2dca9456a3004171c6266ffdff1be25d4bd9b6f29bf7edd93bf49",
-      "bytes": 1365
+      "sha256": "71e9524a9f36597aa44a77616701b464a09cb161d21d41439fd0205bdf64d140",
+      "bytes": 1934
     },
     {
       "path": "reference/js/README.md",
-      "sha256": "da83c4bc1229b838765f1e1a94ca0bfc39ad4e4c049d1e6a867c2e856857739e",
-      "bytes": 3312
+      "sha256": "2a62d8baeb9df41d563214cb93ae11e3f51e025db9ef45433be4452a4e340110",
+      "bytes": 3881
     },
     {
       "path": "reference/js/VERSION",
-      "sha256": "62c2aec17ad294381557bf90dc175324d0afbb46025b779016f8d9df102c00cf",
-      "bytes": 14
+      "sha256": "3c38f17fec16f02c878afc85b8690911c91e414e90a1bcf92d7174f1cbe0f088",
+      "bytes": 17
     },
     {
       "path": "reference/js/bin/kristal-ref.mjs",
@@ -679,13 +724,13 @@
     },
     {
       "path": "reference/js/package.json",
-      "sha256": "5f04e423f16cc62d9c37c479f5d0934b6d1438bd6a579bfafd0b1b69d822e2c2",
-      "bytes": 788
+      "sha256": "1da346b89fb3fc087ae329c25857a2e5cb4bd462e38340c35b5ec2af93c09bb6",
+      "bytes": 867
     },
     {
       "path": "reference/js/src/cli.mjs",
-      "sha256": "a228818e18f579a7bd0121afbce78479a13e6015159804a48904253455212f67",
-      "bytes": 14416
+      "sha256": "49f5200f701a47893169388658bb6d5ad206b5b87c621836b0af1df7030678e8",
+      "bytes": 15536
     },
     {
       "path": "reference/js/src/exchange.mjs",
@@ -739,13 +784,18 @@
     },
     {
       "path": "reference/js/src/v10/capabilities.mjs",
-      "sha256": "39d8faf8796161dd477a74acf8e274652086748c4fee42f1c186725a5aa7422f",
-      "bytes": 783
+      "sha256": "b6e278638f07f42389b1912e3f4c9e84c99f5c42568bcaf9007f641008617f76",
+      "bytes": 873
     },
     {
       "path": "reference/js/src/v10/contracts.mjs",
       "sha256": "c80b15f0e0d7e432924dbecea40b4e67fdce1c9adc02f9edee57a91914ad34f1",
       "bytes": 9799
+    },
+    {
+      "path": "reference/js/src/v10/github_read_surface.mjs",
+      "sha256": "fdf110796320d215d0b8f1abf4b121dbe03e2aef30f6597659f1fc3acbf612e9",
+      "bytes": 19603
     },
     {
       "path": "reference/js/src/v10/publication.mjs",
@@ -824,13 +874,13 @@
     },
     {
       "path": "reference/js/tests/run_v10_tests.mjs",
-      "sha256": "fc8f2f7457a01817229b476bf643186483865f77527ea894ba4eb2634d39c7fb",
-      "bytes": 3857
+      "sha256": "a1eb8259746c830b8c450a45db24d6ee66295b06c6e40481a3bf92719fdb8d6f",
+      "bytes": 9662
     },
     {
       "path": "reference/js/tests/run_v6_tests.mjs",
-      "sha256": "e19ed96b381995f80fd3a6f202fd0968ce16cb73441b9836815de2f128dc69bd",
-      "bytes": 2452
+      "sha256": "62fc0209d5da056ec36f6df501afb00503c84c918d6764780c8f3a7dac8e9830",
+      "bytes": 2855
     },
     {
       "path": "reference/js/tests/run_v8_tests.mjs",
@@ -879,8 +929,8 @@
     },
     {
       "path": "schemas/v10/kristal-v10-capabilities.schema.json",
-      "sha256": "a6f1807ec9db1fe9563c60d7270ae623e65ac67e59088008a17e3037eda0e5d0",
-      "bytes": 3342
+      "sha256": "59f1296e84d69191edda40439b34b57ddb3b35008ae58aadf58163856cf80e3f",
+      "bytes": 3609
     },
     {
       "path": "schemas/v6/kristal-state.schema.json",
@@ -1044,8 +1094,8 @@
     },
     {
       "path": "spec/v10/00-overview/specification-status.md",
-      "sha256": "421cd98ccfff804b72c814a883a2f483a448a21bba5988e470cacaec4d2b47f9",
-      "bytes": 668
+      "sha256": "5b51b0e459dc07d36be07192b084c4c07b3a21372d1db633860327c84e3c09fa",
+      "bytes": 670
     },
     {
       "path": "spec/v10/01-core-spec/compatibility-contract.md",
@@ -1054,8 +1104,8 @@
     },
     {
       "path": "spec/v10/01-core-spec/kristal-v10-core-spec.md",
-      "sha256": "2334a200f7be590be966686ad5aabdd97b08f45cfb034ae4b13f34b6243e624d",
-      "bytes": 1597
+      "sha256": "4b3981d5f1983c9874fb2efff599fee4b2dbc60d3d4abda70d0a8ddad498c984",
+      "bytes": 1599
     },
     {
       "path": "spec/v10/Architecture.md",
@@ -1064,13 +1114,13 @@
     },
     {
       "path": "spec/v10/Conformance.md",
-      "sha256": "c3cd89a341504aa2a56b6199d21da2a99ff4224577314a2b0590c58efc5ef41d",
-      "bytes": 1470
+      "sha256": "2c8f168c963516b19f49ae87ed4d517660fed57f9d6a67f697720dd2b1a10023",
+      "bytes": 1859
     },
     {
       "path": "spec/v10/Core-Invariants.md",
-      "sha256": "167f58dd4408df5bf206c9c8ff5e9f3952fdb209e6de723fc7e433beb0b88518",
-      "bytes": 1325
+      "sha256": "54dcb5546a1e90eb35e54f7d57b2bb2b399cd1e616e19a7cb5a41b6fae2381c9",
+      "bytes": 1663
     },
     {
       "path": "spec/v10/Directories-and-Federation.md",
@@ -1079,8 +1129,8 @@
     },
     {
       "path": "spec/v10/GitHub-Reference-Profile.md",
-      "sha256": "c71edea41360f62b9fad75412d2f925f7203333ed86400fc8255e19e2444c517",
-      "bytes": 2935
+      "sha256": "31671221b63fa87191821b2f4b6195d9aad04d73bef79af808b831c4e58784a9",
+      "bytes": 4577
     },
     {
       "path": "spec/v10/Home.md",
@@ -2229,8 +2279,8 @@
     },
     {
       "path": "tck/v10/vectors/v10-capabilities.example.json",
-      "sha256": "d7873a8dbf97db489f73ab2af02f5edbc2463d94a6035f78c53d5c1328f4790f",
-      "bytes": 933
+      "sha256": "a50d3aac8557444ff6d4ddfb3a2bb888fe2a613907807d9e399443f07896ff9d",
+      "bytes": 1053
     },
     {
       "path": "tck/v6/vectors/kristal-state/README.md",
@@ -2329,7 +2379,7 @@
     },
     {
       "path": "tck/v7/vectors/v6-compatible-projection.example.json",
-      "sha256": "3cce44a20adbbef722da63bc86eea14d6f93d4aef52f2e6e41e7c64b900966dd",
+      "sha256": "3bb99255fa4188a1896702047a70f5324038e39731e19bfee068e5081e308c0f",
       "bytes": 2666
     },
     {
@@ -2459,8 +2509,8 @@
     },
     {
       "path": "tools/build_release.py",
-      "sha256": "ea8a45f7af0847ed9b9dce856f1bf4322e44a4b977a4e59524dbe725f094b6df",
-      "bytes": 1609
+      "sha256": "0fc632a1f9c9b1e6719cc0b793d727936b22d7eed7f7e6561dadba11e767e026",
+      "bytes": 1639
     },
     {
       "path": "tools/check_contract_set.py",
@@ -2489,23 +2539,23 @@
     },
     {
       "path": "tools/github-bootstrap/README.md",
-      "sha256": "1857be51380946bdfb09210334f4fa9c23fb13620dab1390d20ced423fa80e29",
-      "bytes": 5775
+      "sha256": "d21a09e57042c810e57afd294421bcc6b6800992d8d4b3f94d86de95677c890f",
+      "bytes": 12402
     },
     {
       "path": "tools/github-bootstrap/VERSION",
-      "sha256": "b44a506c76daddd8c9deac8da553c76b8b6621fc4467b2e02b837874a365cb29",
-      "bytes": 14
+      "sha256": "6206a2057759a79106deeb88f6577476d2cebc564e04ae650b815d355f874f7d",
+      "bytes": 15
     },
     {
       "path": "tools/github-bootstrap/WINDOWS_SETUP.md",
-      "sha256": "8789bd8d43afd518489875e385357a3908f2967b66be5cd42427405f3cdffb44",
-      "bytes": 2422
+      "sha256": "9ad041b5af2b6efb591c90bd1c86e4f0e4e11b6c56d2932686f1362b3e9fb09e",
+      "bytes": 4815
     },
     {
       "path": "tools/github-bootstrap/examples/kristal-github.toml",
-      "sha256": "f1b0faf10f240b4b64b0aed861e6cd0aef8bce516007ae66a00769ead6c3a767",
-      "bytes": 1146
+      "sha256": "03eb3d36f8f4cb851ae448600b89eb8d7fc845375eab258d760c88bcaafb0b24",
+      "bytes": 1139
     },
     {
       "path": "tools/github-bootstrap/kristal-github",
@@ -2514,8 +2564,8 @@
     },
     {
       "path": "tools/github-bootstrap/kristal_github_bootstrap/__init__.py",
-      "sha256": "d1436e4402a63229233491e4c800b24c6cfd4ab180bbb5e01f168032f734b19d",
-      "bytes": 30
+      "sha256": "a4ff7d2317e66cb98135d71a6bdfc8994a89966b10655ce8925cbf3dcf824f60",
+      "bytes": 31
     },
     {
       "path": "tools/github-bootstrap/kristal_github_bootstrap/cli.py",
@@ -2523,24 +2573,34 @@
       "bytes": 3065
     },
     {
+      "path": "tools/github-bootstrap/kristal_github_bootstrap/collection_ingest.py",
+      "sha256": "2471e3b705181066571747404a5d128147b14cd6fa374cf5c2adc29859471882",
+      "bytes": 23962
+    },
+    {
       "path": "tools/github-bootstrap/kristal_github_bootstrap/core.py",
-      "sha256": "fe95fc4661d849fa666c4dbb11760fd5cad8f3c63bdc2768e034fa1d0c7f91ee",
-      "bytes": 42167
+      "sha256": "16f6b8d7209ff1ecb3cec1cabfafb197242b20ed15b2613757ea6049502153a0",
+      "bytes": 48737
     },
     {
       "path": "tools/github-bootstrap/kristal_github_bootstrap/gui.py",
-      "sha256": "5456484e136fde624501338caf63f3d8daa7ce1f8cb4e5774961e6a5eb970814",
-      "bytes": 17133
+      "sha256": "253a578bc231b19e0b98ef9f0893937cdee492e6823eea80536e20bd7a540e02",
+      "bytes": 39391
+    },
+    {
+      "path": "tools/github-bootstrap/kristal_github_bootstrap/lifecycle.py",
+      "sha256": "c0f8510e6c19d08fa3f0c4b6350d9bc7e882e00d8064060b8a347994dd68d053",
+      "bytes": 58919
     },
     {
       "path": "tools/github-bootstrap/pyproject.toml",
-      "sha256": "6432912a72d15b0188ba2f9efc75a80c26719cf23cab20f1f56f1d6eadfc2e91",
-      "bytes": 499
+      "sha256": "1218327db629e562a808a3c5d48867155d44c7cd42e99e907b2ac912599c9c24",
+      "bytes": 500
     },
     {
       "path": "tools/github-bootstrap/tests/test_bootstrap.py",
-      "sha256": "101de96a9d110869b6958333827bd3e23eb3768d607f42998dda744e10890589",
-      "bytes": 12376
+      "sha256": "aaf53c8db559ef3a8c9d7aa785abf1f85d41aae5efa9920df9312d5bea18ae42",
+      "bytes": 30372
     },
     {
       "path": "tools/icons/README.md",
@@ -2604,8 +2664,8 @@
     },
     {
       "path": "tools/validate_standard.py",
-      "sha256": "16ae8581b45d05275234ea5090e6e95597de5e0564918f722fb1c42640a8c4f7",
-      "bytes": 24288
+      "sha256": "6b8c2c8cac59c57f463e83b0dbfcc76b1d677aa37bebf332436a825824ac0e68",
+      "bytes": 29163
     }
   ]
 }

@@ -6,12 +6,15 @@ import { stateIdentity, verifyKristalState, summarizeKristalState } from '../src
 
 const here=path.dirname(fileURLToPath(import.meta.url));
 const fixture=JSON.parse(fs.readFileSync(path.resolve(here,'../../../examples/v6/kristal-state.example.json'),'utf8'));
+const portableProjection=JSON.parse(fs.readFileSync(path.resolve(here,'../../../tck/v7/vectors/v6-compatible-projection.example.json'),'utf8'));
 let failed=0;
 function test(name, cond, detail='') { if(cond) console.log(`PASS ${name}`); else { failed++; console.error(`FAIL ${name} ${detail}`); } }
 
 let r=verifyKristalState(fixture,{requireIdentity:true});
 test('v6 fixture verifies',r.ok,JSON.stringify(r.issues));
 test('state id stable',stateIdentity(fixture).state_id===fixture.state_id);
+const projectionIdentity=stateIdentity(portableProjection);
+test('v7 portable projection retains v6 identity rules', projectionIdentity.state_id===portableProjection.state_id && projectionIdentity.content_hash.value===portableProjection.content_hash.value);
 const summary=summarizeKristalState(fixture);
 test('role summary',summary.record_roles.derived_state===1 && summary.record_roles.structural_record===1);
 test('actionability summary',summary.actionability_modes.human_review===1 && summary.actionability_modes.not_applicable===1);
