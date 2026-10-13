@@ -12,6 +12,8 @@ def run(label,argv,cwd=ROOT):
 def main():
     run('standard',[sys.executable,str(ROOT/'tools/validate_standard.py')])
     run('contract set',[sys.executable,str(ROOT/'tools/check_contract_set.py')])
+    run('v10 local alignment',[sys.executable,str(ROOT/'tools/check_v10_ecosystem_alignment.py')])
+    run('v10 alignment negative tests',[sys.executable,'-m','unittest','discover','-s','tools/tests','-p','test_v10_ecosystem_alignment.py','-v'])
     run('documentation links',[sys.executable,str(ROOT/'tools/check_links.py')])
     run('mkdocs navigation',[sys.executable,str(ROOT/'tools/check_mkdocs.py')])
     run('reference implementation',['npm','test'],ROOT/'reference/js')

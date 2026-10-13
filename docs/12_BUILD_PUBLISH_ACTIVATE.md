@@ -157,3 +157,11 @@ revoked
 ```
 
 A successful build is not automatically validated, recognized or activated knowledge.
+
+## 11. v10 hosted GitHub sync is a separate operation
+
+This v9 lifecycle describes semantic build, immutable publication and activation. The v10 GitHub reference host introduces **derived read-surface synchronization**, which is neither a logical state revision nor an immutable publication. The scope and byte digests of a sync must correspond to an exact validated candidate.
+
+**Security consequence:** a sync that writes into a public repository already makes its bytes discoverable. Operators must verify owner authorization, visibility, path scope and applicable independent qualification requirements **before any public upload**, including proposed staging commits or pull requests. Qualification, sync, publication and activation should have separately auditable results; a green build or schema check is not a substitute.
+
+See [v10 ecosystem alignment](28_V10_ECOSYSTEM_ALIGNMENT.md) for ownership boundaries and fail-closed integration gates. This explanatory note does not itself issue permissions or alter v9 semantics.

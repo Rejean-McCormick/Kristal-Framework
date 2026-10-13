@@ -76,6 +76,21 @@ try{
   test('hosted GitHub Kristal verifies',verifyHostedGithubReadSurface(hostedTmp,'kristals/demo').ok,JSON.stringify(verifyHostedGithubReadSurface(hostedTmp,'kristals/demo').issues));
   test('hosted GitHub collection verifies',verifyHostedGithubCollection(hostedTmp).ok,JSON.stringify(verifyHostedGithubCollection(hostedTmp).issues));
   fs.appendFileSync(path.join(hostedRoot,'AI_START_HERE.md'),'tamper');const tamperedHosted=verifyHostedGithubReadSurface(hostedTmp,'kristals/demo');test('hosted verifier detects byte tampering',!tamperedHosted.ok&&tamperedHosted.issues.some(i=>i.code==='DIGEST_MISMATCH'||i.code==='SIZE_MISMATCH'));
+  // Reference-grade negative evidence for v10 derived hosting (not publication authorization).
+  fs.appendFileSync(path.join(hostedRoot,'unexpected.txt'),'not in the exact read surface');
+  const unmanaged=verifyHostedGithubReadSurface(hostedTmp,'kristals/demo');
+  test('hosted verifier rejects unmanaged files',!unmanaged.ok&&unmanaged.issues.some(i=>i.code==='UNMANAGED_RESOURCE'));
+  fs.unlinkSync(path.join(hostedRoot,'unexpected.txt'));
+  const entrypoint=path.join(hostedRoot,'AI_START_HERE.md');
+  fs.writeFileSync(entrypoint,'# Demo\nRead AI_MANIFEST.json then ai/INDEX.json.\n','utf8');
+  const validIndex=fs.readFileSync(path.join(hostedTmp,'kristals','index.json'),'utf8');
+  const changedIndex=JSON.parse(validIndex);changedIndex.count=9;
+  fs.writeFileSync(path.join(hostedTmp,'kristals','index.json'),JSON.stringify(changedIndex));
+  const mismatchedIndex=verifyHostedGithubCollection(hostedTmp);
+  test('collection count drift is rejected',!mismatchedIndex.ok&&mismatchedIndex.issues.some(i=>i.code==='COUNT_MISMATCH'));
+  fs.unlinkSync(path.join(hostedTmp,'kristals','index.json'));
+  const absentIndex=verifyHostedGithubCollection(hostedTmp);
+  test('missing collection index is explicitly not yet created',absentIndex.status==='not-yet-created');
 } finally {fs.rmSync(hostedTmp,{recursive:true,force:true});}
 
 if(failed)process.exit(1);console.log('Kristal v10 reference tests: PASS');

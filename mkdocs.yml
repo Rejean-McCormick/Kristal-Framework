@@ -1,11 +1,19 @@
 site_name: Kristal
-site_description: Kristal v9 Semantic State Architecture with frozen v6-v8 compatibility
+site_description: Kristal v10 Hosted Kristal Network with unchanged v9 semantic state and frozen compatibility
 docs_dir: spec
 theme:
   name: material
 plugins:
   - search
 nav:
+  - v10 Home: v10/Home.md
+  - v10 Core: v10/01-core-spec/kristal-v10-core-spec.md
+  - v10 Compatibility: v10/Semantic-State-Compatibility.md
+  - v10 Hosting/Nodes: v10/Nodes-and-Collections.md
+  - v10 Host Bindings: v10/Host-Bindings.md
+  - v10 Publication/Discovery: v10/Publication-and-Discovery.md
+  - v10 Security: v10/Security-and-Confidentiality.md
+  - GitHub Host Profile: v10/GitHub-Reference-Profile.md
   - v9 Home: v9/Home.md
   - v9 Core: v9/01-core-spec/kristal-v9-core-spec.md
   - v9 Compatibility: v9/01-core-spec/compatibility-contract.md

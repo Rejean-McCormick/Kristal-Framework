@@ -9,13 +9,13 @@
     },
     {
       "path": ".github/QUALIFICATION.md",
-      "sha256": "fbba823ee902eca1f70652a24f4d7546a10b45965103a3aacfd91782847dbc4d",
-      "bytes": 1581
+      "sha256": "62e78c35b853c310133ba22af4123cb7e480d6068830132d8a27500101373527",
+      "bytes": 2273
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "17d98534bfcfec9430659975a1d375367805582fc97d25fd815cef9e901928ee",
-      "bytes": 2152
+      "sha256": "4678fd6178a90f55126b699cfbd10a350952f4e3a8e99f9e88ae6c7a7615a252",
+      "bytes": 2165
     },
     {
       "path": ".github/workflows/release-qualification.yml",
@@ -39,8 +39,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "d1e2938c5a610606678deb8254e948a48a73d7f0ef931d8ada7376c9806279c5",
-      "bytes": 2831
+      "sha256": "18c99ff0b069374ca5bad06186997b38280246cc1883f63bf749eb1175b8ff3b",
+      "bytes": 3452
     },
     {
       "path": "SNAPSHOT_INDEX.txt",
@@ -114,8 +114,8 @@
     },
     {
       "path": "docs/00_STATUS.md",
-      "sha256": "5df002b2a36161ee1842e737ef09dce6ee3b61bc03151dfc3d90485ba3043068",
-      "bytes": 786
+      "sha256": "26cbed4f16b06802de49abd0b3f2704bf4332aead76b3962627e932a01150901",
+      "bytes": 1214
     },
     {
       "path": "docs/01_VISION_AND_SCOPE.md",
@@ -174,8 +174,8 @@
     },
     {
       "path": "docs/12_BUILD_PUBLISH_ACTIVATE.md",
-      "sha256": "79f1de3afd0e8a925f79a341e007ae05d2860f9cbac8ee37f1b358de4ea74817",
-      "bytes": 3017
+      "sha256": "770c53391e2d2b87dc90b192f87f6479188348caceb42ab2194a63ef58d5fa81",
+      "bytes": 4050
     },
     {
       "path": "docs/13_FEDERATION_SHARDS_AND_REFERENCES.md",
@@ -251,6 +251,11 @@
       "path": "docs/27_FAQ.md",
       "sha256": "b32b1d70e50fd3860b2adc13d002a0fb372ca6c30924dba653c82c66bcaedf89",
       "bytes": 3274
+    },
+    {
+      "path": "docs/28_V10_ECOSYSTEM_ALIGNMENT.md",
+      "sha256": "d6d3d8338cf4251658a07175ab4eb66338fa451b425e18f322b4ffbb0736b3f2",
+      "bytes": 5376
     },
     {
       "path": "docs/README.md",
@@ -634,8 +639,8 @@
     },
     {
       "path": "mkdocs.yml",
-      "sha256": "849c5a4395eec6230d8b5b2c9c0a586bf3a349b1332eb150a216c9b1abc8901a",
-      "bytes": 1215
+      "sha256": "9311d4a3cb89f988e01670e0ecdb544b067bfba6c218b3006789f903902ae98b",
+      "bytes": 1649
     },
     {
       "path": "profiles/github/README.md",
@@ -874,8 +879,8 @@
     },
     {
       "path": "reference/js/tests/run_v10_tests.mjs",
-      "sha256": "a1eb8259746c830b8c450a45db24d6ee66295b06c6e40481a3bf92719fdb8d6f",
-      "bytes": 9662
+      "sha256": "81cd5194e233039d370ef56e695724a99ee3abc9c12e28f49c746055b98cabd3",
+      "bytes": 10929
     },
     {
       "path": "reference/js/tests/run_v6_tests.mjs",
@@ -2528,6 +2533,11 @@
       "bytes": 795
     },
     {
+      "path": "tools/check_v10_ecosystem_alignment.py",
+      "sha256": "3eddb15583575079ded624ceafe4a152531c17646dd30b7eecb50d70e2bea350",
+      "bytes": 4554
+    },
+    {
       "path": "tools/github-bootstrap/Kristal-GitHub-Setup.pyw",
       "sha256": "f383c5b79b5fddc072d4f5aeb8392a0d360c5ee93835e1665820c192b73bc58c",
       "bytes": 85
@@ -2628,6 +2638,11 @@
       "bytes": 614
     },
     {
+      "path": "tools/tests/test_v10_ecosystem_alignment.py",
+      "sha256": "6ee1f895690406ae99e41a5a50b7ba3b23caac7c83fb058dcca69d4188c0b19a",
+      "bytes": 2681
+    },
+    {
       "path": "tools/v8/README.md",
       "sha256": "52d5f476b0140cfd8fcce5e1edc221f721e73f4b48940de782097237f16f5e97",
       "bytes": 639
@@ -2659,8 +2674,8 @@
     },
     {
       "path": "tools/validate_all.py",
-      "sha256": "af8a26428acc672dc6437a4404346814f56cc5c1bb980f84682f5e13c6970111",
-      "bytes": 897
+      "sha256": "ca1693d8e30ee28aeb288087b5f101f02528db70de6628222f7b8e218e46dd02",
+      "bytes": 1143
     },
     {
       "path": "tools/validate_standard.py",

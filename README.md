@@ -51,3 +51,13 @@ Draft.3.1 is a maintenance correction. It fixes the declared v6 `state_id` / `co
 ## Draft.3 GitHub AI/read surfaces
 
 The GitHub reference profile now standardizes the operational contracts used by Local Kit 3.2.4+, Manager alpha.11+ and Bootstrap alpha.10+ for efficient AI traversal of large collections: exact per-Kristal read surfaces, sync manifests and a compact collection index. These are derived host surfaces and do not alter v9 semantic commitments.
+
+## Ecosystem alignment and qualification boundaries
+
+[The v10 alignment guide](docs/28_V10_ECOSYSTEM_ALIGNMENT.md) records the Framework/Authoring Kit/Manager/Bootstrap/C1/C2/C3 reader contracts and explicit publication gates. Check Framework-local versions and schema/profile consistency with:
+
+```bash
+python tools/check_v10_ecosystem_alignment.py --json
+```
+
+This reports only **local contract consistency**. It does not check live GitHub collection readiness or authorize any sync, release or activation. A public GitHub sync already discloses the uploaded bytes and requires authorization **before** remote writes.
