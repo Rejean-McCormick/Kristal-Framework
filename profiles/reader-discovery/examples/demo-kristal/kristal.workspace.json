@@ -1,0 +1,80 @@
+{
+  "format": "kristal.local-workspace/3.2.0",
+  "slug": "demo-reader",
+  "title": "Demo Reader",
+  "status": "stub",
+  "state_ref": "urn:kristal:state:demo-reader",
+  "subject": {
+    "id": null,
+    "label": "Demo Reader"
+  },
+  "target": {
+    "portable_contract": "kristal_state/6.0",
+    "semantic_baseline": "kristall/7.0",
+    "query_baseline": "kristall/8.0",
+    "state_architecture": "kristal.state/9.0",
+    "hosted_network_baseline": "kristal.hosting/10.0",
+    "logical_commitment_profile": "kristal.logical/jcs-sha256-v1",
+    "state_commitment_profile": "kristal.state-commitment/jcs-sha256-v1"
+  },
+  "semantic_ownership": {
+    "owns": [],
+    "does_not_own": []
+  },
+  "native_model": {
+    "kind": "undecided",
+    "description": null,
+    "canonical_paths": [
+      "canon/domain"
+    ]
+  },
+  "epistemic_model": {
+    "assertion_layer": "optional_cross_cutting",
+    "ai_output_policy": "proposal_only"
+  },
+  "projection_policy": {
+    "portable_projection": {
+      "primary_orientation_axis": 1,
+      "max_secondary_orientation_axes": 1
+    }
+  },
+  "release_policy": {
+    "build_publish_activate_separated": true,
+    "qualification_before_publication": true,
+    "exact_commit_publication": true,
+    "activation_required": false
+  },
+  "derived_paths": [
+    "derived",
+    "projections/materialized",
+    "materializations",
+    "runtime",
+    "build",
+    "ai",
+    "state"
+  ],
+  "profile": "open",
+  "portable_ai": {
+    "profile": "kristal.portable-ai/1.0",
+    "entrypoint": "AI_START_HERE.md",
+    "manifest": "AI_MANIFEST.json",
+    "offline_first": true,
+    "github_required_for_reading": false,
+    "languages": [],
+    "enabled": false
+  },
+  "classification": {
+    "arketype_version": "1.4.0",
+    "primary_archetype": "ARK-08",
+    "supporting_archetypes": [
+      "ARK-09",
+      "ARK-18",
+      "ARK-11"
+    ],
+    "primary_usage": "PRF-15",
+    "usage_slug": "diagnostic-vehicule",
+    "usage_family": "diagnosis",
+    "domain": "automotive",
+    "organization": "single"
+  }
+}

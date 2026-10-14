@@ -140,7 +140,7 @@ def check_layout():
     for ver in ('v10', 'v9', 'v8', 'v7', 'v6'):
         if (ROOT / f'spec/{ver}/02-schemas').exists() or (ROOT / f'spec/{ver}/09-test-vectors').exists():
             raise AssertionError(f'active {ver} machine contracts must not be duplicated under spec/{ver}')
-    if (ROOT / 'VERSION').read_text(encoding='utf-8').strip() != '10.0.0-draft.3.1':
+    if (ROOT / 'VERSION').read_text(encoding='utf-8').strip() != '10.0.0-draft.3.2':
         raise AssertionError('unexpected active VERSION')
 
 
@@ -244,7 +244,7 @@ def _compatibility_errata_by_path():
     if doc.get('format') != 'kristal.compatibility-errata/v1':
         raise AssertionError('unexpected compatibility errata format')
     if doc.get('release') != '10.0.0-draft.3.1':
-        raise AssertionError('compatibility errata release mismatch')
+        raise AssertionError('compatibility errata historic release mismatch')
     out={}
     for e in doc.get('entries',[]):
         path=e.get('path')

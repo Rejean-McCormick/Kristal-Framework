@@ -1,7 +1,7 @@
 {
   "format": "kristal.release/v4",
   "name": "Kristal",
-  "version": "10.0.0-draft.3.1",
+  "version": "10.0.0-draft.3.2",
   "status": "draft",
   "canonical_spec": "spec/v10/01-core-spec/kristal-v10-core-spec.md",
   "portable_contract": {
@@ -38,7 +38,16 @@
     "reference_host_profile": "kristal.host/github/1.0",
     "github_read_surface_profile": "kristal.github-read-surface/1.0",
     "github_sync_manifest_profile": "kristal.github-sync-manifest/1.0",
-    "github_collection_index_profile": "kristal.github-collection-index/1.0"
+    "github_collection_index_profile": "kristal.github-collection-index/1.0",
+    "reader_discovery_profile": "kristal.discovery/1.0"
   },
-  "compatibility_errata": "contracts/compatibility-errata.json"
+  "compatibility_errata": "contracts/compatibility-errata.json",
+  "reader_discovery": {
+    "status": "optional_additive_noncanonical",
+    "producer_baseline": "Kristal Authoring Kit 3.3.0",
+    "schema_root": "profiles/reader-discovery/schemas",
+    "profile": "kristal.discovery/1.0",
+    "reader_profile": "kristal.reader-profile/1.0",
+    "inventory_profile": "kristal.reader-inventory/1.0"
+  }
 }

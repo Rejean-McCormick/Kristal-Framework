@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kristal.reader-inventory/1.0",
+  "title": "Reader inventory measured against local registered files",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "state_ref",
+    "source_fingerprint",
+    "size_class",
+    "measurement",
+    "storage",
+    "cardinality",
+    "files",
+    "segments"
+  ],
+  "properties": {
+    "format": {
+      "const": "kristal.reader-inventory/1.0"
+    },
+    "state_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_fingerprint": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "size_class": {
+      "enum": [
+        "tiny",
+        "small",
+        "medium",
+        "large",
+        "massive"
+      ]
+    },
+    "measurement": {
+      "type": "object"
+    },
+    "storage": {
+      "type": "object"
+    },
+    "cardinality": {
+      "type": "object"
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "role",
+          "media_type",
+          "size_bytes",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "media_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "size_bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

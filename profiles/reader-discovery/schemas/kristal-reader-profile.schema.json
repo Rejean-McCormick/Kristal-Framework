@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kristal.reader-profile/1.0",
+  "title": "Reader selection guidance (non-executable)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "state_ref",
+    "source_fingerprint",
+    "specialization",
+    "configuration_status",
+    "access_pattern",
+    "materialization_profiles",
+    "artifact_strategies",
+    "parser_candidates",
+    "constraints"
+  ],
+  "properties": {
+    "format": {
+      "const": "kristal.reader-profile/1.0"
+    },
+    "state_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_fingerprint": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "specialization": {
+      "type": "string",
+      "minLength": 1
+    },
+    "configuration_status": {
+      "const": "advisory_only"
+    },
+    "access_pattern": {
+      "type": "string",
+      "minLength": 1
+    },
+    "materialization_profiles": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "parser_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "artifact_strategies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "media_type_observed",
+          "size_bytes_measured",
+          "suggested_parser_family",
+          "suggested_mode",
+          "must_verify_digest",
+          "authorization_required"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "media_type_observed": {
+            "type": "string"
+          },
+          "size_bytes_measured": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "suggested_parser_family": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "suggested_mode": {
+            "type": "string"
+          },
+          "must_verify_digest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "authorization_required": {
+            "const": true
+          }
+        }
+      }
+    }
+  }
+}

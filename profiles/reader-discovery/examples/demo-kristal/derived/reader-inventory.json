@@ -1,0 +1,50 @@
+{
+  "format": "kristal.reader-inventory/1.0",
+  "state_ref": "urn:kristal:state:demo-reader",
+  "source_fingerprint": "sha256:b53e7304d583a9c71736a74cf02c4dc5c10cd9ada1975d397d7f928211a8e7e2",
+  "size_class": "tiny",
+  "measurement": {
+    "status": "measured_referenced_local_files",
+    "scope": "registered canonical sources, materialization descriptors/blobs, and built v9 payloads",
+    "external_or_unlocated_blob_count": 0,
+    "missing_local_blob_count": 0,
+    "not_measured": [
+      "unregistered workspace files",
+      "external payloads",
+      "JSON nesting depth",
+      "largest JSONL record"
+    ]
+  },
+  "storage": {
+    "tracked_local_bytes": 58,
+    "tracked_file_count": 2,
+    "max_tracked_file_bytes": 35,
+    "materialization_segment_count": 0,
+    "max_json_depth": null,
+    "max_record_bytes": null
+  },
+  "cardinality": {
+    "canonical_artifacts": 2,
+    "external_references": 0,
+    "entities": null,
+    "relations": null,
+    "sub_kristals": null
+  },
+  "files": [
+    {
+      "path": "canon/domain/diagnosis.json",
+      "role": "canonical_source",
+      "media_type": "application/json",
+      "size_bytes": 23,
+      "sha256": "sha256:95ac41cfdcd0557085891ffff129026218db11a0c1e4920d68d2b2e794cd64ee"
+    },
+    {
+      "path": "canon/domain/events.jsonl",
+      "role": "canonical_source",
+      "media_type": "application/x-ndjson",
+      "size_bytes": 35,
+      "sha256": "sha256:1bf9ed6adf8af070fd52e1b23a1941b8d4c5a260b71a7dd4f5443d6e473d7f61"
+    }
+  ],
+  "segments": []
+}

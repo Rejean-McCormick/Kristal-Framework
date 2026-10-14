@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kristal.discovery/1.0",
+  "title": "Kristal discovery root (derived metadata)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "state_ref",
+    "classification",
+    "data_layout",
+    "reader",
+    "size",
+    "source_fingerprint",
+    "authority"
+  ],
+  "properties": {
+    "format": {
+      "const": "kristal.discovery/1.0"
+    },
+    "state_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "classification": {
+      "type": "object"
+    },
+    "data_layout": {
+      "type": "object",
+      "required": [
+        "state_architecture",
+        "native_kind",
+        "organization",
+        "inventory_ref",
+        "materialization_profiles"
+      ],
+      "properties": {
+        "state_architecture": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "native_kind": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "organization": {
+          "type": "string",
+          "minLength": 1
+        },
+        "inventory_ref": {
+          "const": "derived/reader-inventory.json"
+        },
+        "materialization_profiles": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "reader": {
+      "type": "object",
+      "required": [
+        "profile",
+        "hints_ref"
+      ],
+      "properties": {
+        "profile": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hints_ref": {
+          "const": "derived/reader-profile.json"
+        }
+      }
+    },
+    "size": {
+      "type": "object",
+      "required": [
+        "class",
+        "tracked_local_bytes",
+        "completeness"
+      ],
+      "properties": {
+        "class": {
+          "enum": [
+            "tiny",
+            "small",
+            "medium",
+            "large",
+            "massive"
+          ]
+        },
+        "tracked_local_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "completeness": {
+          "enum": [
+            "measured_referenced_local_files",
+            "partial"
+          ]
+        }
+      }
+    },
+    "source_fingerprint": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "authority": {
+      "const": "noncanonical_derived_metadata_not_access_or_publication_authority"
+    }
+  }
+}

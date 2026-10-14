@@ -1,6 +1,6 @@
 {
   "format": "kristal.repo-manifest/v1",
-  "version": "10.0.0-draft.3.1",
+  "version": "10.0.0-draft.3.2",
   "files": [
     {
       "path": ".gitattributes",
@@ -33,24 +33,44 @@
       "bytes": 221
     },
     {
+      "path": "GUIDE_INTEGRATION_DISCOVERY_FR.md",
+      "sha256": "8c81f31c4247f2d620abe81e2951b41ca444f64c8ef4a7ed0cc2933edbe9c038",
+      "bytes": 1428
+    },
+    {
       "path": "LICENSE",
       "sha256": "4227febb102c09ad0b57e121b6262bb591b9375d7567ac2db5b75cba26a5dc5e",
       "bytes": 694
     },
     {
+      "path": "Launch_MULTiSmartDump.lnk",
+      "sha256": "597cb480ff60a1169b72f50df355256fefb23e5bcc03b382b1be07428b14821b",
+      "bytes": 1359
+    },
+    {
       "path": "README.md",
-      "sha256": "18c99ff0b069374ca5bad06186997b38280246cc1883f63bf749eb1175b8ff3b",
-      "bytes": 3452
+      "sha256": "7591686a10ade662bfa5ddb40e4b8bff61fa4154dacd746db753650ba58ec8bc",
+      "bytes": 4143
     },
     {
       "path": "SNAPSHOT_INDEX.txt",
-      "sha256": "61e713a48daf52dbd8e1b55baeb30459c1d11223d861272f64b961c6fe468926",
-      "bytes": 21317
+      "sha256": "33672b3a179dcbbff63936d538f4bbaf135bc825f280138b32b4d7f09c82dc68",
+      "bytes": 23102
+    },
+    {
+      "path": "VALIDATION_READER_DISCOVERY.md",
+      "sha256": "7c44456cb5096a9078d2b288075096abe47d083973350f77cf5cb0de96b7ad03",
+      "bytes": 1450
     },
     {
       "path": "VERSION",
-      "sha256": "3c38f17fec16f02c878afc85b8690911c91e414e90a1bcf92d7174f1cbe0f088",
+      "sha256": "c9522f44866f273c02bac368b0094bf1023e6e280d87cf1ce2aa4763ad26d570",
       "bytes": 17
+    },
+    {
+      "path": "ZmartZnap.pyw",
+      "sha256": "70775b94ff616ed9efdb3d6b989639fa3cd22a250f1389fec485791d161df1ea",
+      "bytes": 22889
     },
     {
       "path": "compat/framework-v5/README.md",
@@ -64,8 +84,8 @@
     },
     {
       "path": "contracts/contract-set.json",
-      "sha256": "fd8add31bb0a20159fd2e6c6c3175863a8195c9840e0b9f6a8cc388e57176c92",
-      "bytes": 3599
+      "sha256": "e4baf0b197162be963f29848623a1e4454911c3133e6993629ea994d12dd6942",
+      "bytes": 3876
     },
     {
       "path": "contracts/knowledge-model-contract.v3.json",
@@ -94,8 +114,8 @@
     },
     {
       "path": "contracts/release.json",
-      "sha256": "677bd7347811ccbd9f8922822b53590277553608173d392f12a6743b595be162",
-      "bytes": 1600
+      "sha256": "cabbd0f3889cbb96f5d12b5e2bc4d69508b1e473f4240e91bffdf4ceda5d348b",
+      "bytes": 1994
     },
     {
       "path": "contracts/v10-compatibility-lock.json",
@@ -114,8 +134,8 @@
     },
     {
       "path": "docs/00_STATUS.md",
-      "sha256": "26cbed4f16b06802de49abd0b3f2704bf4332aead76b3962627e932a01150901",
-      "bytes": 1214
+      "sha256": "09e60b7f2a026467d688686a7ef6679d4e31727a419ad094ba9bd6985e5a7008",
+      "bytes": 1432
     },
     {
       "path": "docs/01_VISION_AND_SCOPE.md",
@@ -254,13 +274,18 @@
     },
     {
       "path": "docs/28_V10_ECOSYSTEM_ALIGNMENT.md",
-      "sha256": "d6d3d8338cf4251658a07175ab4eb66338fa451b425e18f322b4ffbb0736b3f2",
-      "bytes": 5376
+      "sha256": "49d166f28158fb495e5a2219d8244be5d381f879d3dd41e970eeefb389704ac3",
+      "bytes": 5562
+    },
+    {
+      "path": "docs/29_READER_DISCOVERY_INTEGRATION.md",
+      "sha256": "05265427b4971c2383643cf9c6c9e3a6abbbd0308061bc03ed2910127f33aa93",
+      "bytes": 2262
     },
     {
       "path": "docs/README.md",
-      "sha256": "f06113e893862556c5b6a8ece4b3d9ce9b011032d5ca5e25fc173d9882369059",
-      "bytes": 417
+      "sha256": "382ab2307cc6970e9e5bdc98c07e65156523400446eb88c391c3a9bd330cd38a",
+      "bytes": 622
     },
     {
       "path": "examples/legacy/konstellation/assertions.json",
@@ -639,8 +664,8 @@
     },
     {
       "path": "mkdocs.yml",
-      "sha256": "9311d4a3cb89f988e01670e0ecdb544b067bfba6c218b3006789f903902ae98b",
-      "bytes": 1649
+      "sha256": "60edaab998d18c05f3cb9340a871982450a325d98a918230a7032e6fed49ee43",
+      "bytes": 1707
     },
     {
       "path": "profiles/github/README.md",
@@ -688,6 +713,61 @@
       "bytes": 3329
     },
     {
+      "path": "profiles/reader-discovery/README.md",
+      "sha256": "d7527bdd6f7fbc35425952f1ddfd21461ca557ca178b38ecc694dfce1ac733cf",
+      "bytes": 2185
+    },
+    {
+      "path": "profiles/reader-discovery/examples/demo-kristal/canon/domain/diagnosis.json",
+      "sha256": "95ac41cfdcd0557085891ffff129026218db11a0c1e4920d68d2b2e794cd64ee",
+      "bytes": 23
+    },
+    {
+      "path": "profiles/reader-discovery/examples/demo-kristal/canon/domain/events.jsonl",
+      "sha256": "1bf9ed6adf8af070fd52e1b23a1941b8d4c5a260b71a7dd4f5443d6e473d7f61",
+      "bytes": 35
+    },
+    {
+      "path": "profiles/reader-discovery/examples/demo-kristal/canon/state.index.json",
+      "sha256": "6028ae7ccfe32a8cf636b8512ad58d8b5da72ea1d5040951c1050143628b25ad",
+      "bytes": 951
+    },
+    {
+      "path": "profiles/reader-discovery/examples/demo-kristal/derived/reader-inventory.json",
+      "sha256": "793eb13049cf951de2173a521fdcef52be027d6adcd4c1eb7df2b4e14ac9ddd4",
+      "bytes": 1516
+    },
+    {
+      "path": "profiles/reader-discovery/examples/demo-kristal/derived/reader-profile.json",
+      "sha256": "4d93f22fcead5e3da40d6f46d952d7b82d01830d02d2d77fea7a193cab9af5f3",
+      "bytes": 2139
+    },
+    {
+      "path": "profiles/reader-discovery/examples/demo-kristal/kristal.discovery.json",
+      "sha256": "338be1884dc0550d9cf16deb9d38de288827e121a39f1868c69867b8114f4124",
+      "bytes": 1073
+    },
+    {
+      "path": "profiles/reader-discovery/examples/demo-kristal/kristal.workspace.json",
+      "sha256": "119dc8bbed1ebc3e658b59bc0416b93682faa3f3bd0372faffeabd891cf3a199",
+      "bytes": 2025
+    },
+    {
+      "path": "profiles/reader-discovery/schemas/kristal-discovery.schema.json",
+      "sha256": "571213011299c30d4cc5a105f947a69765285b6c59ce356a78619b8481bbec7d",
+      "bytes": 2526
+    },
+    {
+      "path": "profiles/reader-discovery/schemas/kristal-reader-inventory.schema.json",
+      "sha256": "be32f0e9477b1f83681fbae0e7e43f691f92a3d9e44c09fffd3c9f00836e9f9d",
+      "bytes": 1804
+    },
+    {
+      "path": "profiles/reader-discovery/schemas/kristal-reader-profile.schema.json",
+      "sha256": "42d995e7f9df057a120380f877542648f63ad5e01d01b965fd447a952301bb83",
+      "bytes": 2414
+    },
+    {
       "path": "reference/README.md",
       "sha256": "ab537e2c64639494bf8511f2077730a2704730a4fb38c3e414dbe8972e116f35",
       "bytes": 457
@@ -709,12 +789,12 @@
     },
     {
       "path": "reference/js/README.md",
-      "sha256": "2a62d8baeb9df41d563214cb93ae11e3f51e025db9ef45433be4452a4e340110",
-      "bytes": 3881
+      "sha256": "2076406661e8cfc3adb5cd441eb450f3126d55e987d12fa7373fa5d590404c87",
+      "bytes": 4302
     },
     {
       "path": "reference/js/VERSION",
-      "sha256": "3c38f17fec16f02c878afc85b8690911c91e414e90a1bcf92d7174f1cbe0f088",
+      "sha256": "c9522f44866f273c02bac368b0094bf1023e6e280d87cf1ce2aa4763ad26d570",
       "bytes": 17
     },
     {
@@ -729,13 +809,13 @@
     },
     {
       "path": "reference/js/package.json",
-      "sha256": "1da346b89fb3fc087ae329c25857a2e5cb4bd462e38340c35b5ec2af93c09bb6",
-      "bytes": 867
+      "sha256": "2b73ba0f338272142dfb92a136c06796b1c3c15ca15dd4f091c554e004896259",
+      "bytes": 886
     },
     {
       "path": "reference/js/src/cli.mjs",
-      "sha256": "49f5200f701a47893169388658bb6d5ad206b5b87c621836b0af1df7030678e8",
-      "bytes": 15536
+      "sha256": "496c36e6257613a491fd404f4973736f387dc26d195ef9b897a8d15dac73bd21",
+      "bytes": 15804
     },
     {
       "path": "reference/js/src/exchange.mjs",
@@ -808,6 +888,11 @@
       "bytes": 6740
     },
     {
+      "path": "reference/js/src/v10/reader_discovery.mjs",
+      "sha256": "fc4a8ec42ac78d7362529a2ce1756703af025e5c582fd1ec3b8bd58eb0f2b84f",
+      "bytes": 11299
+    },
+    {
       "path": "reference/js/src/v8/ai_context.mjs",
       "sha256": "c7693bb896fedca85edfc2db299679d5c0526cb57c6c8c23e97a0d099f220e3d",
       "bytes": 6453
@@ -871,6 +956,11 @@
       "path": "reference/js/src/v9/state.mjs",
       "sha256": "bbf480231779dabf41b41964915d5a8734e5d917a876303b75de7079aafbe1e4",
       "bytes": 6967
+    },
+    {
+      "path": "reference/js/tests/run_reader_discovery_tests.mjs",
+      "sha256": "1a5327585ffb2c8d94ae5d2357bd103cd10f303a78c6518ea617948df946f9e9",
+      "bytes": 4108
     },
     {
       "path": "reference/js/tests/run_tests.mjs",
@@ -1099,7 +1189,7 @@
     },
     {
       "path": "spec/v10/00-overview/specification-status.md",
-      "sha256": "5b51b0e459dc07d36be07192b084c4c07b3a21372d1db633860327c84e3c09fa",
+      "sha256": "a7f2bf1455038700e7d267988d7f000a342f01fd36b0aaf338bba5734615552d",
       "bytes": 670
     },
     {
@@ -1109,7 +1199,7 @@
     },
     {
       "path": "spec/v10/01-core-spec/kristal-v10-core-spec.md",
-      "sha256": "4b3981d5f1983c9874fb2efff599fee4b2dbc60d3d4abda70d0a8ddad498c984",
+      "sha256": "1a50a2957c2db00d2841f9c80b94cd4ba6b89bf1e7aa9ece7890ccfa00de5389",
       "bytes": 1599
     },
     {
@@ -1119,8 +1209,8 @@
     },
     {
       "path": "spec/v10/Conformance.md",
-      "sha256": "2c8f168c963516b19f49ae87ed4d517660fed57f9d6a67f697720dd2b1a10023",
-      "bytes": 1859
+      "sha256": "cad620057dbb219bc6006d93d3dd1b26816fae3eefdfda9dba1279f5b08a067d",
+      "bytes": 2505
     },
     {
       "path": "spec/v10/Core-Invariants.md",
@@ -1139,8 +1229,8 @@
     },
     {
       "path": "spec/v10/Home.md",
-      "sha256": "06df7c41e10022ffb4ba01c9a401cbb2040261812ce86b843d8acc5e9637821e",
-      "bytes": 818
+      "sha256": "198c148f11478162fe21cbcae2bd3fc5f71dba28b02a07e792fa15e1bb16edf5",
+      "bytes": 1098
     },
     {
       "path": "spec/v10/Host-Bindings.md",
@@ -1161,6 +1251,11 @@
       "path": "spec/v10/Publication-and-Discovery.md",
       "sha256": "7d175fd2c3d81b58cdf84263467c7b26c4d6dd1fa6dfab55e3c57d401e40a00f",
       "bytes": 2233
+    },
+    {
+      "path": "spec/v10/Reader-Discovery-Profile.md",
+      "sha256": "112b2a2cfe03124bd6809455b7a4a93c686f12074c6c0d7599b1aabe31f707cc",
+      "bytes": 4956
     },
     {
       "path": "spec/v10/Security-and-Confidentiality.md",
@@ -2533,9 +2628,14 @@
       "bytes": 795
     },
     {
+      "path": "tools/check_reader_discovery_profile.py",
+      "sha256": "47bde5914f46f2594f4c643fff0311a9f1c10cd96f2df3b9ded21fb5be3ff24d",
+      "bytes": 1648
+    },
+    {
       "path": "tools/check_v10_ecosystem_alignment.py",
-      "sha256": "3eddb15583575079ded624ceafe4a152531c17646dd30b7eecb50d70e2bea350",
-      "bytes": 4554
+      "sha256": "7b0e83ae5ffc4e14f56151e7f110e0ad803ac45d6664f1f2e1af97c4d84064f2",
+      "bytes": 4680
     },
     {
       "path": "tools/github-bootstrap/Kristal-GitHub-Setup.pyw",
@@ -2674,13 +2774,13 @@
     },
     {
       "path": "tools/validate_all.py",
-      "sha256": "ca1693d8e30ee28aeb288087b5f101f02528db70de6628222f7b8e218e46dd02",
-      "bytes": 1143
+      "sha256": "3afb7bdcd242a70035d95373ed53d71849fcaabc831381738ac3323e5b06a0e5",
+      "bytes": 1248
     },
     {
       "path": "tools/validate_standard.py",
-      "sha256": "6b8c2c8cac59c57f463e83b0dbfcc76b1d677aa37bebf332436a825824ac0e68",
-      "bytes": 29163
+      "sha256": "378a12bb15627927892a4ad90c9df06e44cc937eca3aeb6d39a5a6fb75c067c2",
+      "bytes": 29172
     }
   ]
 }

@@ -26,6 +26,7 @@ import { referenceV10Capabilities } from './v10/capabilities.mjs';
 import { verifyNodeManifest, verifyHostBinding, verifyPublication, verifyDirectory, verifyGithubBinding } from './v10/contracts.mjs';
 import { buildPublicationBundleFromFiles, verifyPublicationBundle } from './v10/publication.mjs';
 import { verifyGithubReadSurface, verifyGithubSyncManifest, verifyGithubCollectionIndex, verifyHostedGithubReadSurface, verifyHostedGithubCollection } from './v10/github_read_surface.mjs';
+import { inspectReaderRoot } from './v10/reader_discovery.mjs';
 
 function die(message, code = 2) {
   process.stderr.write(message + '\n');
@@ -82,6 +83,10 @@ export async function main(argv = process.argv.slice(2)) {
     }
     case 'v9-capabilities': {
       printJson(referenceV9Capabilities());return;
+    }
+    case 'inspect-reader-discovery': {
+      const root=requireArg(args,0,'Kristal directory');
+      return resultExit(await inspectReaderRoot(root,{verifyFiles:args.includes('--verify-files')}));
     }
     case 'v10-capabilities': {
       printJson(referenceV10Capabilities());return;

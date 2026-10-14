@@ -1,4 +1,4 @@
-# Kristal JavaScript Reference Implementation — v9.0.0-draft.1
+# Kristal JavaScript Reference Implementation — v10.0.0-draft.3.2 (v9 compatibility preserved)
 
 > **Non-normative.** The Kristal specification, schemas and TCK define conformance. This package demonstrates executable behavior without becoming semantic authority.
 
@@ -85,3 +85,11 @@ node bin/kristal-ref.mjs verify-hosted-collection-v10 .
 ```
 
 These commands verify operational GitHub/AI traversal surfaces. They do not create or mutate v9 semantic commitments.
+
+## Reader discovery companion (Local Kit 3.3.0)
+
+```bash
+node bin/kristal-ref.mjs inspect-reader-discovery ../../profiles/reader-discovery/examples/demo-kristal --verify-files
+```
+
+The command validates the noncanonical metadata triple and builds a guarded **advisory** plan. It does not execute simdjson, perform authorization or independently rebuild the producer's source fingerprint.

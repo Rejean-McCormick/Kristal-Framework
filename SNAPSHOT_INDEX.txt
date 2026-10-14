@@ -1,5 +1,5 @@
-SmartSnap snapshot file index
-Files included: 534
+Updated package file index
+Files included: 565
 
 .gitattributes
 .github/QUALIFICATION.md
@@ -7,11 +7,14 @@ Files included: 534
 .github/workflows/release-qualification.yml
 .gitignore
 .smartignore
+GUIDE_INTEGRATION_DISCOVERY_FR.md
 LICENSE
+Launch_MULTiSmartDump.lnk
 README.md
 REPO_MANIFEST.json
-SNAPSHOT_INDEX.txt
+VALIDATION_READER_DISCOVERY.md
 VERSION
+ZmartZnap.pyw
 compat/framework-v5/README.md
 contracts/compatibility-errata.json
 contracts/contract-set.json
@@ -52,6 +55,8 @@ docs/24_OPEN_QUESTIONS.md
 docs/25_REPOSITORY_GUIDE.md
 docs/26_AUTHORING_GUIDE.md
 docs/27_FAQ.md
+docs/28_V10_ECOSYSTEM_ALIGNMENT.md
+docs/29_READER_DISCOVERY_INTEGRATION.md
 docs/README.md
 examples/legacy/konstellation/assertions.json
 examples/legacy/konstellation/catalog.json
@@ -138,6 +143,17 @@ profiles/github/schemas/kristal-github-binding.schema.json
 profiles/github/schemas/kristal-github-collection-index.schema.json
 profiles/github/schemas/kristal-github-read-surface.schema.json
 profiles/github/schemas/kristal-github-sync-manifest.schema.json
+profiles/reader-discovery/README.md
+profiles/reader-discovery/examples/demo-kristal/canon/domain/diagnosis.json
+profiles/reader-discovery/examples/demo-kristal/canon/domain/events.jsonl
+profiles/reader-discovery/examples/demo-kristal/canon/state.index.json
+profiles/reader-discovery/examples/demo-kristal/derived/reader-inventory.json
+profiles/reader-discovery/examples/demo-kristal/derived/reader-profile.json
+profiles/reader-discovery/examples/demo-kristal/kristal.discovery.json
+profiles/reader-discovery/examples/demo-kristal/kristal.workspace.json
+profiles/reader-discovery/schemas/kristal-discovery.schema.json
+profiles/reader-discovery/schemas/kristal-reader-inventory.schema.json
+profiles/reader-discovery/schemas/kristal-reader-profile.schema.json
 reference/README.md
 reference/js/.gitignore
 reference/js/.smartignore
@@ -162,6 +178,7 @@ reference/js/src/v10/capabilities.mjs
 reference/js/src/v10/contracts.mjs
 reference/js/src/v10/github_read_surface.mjs
 reference/js/src/v10/publication.mjs
+reference/js/src/v10/reader_discovery.mjs
 reference/js/src/v8/ai_context.mjs
 reference/js/src/v8/capabilities.mjs
 reference/js/src/v8/common.mjs
@@ -175,6 +192,7 @@ reference/js/src/v9/contracts.mjs
 reference/js/src/v9/lifecycle.mjs
 reference/js/src/v9/materialization.mjs
 reference/js/src/v9/state.mjs
+reference/js/tests/run_reader_discovery_tests.mjs
 reference/js/tests/run_tests.mjs
 reference/js/tests/run_v10_tests.mjs
 reference/js/tests/run_v6_tests.mjs
@@ -233,6 +251,7 @@ spec/v10/Host-Bindings.md
 spec/v10/Migration-v9-to-v10.md
 spec/v10/Nodes-and-Collections.md
 spec/v10/Publication-and-Discovery.md
+spec/v10/Reader-Discovery-Profile.md
 spec/v10/Security-and-Confidentiality.md
 spec/v10/Semantic-State-Compatibility.md
 spec/v5/00-overview/conformance-and-alignment.md
@@ -503,10 +522,13 @@ tck/v9/workloads/formula-ast.logical-artifact.json
 tck/v9/workloads/multiplex-graph.logical-artifact.json
 tck/v9/workloads/procedure-dag.logical-artifact.json
 tck/v9/workloads/relation.logical-artifact.json
+tools/__pycache__/check_v10_ecosystem_alignment.cpython-313.pyc
 tools/build_release.py
 tools/check_contract_set.py
 tools/check_links.py
 tools/check_mkdocs.py
+tools/check_reader_discovery_profile.py
+tools/check_v10_ecosystem_alignment.py
 tools/github-bootstrap/Kristal-GitHub-Setup.pyw
 tools/github-bootstrap/Launch-Kristal-GitHub-Setup.cmd
 tools/github-bootstrap/README.md
@@ -515,18 +537,26 @@ tools/github-bootstrap/WINDOWS_SETUP.md
 tools/github-bootstrap/examples/kristal-github.toml
 tools/github-bootstrap/kristal-github
 tools/github-bootstrap/kristal_github_bootstrap/__init__.py
+tools/github-bootstrap/kristal_github_bootstrap/__pycache__/__init__.cpython-313.pyc
+tools/github-bootstrap/kristal_github_bootstrap/__pycache__/collection_ingest.cpython-313.pyc
+tools/github-bootstrap/kristal_github_bootstrap/__pycache__/core.cpython-313.pyc
+tools/github-bootstrap/kristal_github_bootstrap/__pycache__/gui.cpython-313.pyc
+tools/github-bootstrap/kristal_github_bootstrap/__pycache__/lifecycle.cpython-313.pyc
 tools/github-bootstrap/kristal_github_bootstrap/cli.py
 tools/github-bootstrap/kristal_github_bootstrap/collection_ingest.py
 tools/github-bootstrap/kristal_github_bootstrap/core.py
 tools/github-bootstrap/kristal_github_bootstrap/gui.py
 tools/github-bootstrap/kristal_github_bootstrap/lifecycle.py
 tools/github-bootstrap/pyproject.toml
+tools/github-bootstrap/tests/__pycache__/test_bootstrap.cpython-313.pyc
 tools/github-bootstrap/tests/test_bootstrap.py
 tools/icons/README.md
 tools/icons/index.html
 tools/icons/kristal-icon-profile.schema.json
 tools/integrations/publish_konstellation_pack.mjs
 tools/integrations/validate_konstellation_document.py
+tools/tests/__pycache__/test_v10_ecosystem_alignment.cpython-313.pyc
+tools/tests/test_v10_ecosystem_alignment.py
 tools/v8/README.md
 tools/v8/build_lexicon_delta.py
 tools/v8/compile_ai_context.py
@@ -535,5 +565,4 @@ tools/v8/semantic_slice.py
 tools/v9/README.md
 tools/validate_all.py
 tools/validate_standard.py
-
-Index file: SNAPSHOT_INDEX.txt
+SNAPSHOT_INDEX.txt

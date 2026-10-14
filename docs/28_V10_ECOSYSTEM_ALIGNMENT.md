@@ -2,7 +2,7 @@
 
 This page records the **implementation boundaries and acceptance gates** for the GitHub reference profile. It is not a new normative contract, a qualification receipt, or an authorization to publish.
 
-**Current proposed baseline:** `10.0.0-draft.3.1` (`draft`). Its v9 semantic-state model and commitment profiles are unchanged. The exact Framework Git commit and `contracts/contract-set.json` digest used by each downstream component must be recorded and independently verified; a version label alone is not a pin.
+**Current proposed baseline:** `10.0.0-draft.3.2` (`draft`). Its v9 semantic-state model and commitment profiles are unchanged. The exact Framework Git commit and `contracts/contract-set.json` digest used by each downstream component must be recorded and independently verified; a version label alone is not a pin.
 
 ## Responsibility and contract matrix
 
@@ -51,3 +51,5 @@ Before claiming end-to-end alignment, produce evidence for the **same** `state_r
 - **Not established by this repository:** live GitHub host readiness, a complete Manager checkout, independent qualification receipts, deployment permissions, published releases, or a full cross-repository pass.
 
 Further work on a normative profile **must** be proposed in `spec/v10/`, schema, reference implementation and TCK together, with an explicit compatibility decision. Do not silently turn design guidance into new canonical rules.
+
+The optional `kristal.discovery/1.0` reader-profile extension in draft.3.2 is locally validated but is not a claim of Manager, Bootstrap, Kompiler or simdjson end-to-end compatibility.

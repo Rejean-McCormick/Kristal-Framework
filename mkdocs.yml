@@ -12,6 +12,7 @@ nav:
   - v10 Hosting/Nodes: v10/Nodes-and-Collections.md
   - v10 Host Bindings: v10/Host-Bindings.md
   - v10 Publication/Discovery: v10/Publication-and-Discovery.md
+  - v10 Reader Discovery: v10/Reader-Discovery-Profile.md
   - v10 Security: v10/Security-and-Confidentiality.md
   - GitHub Host Profile: v10/GitHub-Reference-Profile.md
   - v9 Home: v9/Home.md

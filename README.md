@@ -1,6 +1,6 @@
 # Kristal
 
-**Current standard baseline:** `10.0.0-draft.3.1`
+**Current standard baseline:** `10.0.0-draft.3.2`
 
 Kristal is a portable, deterministic knowledge-state standard. **Kristal v10 — Hosted Kristal Network Architecture** preserves the frozen v6 portable epistemic state, v7 semantic identity model, v8 language/query layer, and v9 Semantic State Architecture while adding portable node discovery, host bindings, publication records, directories and host profiles.
 
@@ -61,3 +61,7 @@ python tools/check_v10_ecosystem_alignment.py --json
 ```
 
 This reports only **local contract consistency**. It does not check live GitHub collection readiness or authorize any sync, release or activation. A public GitHub sync already discloses the uploaded bytes and requires authorization **before** remote writes.
+
+## Draft.3.2 — Arketype / Reader Discovery companion profile
+
+The optional [Reader Discovery Profile](spec/v10/Reader-Discovery-Profile.md) mirrors Local Authoring Kit 3.3.0 discovery, inventory and reader-hint schemas. [A JS reference inspector](profiles/reader-discovery/README.md) validates the metadata triple and, with `--verify-files`, local tracked file size and SHA-256. It produces a **non-executable** parser plan (including JSON versus JSONL), defaults unknown profiles to generic and leaves simdjson implementation to a separately authorized reader. No v9 commitments or hosted-publication rights change. See [the French integration guide](GUIDE_INTEGRATION_DISCOVERY_FR.md).

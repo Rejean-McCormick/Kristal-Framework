@@ -1,6 +1,6 @@
 # v10 status
 
-- Proposed Standard version: `10.0.0-draft.3.1`
+- Proposed Standard version: `10.0.0-draft.3.2`
 - Architecture name: **Hosted Kristal Network Architecture**
 - Semantic-state baseline: unchanged Kristal v9
 - Compatibility baseline: v6 + v7 + v8 + v9
@@ -14,4 +14,6 @@ Draft.3 additionally standardizes GitHub AI/read-surface verification and collec
 
 ## Implementation alignment status
 
-This repo's Framework-local GitHub read-surface, sync-manifest and collection-index contracts are checked by `python tools/check_v10_ecosystem_alignment.py --json` and the native conformance suite. The result is not cross-repository qualification. See [v10 ecosystem alignment](28_V10_ECOSYSTEM_ALIGNMENT.md). The proposed Standard **remains draft.3.1** until a separate standards decision.
+This repo's Framework-local GitHub read-surface, sync-manifest and collection-index contracts are checked by `python tools/check_v10_ecosystem_alignment.py --json` and the native conformance suite. The result is not cross-repository qualification. See [v10 ecosystem alignment](28_V10_ECOSYSTEM_ALIGNMENT.md). This updated release is **draft.3.2**, an optional reader-discovery addition; it is not a final standard or cross-tool certification.
+
+Draft.3.2 adds [Reader Discovery](29_READER_DISCOVERY_INTEGRATION.md) as a noncanonical companion with unchanged v9 commitments and historical compatibility locks.

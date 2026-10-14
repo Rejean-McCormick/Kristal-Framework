@@ -15,3 +15,7 @@ Start with:
 9. [GitHub Reference Profile](GitHub-Reference-Profile.md)
 10. [Conformance](Conformance.md)
 11. [Migration from v9](Migration-v9-to-v10.md)
+
+### Optional reader-discovery companion profile (draft.3.2)
+
+The [reader-discovery profile](Reader-Discovery-Profile.md) standardizes noncanonical Arketype classifications and physical inventory hints from Local Kit 3.3.0 without altering v9 commitments or v10 hosting identity.

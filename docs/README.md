@@ -8,3 +8,5 @@ The extensive v9 design documentation remains valid for the semantic-state plane
 semantic state (v9)  -> what the knowledge state is
 hosted network (v10) -> where it is published, discovered and operated
 ```
+
+The optional Local Kit 3.3.0 [reader-discovery companion profile](29_READER_DISCOVERY_INTEGRATION.md) has separate schema contracts under `profiles/reader-discovery/` and preserves the v9 semantic state.

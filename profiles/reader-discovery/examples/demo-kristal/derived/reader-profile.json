@@ -1,0 +1,56 @@
+{
+  "format": "kristal.reader-profile/1.0",
+  "state_ref": "urn:kristal:state:demo-reader",
+  "source_fingerprint": "sha256:b53e7304d583a9c71736a74cf02c4dc5c10cd9ada1975d397d7f928211a8e7e2",
+  "specialization": "kristal.reader/causal-graph-v1",
+  "configuration_status": "advisory_only",
+  "access_pattern": "selective",
+  "materialization_profiles": [],
+  "artifact_strategies": [
+    {
+      "path": "canon/domain/diagnosis.json",
+      "media_type_observed": "application/json",
+      "media_type_declared": null,
+      "compression_declared": null,
+      "encrypted_declared": false,
+      "size_bytes_measured": 23,
+      "suggested_parser_family": "simdjson",
+      "suggested_mode": "on_demand_or_dom",
+      "must_verify_digest": "sha256:95ac41cfdcd0557085891ffff129026218db11a0c1e4920d68d2b2e794cd64ee",
+      "authorization_required": true
+    },
+    {
+      "path": "canon/domain/events.jsonl",
+      "media_type_observed": "application/x-ndjson",
+      "media_type_declared": null,
+      "compression_declared": null,
+      "encrypted_declared": false,
+      "size_bytes_measured": 35,
+      "suggested_parser_family": "simdjson",
+      "suggested_mode": "document_stream_requires_record_bound",
+      "must_verify_digest": "sha256:1bf9ed6adf8af070fd52e1b23a1941b8d4c5a260b71a7dd4f5443d6e473d7f61",
+      "authorization_required": true
+    }
+  ],
+  "parser_candidates": [
+    {
+      "kind": "jsonl",
+      "engine_family": "simdjson",
+      "mode": "document_stream",
+      "condition": "validated JSONL/NDJSON segments only",
+      "segment_count": 0
+    },
+    {
+      "kind": "json",
+      "engine_family": "simdjson",
+      "mode": "on_demand_or_dom",
+      "condition": "JSON files within parser capacity and memory limits"
+    }
+  ],
+  "constraints": [
+    "Verify actual media type, digest, size and local availability before selecting a parser.",
+    "Enforce memory, decompression and per-record bounds independently of metadata.",
+    "The reader must authorize all file/network access; this profile grants none.",
+    "Unrecognized profiles and missing discoveries must fall back to generic guarded parsing."
+  ]
+}

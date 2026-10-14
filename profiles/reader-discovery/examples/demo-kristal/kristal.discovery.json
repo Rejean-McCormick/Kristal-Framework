@@ -1,0 +1,36 @@
+{
+  "format": "kristal.discovery/1.0",
+  "state_ref": "urn:kristal:state:demo-reader",
+  "classification": {
+    "arketype_version": "1.4.0",
+    "primary_archetype": "ARK-08",
+    "supporting_archetypes": [
+      "ARK-09",
+      "ARK-18",
+      "ARK-11"
+    ],
+    "primary_usage": "PRF-15",
+    "usage_slug": "diagnostic-vehicule",
+    "usage_family": "diagnosis",
+    "domain": "automotive",
+    "organization": "single"
+  },
+  "data_layout": {
+    "state_architecture": "kristal.state/9.0",
+    "native_kind": "undecided",
+    "organization": "single",
+    "materialization_profiles": [],
+    "inventory_ref": "derived/reader-inventory.json"
+  },
+  "reader": {
+    "profile": "kristal.reader/causal-graph-v1",
+    "hints_ref": "derived/reader-profile.json"
+  },
+  "size": {
+    "class": "tiny",
+    "tracked_local_bytes": 58,
+    "completeness": "measured_referenced_local_files"
+  },
+  "source_fingerprint": "sha256:b53e7304d583a9c71736a74cf02c4dc5c10cd9ada1975d397d7f928211a8e7e2",
+  "authority": "noncanonical_derived_metadata_not_access_or_publication_authority"
+}

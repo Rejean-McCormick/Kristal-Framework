@@ -33,3 +33,7 @@ Reference validators distinguish structural/type failures from unsupported profi
 ## GitHub read-surface conformance (draft.3)
 
 `V10-GitHub-Host` implementations that advertise GitHub read-surface support MUST validate `kristal.github-read-surface/1.0`, `kristal.github-sync-manifest/1.0`, and `kristal.github-collection-index/1.0`. A hosted verifier MUST preserve the v9 State Commitment as semantic authority and treat the collection index as derived discovery only.
+
+## Optional `V10-Reader-Discovery` companion profile (draft.3.2)
+
+An implementation claiming `V10-Reader-Discovery/1.0` MUST validate the Local Kit 3.3.0 discovery/inventory/profile triple according to the three published companion schemas and cross-document invariants. It MUST treat reader hints as noncanonical and nonauthoritative, and MUST NOT infer that a parser is configured, a file is authorized, or any v9 commitment is verified. It SHOULD independently verify size/digest, physical format, memory bounds and the actual producer freshness status before processing data. Full v10 conformance does **not** require this optional profile.

@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PROFILES = {
     "github_read_surface_profile": ("profiles/github/schemas/kristal-github-read-surface.schema.json", "kristal.github-read-surface/1.0"),
     "github_sync_manifest_profile": ("profiles/github/schemas/kristal-github-sync-manifest.schema.json", "kristal.github-sync-manifest/1.0"),
+    "reader_discovery_profile": ("profiles/reader-discovery/schemas/kristal-discovery.schema.json", "kristal.discovery/1.0"),
     "github_collection_index_profile": ("profiles/github/schemas/kristal-github-collection-index.schema.json", "kristal.github-collection-index/1.0"),
 }
 
