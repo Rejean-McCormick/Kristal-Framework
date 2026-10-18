@@ -1,0 +1,36 @@
+{
+  "schema_version": "11.0",
+  "artifact_type": "kristal_legacy_resolution_requests",
+  "batch_id": "demo-batch",
+  "requests": [
+    {
+      "request_id": "r1",
+      "source_path": "legacy/subjects/0",
+      "expected_kind": "entity",
+      "lookup": {
+        "type": "term",
+        "term": "Augustin d'Hippone",
+        "language": "fr"
+      }
+    },
+    {
+      "request_id": "r2",
+      "source_path": "legacy/subjects/1",
+      "expected_kind": "entity",
+      "lookup": {
+        "type": "wikidata",
+        "id": "Q8018"
+      }
+    },
+    {
+      "request_id": "r3",
+      "source_path": "legacy/predicates/0",
+      "expected_kind": "property",
+      "lookup": {
+        "type": "term",
+        "term": "influence",
+        "language": "fr"
+      }
+    }
+  ]
+}

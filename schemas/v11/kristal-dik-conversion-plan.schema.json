@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kristal v11 diK non-executable conversion plan (draft.3)",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "artifact_type", "plan_id", "namespace_id", "source", "catalog_id", "crosswalk_id", "operations"],
+  "properties": {
+    "schema_version": {"const": "11.0"},
+    "artifact_type": {"const": "kristal_dik_conversion_plan"},
+    "plan_id": {"type": "string", "minLength": 1},
+    "namespace_id": {"type": "string", "minLength": 1},
+    "source": {"type": "object", "additionalProperties": false,
+      "required": ["artifact_id", "sha256", "declared_version"],
+      "properties": {
+        "artifact_id": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "declared_version": {"type": "string", "minLength": 1}
+      }
+    },
+    "catalog_id": {"type": "string", "minLength": 1},
+    "crosswalk_id": {"type": "string", "minLength": 1},
+    "operations": {"type": "array", "items": {"$ref": "#/$defs/operation"}}
+  },
+  "$defs": {
+    "operation": {"type": "object", "additionalProperties": false,
+      "required": ["operation_id", "source_path", "original_value", "semantic_role", "target_id", "decision"],
+      "properties": {
+        "operation_id": {"type": "string", "minLength": 1},
+        "source_path": {"type": "string", "pattern": "^/(?:[^~/]|~[01])*(?:/(?:[^~/]|~[01])*)*$"},
+        "original_value": {"type": "string", "minLength": 1},
+        "semantic_role": {"enum": ["entity", "property"]},
+        "target_id": {"type": "string", "pattern": "^K[QP][1-9][0-9]*$"},
+        "decision": {"type": "object", "additionalProperties": false,
+          "required": ["status"],
+          "properties": {
+            "status": {"enum": ["pending", "approved", "rejected"]},
+            "decision_id": {"type": "string", "minLength": 1},
+            "reviewer": {"type": "string", "minLength": 1},
+            "reason": {"type": "string", "minLength": 1},
+            "evidence_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^KS[1-9][0-9]*$"}}
+          },
+          "allOf": [
+            {"if": {"properties": {"status": {"const": "approved"}}, "required": ["status"]}, "then": {"required": ["decision_id", "reviewer", "reason", "evidence_refs"], "properties": {"evidence_refs": {"minItems": 1}}}}
+          ]
+        }
+      },
+      "allOf": [
+        {"if": {"properties": {"semantic_role": {"const": "entity"}}, "required": ["semantic_role"]}, "then": {"properties": {"target_id": {"pattern": "^KQ[1-9][0-9]*$"}}}},
+        {"if": {"properties": {"semantic_role": {"const": "property"}}, "required": ["semantic_role"]}, "then": {"properties": {"target_id": {"pattern": "^KP[1-9][0-9]*$"}}}}
+      ]
+    }
+  }
+}

@@ -10,3 +10,5 @@ hosted network (v10) -> where it is published, discovered and operated
 ```
 
 The optional Local Kit 3.3.0 [reader-discovery companion profile](29_READER_DISCOVERY_INTEGRATION.md) has separate schema contracts under `profiles/reader-discovery/` and preserves the v9 semantic state.
+
+- [diK alpha.7 / Authoring Kit draft.3 v11 catalog handoff](30_DIK_AUTHORING_KIT_HANDOFF.md) (informative, read-only preflight)

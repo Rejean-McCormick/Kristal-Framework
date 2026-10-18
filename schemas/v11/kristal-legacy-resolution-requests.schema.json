@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kristal v11 legacy resolution request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "batch_id",
+    "requests"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "11.0"
+    },
+    "artifact_type": {
+      "const": "kristal_legacy_resolution_requests"
+    },
+    "batch_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "request_id",
+          "source_path",
+          "expected_kind",
+          "lookup"
+        ],
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "expected_kind": {
+            "enum": [
+              "entity",
+              "property"
+            ]
+          },
+          "domain_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^KQ[1-9][0-9]*$"
+            }
+          },
+          "lookup": {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "term",
+                  "language"
+                ],
+                "properties": {
+                  "type": {
+                    "const": "term"
+                  },
+                  "term": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "language": {
+                    "type": "string",
+                    "minLength": 2
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "id"
+                ],
+                "properties": {
+                  "type": {
+                    "const": "wikidata"
+                  },
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[QP][1-9][0-9]*$"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,11 +1,20 @@
 site_name: Kristal
-site_description: Kristal v10 Hosted Kristal Network with unchanged v9 semantic state and frozen compatibility
+site_description: Kristal v11 strict semantic identity with preserved v6-v10 compatibility
 docs_dir: spec
 theme:
   name: material
 plugins:
   - search
 nav:
+  - v11 Home: v11/Home.md
+  - v11 Core: v11/01-core-spec/kristal-v11-core-spec.md
+  - v11 Wikidata Crosswalk: v11/Identity-and-Wikidata.md
+  - v11 Lexical Boundary: v11/Lexical-Boundary.md
+  - v11 Dictionary Management: v11/Dictionary-Management.md
+  - v11 Legacy Resolution: v11/Legacy-Resolution.md
+  - v11 diK Interoperability: v11/diK-Interoperability.md
+  - v11 diK/Kit handoff (informative): v11/diK-Toolkit-Exchange.md
+  - v11 Conformance: v11/Conformance.md
   - v10 Home: v10/Home.md
   - v10 Core: v10/01-core-spec/kristal-v10-core-spec.md
   - v10 Compatibility: v10/Semantic-State-Compatibility.md

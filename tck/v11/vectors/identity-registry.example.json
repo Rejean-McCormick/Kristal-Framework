@@ -1,0 +1,33 @@
+{
+  "schema_version": "11.0",
+  "artifact_type": "kristal_identity_registry",
+  "namespace_id": "example.org/kristal-demo",
+  "registry_id": "demo-registry",
+  "identities": [
+    {
+      "id": "KQ1001",
+      "kind": "entity",
+      "status": "stable"
+    },
+    {
+      "id": "KQ1002",
+      "kind": "entity",
+      "status": "stable"
+    },
+    {
+      "id": "KP2001",
+      "kind": "property",
+      "status": "stable"
+    },
+    {
+      "id": "KA3001",
+      "kind": "assertion",
+      "status": "stable"
+    },
+    {
+      "id": "KS4001",
+      "kind": "source",
+      "status": "stable"
+    }
+  ]
+}

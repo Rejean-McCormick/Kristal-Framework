@@ -1,9 +1,9 @@
 {
   "format": "kristal.release/v4",
   "name": "Kristal",
-  "version": "10.0.0-draft.3.2",
+  "version": "11.0.0-draft.4",
   "status": "draft",
-  "canonical_spec": "spec/v10/01-core-spec/kristal-v10-core-spec.md",
+  "canonical_spec": "spec/v11/01-core-spec/kristal-v11-core-spec.md",
   "portable_contract": {
     "artifact_type": "kristal_state",
     "schema_version": "6.0",
@@ -29,7 +29,7 @@
   },
   "reference_implementation": "reference/js",
   "external_diagnostic_repo": "kristal-diag",
-  "compatibility_lock": "contracts/v10-compatibility-lock.json",
+  "compatibility_lock": "contracts/v11-compatibility-lock.json",
   "v10": {
     "schema_root": "schemas/v10",
     "tck_root": "tck/v10/vectors",
@@ -39,7 +39,8 @@
     "github_read_surface_profile": "kristal.github-read-surface/1.0",
     "github_sync_manifest_profile": "kristal.github-sync-manifest/1.0",
     "github_collection_index_profile": "kristal.github-collection-index/1.0",
-    "reader_discovery_profile": "kristal.discovery/1.0"
+    "reader_discovery_profile": "kristal.discovery/1.0",
+    "compatibility_lock": "contracts/v10-compatibility-lock.json"
   },
   "compatibility_errata": "contracts/compatibility-errata.json",
   "reader_discovery": {
@@ -49,5 +50,28 @@
     "profile": "kristal.discovery/1.0",
     "reader_profile": "kristal.reader-profile/1.0",
     "inventory_profile": "kristal.reader-inventory/1.0"
+  },
+  "v11": {
+    "status": "draft_additive_semantic_profile_unchanged_draft3_contract",
+    "schema_root": "schemas/v11",
+    "tck_root": "tck/v11/vectors",
+    "semantic_identity_profile": "kristal.semantic-identity/11.0",
+    "identity_registry": "kristal_identity_registry",
+    "canonical_graph": "kristal_semantic_graph",
+    "lexical_dictionary": "kristal_lexical_dictionary",
+    "external_crosswalk": "kristal_external_crosswalk",
+    "legacy_resolution": "kristal_legacy_resolution_requests",
+    "semantic_state_baseline": "kristal.state/9.0",
+    "hosted_network_baseline": "kristal.hosting/10.0",
+    "compatibility_lock": "contracts/v11-compatibility-lock.json",
+    "dictionary_catalog": "kristal_dictionary_catalog",
+    "wikidata_import_record": "kristal_wikidata_lexical_record",
+    "curated_dictionary": "kristal_curated_dictionary",
+    "external_lexical_record": "kristal_external_lexical_record",
+    "dik_coverage": "kristal_dik_coverage_report",
+    "dik_conversion_plan": "kristal_dik_conversion_plan",
+    "interop_preflight": "tools/v11/interop_preflight.py",
+    "interop_preflight_kind": "informative_read_only",
+    "semantic_contract_baseline": "11.0.0-draft.3"
   }
 }

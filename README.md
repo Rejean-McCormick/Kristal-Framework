@@ -1,6 +1,33 @@
+# Kristal Framework v11 — draft.4
+
+**Active draft:** `11.0.0-draft.4` — Canonical Semantic Identity & Lexical Separation.
+
+The v11 strict semantic graph uses only namespace-scoped **KQ / KP / KA / KS** identities; translations are in separate lexical dictionaries, and Wikidata **Q / P** identifiers remain in a versioned external crosswalk. The non-destructive resolver proposes mappings for explicitly selected legacy words; it does **not** rewrite old Kristals or mint identities automatically.
+
+[Read the v11 specifications](spec/v11/Home.md) | [Conformance](spec/v11/Conformance.md) | [Wikidata crosswalk](spec/v11/Identity-and-Wikidata.md) | [300+ language dictionary management](spec/v11/Dictionary-Management.md) | [diK interop profile](spec/v11/diK-Interoperability.md) | [diK/Kit v11 handoff](docs/30_DIK_AUTHORING_KIT_HANDOFF.md)
+
+```bash
+python tools/validate_all.py
+python tools/v11/validate_v11.py
+python tools/v11/dictionaries.py audit --catalog examples/v11/dictionaries/catalog.json --crosswalk examples/v11/external-crosswalk.example.json --registry examples/v11/identity-registry.example.json
+python tools/v11/dictionaries.py resolve --catalog examples/v11/dictionaries/catalog.json --id KQ1001 --locale fr-CA
+python tools/v11/dik_coverage.py --graph examples/v11/semantic-graph.example.json --registry examples/v11/identity-registry.example.json --crosswalk examples/v11/external-crosswalk.example.json --catalog examples/v11/dictionaries/catalog.json --locales fr,en,fr-CA
+python tools/v11/interop_preflight.py --catalog examples/v11/dictionaries/catalog.json --registry examples/v11/identity-registry.example.json --crosswalk examples/v11/external-crosswalk.example.json --graph examples/v11/semantic-graph.example.json --locales fr,en,fr-CA
+python tools/v11/dik_conversion_plan.py --plan examples/v11/dik-conversion-plan.example.json --registry examples/v11/identity-registry.example.json --source examples/v11/dik-legacy-sample.json
+python tools/v11/resolve_legacy.py --requests examples/v11/legacy-resolution-requests.example.json --lexicon examples/v11/lexicon-fr.example.json --crosswalk examples/v11/external-crosswalk.example.json
+```
+
+**Draft.4:** adds a *read-only* diK alpha.7 / Authoring Kit draft.3 catalog preflight and aligned integration docs/wiki. **All v11 semantic schemas and TCK fixtures remain byte-identical to draft.3.** No cross-repository or full-dump certification is implied.
+
+Draft.2 adds file-backed, versioned dictionary catalogs, layered Wikidata import/curation, offline import/audit/lookup tools and reference tests. Draft.3 additionally provides typed third-party dictionary layers, graph-specific direct/fallback/missing coverage, and a non-executable reviewed conversion-plan contract for diK. **The diK app itself and an approved migration executor are not included.** This is **not** a certified 300-language production service or an online dump downloader.
+
+All v6–v10 normative schemas, historical TCK fixtures and original commitment profiles remain preserved. **v11 is an additive draft**, not an assertion that the Local Authoring Kit, hosted consumers or legacy Kristals have been migrated. The bundled tests provide Framework-local evidence only.
+
+---
+
 # Kristal
 
-**Current standard baseline:** `10.0.0-draft.3.2`
+**Historical v10 baseline:** `10.0.0-draft.3.2`
 
 Kristal is a portable, deterministic knowledge-state standard. **Kristal v10 — Hosted Kristal Network Architecture** preserves the frozen v6 portable epistemic state, v7 semantic identity model, v8 language/query layer, and v9 Semantic State Architecture while adding portable node discovery, host bindings, publication records, directories and host profiles.
 

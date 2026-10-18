@@ -1,0 +1,24 @@
+{
+  "schema_version": "11.0",
+  "artifact_type": "kristal_lexical_dictionary",
+  "lexicon_id": "demo-en",
+  "namespace_id": "example.org/kristal-demo",
+  "language": "en",
+  "entries": [
+    {
+      "semantic_id": "KQ1001",
+      "status": "resolved",
+      "preferred_term": "Augustine of Hippo"
+    },
+    {
+      "semantic_id": "KQ1002",
+      "status": "resolved",
+      "preferred_term": "grace"
+    },
+    {
+      "semantic_id": "KP2001",
+      "status": "resolved",
+      "preferred_term": "influences"
+    }
+  ]
+}

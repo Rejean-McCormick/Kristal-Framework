@@ -137,10 +137,10 @@ def validate(instance, schema, label: str):
 
 
 def check_layout():
-    for ver in ('v10', 'v9', 'v8', 'v7', 'v6'):
+    for ver in ('v11', 'v10', 'v9', 'v8', 'v7', 'v6'):
         if (ROOT / f'spec/{ver}/02-schemas').exists() or (ROOT / f'spec/{ver}/09-test-vectors').exists():
             raise AssertionError(f'active {ver} machine contracts must not be duplicated under spec/{ver}')
-    if (ROOT / 'VERSION').read_text(encoding='utf-8').strip() != '10.0.0-draft.3.2':
+    if (ROOT / 'VERSION').read_text(encoding='utf-8').strip() != load(ROOT / 'contracts/release.json')['version']:
         raise AssertionError('unexpected active VERSION')
 
 
@@ -306,6 +306,32 @@ def check_v10_compatibility_lock():
         if h != e['sha256'] or len(b) != e['bytes']:
             raise AssertionError(f'v10 changed frozen v9 compatibility surface: {e["path"]}')
 
+
+def check_v11_profile():
+    sys.path.insert(0, str(ROOT/'tools/v11'))
+    from validate_v11 import check_fixtures
+    check_fixtures()
+    lock=load(ROOT/'contracts/v11-compatibility-lock.json')
+    if lock.get('format') != 'kristal.compatibility-lock/v11':
+        raise AssertionError('v11 compatibility lock format drift')
+    files=lock.get('files',[])
+    names={e['path'] for e in files}
+    expected=set()
+    for version in range(6,11):
+        for area in ('schemas','tck'):
+            expected.update(p.relative_to(ROOT).as_posix() for p in (ROOT/area/f'v{version}').rglob('*') if p.is_file())
+    expected.update(('contracts/v8-compatibility-lock.json','contracts/v9-compatibility-lock.json',
+                     'contracts/v10-compatibility-lock.json','contracts/compatibility-errata.json'))
+    if names != expected or len(files) != len(names):
+        raise AssertionError('v11 lock does not cover exact historical baseline')
+    for e in files:
+        p=ROOT/e['path']; b=p.read_bytes()
+        if e['sha256'] != 'sha256:'+hashlib.sha256(b).hexdigest() or e['bytes'] != len(b):
+            raise AssertionError(f'v11 historical compatibility surface changed: {e["path"]}')
+    from unittest import TestLoader, TextTestRunner
+    tests=TestLoader().discover(str(ROOT/'tools/tests'),pattern='test_v11_*.py')
+    if not TextTestRunner(stream=sys.stdout,verbosity=1).run(tests).wasSuccessful():
+        raise AssertionError('v11 negative tests failed')
 
 def check_v10_invariants():
     invariants=(ROOT/'spec/v10/Core-Invariants.md').read_text(encoding='utf-8')
@@ -493,17 +519,19 @@ def check_icon_profile_tooling():
 
 
 def check_active_version_text():
-    version = (ROOT/'VERSION').read_text(encoding='utf-8').strip()
-    release = load(ROOT/'contracts/release.json')
-    contract_set = load(ROOT/'contracts/contract-set.json')
-    if not (release.get('version') == contract_set.get('version') == version):
+    version=(ROOT/'VERSION').read_text(encoding='utf-8').strip()
+    release=load(ROOT/'contracts/release.json')
+    contract_set=load(ROOT/'contracts/contract-set.json')
+    if not (release.get('version')==contract_set.get('version')==version):
         raise AssertionError('active release/version surfaces disagree')
-    core = (ROOT/'spec/v10/01-core-spec/kristal-v10-core-spec.md').read_text(encoding='utf-8')
+    if release.get('canonical_spec') != 'spec/v11/01-core-spec/kristal-v11-core-spec.md':
+        raise AssertionError('v11 canonical spec pointer drift')
+    core=(ROOT/release['canonical_spec']).read_text(encoding='utf-8')
     if version not in core:
-        raise AssertionError('v10 core spec not aligned to active VERSION')
-    status = (ROOT/'spec/v10/00-overview/specification-status.md').read_text(encoding='utf-8')
-    if version not in '\n'.join(status.splitlines()[:8]):
-        raise AssertionError('active v10 specification status is stale')
+        raise AssertionError('v11 core spec not aligned to active VERSION')
+    status=(ROOT/'spec/v11/Home.md').read_text(encoding='utf-8')
+    if version not in status:
+        raise AssertionError('active v11 specification status is stale')
 
 def check_daat_boundary():
     doc = (ROOT/'spec/v7/DaaT-Boundary.md').read_text(encoding='utf-8')
@@ -525,6 +553,7 @@ def main():
         ('v7 invariants', check_v7_invariants),
         ('v8 invariants', check_v8_invariants),
         ('v10 invariants', check_v10_invariants),
+        ('v11 semantic profile', check_v11_profile),
         ('v9 invariants', check_v9_invariants),
         ('compatibility errata', check_compatibility_errata),
         ('v8 compatibility lock', check_v8_compatibility_lock),

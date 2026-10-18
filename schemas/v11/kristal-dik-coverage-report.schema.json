@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kristal v11 diK coverage report (draft.3)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "artifact_type", "report_id", "namespace_id", "graph_id", "graph_sha256", "catalog_id", "catalog_sha256", "semantic_reference_count", "locales", "all_locales"],
+  "properties": {
+    "schema_version": {"const": "11.0"},
+    "artifact_type": {"const": "kristal_dik_coverage_report"},
+    "report_id": {"type": "string", "minLength": 1},
+    "namespace_id": {"type": "string", "minLength": 1},
+    "graph_id": {"type": "string", "minLength": 1},
+    "graph_sha256": {"$ref": "#/$defs/sha256"},
+    "catalog_id": {"type": "string", "minLength": 1},
+    "catalog_sha256": {"$ref": "#/$defs/sha256"},
+    "semantic_reference_count": {"$ref": "#/$defs/denominator"},
+    "locales": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/locale"}},
+    "all_locales": {
+      "type": "object", "additionalProperties": false,
+      "required": ["direct", "usable"],
+      "properties": {"direct": {"$ref": "#/$defs/denominator"}, "usable": {"$ref": "#/$defs/denominator"}}
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "denominator": {"type": "object", "additionalProperties": false,
+      "required": ["KQ", "KP"],
+      "properties": {"KQ": {"type": "integer", "minimum": 0}, "KP": {"type": "integer", "minimum": 0}}
+    },
+    "count": {"type": "object", "additionalProperties": false,
+      "required": ["total", "direct", "fallback", "missing", "conflicted", "missing_ids_sample", "sample_truncated"],
+      "properties": {
+        "total": {"type": "integer", "minimum": 0},
+        "direct": {"type": "integer", "minimum": 0},
+        "fallback": {"type": "integer", "minimum": 0},
+        "missing": {"type": "integer", "minimum": 0},
+        "conflicted": {"type": "integer", "minimum": 0},
+        "missing_ids_sample": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^K[QP][1-9][0-9]*$"}},
+        "sample_truncated": {"type": "boolean"}
+      }
+    },
+    "locale": {"type": "object", "additionalProperties": false,
+      "required": ["tag", "KQ", "KP", "complete_direct", "complete_usable"],
+      "properties": {
+        "tag": {"type": "string", "minLength": 2},
+        "KQ": {"$ref": "#/$defs/count"},
+        "KP": {"$ref": "#/$defs/count"},
+        "complete_direct": {"type": "boolean"},
+        "complete_usable": {"type": "boolean"}
+      }
+    }
+  }
+}

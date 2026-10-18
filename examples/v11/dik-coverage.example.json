@@ -1,0 +1,107 @@
+{
+  "schema_version": "11.0",
+  "artifact_type": "kristal_dik_coverage_report",
+  "report_id": "dik-coverage-7ab7772bab66a82bdea3",
+  "namespace_id": "example.org/kristal-demo",
+  "graph_id": "demo-graph",
+  "graph_sha256": "50caca8e1af9af62d5af7f757c87b05d2302e00ab18010ea2bc6606f0a7fec27",
+  "catalog_id": "wikidata-import-demo-snapshot",
+  "catalog_sha256": "63662038addf7ca5e2e24729a024ea3b3b51ebb83533f9d1d2c263bf0487deb1",
+  "semantic_reference_count": {
+    "KQ": 2,
+    "KP": 1
+  },
+  "locales": [
+    {
+      "tag": "fr",
+      "KQ": {
+        "total": 2,
+        "direct": 1,
+        "fallback": 0,
+        "missing": 1,
+        "conflicted": 0,
+        "missing_ids_sample": [
+          "KQ1002"
+        ],
+        "sample_truncated": false
+      },
+      "KP": {
+        "total": 1,
+        "direct": 0,
+        "fallback": 0,
+        "missing": 1,
+        "conflicted": 0,
+        "missing_ids_sample": [
+          "KP2001"
+        ],
+        "sample_truncated": false
+      },
+      "complete_direct": false,
+      "complete_usable": false
+    },
+    {
+      "tag": "en",
+      "KQ": {
+        "total": 2,
+        "direct": 1,
+        "fallback": 0,
+        "missing": 1,
+        "conflicted": 0,
+        "missing_ids_sample": [
+          "KQ1002"
+        ],
+        "sample_truncated": false
+      },
+      "KP": {
+        "total": 1,
+        "direct": 0,
+        "fallback": 0,
+        "missing": 1,
+        "conflicted": 0,
+        "missing_ids_sample": [
+          "KP2001"
+        ],
+        "sample_truncated": false
+      },
+      "complete_direct": false,
+      "complete_usable": false
+    },
+    {
+      "tag": "fr-CA",
+      "KQ": {
+        "total": 2,
+        "direct": 0,
+        "fallback": 1,
+        "missing": 1,
+        "conflicted": 0,
+        "missing_ids_sample": [
+          "KQ1002"
+        ],
+        "sample_truncated": false
+      },
+      "KP": {
+        "total": 1,
+        "direct": 0,
+        "fallback": 0,
+        "missing": 1,
+        "conflicted": 0,
+        "missing_ids_sample": [
+          "KP2001"
+        ],
+        "sample_truncated": false
+      },
+      "complete_direct": false,
+      "complete_usable": false
+    }
+  ],
+  "all_locales": {
+    "direct": {
+      "KQ": 0,
+      "KP": 0
+    },
+    "usable": {
+      "KQ": 1,
+      "KP": 0
+    }
+  }
+}

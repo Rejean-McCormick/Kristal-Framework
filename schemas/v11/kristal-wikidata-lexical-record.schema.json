@@ -1,0 +1,21 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"Kristal v11 imported Wikidata lexical record (one JSONL line)",
+  "type":"object", "additionalProperties":false,
+  "required":["namespace_id", "semantic_id", "external_id", "language", "preferred_term", "aliases", "source_snapshot"],
+  "properties":{
+    "namespace_id":{"type":"string","minLength":1},
+    "semantic_id":{"type":"string","pattern":"^K[QP][1-9][0-9]*$"},
+    "external_id":{"type":"string","pattern":"^[QP][1-9][0-9]*$"},
+    "language":{"type":"string","pattern":"^[A-Za-z]{2,8}(?:-[A-Za-z0-9]{1,8})*$"},
+    "preferred_term":{"type":"string","minLength":1},
+    "aliases":{"type":"array","uniqueItems":true,"items":{"type":"string","minLength":1}},
+    "description":{"type":"string"},
+    "source_snapshot":{"type":"string","minLength":1},
+    "source_revision":{"type":["integer","string"]}
+  },
+  "allOf":[
+    {"if":{"properties":{"semantic_id":{"pattern":"^KQ"}}},"then":{"properties":{"external_id":{"pattern":"^Q[1-9][0-9]*$"}}}},
+    {"if":{"properties":{"semantic_id":{"pattern":"^KP"}}},"then":{"properties":{"external_id":{"pattern":"^P[1-9][0-9]*$"}}}}
+  ]
+}

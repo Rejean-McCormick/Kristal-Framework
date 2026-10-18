@@ -38,8 +38,8 @@ def inspect(root: Path = ROOT) -> dict:
     contract_set = read("contracts/contract-set.json")
     if release.get("version") != version or contract_set.get("version") != version:
         issues.append("VERSION, release.json and contract-set.json must agree")
-    if release.get("status") != "draft" or not version.startswith("10.0.0-draft."):
-        issues.append("This draft-baseline checker requires a v10 draft release")
+    if release.get("status") != "draft" or not (version.startswith("10.0.0-draft.") or version.startswith("11.0.0-draft.")):
+        issues.append("v10 baseline checker requires an active v10 or additive v11 draft")
     v10 = release.get("v10") if isinstance(release.get("v10"), dict) else {}
     if v10.get("semantic_state_baseline") != "kristal.state/9.0":
         issues.append("v9 semantic state must remain the v10 baseline")
@@ -47,7 +47,7 @@ def inspect(root: Path = ROOT) -> dict:
         issues.append("Expected hosted network baseline kristal.hosting/10.0")
     if v10.get("reference_host_profile") != "kristal.host/github/1.0":
         issues.append("Expected GitHub reference host profile kristal.host/github/1.0")
-    if release.get("compatibility_lock") != "contracts/v10-compatibility-lock.json":
+    if (v10.get("compatibility_lock", release.get("compatibility_lock")) != "contracts/v10-compatibility-lock.json"):
         issues.append("v10 compatibility lock reference mismatch")
     normalized = contract_set.get("normative") if isinstance(contract_set.get("normative"), dict) else {}
     schemas = normalized.get("schemas") if isinstance(normalized.get("schemas"), list) else []

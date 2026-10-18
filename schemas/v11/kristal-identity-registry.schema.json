@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kristal v11 semantic identity registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "namespace_id",
+    "registry_id",
+    "identities"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "11.0"
+    },
+    "artifact_type": {
+      "const": "kristal_identity_registry"
+    },
+    "namespace_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "registry_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "identities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "kind",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^K[QPAS][1-9][0-9]*$"
+          },
+          "kind": {
+            "enum": [
+              "entity",
+              "property",
+              "assertion",
+              "source"
+            ]
+          },
+          "status": {
+            "enum": [
+              "provisional",
+              "stable",
+              "deprecated"
+            ]
+          },
+          "replaces": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^K[QPAS][1-9][0-9]*$"
+            }
+          },
+          "source_refs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^KS[1-9][0-9]*$"
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "entity"
+                }
+              },
+              "required": [
+                "kind"
+              ]
+            },
+            "then": {
+              "properties": {
+                "id": {
+                  "pattern": "^KQ[1-9][0-9]*$"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "property"
+                }
+              },
+              "required": [
+                "kind"
+              ]
+            },
+            "then": {
+              "properties": {
+                "id": {
+                  "pattern": "^KP[1-9][0-9]*$"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "assertion"
+                }
+              },
+              "required": [
+                "kind"
+              ]
+            },
+            "then": {
+              "properties": {
+                "id": {
+                  "pattern": "^KA[1-9][0-9]*$"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "source"
+                }
+              },
+              "required": [
+                "kind"
+              ]
+            },
+            "then": {
+              "properties": {
+                "id": {
+                  "pattern": "^KS[1-9][0-9]*$"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

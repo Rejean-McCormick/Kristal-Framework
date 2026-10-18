@@ -1,3 +1,14 @@
+# Active draft: v11
+
+- Proposed Framework version: `11.0.0-draft.4`
+- Additive canonical KQ/KP/KA/KS graph, lexical dictionaries and external Wikidata crosswalk
+- Draft.2: versioned dictionary catalog (300+ sparse locales), immutable Wikidata source layers, reviewed curated layers, snapshot/hash provenance and offline reference importer/auditor
+- Draft.3: diK interoperability profile, third-party dictionary provenance, per-Kristal multilingual coverage and read-only conversion plans.
+- Draft.4: read-only diK alpha.7 / Authoring Kit draft.3 catalog preflight, updated toolchain handoff docs and aligned wiki; normative v11 schema and TCK bytes still draft.3.
+- Historical v10 baseline below is preserved; local v11 test pass does not qualify other repositories or deployed collections.
+
+---
+
 # v10 status
 
 - Proposed Standard version: `10.0.0-draft.3.2`

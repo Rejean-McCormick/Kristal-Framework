@@ -1,0 +1,30 @@
+{
+  "schema_version": "11.0",
+  "artifact_type": "kristal_lexical_dictionary",
+  "lexicon_id": "demo-fr",
+  "namespace_id": "example.org/kristal-demo",
+  "language": "fr",
+  "entries": [
+    {
+      "semantic_id": "KQ1001",
+      "status": "resolved",
+      "preferred_term": "Augustin d'Hippone",
+      "alternate_terms": [
+        "saint Augustin"
+      ]
+    },
+    {
+      "semantic_id": "KQ1002",
+      "status": "resolved",
+      "preferred_term": "grâce",
+      "domain_ids": [
+        "KQ1001"
+      ]
+    },
+    {
+      "semantic_id": "KP2001",
+      "status": "resolved",
+      "preferred_term": "influence"
+    }
+  ]
+}

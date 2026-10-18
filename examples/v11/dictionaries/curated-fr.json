@@ -1,0 +1,18 @@
+{
+  "schema_version": "11.0",
+  "artifact_type": "kristal_curated_dictionary",
+  "namespace_id": "example.org/kristal-demo",
+  "language": "fr",
+  "entries": [
+    {
+      "semantic_id": "KQ1001",
+      "preferred_term": "Saint Augustin",
+      "alternate_terms": ["Augustin d'Hippone"],
+      "review": {
+        "decision_id": "demo-curation-fr-1",
+        "reviewer": "demo-editor",
+        "reason": "Illustrative domain-specific display preference, not a change of identity"
+      }
+    }
+  ]
+}

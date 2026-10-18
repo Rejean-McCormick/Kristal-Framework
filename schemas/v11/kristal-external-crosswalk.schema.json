@@ -1,0 +1,207 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kristal v11 Wikidata external crosswalk",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "crosswalk_id",
+    "mappings"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "11.0"
+    },
+    "artifact_type": {
+      "const": "kristal_external_crosswalk"
+    },
+    "crosswalk_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_snapshot": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mappings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "mapping_id",
+          "local_ref",
+          "external_ref",
+          "relation",
+          "status"
+        ],
+        "properties": {
+          "mapping_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "local_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "namespace_id",
+              "id"
+            ],
+            "properties": {
+              "namespace_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^K[QP][1-9][0-9]*$"
+              }
+            }
+          },
+          "external_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "system",
+              "id"
+            ],
+            "properties": {
+              "system": {
+                "const": "wikidata"
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[QP][1-9][0-9]*$"
+              }
+            }
+          },
+          "relation": {
+            "enum": [
+              "exactMatch",
+              "closeMatch",
+              "broadMatch",
+              "narrowMatch",
+              "relatedMatch"
+            ]
+          },
+          "status": {
+            "enum": [
+              "candidate",
+              "accepted",
+              "rejected",
+              "superseded"
+            ]
+          },
+          "review": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "method",
+              "evidence_refs",
+              "decision_id"
+            ],
+            "properties": {
+              "method": {
+                "enum": [
+                  "human",
+                  "audited_rule"
+                ]
+              },
+              "decision_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence_refs": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "pattern": "^KS[1-9][0-9]*$"
+                }
+              }
+            }
+          },
+          "supersedes": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "accepted"
+                }
+              },
+              "required": [
+                "status"
+              ]
+            },
+            "then": {
+              "required": [
+                "review"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "local_ref": {
+                  "properties": {
+                    "id": {
+                      "pattern": "^KQ"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "local_ref"
+              ]
+            },
+            "then": {
+              "properties": {
+                "external_ref": {
+                  "properties": {
+                    "id": {
+                      "pattern": "^Q[1-9][0-9]*$"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "local_ref": {
+                  "properties": {
+                    "id": {
+                      "pattern": "^KP"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "local_ref"
+              ]
+            },
+            "then": {
+              "properties": {
+                "external_ref": {
+                  "properties": {
+                    "id": {
+                      "pattern": "^P[1-9][0-9]*$"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

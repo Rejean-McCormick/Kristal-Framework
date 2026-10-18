@@ -1,0 +1,30 @@
+{
+  "schema_version": "11.0",
+  "artifact_type": "kristal_semantic_graph",
+  "namespace_id": "example.org/kristal-demo",
+  "graph_id": "demo-graph",
+  "entities": [
+    "KQ1001",
+    "KQ1002"
+  ],
+  "properties": [
+    "KP2001"
+  ],
+  "sources": [
+    "KS4001"
+  ],
+  "assertions": [
+    {
+      "id": "KA3001",
+      "subject": "KQ1001",
+      "predicate": "KP2001",
+      "object": {
+        "kind": "entity",
+        "id": "KQ1002"
+      },
+      "sources": [
+        "KS4001"
+      ]
+    }
+  ]
+}

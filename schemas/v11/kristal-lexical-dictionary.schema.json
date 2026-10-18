@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kristal v11 lexical dictionary",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "lexicon_id",
+    "namespace_id",
+    "language",
+    "entries"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "11.0"
+    },
+    "artifact_type": {
+      "const": "kristal_lexical_dictionary"
+    },
+    "lexicon_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "namespace_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "language": {
+      "type": "string",
+      "pattern": "^[A-Za-z]{2,8}(?:-[A-Za-z0-9]{1,8})*$"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "semantic_id",
+          "status"
+        ],
+        "properties": {
+          "semantic_id": {
+            "type": "string",
+            "pattern": "^K[QP][1-9][0-9]*$"
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "missing",
+              "deprecated",
+              "conflicted"
+            ]
+          },
+          "preferred_term": {
+            "type": "string",
+            "minLength": 1
+          },
+          "alternate_terms": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "domain_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^KQ[1-9][0-9]*$"
+            }
+          },
+          "definition": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "resolved"
+                }
+              },
+              "required": [
+                "status"
+              ]
+            },
+            "then": {
+              "required": [
+                "preferred_term"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "11.0",
+  "artifact_type": "kristal_external_crosswalk",
+  "crosswalk_id": "demo-wikidata-map",
+  "source_snapshot": "wikidata-local-snapshot-demo",
+  "mappings": [
+    {
+      "mapping_id": "map-augustin-demo",
+      "local_ref": {
+        "namespace_id": "example.org/kristal-demo",
+        "id": "KQ1001"
+      },
+      "external_ref": {
+        "system": "wikidata",
+        "id": "Q8018"
+      },
+      "relation": "exactMatch",
+      "status": "accepted",
+      "review": {
+        "method": "human",
+        "decision_id": "demo-review-1",
+        "evidence_refs": [
+          "KS4001"
+        ]
+      }
+    },
+    {
+      "mapping_id": "map-unknown-demo",
+      "local_ref": {
+        "namespace_id": "example.org/kristal-demo",
+        "id": "KQ1002"
+      },
+      "external_ref": {
+        "system": "wikidata",
+        "id": "Q8018"
+      },
+      "relation": "relatedMatch",
+      "status": "candidate"
+    }
+  ]
+}

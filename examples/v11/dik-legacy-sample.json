@@ -1,0 +1,8 @@
+{
+  "subject": "Augustin d'Hippone",
+  "predicate": "parle_de",
+  "object": {
+    "kind": "entity",
+    "id": "grâce"
+  }
+}

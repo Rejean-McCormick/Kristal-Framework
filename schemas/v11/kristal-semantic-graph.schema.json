@@ -1,0 +1,385 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kristal v11 language-neutral semantic graph",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "namespace_id",
+    "graph_id",
+    "entities",
+    "properties",
+    "assertions",
+    "sources"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "11.0"
+    },
+    "artifact_type": {
+      "const": "kristal_semantic_graph"
+    },
+    "namespace_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "graph_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entities": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^KQ[1-9][0-9]*$"
+      }
+    },
+    "properties": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^KP[1-9][0-9]*$"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^KS[1-9][0-9]*$"
+      }
+    },
+    "assertions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "subject",
+          "predicate",
+          "object",
+          "sources"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^KA[1-9][0-9]*$"
+          },
+          "subject": {
+            "type": "string",
+            "pattern": "^KQ[1-9][0-9]*$"
+          },
+          "predicate": {
+            "type": "string",
+            "pattern": "^KP[1-9][0-9]*$"
+          },
+          "object": {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "kind",
+                  "id"
+                ],
+                "properties": {
+                  "kind": {
+                    "const": "entity"
+                  },
+                  "id": {
+                    "type": "string",
+                    "pattern": "^KQ[1-9][0-9]*$"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "kind",
+                  "datatype",
+                  "value"
+                ],
+                "properties": {
+                  "kind": {
+                    "const": "literal"
+                  },
+                  "datatype": {
+                    "enum": [
+                      "string",
+                      "boolean",
+                      "integer",
+                      "number",
+                      "date",
+                      "dateTime",
+                      "uri"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "string",
+                      "boolean",
+                      "integer",
+                      "number"
+                    ]
+                  },
+                  "language": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z]{2,8}(?:-[A-Za-z0-9]{1,8})*$"
+                  }
+                },
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "datatype": {
+                          "const": "string"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "value": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "datatype": {
+                          "const": "boolean"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "value": {
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "datatype": {
+                          "const": "integer"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "value": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "datatype": {
+                          "const": "number"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "required": [
+                        "language"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "datatype": {
+                          "const": "string"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "sources": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^KS[1-9][0-9]*$"
+            }
+          },
+          "qualifiers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "predicate",
+                "object"
+              ],
+              "properties": {
+                "predicate": {
+                  "type": "string",
+                  "pattern": "^KP[1-9][0-9]*$"
+                },
+                "object": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "kind",
+                        "id"
+                      ],
+                      "properties": {
+                        "kind": {
+                          "const": "entity"
+                        },
+                        "id": {
+                          "type": "string",
+                          "pattern": "^KQ[1-9][0-9]*$"
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "kind",
+                        "datatype",
+                        "value"
+                      ],
+                      "properties": {
+                        "kind": {
+                          "const": "literal"
+                        },
+                        "datatype": {
+                          "enum": [
+                            "string",
+                            "boolean",
+                            "integer",
+                            "number",
+                            "date",
+                            "dateTime",
+                            "uri"
+                          ]
+                        },
+                        "value": {
+                          "type": [
+                            "string",
+                            "boolean",
+                            "integer",
+                            "number"
+                          ]
+                        },
+                        "language": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z]{2,8}(?:-[A-Za-z0-9]{1,8})*$"
+                        }
+                      },
+                      "allOf": [
+                        {
+                          "if": {
+                            "properties": {
+                              "datatype": {
+                                "const": "string"
+                              }
+                            }
+                          },
+                          "then": {
+                            "properties": {
+                              "value": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "if": {
+                            "properties": {
+                              "datatype": {
+                                "const": "boolean"
+                              }
+                            }
+                          },
+                          "then": {
+                            "properties": {
+                              "value": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "if": {
+                            "properties": {
+                              "datatype": {
+                                "const": "integer"
+                              }
+                            }
+                          },
+                          "then": {
+                            "properties": {
+                              "value": {
+                                "type": "integer"
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "if": {
+                            "properties": {
+                              "datatype": {
+                                "const": "number"
+                              }
+                            }
+                          },
+                          "then": {
+                            "properties": {
+                              "value": {
+                                "type": "number"
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "if": {
+                            "required": [
+                              "language"
+                            ]
+                          },
+                          "then": {
+                            "properties": {
+                              "datatype": {
+                                "const": "string"
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

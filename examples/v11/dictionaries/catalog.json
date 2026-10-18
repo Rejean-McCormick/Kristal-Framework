@@ -1,0 +1,50 @@
+{
+  "schema_version": "11.0",
+  "artifact_type": "kristal_dictionary_catalog",
+  "catalog_id": "wikidata-import-demo-snapshot",
+  "namespace_id": "example.org/kristal-demo",
+  "languages": [
+    {
+      "tag": "fr",
+      "fallbacks": [],
+      "layers": [
+        {
+          "layer_id": "wikidata-demo-snapshot-fr",
+          "kind": "wikidata",
+          "priority": 100,
+          "path": "imported/wikidata/demo-snapshot/fr.jsonl",
+          "sha256": "436cf62b45ad30b357bf6c09ac0e6f3bf979981eb1d42ab9052ee43c793b08b4",
+          "source_snapshot": "demo-snapshot"
+        },
+        {
+          "layer_id": "reviewed-fr-demo",
+          "kind": "curated",
+          "priority": 200,
+          "path": "curated-fr.json",
+          "sha256": "f538fafa081a2f8b84e7aed44218e0842aae9b5bda013a066636b15c1ff28b3d"
+        }
+      ]
+    },
+    {
+      "tag": "en",
+      "fallbacks": [],
+      "layers": [
+        {
+          "layer_id": "wikidata-demo-snapshot-en",
+          "kind": "wikidata",
+          "priority": 100,
+          "path": "imported/wikidata/demo-snapshot/en.jsonl",
+          "sha256": "abff5561ac1510fd69d07bd7020c6010e27dc7bfe120facd469a94339ec65db5",
+          "source_snapshot": "demo-snapshot"
+        }
+      ]
+    },
+    {
+      "tag": "fr-CA",
+      "fallbacks": [
+        "fr"
+      ],
+      "layers": []
+    }
+  ]
+}

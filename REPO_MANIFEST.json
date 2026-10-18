@@ -1,6 +1,6 @@
 {
   "format": "kristal.repo-manifest/v1",
-  "version": "10.0.0-draft.3.2",
+  "version": "11.0.0-draft.4",
   "files": [
     {
       "path": ".gitattributes",
@@ -14,13 +14,13 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "4678fd6178a90f55126b699cfbd10a350952f4e3a8e99f9e88ae6c7a7615a252",
+      "sha256": "b358c8cbc6dbfe84df6b5539b2492ef3b83908af290d397d38c0751c15c2f2cd",
       "bytes": 2165
     },
     {
       "path": ".github/workflows/release-qualification.yml",
-      "sha256": "c4bec70a7332ec5bb8280bb9ca1837777a86db796f7b0a88e2125283328c92c3",
-      "bytes": 2734
+      "sha256": "0fe024efe9462ffa8de983abea73dcaeaf25a53f2c9a81c8b7cca44e73b239e9",
+      "bytes": 2741
     },
     {
       "path": ".gitignore",
@@ -49,13 +49,18 @@
     },
     {
       "path": "README.md",
-      "sha256": "7591686a10ade662bfa5ddb40e4b8bff61fa4154dacd746db753650ba58ec8bc",
-      "bytes": 4143
+      "sha256": "ca2116bab52580ac5bb9dcd53362635c0ae53b30355ddb47e23eb6bd03cf7f41",
+      "bytes": 7367
     },
     {
       "path": "SNAPSHOT_INDEX.txt",
-      "sha256": "33672b3a179dcbbff63936d538f4bbaf135bc825f280138b32b4d7f09c82dc68",
-      "bytes": 23102
+      "sha256": "20c58d1f307eef9804a38191ef8aec7cc120fb32507e0171a3b759441d980fa7",
+      "bytes": 24723
+    },
+    {
+      "path": "VALIDATION_DRAFT4.md",
+      "sha256": "bfa262af3d66442f50898a7d502ca892c9a0561004ddf8227263758f213143cf",
+      "bytes": 2721
     },
     {
       "path": "VALIDATION_READER_DISCOVERY.md",
@@ -64,8 +69,8 @@
     },
     {
       "path": "VERSION",
-      "sha256": "c9522f44866f273c02bac368b0094bf1023e6e280d87cf1ce2aa4763ad26d570",
-      "bytes": 17
+      "sha256": "29dd7fcfe48675b24cfdf5cc8100d55efe725c376f1b04298cc7a8b196faceb1",
+      "bytes": 15
     },
     {
       "path": "ZmartZnap.pyw",
@@ -84,8 +89,8 @@
     },
     {
       "path": "contracts/contract-set.json",
-      "sha256": "e4baf0b197162be963f29848623a1e4454911c3133e6993629ea994d12dd6942",
-      "bytes": 3876
+      "sha256": "c1e60b1ae0f93c7b65aef60d56385594280b703170afe76a65fb5d58cbc3082e",
+      "bytes": 4939
     },
     {
       "path": "contracts/knowledge-model-contract.v3.json",
@@ -114,13 +119,18 @@
     },
     {
       "path": "contracts/release.json",
-      "sha256": "cabbd0f3889cbb96f5d12b5e2bc4d69508b1e473f4240e91bffdf4ceda5d348b",
-      "bytes": 1994
+      "sha256": "ec7c612d3d066b6246f20bc5ad153133534563841988ae624254a0f9e88301f8",
+      "bytes": 3255
     },
     {
       "path": "contracts/v10-compatibility-lock.json",
       "sha256": "f1a3845e4d149e5d805dd0337f70cf58d6e58ebf1721e36dd75c524335952d59",
       "bytes": 8296
+    },
+    {
+      "path": "contracts/v11-compatibility-lock.json",
+      "sha256": "32acab1d998b75c591e3f047494ed053b408c7f29d2de3dc2e2a3ee12e02a1fe",
+      "bytes": 17283
     },
     {
       "path": "contracts/v8-compatibility-lock.json",
@@ -134,8 +144,8 @@
     },
     {
       "path": "docs/00_STATUS.md",
-      "sha256": "09e60b7f2a026467d688686a7ef6679d4e31727a419ad094ba9bd6985e5a7008",
-      "bytes": 1432
+      "sha256": "9608808277b375917c183155a3e43cf57dd644ee424319c4af403c61c20c6f4b",
+      "bytes": 2229
     },
     {
       "path": "docs/01_VISION_AND_SCOPE.md",
@@ -283,9 +293,14 @@
       "bytes": 2262
     },
     {
+      "path": "docs/30_DIK_AUTHORING_KIT_HANDOFF.md",
+      "sha256": "91f610bfe677facaba7790c98de27bc008da459307f3caaa90bb8e73a3ba162e",
+      "bytes": 5136
+    },
+    {
       "path": "docs/README.md",
-      "sha256": "382ab2307cc6970e9e5bdc98c07e65156523400446eb88c391c3a9bd330cd38a",
-      "bytes": 622
+      "sha256": "3de70ee1104105c16604ee7b4ffd380c0a3e11759480e629bac1685877477414",
+      "bytes": 751
     },
     {
       "path": "examples/legacy/konstellation/assertions.json",
@@ -326,6 +341,76 @@
       "path": "examples/v10/v10-capabilities.example.json",
       "sha256": "a50d3aac8557444ff6d4ddfb3a2bb888fe2a613907807d9e399443f07896ff9d",
       "bytes": 1053
+    },
+    {
+      "path": "examples/v11/dictionaries/catalog.json",
+      "sha256": "63662038addf7ca5e2e24729a024ea3b3b51ebb83533f9d1d2c263bf0487deb1",
+      "bytes": 1344
+    },
+    {
+      "path": "examples/v11/dictionaries/curated-fr.json",
+      "sha256": "f538fafa081a2f8b84e7aed44218e0842aae9b5bda013a066636b15c1ff28b3d",
+      "bytes": 500
+    },
+    {
+      "path": "examples/v11/dictionaries/imported/wikidata/demo-snapshot/en.jsonl",
+      "sha256": "abff5561ac1510fd69d07bd7020c6010e27dc7bfe120facd469a94339ec65db5",
+      "bytes": 210
+    },
+    {
+      "path": "examples/v11/dictionaries/imported/wikidata/demo-snapshot/fr.jsonl",
+      "sha256": "436cf62b45ad30b357bf6c09ac0e6f3bf979981eb1d42ab9052ee43c793b08b4",
+      "bytes": 268
+    },
+    {
+      "path": "examples/v11/dik-conversion-plan.example.json",
+      "sha256": "b29c05841ba03706ee40e709685f7db770f985b118e3b1565b0c0256a2e5afd1",
+      "bytes": 1149
+    },
+    {
+      "path": "examples/v11/dik-coverage.example.json",
+      "sha256": "f8ccd25038d98707ea6eba3e6d0e0e403bf4555e2b459a7c0dcd9b81d3f9fc88",
+      "bytes": 2306
+    },
+    {
+      "path": "examples/v11/dik-legacy-sample.json",
+      "sha256": "15fc652443060ea3a9b27c6737b4ea1605eaefc12d1ebfab94139b7ae389c6a9",
+      "bytes": 125
+    },
+    {
+      "path": "examples/v11/external-crosswalk.example.json",
+      "sha256": "3bcf0ab6a2dc6fdae4def9c3db4d5530f177ab53e18dc2ff1b859278ec4dc8e2",
+      "bytes": 950
+    },
+    {
+      "path": "examples/v11/identity-registry.example.json",
+      "sha256": "95f671769ef44336eaa4790837d1fd24b4f28153d42c45680d9a9ebad9347410",
+      "bytes": 606
+    },
+    {
+      "path": "examples/v11/legacy-resolution-requests.example.json",
+      "sha256": "1285c42a8477caa668e92271f21369ed7436ebafb348c842eb046028c36c974e",
+      "bytes": 775
+    },
+    {
+      "path": "examples/v11/lexicon-en.example.json",
+      "sha256": "b3134f7b0966a362f6a8fe3b1eca549d4e317f5fb7a75dc394233614c3004196",
+      "bytes": 522
+    },
+    {
+      "path": "examples/v11/lexicon-fr.example.json",
+      "sha256": "aba69a123ae828cd6bc31c4e3ccd8732bbb98a31ffd2c8080ebd1bd019872195",
+      "bytes": 631
+    },
+    {
+      "path": "examples/v11/semantic-graph.example.json",
+      "sha256": "50caca8e1af9af62d5af7f757c87b05d2302e00ab18010ea2bc6606f0a7fec27",
+      "bytes": 500
+    },
+    {
+      "path": "examples/v11/wikidata-small.sample.jsonl",
+      "sha256": "70a6864adc4f9e3fd44225d77487b9f2860b2087d8858eaa774f9205370b6f2a",
+      "bytes": 381
     },
     {
       "path": "examples/v6/kristal-state.example.json",
@@ -648,6 +733,11 @@
       "bytes": 1046
     },
     {
+      "path": "history/status/2026-10-16-v11-draft1-semantic-identity.md",
+      "sha256": "6006239c2dcbaf9c31015690ce1b788297290037906de43c9c4cc696389c92e7",
+      "bytes": 400
+    },
+    {
       "path": "migration/retired-repos/Kristal-Standard-README.md",
       "sha256": "2e41d1d802b8ef617cbc3418e2e63a6875c202dae43da746a917a12c73237db1",
       "bytes": 297
@@ -664,8 +754,8 @@
     },
     {
       "path": "mkdocs.yml",
-      "sha256": "60edaab998d18c05f3cb9340a871982450a325d98a918230a7032e6fed49ee43",
-      "bytes": 1707
+      "sha256": "9f1e0980c96dd1317175bdcaa843c8f36eadf7d4f057e7f125a2c5eadfcb084c",
+      "bytes": 2153
     },
     {
       "path": "profiles/github/README.md",
@@ -1028,6 +1118,66 @@
       "bytes": 3609
     },
     {
+      "path": "schemas/v11/README.md",
+      "sha256": "cae7267ea28c5967ffba0d890e81426ce371d4e1bd8d4adc411d3a6ada3af50c",
+      "bytes": 1187
+    },
+    {
+      "path": "schemas/v11/kristal-curated-dictionary.schema.json",
+      "sha256": "783b668fcd0399c4ebeaa2507bcf8761493d41b768c16a0064759a8ba455a6e2",
+      "bytes": 1273
+    },
+    {
+      "path": "schemas/v11/kristal-dictionary-catalog.schema.json",
+      "sha256": "58132545e23367bf4b0f207d59fd9fa23235a8d0f8913d574cc036e7205426d9",
+      "bytes": 3596
+    },
+    {
+      "path": "schemas/v11/kristal-dik-conversion-plan.schema.json",
+      "sha256": "9e6b70ad076da002208e2cd17d7a686b61981ceec20b3a60550d9f5822659475",
+      "bytes": 2839
+    },
+    {
+      "path": "schemas/v11/kristal-dik-coverage-report.schema.json",
+      "sha256": "9eef3af61beaa8d74f821429fe685fe9532a1ac3e58cc4d59bfb71e50161f586",
+      "bytes": 2553
+    },
+    {
+      "path": "schemas/v11/kristal-external-crosswalk.schema.json",
+      "sha256": "b89aad88281f500b9609045b99c5523873407cd8c3407aa0d2b629739fbbf172",
+      "bytes": 4911
+    },
+    {
+      "path": "schemas/v11/kristal-external-lexical-record.schema.json",
+      "sha256": "92dd5465dd1a71b119d942b710ab57029c40ca07e81357b61627f4a537a5c1c4",
+      "bytes": 1800
+    },
+    {
+      "path": "schemas/v11/kristal-identity-registry.schema.json",
+      "sha256": "d18d82432e35d64af82f175342c96d162c15a21966ba45ecdda8bb698997972a",
+      "bytes": 3456
+    },
+    {
+      "path": "schemas/v11/kristal-legacy-resolution-requests.schema.json",
+      "sha256": "9ac93b9c4159573b9196f2c78cfbe26fb12803e3d29dd73b4b4308764249058b",
+      "bytes": 2506
+    },
+    {
+      "path": "schemas/v11/kristal-lexical-dictionary.schema.json",
+      "sha256": "90dfd5c20d9e3728eaf18a30887ffd312c3cee472a8e818ee8968a0851b7dc6c",
+      "bytes": 2220
+    },
+    {
+      "path": "schemas/v11/kristal-semantic-graph.schema.json",
+      "sha256": "405fdae79a2ab1c4c7147baf7aeac6b6964d59282046f8a5e2e9d2185e42de86",
+      "bytes": 11307
+    },
+    {
+      "path": "schemas/v11/kristal-wikidata-lexical-record.schema.json",
+      "sha256": "4f2cd9008bf30f650797589ac8b682c0a859c533a82fd5956c19c8b6c4b47eeb",
+      "bytes": 1162
+    },
+    {
       "path": "schemas/v6/kristal-state.schema.json",
       "sha256": "8f3df9a93d6a7c0ca8d7143946ed6f2009ae6d6b5105b8e7d7e873b5288e807c",
       "bytes": 8389
@@ -1266,6 +1416,51 @@
       "path": "spec/v10/Semantic-State-Compatibility.md",
       "sha256": "c2c84de7b82cbe615ab9ee1fa510b736ad948080f7975f16e49dffdd70a18598",
       "bytes": 1411
+    },
+    {
+      "path": "spec/v11/01-core-spec/kristal-v11-core-spec.md",
+      "sha256": "251cdfc11c09439845b9eac3ab6ae44018e1f8ca6e624ff68543bcda9a3d1442",
+      "bytes": 3337
+    },
+    {
+      "path": "spec/v11/Conformance.md",
+      "sha256": "1432b9b850c07b3243196b2d69636ce77c7e6432cc452836f274630b1104f543",
+      "bytes": 2428
+    },
+    {
+      "path": "spec/v11/Dictionary-Management.md",
+      "sha256": "61e5ea48a260c651df320c599618cac7de4f9f808774f235dd9cef5b369c65ac",
+      "bytes": 8124
+    },
+    {
+      "path": "spec/v11/Home.md",
+      "sha256": "52df5bc57815eae23fc9d66c808f24d3febfcf268f8852a17e157008cbbff844",
+      "bytes": 1427
+    },
+    {
+      "path": "spec/v11/Identity-and-Wikidata.md",
+      "sha256": "96ef2060d3905544f44c222158db7d5352e24e418bad8349a4fe5421e657e4d7",
+      "bytes": 2917
+    },
+    {
+      "path": "spec/v11/Legacy-Resolution.md",
+      "sha256": "8d17eca9212bcac9c23ac30f77c9700e7b095a139ca6120af851af32fe85587f",
+      "bytes": 2403
+    },
+    {
+      "path": "spec/v11/Lexical-Boundary.md",
+      "sha256": "2cdce948d59d9ae239d34d36cf76f2a5ee44edf226abaadc678baee8327161bd",
+      "bytes": 1617
+    },
+    {
+      "path": "spec/v11/diK-Interoperability.md",
+      "sha256": "c8b03c0f1a2b21c204b964789d37e30fb163ba9f5bd9c5ada66a438357598e52",
+      "bytes": 5990
+    },
+    {
+      "path": "spec/v11/diK-Toolkit-Exchange.md",
+      "sha256": "2f3ccf3b813d44ee6575bd50cff9711bf9bb46fc8c110810e2220107a4adcf21",
+      "bytes": 882
     },
     {
       "path": "spec/v5/00-overview/conformance-and-alignment.md",
@@ -2383,6 +2578,51 @@
       "bytes": 1053
     },
     {
+      "path": "tck/v11/vectors/README.md",
+      "sha256": "c7388cf9dfa926eb23ec9a363064569d6de15c7dc15f3f52fd413ab1d3124c1f",
+      "bytes": 584
+    },
+    {
+      "path": "tck/v11/vectors/dik-conversion-plan.example.json",
+      "sha256": "b29c05841ba03706ee40e709685f7db770f985b118e3b1565b0c0256a2e5afd1",
+      "bytes": 1149
+    },
+    {
+      "path": "tck/v11/vectors/dik-coverage.example.json",
+      "sha256": "f8ccd25038d98707ea6eba3e6d0e0e403bf4555e2b459a7c0dcd9b81d3f9fc88",
+      "bytes": 2306
+    },
+    {
+      "path": "tck/v11/vectors/external-crosswalk.example.json",
+      "sha256": "3bcf0ab6a2dc6fdae4def9c3db4d5530f177ab53e18dc2ff1b859278ec4dc8e2",
+      "bytes": 950
+    },
+    {
+      "path": "tck/v11/vectors/identity-registry.example.json",
+      "sha256": "95f671769ef44336eaa4790837d1fd24b4f28153d42c45680d9a9ebad9347410",
+      "bytes": 606
+    },
+    {
+      "path": "tck/v11/vectors/legacy-resolution-requests.example.json",
+      "sha256": "1285c42a8477caa668e92271f21369ed7436ebafb348c842eb046028c36c974e",
+      "bytes": 775
+    },
+    {
+      "path": "tck/v11/vectors/lexicon-en.example.json",
+      "sha256": "b3134f7b0966a362f6a8fe3b1eca549d4e317f5fb7a75dc394233614c3004196",
+      "bytes": 522
+    },
+    {
+      "path": "tck/v11/vectors/lexicon-fr.example.json",
+      "sha256": "aba69a123ae828cd6bc31c4e3ccd8732bbb98a31ffd2c8080ebd1bd019872195",
+      "bytes": 631
+    },
+    {
+      "path": "tck/v11/vectors/semantic-graph.example.json",
+      "sha256": "50caca8e1af9af62d5af7f757c87b05d2302e00ab18010ea2bc6606f0a7fec27",
+      "bytes": 500
+    },
+    {
       "path": "tck/v6/vectors/kristal-state/README.md",
       "sha256": "fa502f8ce669567235e4570ec4e345a6df1a32075a750b515febe6bfcfb49132",
       "bytes": 644
@@ -2634,8 +2874,8 @@
     },
     {
       "path": "tools/check_v10_ecosystem_alignment.py",
-      "sha256": "7b0e83ae5ffc4e14f56151e7f110e0ad803ac45d6664f1f2e1af97c4d84064f2",
-      "bytes": 4680
+      "sha256": "a5c1605db233765690306726f8f349641438c154d2ac752031408ec9f70c79da",
+      "bytes": 4763
     },
     {
       "path": "tools/github-bootstrap/Kristal-GitHub-Setup.pyw",
@@ -2743,6 +2983,61 @@
       "bytes": 2681
     },
     {
+      "path": "tools/tests/test_v11_dictionaries.py",
+      "sha256": "de5fff827bc2e4a75d390b35c00a7c46501261f046e55b80eb4626e3d0dde2a6",
+      "bytes": 8181
+    },
+    {
+      "path": "tools/tests/test_v11_dik_contracts.py",
+      "sha256": "1fe908078bd4d0de37fc0a816ede99fc4ebe85a5771c50fefa285f59bc821f75",
+      "bytes": 8374
+    },
+    {
+      "path": "tools/tests/test_v11_interop_preflight.py",
+      "sha256": "7b5f2b231cabf10a59a3720c895c5d352d500ec729468d818e568f9eeb071ac5",
+      "bytes": 4363
+    },
+    {
+      "path": "tools/tests/test_v11_semantics.py",
+      "sha256": "1a0c822e83bb06a0e27e48fb31bb4fe3be4b40c4d1cfe90cdf3b66a49a01e7b5",
+      "bytes": 5041
+    },
+    {
+      "path": "tools/v11/README.md",
+      "sha256": "2da6e05fc69c861a998030c7a9a9256bafb0015ff11fab1bf1ce04dd9228de0d",
+      "bytes": 3670
+    },
+    {
+      "path": "tools/v11/dictionaries.py",
+      "sha256": "8df5fec4d58aeee955f354fd0a17b7779589b6183927bbe345dd17282c076eee",
+      "bytes": 16172
+    },
+    {
+      "path": "tools/v11/dik_conversion_plan.py",
+      "sha256": "378e158609651328a8bfd46896d9478d951af09e93c07f3d3a1e88cfb2372563",
+      "bytes": 4162
+    },
+    {
+      "path": "tools/v11/dik_coverage.py",
+      "sha256": "79b8b1bfbf35cf079fdc846ffac671a06fe4c9ac206201992b83b3b4e708762c",
+      "bytes": 9950
+    },
+    {
+      "path": "tools/v11/interop_preflight.py",
+      "sha256": "75b3a932b7e875180ddbbd85476d7e968b1f1772f3721cfecd23fa0f8af9abd7",
+      "bytes": 6998
+    },
+    {
+      "path": "tools/v11/resolve_legacy.py",
+      "sha256": "7a37d2ae55afb738c2dac9333d1b89ed3cbef1b8deffd8cd23e5414bb19c52f5",
+      "bytes": 3972
+    },
+    {
+      "path": "tools/v11/validate_v11.py",
+      "sha256": "5b4fb2d70a2275d0262195999d85bba36393fce82ea81d69e02e6d1b7f2ea8a7",
+      "bytes": 7618
+    },
+    {
       "path": "tools/v8/README.md",
       "sha256": "52d5f476b0140cfd8fcce5e1edc221f721e73f4b48940de782097237f16f5e97",
       "bytes": 639
@@ -2774,13 +3069,13 @@
     },
     {
       "path": "tools/validate_all.py",
-      "sha256": "3afb7bdcd242a70035d95373ed53d71849fcaabc831381738ac3323e5b06a0e5",
-      "bytes": 1248
+      "sha256": "74d5002d1624dc6c21b64905088e5bde7374f7794b8f83cd09a535053fc7957b",
+      "bytes": 2804
     },
     {
       "path": "tools/validate_standard.py",
-      "sha256": "378a12bb15627927892a4ad90c9df06e44cc937eca3aeb6d39a5a6fb75c067c2",
-      "bytes": 29172
+      "sha256": "7aee93763f8b4c33486c8322b8cc1010b774936a6f57daf6bebd404aa1891d2d",
+      "bytes": 30793
     }
   ]
 }

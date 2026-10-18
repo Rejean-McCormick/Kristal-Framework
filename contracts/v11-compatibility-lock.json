@@ -1,0 +1,472 @@
+{
+  "format": "kristal.compatibility-lock/v11",
+  "release": "11.0.0-draft.1",
+  "frozen_baselines": "v6-v10 schemas, vectors and historical compatibility locks",
+  "files": [
+    {
+      "path": "contracts/compatibility-errata.json",
+      "sha256": "sha256:419f31baac7d595f83d5e90e10198c78b1c0cd5b6eb718f77401b3408e49bff1",
+      "bytes": 1318
+    },
+    {
+      "path": "contracts/v10-compatibility-lock.json",
+      "sha256": "sha256:f1a3845e4d149e5d805dd0337f70cf58d6e58ebf1721e36dd75c524335952d59",
+      "bytes": 8296
+    },
+    {
+      "path": "contracts/v8-compatibility-lock.json",
+      "sha256": "sha256:b32d60e8cc64f1ed54360a43f9c03a31711b29a397990f31e26927dd5d4096ea",
+      "bytes": 6529
+    },
+    {
+      "path": "contracts/v9-compatibility-lock.json",
+      "sha256": "sha256:323b8cac928787baace8604a463914bbd46675d4107c303d8e8a89f7123dbebf",
+      "bytes": 28756
+    },
+    {
+      "path": "schemas/v10/README.md",
+      "sha256": "sha256:7af9177103dea223962f4ce98be3eb9ec930a6d3ab3716966fa03ed7f8567ce9",
+      "bytes": 353
+    },
+    {
+      "path": "schemas/v10/kristal-directory.schema.json",
+      "sha256": "sha256:807b5c296e6b862de3af6b4513ab369c788afd755e1da80e8c0b6727e39f7a4f",
+      "bytes": 4279
+    },
+    {
+      "path": "schemas/v10/kristal-host-binding.schema.json",
+      "sha256": "sha256:ac3085c76ef0a8c404a2407403557675deaa25f096141ad8c5697df0ea2c47a7",
+      "bytes": 5786
+    },
+    {
+      "path": "schemas/v10/kristal-node-manifest.schema.json",
+      "sha256": "sha256:56ffe8632ceeb690852154608bcfb85eef3992eac16adec8d1e8c99de832d85c",
+      "bytes": 1813
+    },
+    {
+      "path": "schemas/v10/kristal-publication.schema.json",
+      "sha256": "sha256:820523e59c4079ab500feb92eb86460533a7374354fd8c4f48f001130824437d",
+      "bytes": 3619
+    },
+    {
+      "path": "schemas/v10/kristal-v10-capabilities.schema.json",
+      "sha256": "sha256:59f1296e84d69191edda40439b34b57ddb3b35008ae58aadf58163856cf80e3f",
+      "bytes": 3609
+    },
+    {
+      "path": "schemas/v6/kristal-state.schema.json",
+      "sha256": "sha256:8f3df9a93d6a7c0ca8d7143946ed6f2009ae6d6b5105b8e7d7e873b5288e807c",
+      "bytes": 8389
+    },
+    {
+      "path": "schemas/v7/kristal-v7-extension.schema.json",
+      "sha256": "sha256:fb8f008e9319d922edee4bc7fb93280f46880dd5619f6684810dc8da58cc4987",
+      "bytes": 998
+    },
+    {
+      "path": "schemas/v7/kristall-assertion-family-registry.schema.json",
+      "sha256": "sha256:5394ba95828447890ad186290dbe05360f11a26a92b2ff86ae6a80b383cf59b9",
+      "bytes": 1594
+    },
+    {
+      "path": "schemas/v7/kristall-assertion-registry.schema.json",
+      "sha256": "sha256:d8c560b5ea1f18149fdcc710693a52a0d65a2d49c419764f2d21892475bd50c6",
+      "bytes": 1355
+    },
+    {
+      "path": "schemas/v7/kristall-axis-registry.schema.json",
+      "sha256": "sha256:77726362c125bef7799e0ff74ec6219e4cb2c08897b426bf0ce0a16dfb9760db",
+      "bytes": 1718
+    },
+    {
+      "path": "schemas/v7/kristall-axis-type-registry.schema.json",
+      "sha256": "sha256:7ee29b36d816fdc1e771ac6ca065eea8ff6537b54d7bd4cf4cd2e3452e8eab52",
+      "bytes": 1784
+    },
+    {
+      "path": "schemas/v7/kristall-crystallization-record.schema.json",
+      "sha256": "sha256:b8a554fd034f1d15fe0e9f61b73725791c606c4c688f9b3f3eb414010793fdb1",
+      "bytes": 794
+    },
+    {
+      "path": "schemas/v7/kristall-entity-registry.schema.json",
+      "sha256": "sha256:b497203ffcd584d33c0fe3a63ed16a18c5c6811138278b91353e2e523429e2fe",
+      "bytes": 2126
+    },
+    {
+      "path": "schemas/v7/kristall-kos-registry.schema.json",
+      "sha256": "sha256:7b722e86ee24c174a5183abbf5464f7cb82bf54479867355d5a83ff67223de60",
+      "bytes": 2494
+    },
+    {
+      "path": "schemas/v7/kristall-manifest.schema.json",
+      "sha256": "sha256:53c5e87d82436c2f5b97522d9ede5f5cfc0898ed82f74b7af498fcc6864822fa",
+      "bytes": 2118
+    },
+    {
+      "path": "schemas/v7/kristall-mesh.schema.json",
+      "sha256": "sha256:f834cc6952f1933b5a8de912411059771a8b97f9d6af5bc53ebf4b5ba708a300",
+      "bytes": 1744
+    },
+    {
+      "path": "schemas/v7/kristall-projection-recipe.schema.json",
+      "sha256": "sha256:9ddaf302398c8d30e6c5487b624446c44ec7e97bfb800f660471cbbc7eb179a6",
+      "bytes": 1248
+    },
+    {
+      "path": "schemas/v7/kristall-property-registry.schema.json",
+      "sha256": "sha256:0de972ad8645764aaa56fd6152c41631f30775fdab835cdcc3604dd56de178d0",
+      "bytes": 1201
+    },
+    {
+      "path": "schemas/v7/kristall-source-registry.schema.json",
+      "sha256": "sha256:dc0d09a7797a533c01b75b451ad45d045b6f27da2f7a94896c2733227165d18a",
+      "bytes": 1096
+    },
+    {
+      "path": "schemas/v7/kristall-toc-registry.schema.json",
+      "sha256": "sha256:b52412f7c3268569c5c5e34eccb149c645336db435a6ab36603b13c109577f76",
+      "bytes": 4495
+    },
+    {
+      "path": "schemas/v7/semantic-resonance.schema.json",
+      "sha256": "sha256:e41154ba6561f276043d5e94cd4569d7339fb6b52c160d94c346e8362c18c617",
+      "bytes": 1702
+    },
+    {
+      "path": "schemas/v8/kristall-ai-context-bundle.schema.json",
+      "sha256": "sha256:4fbe1bb28bfeaba538e4d4f36e4db122e3afb54fe89208a0d684053ac09287b9",
+      "bytes": 8394
+    },
+    {
+      "path": "schemas/v8/kristall-lexicon-stack.schema.json",
+      "sha256": "sha256:fa1e8ab60ed1d24a96671df8ada71faa9c1c747a92b1db93dcffc3b63f78d771",
+      "bytes": 1920
+    },
+    {
+      "path": "schemas/v8/kristall-lexicon.schema.json",
+      "sha256": "sha256:c34321540dd3d366538d50509eadd010f014aa403fbf24699c5caa5c885f6ba0",
+      "bytes": 6738
+    },
+    {
+      "path": "schemas/v8/kristall-query-index.schema.json",
+      "sha256": "sha256:447218acd234036621524579c68e7974c93bec6b369618cd265f813abf383560",
+      "bytes": 2646
+    },
+    {
+      "path": "schemas/v8/kristall-query-request.schema.json",
+      "sha256": "sha256:a8788b19444e3769e395b361039e6a9f4aa4fc54fe5ff8e41be618a8f548cd78",
+      "bytes": 7235
+    },
+    {
+      "path": "schemas/v8/kristall-query-result.schema.json",
+      "sha256": "sha256:202414d6e63243663ec7bcce7f101c60c025c32d76e0d55a3226baff9e761692",
+      "bytes": 6513
+    },
+    {
+      "path": "schemas/v8/kristall-v8-capabilities.schema.json",
+      "sha256": "sha256:e10664794c4f7c429691b63309cf6914dd7e5345c33dd6b48fdedc8de7b829ea",
+      "bytes": 2572
+    },
+    {
+      "path": "schemas/v9/README.md",
+      "sha256": "sha256:4a5f9b65c9ab10bb8c9380ec83f4c0e5bd932dc8a0cf685e682b8b47e19b336b",
+      "bytes": 518
+    },
+    {
+      "path": "schemas/v9/kristal-activation.schema.json",
+      "sha256": "sha256:2b1408ea41915b950f8f42ba42857f0714af6336cacfbd55ee7ee71f2ec0b3a2",
+      "bytes": 3321
+    },
+    {
+      "path": "schemas/v9/kristal-derivation.schema.json",
+      "sha256": "sha256:31e61d872efa6aa4e90fa2233f25dc1784d0c755138cccfe5120ce6b7fc483b7",
+      "bytes": 5720
+    },
+    {
+      "path": "schemas/v9/kristal-exchange.schema.json",
+      "sha256": "sha256:c680c43ca84a7f41f4b1c9da2ed1fd83f0696f370c7790cb1892f3d0897913e3",
+      "bytes": 4312
+    },
+    {
+      "path": "schemas/v9/kristal-logical-artifact.schema.json",
+      "sha256": "sha256:3090790f1f9ac9d30db6a07284b21d4a157ca8e9c7357ac50a6130324a228079",
+      "bytes": 3005
+    },
+    {
+      "path": "schemas/v9/kristal-materialization-manifest.schema.json",
+      "sha256": "sha256:88c1f2981058e9779c60ee7773cfd20b9698d91030b5e5136ea3d605b01ee4fa",
+      "bytes": 5044
+    },
+    {
+      "path": "schemas/v9/kristal-state-snapshot.schema.json",
+      "sha256": "sha256:3572060b23e62708fd1bcd803f42a07268690ce3f2e181f32d2f6cfa8f6fd415",
+      "bytes": 6379
+    },
+    {
+      "path": "schemas/v9/kristal-v9-capabilities.schema.json",
+      "sha256": "sha256:cd769813abfaddd9694ab2db4e8b5f9a06061b30b25240c9e7e52d8d737b79d7",
+      "bytes": 3098
+    },
+    {
+      "path": "tck/v10/README.md",
+      "sha256": "sha256:738539ef24d93dfb6e4d8210a2eef9b1b0e5dcd460e3f76a2f13523d9cc3e38c",
+      "bytes": 162
+    },
+    {
+      "path": "tck/v10/vectors/README.md",
+      "sha256": "sha256:06a5ccae1033e2011a5d8b72206432c7de9628e0bb8d3a3dee42d979d9d31dcd",
+      "bytes": 131
+    },
+    {
+      "path": "tck/v10/vectors/directory.example.json",
+      "sha256": "sha256:57fb63f8510a346d38331354c96c17b31b5cb4368f369d220bc2673a78cc3f54",
+      "bytes": 1264
+    },
+    {
+      "path": "tck/v10/vectors/github-binding.example.json",
+      "sha256": "sha256:c55222d1bc1c5dab9d61fab5591f2d7f9492af2d8b304880c73e3b02a36a090e",
+      "bytes": 1562
+    },
+    {
+      "path": "tck/v10/vectors/node-manifest.example.json",
+      "sha256": "sha256:c77e851108f8452d479a914fd4bd6d8b84373d91ad8df915fa80e21277b8ed5c",
+      "bytes": 459
+    },
+    {
+      "path": "tck/v10/vectors/publication.example.json",
+      "sha256": "sha256:4820a6e5c69af41bbfc72b7cc396c59cd522ceb313d768e92be37a6a4f11dcd0",
+      "bytes": 1030
+    },
+    {
+      "path": "tck/v10/vectors/v10-capabilities.example.json",
+      "sha256": "sha256:a50d3aac8557444ff6d4ddfb3a2bb888fe2a613907807d9e399443f07896ff9d",
+      "bytes": 1053
+    },
+    {
+      "path": "tck/v6/vectors/kristal-state/README.md",
+      "sha256": "sha256:fa502f8ce669567235e4570ec4e345a6df1a32075a750b515febe6bfcfb49132",
+      "bytes": 644
+    },
+    {
+      "path": "tck/v6/vectors/kristal-state/kristal-state.example.json",
+      "sha256": "sha256:29d5f8193cd5751e03e40f5e3ff3bd6d66dd533307cb1543a94b7ab145f6c69f",
+      "bytes": 2234
+    },
+    {
+      "path": "tck/v7/vectors/100-kristals-seed-provenance.json",
+      "sha256": "sha256:d053375e2643ecfc0f0ab9c14cf52d640cb7251788cb57e885da2d1b186ee495",
+      "bytes": 320
+    },
+    {
+      "path": "tck/v7/vectors/README.md",
+      "sha256": "sha256:028a4ae9d443d79ca6cde9f428a75409badfb1dfb99872d8e8ec48f47f748420",
+      "bytes": 698
+    },
+    {
+      "path": "tck/v7/vectors/assertion-family-registry.example.json",
+      "sha256": "sha256:d5856ddca0c2787f950b88ef53d9e431c2dc011b9e2089448e4717aeaaf1e2a1",
+      "bytes": 515
+    },
+    {
+      "path": "tck/v7/vectors/assertion-registry.example.json",
+      "sha256": "sha256:2dd53396ead123ba5f73570c86922209e42b83d95d54c9cf93f5e14b6ddc6e2c",
+      "bytes": 397
+    },
+    {
+      "path": "tck/v7/vectors/axis-registry.example.json",
+      "sha256": "sha256:e3f6aebe051b0001509dc3eb20b1fdabeddc982de785709b932a509af0bfea7d",
+      "bytes": 909
+    },
+    {
+      "path": "tck/v7/vectors/axis-type-registry.example.json",
+      "sha256": "sha256:24759ef41e7e0699ee9d33954e5fb5d0e9b8d35617c2258ea991d4b0a03d5e57",
+      "bytes": 6479
+    },
+    {
+      "path": "tck/v7/vectors/crystallization-record.example.json",
+      "sha256": "sha256:d7459c30cd9fc2f3e96ef34b8564fe611acbb5ca883eb2527dce3cfefa6c8319",
+      "bytes": 224
+    },
+    {
+      "path": "tck/v7/vectors/entity-registry.example.json",
+      "sha256": "sha256:a3e118efc4f3c0c9fd22db0b379d5fd262187dc08e9491c1e2b33804e66ade67",
+      "bytes": 885
+    },
+    {
+      "path": "tck/v7/vectors/kos-registry.example.json",
+      "sha256": "sha256:a86c3fe8d431aafffc9056411cb7eb86a5dfd874c5911d80006c0a935f796e22",
+      "bytes": 785
+    },
+    {
+      "path": "tck/v7/vectors/kristall-manifest.example.json",
+      "sha256": "sha256:66e07544b2025acd5019b1e4700f8a5fcb19341f6b390e5586182a14b6bd1802",
+      "bytes": 1293
+    },
+    {
+      "path": "tck/v7/vectors/mesh.example.json",
+      "sha256": "sha256:9dae6d1731136692f5e062385fd326b0f326500b0f285081ce16393b0b791ccf",
+      "bytes": 463
+    },
+    {
+      "path": "tck/v7/vectors/projection-recipe.example.json",
+      "sha256": "sha256:27b00da098b48285341fc4895610dd1a32fb0a8e4e46920759defc242a1d6c25",
+      "bytes": 330
+    },
+    {
+      "path": "tck/v7/vectors/property-registry.example.json",
+      "sha256": "sha256:2bb08f7cbbd8c694672419ce2e831313266b2d126b1e3b59d35bc05a80012ab9",
+      "bytes": 437
+    },
+    {
+      "path": "tck/v7/vectors/resonance.example.json",
+      "sha256": "sha256:a8d67d9454749539e4b1f50530153808a195675ba2a94ede8d057f17b53b6636",
+      "bytes": 788
+    },
+    {
+      "path": "tck/v7/vectors/source-registry.example.json",
+      "sha256": "sha256:f4d4a896b750e21fb22a62fec2aff8076f6967a045993407107d005db160162a",
+      "bytes": 265
+    },
+    {
+      "path": "tck/v7/vectors/toc-registry-100-seed.example.json",
+      "sha256": "sha256:93929770f59c268ff3b1cf748af13ee5e6c45c4b4face59bbe5081bc38ee9c4c",
+      "bytes": 98204
+    },
+    {
+      "path": "tck/v7/vectors/toc-seed-100-analysis.json",
+      "sha256": "sha256:d35648f91f37fc43786e4ff7dc144dedd741d95165669b6119f6cd179fb326cc",
+      "bytes": 4404
+    },
+    {
+      "path": "tck/v7/vectors/v6-compatible-projection.example.json",
+      "sha256": "sha256:3bb99255fa4188a1896702047a70f5324038e39731e19bfee068e5081e308c0f",
+      "bytes": 2666
+    },
+    {
+      "path": "tck/v8/vectors/README.md",
+      "sha256": "sha256:7db8280c902c1b6c780f5cd7c5a8fb33a5212043fd80603a975f7b9c7a16ce84",
+      "bytes": 455
+    },
+    {
+      "path": "tck/v8/vectors/ai-context-bundle.example.json",
+      "sha256": "sha256:2119f26f2ad563bcb45169be8e35d94a6d94e8ee5d699f2ef848e283c9b42b81",
+      "bytes": 2329
+    },
+    {
+      "path": "tck/v8/vectors/lexicon-fr-chemistry.example.json",
+      "sha256": "sha256:daa92ca4a0ef03362278dd66ad7b22a91a7bdc5fbaaae0bbe1c6bbafdc48092d",
+      "bytes": 608
+    },
+    {
+      "path": "tck/v8/vectors/lexicon-fr-core.example.json",
+      "sha256": "sha256:e57358517a5d2b91e5ba9ca0ac0f007c8f6337a43c67d2cd7adedb7f997472b3",
+      "bytes": 735
+    },
+    {
+      "path": "tck/v8/vectors/lexicon-stack.example.json",
+      "sha256": "sha256:ab99b57cc0fd227d0861dc21a5d431c0c7b406a9cfa6e2fe990e4d81a46ea4aa",
+      "bytes": 509
+    },
+    {
+      "path": "tck/v8/vectors/query-index.example.json",
+      "sha256": "sha256:88e9d8eda76d5b900737c11263ab330f065fd270ee996ab647aa0d2689f3006b",
+      "bytes": 656
+    },
+    {
+      "path": "tck/v8/vectors/query-request.example.json",
+      "sha256": "sha256:e59e17f2e966bd4d847269fa11ade59f4f6bff9b44554855ffa6491ce5df2c99",
+      "bytes": 1180
+    },
+    {
+      "path": "tck/v8/vectors/query-result.example.json",
+      "sha256": "sha256:eb7f386d1dbe8af9cb85c0aacdfbde6576e93c56ac922265825b65e48278edd5",
+      "bytes": 1424
+    },
+    {
+      "path": "tck/v8/vectors/v8-capabilities.example.json",
+      "sha256": "sha256:ad9cc2f9cda9bfe20cb94d2d19c21f220305da92d5621ac799a4fbf60a59afce",
+      "bytes": 812
+    },
+    {
+      "path": "tck/v9/README.md",
+      "sha256": "sha256:6a78d1181b63ab8a5e2ae3c7198ff88899c9b6db96371a8eb0205f384cb8797d",
+      "bytes": 270
+    },
+    {
+      "path": "tck/v9/vectors/README.md",
+      "sha256": "sha256:b1c3b44a19def202803f83ee024f1ff776b6be0ebd8de39b58e4b28728c08ad4",
+      "bytes": 233
+    },
+    {
+      "path": "tck/v9/vectors/activation.example.json",
+      "sha256": "sha256:48d196606e31e365a7b346e32145afa6c6639a7527d281afc7fd535c6e4ccd39",
+      "bytes": 440
+    },
+    {
+      "path": "tck/v9/vectors/derivation.example.json",
+      "sha256": "sha256:533a81a8939602775b34b290441fdf9c2da2c8f85142825f85bd5d70d569a750",
+      "bytes": 929
+    },
+    {
+      "path": "tck/v9/vectors/exchange.example.json",
+      "sha256": "sha256:b5fc75b03d5f45ad194b6310bade16888863a19e4886fc7b592324faec799851",
+      "bytes": 883
+    },
+    {
+      "path": "tck/v9/vectors/logical-artifact.example.json",
+      "sha256": "sha256:b36924ea05a3131cdad0ed5e25409a3740027febb1ca4251b903b7324c57ebf4",
+      "bytes": 705
+    },
+    {
+      "path": "tck/v9/vectors/logical-commitment-vectors.json",
+      "sha256": "sha256:f59b2a6b7b7ecf988ceb492c6b449639ab8545655a23d3c498963c941b2663d5",
+      "bytes": 589
+    },
+    {
+      "path": "tck/v9/vectors/materialization-manifest.example.json",
+      "sha256": "sha256:1df94bd61e1ce2cc62cafffa5aaf2c5272e3762165745ee89d5ad0621f9f1e2c",
+      "bytes": 1078
+    },
+    {
+      "path": "tck/v9/vectors/state-snapshot.example.json",
+      "sha256": "sha256:b2e3f0379ee761490d622e15a28dd2d2ecf6ad4eac13e86d148405d72e888677",
+      "bytes": 910
+    },
+    {
+      "path": "tck/v9/vectors/v9-capabilities.example.json",
+      "sha256": "sha256:549e0b846e79ad443f28f38f1ab3f1e47227443c0429618251f4541b1a17f92c",
+      "bytes": 977
+    },
+    {
+      "path": "tck/v9/workloads/epistemic-corpus.logical-artifact.json",
+      "sha256": "sha256:fc19ef3edb976707d5d5856fc40483377d2f46d74b1bf533330dc13796cfd891",
+      "bytes": 797
+    },
+    {
+      "path": "tck/v9/workloads/federation.state-snapshot.json",
+      "sha256": "sha256:df27cfab1e3137f8350b025527b4cda6af891e2b1f1166f58ee49f79c1bc7779",
+      "bytes": 1049
+    },
+    {
+      "path": "tck/v9/workloads/formula-ast.logical-artifact.json",
+      "sha256": "sha256:d4c2e33a7c1d5d9f8e19296f859c99907344cc0969e322bfbf60421896a0b73e",
+      "bytes": 694
+    },
+    {
+      "path": "tck/v9/workloads/multiplex-graph.logical-artifact.json",
+      "sha256": "sha256:3f9febd809a3c14dad38fcfa22989e535678f353152c82e5d6cfa1dccecd0eb7",
+      "bytes": 891
+    },
+    {
+      "path": "tck/v9/workloads/procedure-dag.logical-artifact.json",
+      "sha256": "sha256:8bc4b645eeb76fc3ec7108e079c97c1572247d88da0f3799c32acf85cef8aa56",
+      "bytes": 827
+    },
+    {
+      "path": "tck/v9/workloads/relation.logical-artifact.json",
+      "sha256": "sha256:7566a915448c057ea8321aab2ccb49446472ea1ccb57dec1e89e5de7ece7bfa6",
+      "bytes": 799
+    }
+  ]
+}

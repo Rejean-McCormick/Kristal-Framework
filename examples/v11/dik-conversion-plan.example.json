@@ -1,0 +1,45 @@
+{
+  "schema_version": "11.0",
+  "artifact_type": "kristal_dik_conversion_plan",
+  "plan_id": "dik-demo-plan-unapproved",
+  "namespace_id": "example.org/kristal-demo",
+  "source": {
+    "artifact_id": "legacy-demo",
+    "sha256": "15fc652443060ea3a9b27c6737b4ea1605eaefc12d1ebfab94139b7ae389c6a9",
+    "declared_version": "legacy-demo"
+  },
+  "catalog_id": "wikidata-import-demo-snapshot",
+  "crosswalk_id": "demo-crosswalk",
+  "operations": [
+    {
+      "operation_id": "o-1",
+      "source_path": "/subject",
+      "original_value": "Augustin d'Hippone",
+      "semantic_role": "entity",
+      "target_id": "KQ1001",
+      "decision": {
+        "status": "pending"
+      }
+    },
+    {
+      "operation_id": "o-2",
+      "source_path": "/predicate",
+      "original_value": "parle_de",
+      "semantic_role": "property",
+      "target_id": "KP2001",
+      "decision": {
+        "status": "pending"
+      }
+    },
+    {
+      "operation_id": "o-3",
+      "source_path": "/object/id",
+      "original_value": "grâce",
+      "semantic_role": "entity",
+      "target_id": "KQ1002",
+      "decision": {
+        "status": "pending"
+      }
+    }
+  ]
+}

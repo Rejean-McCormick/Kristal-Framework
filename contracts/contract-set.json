@@ -1,8 +1,14 @@
 {
-  "format": "kristal.contract-set/v5",
-  "version": "10.0.0-draft.3.2",
+  "format": "kristal.contract-set/v6",
+  "version": "11.0.0-draft.4",
   "normative": {
     "core": [
+      "spec/v11/01-core-spec/kristal-v11-core-spec.md",
+      "spec/v11/Identity-and-Wikidata.md",
+      "spec/v11/Lexical-Boundary.md",
+      "spec/v11/Dictionary-Management.md",
+      "spec/v11/Legacy-Resolution.md",
+      "spec/v11/Conformance.md",
       "spec/v10/01-core-spec/kristal-v10-core-spec.md",
       "spec/v10/01-core-spec/compatibility-contract.md",
       "spec/v10/Core-Invariants.md",
@@ -14,7 +20,8 @@
       "spec/v10/Directories-and-Federation.md",
       "spec/v10/Security-and-Confidentiality.md",
       "spec/v10/Conformance.md",
-      "spec/v10/Reader-Discovery-Profile.md"
+      "spec/v10/Reader-Discovery-Profile.md",
+      "spec/v11/diK-Interoperability.md"
     ],
     "schemas": [
       "schemas/v6/kristal-state.schema.json",
@@ -58,13 +65,26 @@
       "profiles/github/schemas/kristal-github-collection-index.schema.json",
       "profiles/reader-discovery/schemas/kristal-discovery.schema.json",
       "profiles/reader-discovery/schemas/kristal-reader-inventory.schema.json",
-      "profiles/reader-discovery/schemas/kristal-reader-profile.schema.json"
+      "profiles/reader-discovery/schemas/kristal-reader-profile.schema.json",
+      "schemas/v11/kristal-external-crosswalk.schema.json",
+      "schemas/v11/kristal-identity-registry.schema.json",
+      "schemas/v11/kristal-legacy-resolution-requests.schema.json",
+      "schemas/v11/kristal-lexical-dictionary.schema.json",
+      "schemas/v11/kristal-semantic-graph.schema.json",
+      "schemas/v11/kristal-dictionary-catalog.schema.json",
+      "schemas/v11/kristal-wikidata-lexical-record.schema.json",
+      "schemas/v11/kristal-curated-dictionary.schema.json",
+      "schemas/v11/kristal-external-lexical-record.schema.json",
+      "schemas/v11/kristal-dik-coverage-report.schema.json",
+      "schemas/v11/kristal-dik-conversion-plan.schema.json"
     ],
     "compatibility": [
       "contracts/v10-compatibility-lock.json",
-      "contracts/compatibility-errata.json"
+      "contracts/compatibility-errata.json",
+      "contracts/v11-compatibility-lock.json"
     ],
     "tck": [
+      "tck/v11/vectors/",
       "tck/v10/vectors/",
       "tck/v9/vectors/",
       "tck/v9/workloads/",
@@ -84,6 +104,7 @@
       "profiles/github/"
     ],
     "examples": [
+      "examples/v11/",
       "examples/v10/",
       "examples/v9/",
       "examples/v8/",
