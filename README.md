@@ -4,7 +4,7 @@
 
 The v11 strict semantic graph uses only namespace-scoped **KQ / KP / KA / KS** identities; translations are in separate lexical dictionaries, and Wikidata **Q / P** identifiers remain in a versioned external crosswalk. The non-destructive resolver proposes mappings for explicitly selected legacy words; it does **not** rewrite old Kristals or mint identities automatically.
 
-[Read the v11 specifications](spec/v11/Home.md) | [Conformance](spec/v11/Conformance.md) | [Wikidata crosswalk](spec/v11/Identity-and-Wikidata.md) | [300+ language dictionary management](spec/v11/Dictionary-Management.md) | [diK interop profile](spec/v11/diK-Interoperability.md) | [diK/Kit v11 handoff](docs/30_DIK_AUTHORING_KIT_HANDOFF.md)
+[Read the v11 specifications](spec/v11/Home.md) | [Conformance](spec/v11/Conformance.md) | [Wikidata crosswalk](spec/v11/Identity-and-Wikidata.md) | [300+ language dictionary management](spec/v11/Dictionary-Management.md) | [diK interop profile](spec/v11/diK-Interoperability.md) | [UNESCO subject classification (companion)](profiles/unesco/README.md) | [diK/Kit v11 handoff](docs/30_DIK_AUTHORING_KIT_HANDOFF.md)
 
 ```bash
 python tools/validate_all.py
@@ -16,6 +16,8 @@ python tools/v11/interop_preflight.py --catalog examples/v11/dictionaries/catalo
 python tools/v11/dik_conversion_plan.py --plan examples/v11/dik-conversion-plan.example.json --registry examples/v11/identity-registry.example.json --source examples/v11/dik-legacy-sample.json
 python tools/v11/resolve_legacy.py --requests examples/v11/legacy-resolution-requests.example.json --lexicon examples/v11/lexicon-fr.example.json --crosswalk examples/v11/external-crosswalk.example.json
 ```
+
+**Companion update (2026-10-28, non-normative):** local subject classification and Icon Generator integration use only the pinned UNESCO Thesaurus 7-domain / 88-microthesaurus reference; Arketype continues to describe structure/usage separately. Historical ISCED-F identifiers are not migrated into UNESCO codes. `profiles/unesco/` contains the optional mapping schema, examples and a read-only checker; this does not modify v11 schemas, TCK, commitments or any Windows folders. The Manager folder-icon opt-in remains **off by default**.
 
 **Draft.4:** adds a *read-only* diK alpha.7 / Authoring Kit draft.3 catalog preflight and aligned integration docs/wiki. **All v11 semantic schemas and TCK fixtures remain byte-identical to draft.3.** No cross-repository or full-dump certification is implied.
 

@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kristal.local/profiles/unesco/kristal-unesco-classification.schema.json",
+  "title": "Kristal UNESCO Thesaurus external classification (opt-in companion profile)",
+  "description": "Fragment for workspace.classification.unesco_thesaurus; KQ/state_ref remain authoritative internal identities. Not a semantic truth certification.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "kos_id": {
+      "const": "kos:unesco-thesaurus"
+    },
+    "domains": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "maxItems": 7,
+      "items": {
+        "enum": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ]
+      }
+    },
+    "microthesauri": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "1.05",
+          "1.10",
+          "1.15",
+          "1.20",
+          "1.25",
+          "1.30",
+          "1.35",
+          "1.40",
+          "1.45",
+          "1.50",
+          "1.55",
+          "1.60",
+          "1.65",
+          "1.70",
+          "2.05",
+          "2.10",
+          "2.15",
+          "2.20",
+          "2.25",
+          "2.30",
+          "2.35",
+          "2.40",
+          "2.45",
+          "2.50",
+          "2.55",
+          "2.60",
+          "2.65",
+          "2.70",
+          "2.75",
+          "2.80",
+          "2.85",
+          "3.05",
+          "3.10",
+          "3.15",
+          "3.20",
+          "3.25",
+          "3.30",
+          "3.35",
+          "3.40",
+          "3.45",
+          "3.50",
+          "3.55",
+          "3.60",
+          "3.65",
+          "4.05",
+          "4.10",
+          "4.15",
+          "4.20",
+          "4.25",
+          "4.30",
+          "4.35",
+          "4.40",
+          "4.45",
+          "5.05",
+          "5.10",
+          "5.15",
+          "5.20",
+          "5.25",
+          "5.30",
+          "5.35",
+          "5.40",
+          "5.45",
+          "6.05",
+          "6.10",
+          "6.15",
+          "6.20",
+          "6.25",
+          "6.30",
+          "6.35",
+          "6.40",
+          "6.45",
+          "6.50",
+          "6.55",
+          "6.60",
+          "6.65",
+          "6.70",
+          "6.75",
+          "6.80",
+          "6.85",
+          "7.05",
+          "7.10",
+          "7.15",
+          "7.20",
+          "7.25",
+          "7.30",
+          "7.35",
+          "7.40",
+          "7.45"
+        ]
+      }
+    },
+    "concept_uris": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^https?://vocabularies\\.unesco\\.org/thesaurus/[^\\s]+$"
+      }
+    },
+    "mapping_status": {
+      "enum": [
+        "reviewed",
+        "candidate"
+      ]
+    },
+    "mapping_provenance": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "kos_id"
+  ],
+  "anyOf": [
+    {
+      "required": [
+        "domains"
+      ]
+    },
+    {
+      "required": [
+        "microthesauri"
+      ]
+    },
+    {
+      "required": [
+        "concept_uris"
+      ]
+    }
+  ],
+  "$comment": "The profile validates notation membership, not microthesaurus/domain containment or concept URI dereferenceability; validate these separately."
+}

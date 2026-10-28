@@ -1,0 +1,16 @@
+{
+  "classification": {
+    "primary_archetype": "ARK-04",
+    "unesco_thesaurus": {
+      "kos_id": "kos:unesco-thesaurus",
+      "domains": [
+        "3"
+      ],
+      "microthesauri": [
+        "3.20"
+      ],
+      "mapping_status": "reviewed",
+      "mapping_provenance": "manual-review-example"
+    }
+  }
+}

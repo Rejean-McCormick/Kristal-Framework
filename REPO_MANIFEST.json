@@ -24,8 +24,8 @@
     },
     {
       "path": ".gitignore",
-      "sha256": "84384c6fecef041055d91b9da0c7b7966f331e23e76b7e12b96a7113ed2fb043",
-      "bytes": 438
+      "sha256": "69d5bf2e48a6e8f1fe167c89c1cfeda247da4f78568c3aa71f8534706c320b8f",
+      "bytes": 452
     },
     {
       "path": ".smartignore",
@@ -43,19 +43,9 @@
       "bytes": 694
     },
     {
-      "path": "Launch_MULTiSmartDump.lnk",
-      "sha256": "597cb480ff60a1169b72f50df355256fefb23e5bcc03b382b1be07428b14821b",
-      "bytes": 1359
-    },
-    {
       "path": "README.md",
-      "sha256": "ca2116bab52580ac5bb9dcd53362635c0ae53b30355ddb47e23eb6bd03cf7f41",
-      "bytes": 7367
-    },
-    {
-      "path": "SNAPSHOT_INDEX.txt",
-      "sha256": "20c58d1f307eef9804a38191ef8aec7cc120fb32507e0171a3b759441d980fa7",
-      "bytes": 24723
+      "sha256": "a71539948a331a1dbc6bb959edf9a2287dfe6eea61845408dfc355b55778babd",
+      "bytes": 7979
     },
     {
       "path": "VALIDATION_DRAFT4.md",
@@ -71,11 +61,6 @@
       "path": "VERSION",
       "sha256": "29dd7fcfe48675b24cfdf5cc8100d55efe725c376f1b04298cc7a8b196faceb1",
       "bytes": 15
-    },
-    {
-      "path": "ZmartZnap.pyw",
-      "sha256": "70775b94ff616ed9efdb3d6b989639fa3cd22a250f1389fec485791d161df1ea",
-      "bytes": 22889
     },
     {
       "path": "compat/framework-v5/README.md",
@@ -856,6 +841,21 @@
       "path": "profiles/reader-discovery/schemas/kristal-reader-profile.schema.json",
       "sha256": "42d995e7f9df057a120380f877542648f63ad5e01d01b965fd447a952301bb83",
       "bytes": 2414
+    },
+    {
+      "path": "profiles/unesco/README.md",
+      "sha256": "180a96441b7a37331daa71ed25bb1a5fb06431d3942eb533d8d16c80af0a92c0",
+      "bytes": 3581
+    },
+    {
+      "path": "profiles/unesco/examples/classification.fragment.example.json",
+      "sha256": "adecb45a77c0417cd75ccad81fda16c3eb562c4d233c4f5835bf4347d506d7b3",
+      "bytes": 314
+    },
+    {
+      "path": "profiles/unesco/kristal-unesco-classification.schema.json",
+      "sha256": "8d36fa16b03e6812dbc8573649c84df26db35577c0976af835bc985021b878af",
+      "bytes": 3320
     },
     {
       "path": "reference/README.md",
@@ -2848,6 +2848,11 @@
       "bytes": 799
     },
     {
+      "path": "tests/test_unesco_single_spine.py",
+      "sha256": "807bd6e0e07b9d02bed20ff5b7d7e94505e953836bf3610212d64f3c33052a66",
+      "bytes": 866
+    },
+    {
       "path": "tools/build_release.py",
       "sha256": "0fc632a1f9c9b1e6719cc0b793d727936b22d7eed7f7e6561dadba11e767e026",
       "bytes": 1639
@@ -3003,9 +3008,19 @@
       "bytes": 5041
     },
     {
+      "path": "tools/tests/test_v11_unesco_classification.py",
+      "sha256": "a0e3b4d6ed89564432284981a1c761c2f560ad96a1eebb6a519a4586a5de02df",
+      "bytes": 2023
+    },
+    {
       "path": "tools/v11/README.md",
       "sha256": "2da6e05fc69c861a998030c7a9a9256bafb0015ff11fab1bf1ce04dd9228de0d",
       "bytes": 3670
+    },
+    {
+      "path": "tools/v11/check_unesco_classification.py",
+      "sha256": "5c8d8df62ca88843e2ecf78f5b2331b91f89173dcd9dfc8285564b3d74b8f8dd",
+      "bytes": 3065
     },
     {
       "path": "tools/v11/dictionaries.py",
