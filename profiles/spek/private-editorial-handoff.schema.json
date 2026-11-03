@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kristal-framework:interop:spek:private-editorial-handoff:1.0",
+  "title": "Non-normative private Spek editorial handoff (not a Kristal state format)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format","status","instance_id","instance_sha256","language","source","template_locks","fields","selected_assertion_count","relations_declared_unverified","qualification"],
+  "properties": {
+    "format": {"const": "spek.private-editorial-handoff/1.0"},
+    "status": {"const": "PRIVATE_UNQUALIFIED_NOT_PUBLISHABLE"},
+    "instance_id": {"type": "string", "minLength": 1},
+    "instance_sha256": {"$ref": "#/$defs/digest"},
+    "language": {"enum": ["fr","en","it"]},
+    "source": {"type": "object", "additionalProperties": false,
+      "required": ["kind","sha256","assertion_existence_checked"],
+      "properties": {
+        "kind": {"enum": ["not_supplied","kristal_v11_semantic_graph"]},
+        "sha256": {"oneOf": [{"$ref":"#/$defs/digest"},{"type":"null"}]},
+        "assertion_existence_checked": {"type":"boolean"},
+        "assertions_in_supplied_graph":{"type":"integer","minimum":0},
+        "identity_migration_sha256":{"oneOf":[{"$ref":"#/$defs/digest"},{"type":"null"}]},
+        "assertions_mapped":{"type":"integer","minimum":0}
+      }},
+    "template_locks": {"type":"array","minItems":1,"items": {"type":"object","additionalProperties":false,
+      "required":["template_ref","sha256"],"properties":{"template_ref":{"type":"string","minLength":1},"sha256":{"$ref":"#/$defs/digest"}}}},
+    "fields": {"type":"array","minItems":1,"items":{"type":"object","additionalProperties":false,
+      "required":["realization_key","request_file","request_sha256","source_assertion_refs","slot_kind","required_force","discourse_function","obligations_count","allowed_block_kinds"],
+      "properties":{
+        "realization_key":{"type":"string","minLength":1},
+        "request_file":{"type":"string","pattern":"^[A-Za-z0-9._-]+\\.json$"},
+        "request_sha256":{"$ref":"#/$defs/digest"},
+        "source_assertion_refs":{"type":"array","minItems":1,"uniqueItems":true,"items":{"type":"string","minLength":1}},
+        "slot_kind":{"type":"string","minLength":1},
+        "required_force":{"enum":["PRESENT","ASSERT","ASK"]},
+        "discourse_function":{"type":"string"},
+        "obligations_count":{"type":"integer","minimum":1},
+        "allowed_block_kinds":{"type":"array","minItems":1,"uniqueItems":true,"items":{"type":"string"}}
+      }}},
+    "selected_assertion_count":{"type":"integer","minimum":1},
+    "relations_declared_unverified":{"type":"array","items":{"type":"object","additionalProperties":false,
+      "required":["template_ref","relation_tag","status","source_assertion_refs"],
+      "properties":{"template_ref":{"type":"string"},"relation_tag":{"type":"string"},
+        "status":{"const":"declared_unverified"},
+        "source_assertion_refs":{"type":"array","minItems":1,"items":{"type":"string"}}}}},
+    "qualification":{"type":"object","additionalProperties":false,
+      "required":["semantic_entailment_checked","semantik_result_pairs_verified","rhetorical_relations_approved","c1_c2_c3_approved","publication_authorized"],
+      "properties":{"semantic_entailment_checked":{"const":false},"semantik_result_pairs_verified":{"const":false},
+        "rhetorical_relations_approved":{"const":false},"c1_c2_c3_approved":{"const":false},"publication_authorized":{"const":false}}}
+  },
+  "$defs": {"digest":{"type":"string","pattern":"^sha256:[0-9a-f]{64}$"}}
+}
