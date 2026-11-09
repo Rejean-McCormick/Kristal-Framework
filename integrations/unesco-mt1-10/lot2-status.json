@@ -1,0 +1,20 @@
+{
+  "automatic_canonical_minting": false,
+  "branch": "unesco-mt1-10",
+  "format": "koa.unesco-mt1-10-lot2-repository-status/1.0",
+  "language_runtimes_all_qualified": false,
+  "local_relative_path": "Kristal/Kristal-Framework",
+  "new_executable_tools": [],
+  "notes": [
+    "No v11 schema or validator modification authorized in Lot 2."
+  ],
+  "publication_gates_passed": false,
+  "remote_upload_authorized": false,
+  "repo": "Kristal-Framework",
+  "requested_languages": 14,
+  "role": "normative-semantic-contract",
+  "semantic_grain": "ONE_BRANCH_KRISTAL",
+  "source_evidence_approved": false,
+  "status": "INTEGRATION_CANDIDATE_NOT_PRODUCTION",
+  "unesco_seed_concepts": 41
+}

@@ -1,0 +1,41 @@
+{
+  "ai_training_as_source_KS": false,
+  "automatic_canonical_minting": false,
+  "automatic_exact_match": false,
+  "branch": "unesco-mt1-10",
+  "changes_in_this_lot": [
+    "No engine change; previous guards and component contracts preserved"
+  ],
+  "format": "koa.unesco-mt1-10-lot3-repository-status/1.0",
+  "github_publication_enabled": false,
+  "independent_release_approval_verified": false,
+  "local_relative_path": "Kristal/Kristal-Framework",
+  "repo": "Kristal-Framework",
+  "semantic_grain": {
+    "articles_are_projections": true,
+    "one_branch_kristal": true,
+    "one_kristal_per_concept": false,
+    "one_kristal_per_locale": false
+  },
+  "status": "LOCAL_PRIVATE_RESEARCH_AND_PROJECTIONS_ONLY",
+  "target_locales": [
+    "en",
+    "fr",
+    "es",
+    "de",
+    "nl",
+    "sv",
+    "da",
+    "no",
+    "nn",
+    "fi",
+    "et",
+    "af",
+    "it",
+    "pt"
+  ],
+  "unesco_seed_concepts": 41,
+  "verified_14_language_runtimes": false,
+  "wikipedia_content_license_cleared": false,
+  "windows_runtime_data_tested": false
+}
