@@ -4,7 +4,7 @@
 
 The v11 strict semantic graph uses only namespace-scoped **KQ / KP / KA / KS** identities; translations are in separate lexical dictionaries, and Wikidata **Q / P** identifiers remain in a versioned external crosswalk. The non-destructive resolver proposes mappings for explicitly selected legacy words; it does **not** rewrite old Kristals or mint identities automatically.
 
-[Read the v11 specifications](spec/v11/Home.md) | [Conformance](spec/v11/Conformance.md) | [Wikidata crosswalk](spec/v11/Identity-and-Wikidata.md) | [300+ language dictionary management](spec/v11/Dictionary-Management.md) | [diK interop profile](spec/v11/diK-Interoperability.md) | [UNESCO subject classification (companion)](profiles/unesco/README.md) | [diK/Kit v11 handoff](docs/30_DIK_AUTHORING_KIT_HANDOFF.md)
+[Branch 02 interoperability and source-pin checks](docs/32_BRANCH02_FINAL_SYSTEM_INTEROPERABILITY.md) | [Read the v11 specifications](spec/v11/Home.md) | [Conformance](spec/v11/Conformance.md) | [Wikidata crosswalk](spec/v11/Identity-and-Wikidata.md) | [300+ language dictionary management](spec/v11/Dictionary-Management.md) | [diK interop profile](spec/v11/diK-Interoperability.md) | [UNESCO subject classification (companion)](profiles/unesco/README.md) | [diK/Kit v11 handoff](docs/30_DIK_AUTHORING_KIT_HANDOFF.md)
 
 ```bash
 python tools/validate_all.py
