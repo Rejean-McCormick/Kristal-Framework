@@ -1,0 +1,285 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kristal:experimental:unified-read:0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "layer",
+    "status",
+    "scope",
+    "authority",
+    "activation_authorized",
+    "production_integrated",
+    "payload"
+  ],
+  "properties": {
+    "format": {
+      "const": "kristal.experimental.unified-read/0.1"
+    },
+    "layer": {
+      "enum": [
+        "active",
+        "candidate",
+        "structured",
+        "native_artifact",
+        "native_record"
+      ]
+    },
+    "status": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "object"
+    },
+    "authority": {
+      "const": "NO_NEW_AUTHORITY_GRANTED"
+    },
+    "activation_authorized": {
+      "const": false
+    },
+    "production_integrated": {
+      "const": false
+    },
+    "payload": {
+      "type": "object"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "layer": {
+            "const": "active"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "ACTIVE_INDEX_METADATA_ONLY"
+          },
+          "scope": {
+            "type": "object",
+            "required": [
+              "namespace_id",
+              "semantic_id"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "namespace_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "semantic_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "required": [
+              "identity",
+              "labels",
+              "content_availability",
+              "source_database_sha256"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "layer": {
+            "const": "candidate"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "PRIVATE_V11_CANDIDATE_NOT_ACTIVE"
+          },
+          "scope": {
+            "type": "object",
+            "required": [
+              "namespace_id",
+              "semantic_id"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "namespace_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "semantic_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "required": [
+              "identity",
+              "labels",
+              "bridge_entry",
+              "native_record",
+              "projection",
+              "source_path",
+              "source_sha256",
+              "original_pointer",
+              "epistemic_status"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "layer": {
+            "const": "structured"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "PRIVATE_STRUCTURED_NOT_V11"
+          },
+          "scope": {
+            "type": "object",
+            "required": [
+              "slug",
+              "occurrence_id"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "slug": {
+                "type": "string",
+                "minLength": 1
+              },
+              "occurrence_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "required": [
+              "format",
+              "status",
+              "slug",
+              "source_path",
+              "source_sha256",
+              "record",
+              "native_assertion",
+              "authority"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "layer": {
+            "const": "native_artifact"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "REGISTERED_NATIVE_NOT_V11"
+          },
+          "scope": {
+            "type": "object",
+            "required": [
+              "slug",
+              "path"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "slug": {
+                "type": "string",
+                "minLength": 1
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "required": [
+              "registration",
+              "script_executed",
+              "document",
+              "selected_pointer",
+              "selected_value"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "layer": {
+            "const": "native_record"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "REGISTERED_NATIVE_NOT_V11"
+          },
+          "scope": {
+            "type": "object",
+            "required": [
+              "slug",
+              "path",
+              "collection",
+              "native_id"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "slug": {
+                "type": "string",
+                "minLength": 1
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "collection": {
+                "type": "string",
+                "minLength": 1
+              },
+              "native_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "required": [
+              "record_index",
+              "native_record",
+              "document_context",
+              "registration"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

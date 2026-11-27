@@ -1,0 +1,196 @@
+{
+  "type": "object",
+  "properties": {
+    "format": {
+      "const": "kristal.experimental.native-structured/0.1"
+    },
+    "status": {
+      "const": "PRIVATE_REPRESENTATION_ONLY"
+    },
+    "slug": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_path": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "files": {
+      "type": "object",
+      "minProperties": 2,
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "registered_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "artifact_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "contract_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "contract_version": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "path",
+          "artifact_id",
+          "contract_id",
+          "contract_version"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/record"
+      }
+    }
+  },
+  "required": [
+    "format",
+    "status",
+    "slug",
+    "source_path",
+    "files",
+    "registered_artifacts",
+    "records"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kristal:experimental:native-structured:0.1",
+  "$defs": {
+    "descriptor": {
+      "type": "object",
+      "properties": {
+        "pointer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "native_kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "shape": {
+          "enum": [
+            "object",
+            "array",
+            "string",
+            "boolean",
+            "integer",
+            "decimal",
+            "null",
+            "absent"
+          ]
+        },
+        "form": {
+          "enum": [
+            "embedded_reference",
+            "enriched_reference",
+            "reference",
+            "monolingual_text",
+            "json_object",
+            "json_array",
+            "native_set_sequence",
+            "declared_string_array",
+            "scalar_string",
+            "scalar_boolean"
+          ]
+        },
+        "anomaly": {
+          "enum": [
+            null,
+            "DECLARED_STRING_ACTUAL_ARRAY"
+          ]
+        }
+      },
+      "required": [
+        "pointer",
+        "native_kind",
+        "shape",
+        "form",
+        "anomaly"
+      ],
+      "additionalProperties": false
+    },
+    "record": {
+      "type": "object",
+      "properties": {
+        "occurrence_id": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "native_assertion_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pointer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "native_status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "predicate_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "object": {
+          "$ref": "#/$defs/descriptor"
+        },
+        "qualifiers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "predicate_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "object": {
+                "$ref": "#/$defs/descriptor"
+              }
+            },
+            "required": [
+              "predicate_ref",
+              "object"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "occurrence_id",
+        "native_assertion_id",
+        "pointer",
+        "native_status",
+        "subject_ref",
+        "predicate_ref",
+        "object",
+        "qualifiers"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
